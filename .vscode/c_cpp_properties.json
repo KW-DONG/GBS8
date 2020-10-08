@@ -3,7 +3,6 @@
         {
             "name": "MinGW64",
             "intelliSenseMode": "gcc-x64",
-            "compilerPath": "C:/mingw64/bin/gcc.exe",
             "includePath": [
                 "${workspaceFolder}",
                 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include",
