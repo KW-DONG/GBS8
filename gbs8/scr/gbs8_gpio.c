@@ -29,4 +29,9 @@ void GBS_GPIO_Init()
     
     //REs
     TRISEbits.TRISE0 = 0;
+    
+    //Input mode
+    //all digital inputs
+    ANSEL = DIGITAL;
+    ANSELH = DIGITAL;
 }
