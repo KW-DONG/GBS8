@@ -7,7 +7,8 @@
             "includePath": [
                 "${workspaceFolder}",
                 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include",
-                "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\proc"
+                "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\proc",
+                "E:\\Workspace\\GBS8\\gbs8\\inc"
             ],
             "cStandard": "c11"
         }
