@@ -5,22 +5,41 @@
 #include <xc.h>
 #include <stdint.h>
 
-#define EXTI_FLG    INTCONbits.INTF
-#define CN_FLG      INTCONbits.RBIF
+#define INT_ENABLE  1
+#define INT_DISABLE 0
+
+#define EXTI_FLG    INTCONbits.INTF //INT External Interrupt Flag bit
+#define CN_FLG      INTCONbits.RBIF //PORTB Change Interrupt Flag bit
+#define TIM0_FLG    INTCONbits.T0IF //TIMER0 Overflow Interrupt Flag bit
 
 
 //Interrupt Service Routine
 //There is no vectored interrupt controller (VIC) used in PIC16F887
 //So ignore the interrupt vector
 
-//write your ISR in the following functions
+/*******************************************ISR*******************************************************/
 void EXTI_ISR();
 
 void CNIT_ISR();
 
+void T0I_ISR();
+
+void T1I_ISR();
+
+void T2I_ISR();
+
+void ADC_ISR();
+
+void EUSART_ISR();
+
+void MSSP_ISR();
+
+
+
+/******************************************CONFIG*****************************************************/
+
 /**
  * @brief config external interrupts
- * @arg state: enable or disable
  * @arg mode: rising or falling
  * @note only PIN_9 available
  */
@@ -31,6 +50,9 @@ void GBS_EXTI_Config(uint8_t mode);
  * @note PORTB
  */
 void GBS_CNIT_Config(uint8_t mode);
+
+
+void GBS_T0I_Config(uint8_t mode);
 
 void GBS_Interrupt_Init();
 

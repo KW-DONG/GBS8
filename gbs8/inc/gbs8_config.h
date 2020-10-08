@@ -25,12 +25,17 @@
 // #pragma config statements should precede project file includes.
 // Use project enums instead of #define for ON and OFF.
 
-//interrupts
+//INT external interrupt
 #define EXTI_EN     0
 
 //1 rising, 2 falling
 #define EXTI_MD     0   
 
+//CN change notification interrupt
 #define CNIT_EN     0
+
+//TMR0 overflow interrupt
+#define T0I_EN     0
+
 
 #endif

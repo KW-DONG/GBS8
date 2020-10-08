@@ -59,6 +59,14 @@ void __interrupt() ISR()
         INTCONbits.RBIF = 0;
     }
 #endif
+    
+#if (T0I_EN)
+    if (INTCONbits.T0IF)
+    {
+        T0I_ISR();
+        INTCONbits.T0IF = 0''
+    }
+#endif
 }
 
 
