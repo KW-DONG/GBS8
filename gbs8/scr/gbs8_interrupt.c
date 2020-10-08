@@ -64,14 +64,9 @@ void __interrupt() ISR()
     if (INTCONbits.T0IF)
     {
         T0I_ISR();
-        INTCONbits.T0IF = 0''
+        INTCONbits.T0IF = 0;
     }
 #endif
 }
-
-
-
-
-
 
 
