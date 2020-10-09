@@ -32,14 +32,19 @@ enum TIM0_PSA
  * @param clockSource   timer0 can be either timer or counter
  * @param sourceEdge    high to low or low to high
  * @param assignment    Timer or watchdog
- * @param prescaler     3-bits prescaler          
+ * @param ps0           3-bits prescaler from 0 to 7
+ * @param ps1
+ * @param ps2 
  */
-void GBS_Timer0_Config(uint8_t clockSoure, uint8_t sourceEdge, uint8_t assignment, uint8_t prescaler);
+void GBS_Timer0_Config(uint8_t clockSoure, uint8_t sourceEdge, uint8_t assignment, uint8_t ps0, uint8_t ps1, uint8_t ps2);
 
-//timer 1
-void GBS_Timer1_Config(uint8_t mode);
+/**
+ * @brief Timer1 configuration
+ * 
+ */
+void GBS_Timer1_Config(uint8_t clockSource);
 
 //timer 2
-void GBS_Timer2_Config(uint8_t mode);
+void GBS_Timer2_Config(uint8_t clockSource);
 
 #endif
