@@ -27,10 +27,16 @@ enum TIM0_PSA
     WDT
 };
 
-enum TIM1_EN
+enum TIM_EN
 {
     DISABLE,
     ENABLE
+};
+
+enum TIM1_DIR
+{
+    LOW,
+    HIGH
 };
 
 /**
@@ -38,21 +44,37 @@ enum TIM1_EN
  * @param clockSource   timer0 can be either timer or counter
  * @param sourceEdge    high to low or low to high
  * @param assignment    Timer or watchdog
- * @param ps0           3-bits prescaler from 0 to 7
- * @param ps1
- * @param ps2 
+ * @param prX           3-bits prescaler from 0 to 7
+ * 
+ * @note        BIT VALUE   TMR0 RATE   WDTRATE
+ *            -----------+------------+-----------
+ *              3-bits   |  1:2^(B+1) |  1:2^(B)
+ *           
  */
-void GBS_Timer0_Config(uint8_t clockSoure, uint8_t sourceEdge, uint8_t assignment, uint8_t ps0, uint8_t ps1, uint8_t ps2);
+void GBS_Timer0_Config(uint8_t clockSoure, uint8_t sourceEdge, uint8_t assignment, uint8_t pr0, uint8_t pr1, uint8_t pr2);
 
 /**
  * @brief Timer1 configuration
- * @param state can be enable or disable
- * 
+ * @param state     can be enable or disable
+ * @param gateEN    enable or disable timer gate function
+ * @param gateDir   active high or active low
+ * @param prX       2-bits prescaler
+ *                     1:2^B
  * @note Internal clock source is selected
+ *
  */
-void GBS_Timer1_Config(uint8_t state);
+void GBS_Timer1_Config(uint8_t state, uint8_t gateEn, uint8_t gateDir, uint8_t pr0, uint8_t pr1);
 
-//timer 2
-void GBS_Timer2_Config(uint8_t clockSource);
+/**
+ * @brief Timer2 configuration
+ * @param state can be enable or disable
+ * @param prX   2 bits prescale
+ *                  1:2^B
+ * 
+ * @param poX   4 bits postscale
+ *                  1:B
+ * 
+ */
+void GBS_Timer2_Config(uint8_t state, uint8_t pr0, uint8_t pr1, uint8_t po0, uint8_t po1, uint8_t po2, uint8_t po3);
 
 #endif
