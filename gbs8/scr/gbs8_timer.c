@@ -11,9 +11,15 @@ void GBS_Timer0_Config(uint8_t clockSource, uint8_t sourceEdge, uint8_t assignme
     PS2 = ps2;
 }
 
-void GBS_Timer1_Mode(uint8_t mode)
+void GBS_Timer1_Mode(uint8_t state)
 {
+    TMR1CS = 0; //use internal clock source
+
+    TMR1ON = state;
+
     T1OSCEN = 0;
+
+    
 
 }
 

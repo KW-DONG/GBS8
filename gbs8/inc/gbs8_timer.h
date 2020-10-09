@@ -27,6 +27,12 @@ enum TIM0_PSA
     WDT
 };
 
+enum TIM1_EN
+{
+    DISABLE,
+    ENABLE
+};
+
 /**
  * @brief Timer0 configuration
  * @param clockSource   timer0 can be either timer or counter
@@ -40,9 +46,11 @@ void GBS_Timer0_Config(uint8_t clockSoure, uint8_t sourceEdge, uint8_t assignmen
 
 /**
  * @brief Timer1 configuration
+ * @param state can be enable or disable
  * 
+ * @note Internal clock source is selected
  */
-void GBS_Timer1_Config(uint8_t clockSource);
+void GBS_Timer1_Config(uint8_t state);
 
 //timer 2
 void GBS_Timer2_Config(uint8_t clockSource);
