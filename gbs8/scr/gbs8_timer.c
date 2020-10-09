@@ -21,6 +21,8 @@ void GBS_Timer1_Config(uint8_t state, uint8_t gateEn, uint8_t gateDir, uint8_t p
     T1GINV = gateDir;
     T1CKPS0 = pr0;
     T1CKPS1 = pr1;
+
+    
 }
 
 void GBS_Timer2_Config(uint8_t state, uint8_t pr0, uint8_t pr1, uint8_t po0, uint8_t po1, uint8_t po2, uint8_t po3)
