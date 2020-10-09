@@ -143,10 +143,20 @@ void GBS_PWM_Config(uint8_t pr2, uint8_t OCfg);
 
 /*************************************************ECCP*****************************************************************************/
 
-enum
-{
-
-};
+#define ECCP_OFF        0b0000      //Capture/Compare/PWM off (resets ECCP module)
+#define ECCP_CMP_TOG    0b0010      //Compare mode, toggle output on match (CCP1IF is set)
+#define ECCP_CAP_F      0b0100      //Capture mode, every falling edge
+#define ECCP_CAP_R      0b0101      //Capture mode, every rising edge
+#define ECCP_CAP_4F     0b0110      //Capture mode, every 4th rising edge
+#define ECCP_CAP_16F    0b0111      //Capture mode, every 16th rising edge
+#define ECCP_CMP_SET    0b1000      //Compare mode, set output on match (CCP1IF is set)
+#define ECCP_CMP_CLR    0b1001      //Compare mode, clear output on match (CCP1IF is set)
+#define ECCP_CMP_IT     0b1010      //Compare mode, generate software interrupt pn match (CCP1IF is set, CCP1 pin is unaffected)
+#define ECCP_CMP_TRIG   0b1011      //Compare mode, trigger special event (CCP1IF is set; CCP1 resets TMR1 or TMR2)
+#define ECCP_PWM_1      0b1100      //P1A, P1C active-high; P1B, P1D active-high
+#define ECCP_PWM_2      0b1101      //P1A, P1C active-high; P1B, P1D active-low
+#define ECCP_PWM_3      0b1110      //P1A, P1C active-low; P1B, P1D active-high
+#define ECCP_PWM_4      0b1111      //P1A, P1C active-low; P1B, P1D active-low
 
 
 /**
