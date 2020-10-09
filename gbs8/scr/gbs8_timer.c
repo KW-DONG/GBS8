@@ -9,9 +9,10 @@ void GBS_Timer0_Config(uint8_t clockSource, uint8_t sourceEdge, uint8_t assignme
     PS0 = pr0;
     PS1 = pr1;
     PS2 = pr2;
+
 }
 
-void GBS_Timer1_Config(uint8_t state, uint8_t gateEn, uint8_t gateDir, uint8_t pr0, uint8_t pr1)
+void GBS_Timer1_Config(uint8_t state, uint8_t gateEn, uint8_t gateDir, uint8_t ckPS)
 {
     TMR1CS = 0; //use internal clock source
     T1OSCEN = 0;//LP oscillator is off
@@ -19,19 +20,25 @@ void GBS_Timer1_Config(uint8_t state, uint8_t gateEn, uint8_t gateDir, uint8_t p
     TMR1ON = state;
     TMR1GE = gateEn;
     T1GINV = gateDir;
-    T1CKPS0 = pr0;
-    T1CKPS1 = pr1;
-
-    
+    T1CONbits.T1CKPS = ckPS;
 }
 
-void GBS_Timer2_Config(uint8_t state, uint8_t pr0, uint8_t pr1, uint8_t po0, uint8_t po1, uint8_t po2, uint8_t po3)
+void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS)
 {
     TMR2ON = state;
-    T2CKPS0 = pr0;
-    T2CKPS1 = pr1;
-    TOUTPS0 = po0;
-    TOUTPS1 = po1;
-    TOUTPS2 = po2;
-    TOUTPS3 = po3;
+    T2CONbits.T2CKPS = ckPS;
+    T2CONbits.TOUTPS = outPS;
+}
+
+void GBS_PWM_Config(uint8_t pr2, uint8_t OCfg)
+{
+    PR2 = pr2;
+    CCP1CONbits.P1M = OCfg;
+    CCP2CONbits;
+    CCPR1L;
+}
+
+void GBS_ECCP_Config(uint8_t mode)
+{
+    CCP1CONbits.CCP1M = mode;
 }
