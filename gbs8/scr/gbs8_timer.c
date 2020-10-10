@@ -1,22 +1,21 @@
 #include <stdlib.h>
 #include "gbs8_timer.h"
+#include "gbs8_config.h"
+#include "gbs8_algo.h"
 
-void GBS_Timer0_Config(uint8_t clockSource, uint8_t sourceEdge, uint8_t assignment, uint8_t pr0, uint8_t pr1, uint8_t pr2)
+void GBS_Timer0_Config(uint8_t clockSource, uint8_t sourceEdge, uint8_t assignment, uint8_t frequency)
 {
     T0CS = clockSource;
     T0SE = sourceEdge;
     PSA = assignment;
-    PS0 = pr0;
-    PS1 = pr1;
-    PS2 = pr2;
-
+    OPTION_REGbits.PS = frequency;
+    TMR0 = 0;       //reset timer0
 }
 
 void GBS_Timer1_Config(uint8_t state, uint8_t gateEn, uint8_t gateDir, uint8_t ckPS)
 {
-    TMR1CS = 0; //use internal clock source
-    T1OSCEN = 0;//LP oscillator is off
-
+    TMR1CS = 0;     //use internal clock source
+    T1OSCEN = 0;    //LP oscillator is off
     TMR1ON = state;
     TMR1GE = gateEn;
     T1GINV = gateDir;
@@ -30,15 +29,18 @@ void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS)
     T2CONbits.TOUTPS = outPS;
 }
 
-void GBS_PWM_Config(uint8_t pr2, uint8_t OCfg)
+void GBS_PWM_Config(uint8_t channel, uint8_t period, uint8_t dutyCycle)
 {
-    PR2 = pr2;
-    CCP1CONbits.P1M = OCfg;
-    CCP2CONbits;
-    CCPR1L;
+    PR2 = period*_XTAL_FREQ/(4*T2CONbits.T2CKPS) - 1;
+    CCP1CONbits.CCP1M = channel;
+    
+    
+    PWM1CONbits.PDC;
+    PWM1CONbits.PRSEN;
 }
 
-void GBS_ECCP_Config(uint8_t mode)
+void GBS_ECCP_Config(uint8_t mode1, uint8_t mode2)
 {
-    CCP1CONbits.CCP1M = mode;
+    CCP1CONbits.CCP1M = mode1;
+    CCP2CONbits.CCP2M = mode2;
 }
