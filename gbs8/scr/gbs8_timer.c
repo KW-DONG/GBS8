@@ -22,9 +22,8 @@ void GBS_Timer1_Config(uint8_t state, uint8_t gateEn, uint8_t gateDir, uint8_t f
     T1CONbits.T1CKPS = frequency;
     
     //reset timer 1
-    TMR1H = 0;
-    TMR1L = 0;
-
+    TMR1H = 0b0000;
+    TMR1L = 0b0000;
 
 }
 
@@ -49,4 +48,5 @@ void GBS_ECCP_Config(uint8_t mode1, uint8_t mode2)
 {
     CCP1CONbits.CCP1M = mode1;
     CCP2CONbits.CCP2M = mode2;
+    CCPR1;
 }

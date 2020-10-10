@@ -4,12 +4,9 @@
 #include <pic16f887.h>
 #include <xc.h>
 #include <stdint.h>
+#include "gbs8_algo.h"
 
-/************************************************PORTS*************************************************************/
-
-
-
-/*******************************************************************************************************************/
+/***************************************************GLOBAL****************************************************************/
 
 
 
@@ -19,11 +16,7 @@ enum TIM_EN
     ENABLE
 };
 
-enum TIM1_DIR
-{
-    LOW,
-    HIGH
-};
+
 
 /****************************************************TMR0***************************************************************************/
 
@@ -108,6 +101,11 @@ enum TIM1_FREQ
     TIM1_5HZ
 };
 
+enum TIM1_DIR
+{
+    LOW,
+    HIGH
+};
 
 //capture / compare
 
@@ -178,6 +176,20 @@ enum
 #define PWM_2_CFG(X)    STRC = X
 #define PWM_1_CFG(X)    STRD = X
 
+//P1X Active means always 1
+//P1X Inactive means always 0
+//P1X modulated means PWM enable
+
+enum PWM_PORTS
+{
+    SINGLE,             //P1A modulated; P1B, P1C, P1D assigned as port pins
+    FULL_BRIDGE_F,      //P1D modulated; P1A active; P1B, P1C inactive
+    HALF_BRIDGE,        //P1A, P1B modulated with dead-band control; P1C, P1D assigned as port pins
+    FULL_BRIDGE_R       //P1B modulated; P1C active; P1A, P1D inactive
+};
+
+
+
 /**
  * @brief PWM generator configuration
  * @param pr2   a value that compares timer2
@@ -206,15 +218,15 @@ void GBS_PWM_Config(uint8_t channel, uint8_t period, uint8_t dutyCycle);
 /*************************************************ECCP*****************************************************************************/
 
 #define ECCP_OFF        0b0000      //Capture/Compare/PWM off (resets ECCP module)
-#define ECCP_CMP_TOG    0b0010      //Compare mode, toggle output on match (CCP1IF is set)
-#define ECCP_CAP_F      0b0100      //Capture mode, every falling edge
-#define ECCP_CAP_R      0b0101      //Capture mode, every rising edge
-#define ECCP_CAP_4F     0b0110      //Capture mode, every 4th rising edge
-#define ECCP_CAP_16F    0b0111      //Capture mode, every 16th rising edge
-#define ECCP_CMP_SET    0b1000      //Compare mode, set output on match (CCPXIF is set)
-#define ECCP_CMP_CLR    0b1001      //Compare mode, clear output on match (CCPXIF is set)
-#define ECCP_CMP_IT     0b1010      //Compare mode, generate software interrupt pn match (CCPXIF is set, CCPX pin is unaffected)
-#define ECCP_CMP_TRIG   0b1011      //Compare mode, trigger special event (CCPXIF is set; CCP1 resets TMR1 or TMR2)
+//#define ECCP_CMP_TOG    0b0010      //Compare mode, toggle output on match (CCP1IF is set)
+//#define ECCP_CAP_F      0b0100      //Capture mode, every falling edge
+//#define ECCP_CAP_R      0b0101      //Capture mode, every rising edge
+//#define ECCP_CAP_4F     0b0110      //Capture mode, every 4th rising edge
+//#define ECCP_CAP_16F    0b0111      //Capture mode, every 16th rising edge
+//#define ECCP_CMP_SET    0b1000      //Compare mode, set output on match (CCPXIF is set)
+//#define ECCP_CMP_CLR    0b1001      //Compare mode, clear output on match (CCPXIF is set)
+//#define ECCP_CMP_IT     0b1010      //Compare mode, generate software interrupt pn match (CCPXIF is set, CCPX pin is unaffected)
+//#define ECCP_CMP_TRIG   0b1011      //Compare mode, trigger special event (CCPXIF is set; CCP1 resets TMR1 or TMR2)
 #define ECCP_PWM_1      0b1100      //P1A, P1C active-high; P1B, P1D active-high
 #define ECCP_PWM_2      0b1101      //P1A, P1C active-high; P1B, P1D active-low
 #define ECCP_PWM_3      0b1110      //P1A, P1C active-low; P1B, P1D active-high
