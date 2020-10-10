@@ -30,9 +30,9 @@ void T2I_ISR();
 
 void ADC_ISR();
 
-void EUSART_ISR();
+void USART_TX_ISR();
 
-void MSSP_ISR();
+void USART_RX_ISR();
 
 
 
