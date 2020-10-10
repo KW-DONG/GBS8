@@ -1,6 +1,8 @@
 #include "gbs8_interrupt.h"
 #include "gbs8_config.h"
 
+/******************************************GLOBAL******************************************************/
+
 void GBS_Interrupt_Init()
 {
 #if (EXTI_EN)
@@ -9,12 +11,20 @@ void GBS_Interrupt_Init()
 #if (CNIT_EN)
     GBS_CNIT_Config(1);
 #endif
+#if (T0I_EN)
+    GBS_T0I_Config(1);
+#endif
+#if (T1I_EN)
+    GBS_T1I_Config(1);
+#endif
 }
 
 void GBS_Interrupt_Disable()
 {
     INTCONbits.GIE = 0;
 }
+
+/*****************************************CONFIG*********************************************************/
 
 void GBS_EXTI_Config(uint8_t mode)
 {
@@ -42,6 +52,19 @@ void GBS_CNIT_Config(uint8_t mode)
     INTCONbits.RBIF = 0;
 }
 
+void GBS_T0I_Config(uint8_t mode)
+{
+    INTCONbits.T0IF = 0;
+    INTCONbits.T0IE = mode;
+}
+
+void GBS_T1I_Config(uint8_t mode)
+{
+
+}
+
+/********************************************ISR****************************************************/
+
 void __interrupt() ISR()
 {
 #if (EXTI_EN)
@@ -65,6 +88,14 @@ void __interrupt() ISR()
     {
         T0I_ISR();
         INTCONbits.T0IF = 0;
+    }
+#endif
+
+#if (T1I_EN)
+    if (PIR1bits.TMR1IF = 1)
+    {
+        T1I_ISR();
+        PIR1bits.TMR1IF = 0;
     }
 #endif
 }

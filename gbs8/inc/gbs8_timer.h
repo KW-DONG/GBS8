@@ -30,22 +30,22 @@ enum TIM1_DIR
 enum TIM0_CS    //TMR0 Clock Source Select bit
 {
     //when used as a timer, the Timer0 module will increment every instruction cycle (without prescaler)
-    TIMER_MODE,
+    TIM0_TIMER_MODE,
 
     //when used as a counter, the Timer0 module will increment on every rising or falling edge of the T0CKI pin
-    COUNTER_MODE
+    TIM0_COUNTER_MODE
 };
 
 enum TIM0_SE    //TMR0 Source Edge Select bit
 {
-    L2H,        //Increment on low-to-high transition on T0CKI Pin
-    H2L         //Increment on high-to-low transition on T0CKI Pin
+    TIM0_L2H,        //Increment on low-to-high transition on T0CKI Pin
+    TIM0_H2L         //Increment on high-to-low transition on T0CKI Pin
 };
 
 enum TIM0_PSA
 {
-    TIMER,
-    WDT
+    TIM0_TIMER,
+    TIM0_WDT
 };
 
 /**
@@ -112,6 +112,7 @@ enum
  * @param ckPS       2-bits prescaler
  *                     1:2^B
  * @note Internal clock source is selected
+ *       TMR1 rises from 0x0000 to 0xFFFF
  *
  */
 void GBS_Timer1_Config(uint8_t state, uint8_t gateEn, uint8_t gateDir, uint8_t ckPS);

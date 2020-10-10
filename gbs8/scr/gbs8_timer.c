@@ -14,12 +14,13 @@ void GBS_Timer0_Config(uint8_t clockSource, uint8_t sourceEdge, uint8_t assignme
 
 void GBS_Timer1_Config(uint8_t state, uint8_t gateEn, uint8_t gateDir, uint8_t ckPS)
 {
-    TMR1CS = 0;     //use internal clock source
-    T1OSCEN = 0;    //LP oscillator is off
-    TMR1ON = state;
-    TMR1GE = gateEn;
-    T1GINV = gateDir;
+    T1CONbits.TMR1CS = 0;   //use internal clock source
+    T1CONbits.T1OSCEN = 0;  //LP oscillator is off  
+    T1CONbits.TMR1ON = state;
+    T1CONbits.TMR1GE = gateEn;
+    T1CONbits.T1GINV = gateDir;
     T1CONbits.T1CKPS = ckPS;
+    
 }
 
 void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS)

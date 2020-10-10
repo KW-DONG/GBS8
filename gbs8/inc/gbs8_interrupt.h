@@ -51,11 +51,33 @@ void GBS_EXTI_Config(uint8_t mode);
  */
 void GBS_CNIT_Config(uint8_t mode);
 
-
+/**
+ * @brief config timer0 overflow interrupt
+ * @note  please config the corresponding timer first
+ */
 void GBS_T0I_Config(uint8_t mode);
 
+/**
+ * @brief config timer1 overflow interrupt
+ * @note  please config the corresponding timer first
+ */
+void GBS_T1I_Config(uint8_t mode);
+
+/**************************************GLOBAL****************************************************/
+
+/**
+ * @brief Initialize all the interrupts
+ */
 void GBS_Interrupt_Init();
 
+/**
+ * @brief Enable global interrupts
+ */
+void GBS_Interrupt_Enable();
+
+/**
+ * @brief Disable global interrupts
+ */
 void GBS_Interrupt_Disable();
 
 
