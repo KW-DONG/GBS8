@@ -11,4 +11,7 @@
  */
 uint8_t Read_Binary(uint8_t dec, uint8_t num);
 
+
+uint16_t Register_Joint(uint8_t regH, uint8_t regL);
+
 #endif

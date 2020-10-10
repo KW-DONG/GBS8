@@ -17,6 +17,13 @@ void GBS_Interrupt_Init()
 #if (T1I_EN)
     GBS_T1I_Config(1);
 #endif
+    GBS_Interrupt_Enable();
+}
+
+void GBS_Interrupt_Enable()
+{
+    INTCONbits.PEIE = 1;
+    INTCONbits.GIE = 1;
 }
 
 void GBS_Interrupt_Disable()
@@ -28,9 +35,7 @@ void GBS_Interrupt_Disable()
 
 void GBS_EXTI_Config(uint8_t mode)
 {
-    //enable global interrupts
-    INTCONbits.GIE = 1;
-    
+   
     //enable the external interrupt 
     INTCONbits.INTE = 1;
     
@@ -42,9 +47,7 @@ void GBS_EXTI_Config(uint8_t mode)
 
 void GBS_CNIT_Config(uint8_t mode)
 {
-    //enable global interrupts
-    INTCONbits.GIE = 1;
-    
+
     //enable portb change interrupt
     INTCONbits.RBIE = mode;
     
@@ -60,7 +63,14 @@ void GBS_T0I_Config(uint8_t mode)
 
 void GBS_T1I_Config(uint8_t mode)
 {
+    PIR1bits.TMR1IF = 0;
+    PIE1bits.TMR1IE = mode;
+}
 
+void GBS_T2I_Config(uint8_t mode)
+{
+    PIR1bits.TMR2IF = 0;
+    PIE1bits.TMR2IE = mode;
 }
 
 /********************************************ISR****************************************************/

@@ -50,32 +50,32 @@ enum TIM0_PSA
 
 /**
  * Frequency to Prescale
- * TMR0 input freq = Fosc/4/Prescale = 11059200/(4*PR)
+ * TMR0 input freq = Fosc/4/Prescale/256 = 11059200/(4*PR*256)
  * where PR can be 2^(X+1), and X is from 0 to 7
  * 
  */
 enum TIM0_FREQ
 {
-    TIM0_1382400HZ = 0b000,
-    TIM0_691200HZ,
-    TIM0_345600HZ,
-    TIM0_172800HZ,
-    TIM0_86400HZ,
-    TIM0_43200HZ,
-    TIM0_21600HZ,
-    TIM0_10800HZ
+    TIM0_5400HZ = 0b000,
+    TIM0_2700HZ,
+    TIM0_1350HZ,
+    TIM0_775HZ,
+    TIM0_387HZ,
+    TIM0_194HZ,
+    TIM0_97HZ,
+    TIM0_48HZ
 };
 
 enum WDT_FREQ
 {
-    WDT_2764800HZ = 0b000,
-    WDT_1382400HZ,
-    WDT_691200HZ,
-    WDT_345600HZ,
-    WDT_172800HZ,
-    WDT_86400HZ,
-    WDT_43200HZ,
-    WDT_21600HZ
+    WDT_10800HZ = 0b000,
+    WDT_5400HZ,
+    WDT_2700HZ,
+    WDT_1350HZ,
+    WDT_775HZ,
+    WDT_387HZ,
+    WDT_194HZ,
+    WDT_97HZ
 };
 
 /**
@@ -94,13 +94,20 @@ void GBS_Timer0_Config(uint8_t clockSoure, uint8_t sourceEdge, uint8_t assignmen
 
 /****************************************************TMR1*************************************************************************/
 
-enum
+/**
+ * Frequency to Prescale
+ * TMR1 input freq = Fosc/4/Prescale/65535 = 11059200/(4*PR*65535)
+ * where PR can be 2^(X), and X is from 0 to 3
+ * 
+ */
+enum TIM1_FREQ
 {
-    T1CKPS1,
-    T1CKPS2,
-    T1CKPS4,
-    T1CKPS8
+    TIM1_42HZ = 0b00,
+    TIM1_21HZ,
+    TIM1_11HZ,
+    TIM1_5HZ
 };
+
 
 //capture / compare
 
@@ -109,13 +116,13 @@ enum
  * @param state     can be enable or disable
  * @param gateEN    enable or disable timer gate function
  * @param gateDir   active high or active low
- * @param ckPS       2-bits prescaler
+ * @param frequency use TIM1_FREQ
  *                     1:2^B
  * @note Internal clock source is selected
- *       TMR1 rises from 0x0000 to 0xFFFF
+ *       TMR1 counts from 0x0000 to 0xFFFF (0 - 65535)
  *
  */
-void GBS_Timer1_Config(uint8_t state, uint8_t gateEn, uint8_t gateDir, uint8_t ckPS);
+void GBS_Timer1_Config(uint8_t state, uint8_t gateEn, uint8_t gateDir, uint8_t frequency);
 
 /****************************************************TMR2*************************************************************************/
 

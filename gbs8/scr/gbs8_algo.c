@@ -12,3 +12,12 @@ uint8_t Read_Binary(uint8_t dec, uint8_t num)
     }
     return bit;  
 }
+
+uint16_t Register_Joint(uint8_t regH, uint8_t regL)
+{
+    uint16_t result = 0;
+    result = result ^ regH;
+    result = result << 8;
+    result = result ^ regL;
+    return result;
+}
