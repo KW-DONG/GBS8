@@ -22,7 +22,7 @@ uint16_t Register_Joint(uint8_t regH, uint8_t regL)
     return result;
 }
 
-void Reg10_Decouple(uint8_t* regH, uint8_t* regL, uint8_t reg)
+void Reg10_Decouple(uint8_t* regH, uint8_t* regL, uint16_t reg)
 {
     uint8_t regL_temp = 0b0000000011;
     regL = reg & regL_temp;

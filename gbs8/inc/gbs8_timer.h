@@ -187,11 +187,11 @@ enum PWM_PORTS
     FULL_BRIDGE_R       //P1B modulated; P1C active; P1A, P1D inactive
 };
 
-
-
 /**
  * @brief PWM generator configuration
- * @param pr2   a value that compares timer2
+ * @param ports use PWM_PORTS
+ * @param dutyCycle 0-10
+ * @note  PWM frequency can be modified with timer 2 prescale
  * @note  PWM period = [(PR2)+1]*4*Tosc*(TMR2 Prescale value)
  *         Tosc = 1/Fosc 
  * 
@@ -212,7 +212,7 @@ enum PWM_PORTS
  * 
  * @note please config ECCP Register before using the PWM function
  */
-void GBS_PWM_Config(uint8_t channel, uint8_t period, uint8_t dutyCycle);
+void GBS_PWM_Config(uint8_t ports, uint8_t dutyCycle);
 
 /*************************************************ECCP*****************************************************************************/
 

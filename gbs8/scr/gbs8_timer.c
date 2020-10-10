@@ -34,9 +34,9 @@ void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS)
     T2CONbits.TOUTPS = outPS;
 }
 
-void GBS_PWM_Config(uint8_t channel, uint8_t period, uint8_t dutyCycle)
+void GBS_PWM_Config(uint8_t channel, uint8_t dutyCycle)
 {
-    PR2 = period*_XTAL_FREQ/(4*T2CONbits.T2CKPS) - 1;
+    PR2 = 256*_XTAL_FREQ/(4*T2CONbits.T2CKPS) - 1;
     CCP1CONbits.CCP1M = 0b1100;
     CCP1CONbits.P1M = channel;
 
@@ -45,7 +45,9 @@ void GBS_PWM_Config(uint8_t channel, uint8_t period, uint8_t dutyCycle)
 
     uint8_t regH = 0, regL = 0;
 
-    Reg10_Decouple(&regH, &regL, dutyCycle);
+    uint16_t ccprxl_ccpxcon = dutyCycle * 4 * (PR2 + 1) / 10;
+
+    Reg10_Decouple(&regH, &regL, ccprxl_ccpxcon);
 
     CCPR1L = regH;
     CCP1CONbits.DC1B = regL;
