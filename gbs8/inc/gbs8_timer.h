@@ -107,7 +107,6 @@ enum TIM1_DIR
     HIGH
 };
 
-//capture / compare
 
 /**
  * @brief Timer1 configuration
@@ -231,16 +230,5 @@ void GBS_PWM_Config(uint8_t channel, uint8_t period, uint8_t dutyCycle);
 #define ECCP_PWM_2      0b1101      //P1A, P1C active-high; P1B, P1D active-low
 #define ECCP_PWM_3      0b1110      //P1A, P1C active-low; P1B, P1D active-high
 #define ECCP_PWM_4      0b1111      //P1A, P1C active-low; P1B, P1D active-low
-
-
-/**
- * @brief Enhanced Capture/Compare/PWM
- * @param mode1     CCP1 mode
- * @param mode2     CCP2 mode
- * 
- * 
- */
-void GBS_ECCP_Config(uint8_t mode1, uint8_t mode2);
-
 
 #endif
