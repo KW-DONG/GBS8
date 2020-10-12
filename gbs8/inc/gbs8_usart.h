@@ -7,6 +7,10 @@
 
 #define USART_BUFFER_SIZE   8
 
+extern USART_buffer_t usartReceiveBuffer;
+
+extern USART_buffer_t usartSendBuffer;
+
 typedef struct 
 {
     uint8_t buffer[USART_BUFFER_SIZE];
@@ -17,7 +21,9 @@ typedef struct
 
 uint8_t GBS_USART_Buffer_Read(USART_buffer_t* buffer);
 
-uint8_t GBS_USART_Buffer_Write(USART_buffer_t* buffer);
+uint8_t GBS_USART_Buffer_Write(USART_buffer_t* buffer, uint8_t value);
+
+void GBS_USART_Receive(USART_buffer_t* buffer);
 
 void GBS_USART_Init();
 
