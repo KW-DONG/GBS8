@@ -9,6 +9,9 @@
 #define INPUT   1
 #define OUTPUT  0
 
+#define ON      OUTPUT
+#define OFF     INPUT
+
 //PIN_X_MODE
 #define ANALOG  1
 #define DIGITAL 0

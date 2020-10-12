@@ -2,6 +2,7 @@
 
 void GBS_GPIO_Init()
 {
+    //Inputs
     //RAs
     TRISAbits.TRISA0 = 1;
     TRISAbits.TRISA1 = 1;
@@ -18,17 +19,19 @@ void GBS_GPIO_Init()
     TRISBbits.TRISB4 = 1;
     TRISBbits.TRISB5 = 1;
  
-    //RCs
-    TRISCbits.TRISC0 = 0;
-    TRISCbits.TRISC1 = 0;
-    TRISCbits.TRISC2 = 0;
-    TRISCbits.TRISC5 = 0;
-    
-    //RDs
-    TRISD = 0;
-    
-    //REs
-    TRISEbits.TRISE0 = 0;
+    //Outputs
+    POUT_1(OFF);
+    POUT_2(OFF);
+    POUT_3(OFF);
+    POUT_4(OFF);
+    POUT_5(OFF);
+    POUT_6(OFF);
+    POUT_7(OFF);
+    POUT_8(OFF);
+    POUT_9(OFF);
+    POUT_10(OFF);
+    POUT_11(OFF);
+    POUT_12(OFF);
     
     //Input mode
     //all digital inputs
