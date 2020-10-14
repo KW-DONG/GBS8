@@ -50,10 +50,19 @@ void GBS_CNIT_Config(uint8_t mode)
 
     //enable portb change interrupt
     INTCONbits.RBIE = mode;
-    
+
+    IOCBbits.IOCB0 = 1;
+    IOCBbits.IOCB1 = 1;
+    IOCBbits.IOCB2 = 1;
+    IOCBbits.IOCB3 = 1;
+    IOCBbits.IOCB4 = 1;
+    IOCBbits.IOCB5 = 1;
+    IOCBbits.IOCB6 = 1;
+    IOCBbits.IOCB7 = 1;
+
     //clear change interrupt
     INTCONbits.RBIF = 0;
-}
+} 
 
 void GBS_T0I_Config(uint8_t mode)
 {
