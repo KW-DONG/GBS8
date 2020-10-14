@@ -7,7 +7,8 @@
                 "${workspaceFolder}",
                 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include",
                 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\proc",
-                "E:\\Workspace\\GBS8\\gbs8\\inc"
+                "E:\\Workspace\\GBS8\\gbs8\\bsp\\inc",
+                "E:\\Workspace\\GBS8\\gbs8\\driver\\inc"
             ],
             "cStandard": "c11"
         }
