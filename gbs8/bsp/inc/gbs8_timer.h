@@ -150,6 +150,7 @@ enum
     T2OUTPS16
 };
 
+
 /**
  * @brief Timer2 configuration
  * @param state can be enable or disable
@@ -158,6 +159,21 @@ enum
  * 
  * @param outPS   4 bits postscale
  *                  1:B
+ * 
+ *          fout = fclk/(4*Prescaler*(PR2-TMR2)*Postscaler*Count)
+ *          
+ *          10000 = 11059200/(4*Prescaler*(PR2-TMR2)*Postscaler*1)
+ *          1105.92 = 4 *Prescaler*(PR2)*Postscaler
+ *          276.48 = Prescaler*(PR2)*Postscaler
+ *          PR2 = 255
+ *          Prescaler = 1
+ *          Postscale = 1
+ *          
+ *          3000rpm         
+ * 
+ *          count: overflow counts
+ *          tout = 1/fclk
+ * 
  * 
  */
 void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS);
