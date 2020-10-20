@@ -17,30 +17,42 @@ void TMR_ISR()
     else
     {
         //check current block
+        if (stepperBuffer.buffer[stepperBuffer.head].dec_until>0)
+        {
+            if ()
+        }
+
+
+
+
+
         if (stepperBuffer.buffer[stepperBuffer.head].acc_until>0)
         {
             stepperBuffer.buffer[stepperBuffer.head].acc_until--;
             stepperBuffer.buffer[stepperBuffer.head].dec_after--;
-            stepperCnts = 10000/(stepperFreq + MAXIMUM_ACCELERATION);
+            stepperFreq += MAXIMUM_ACCELERATION;
+            stepperCnts = MAXIMUM_FREQ/(stepperFreq);
         }
         else if (stepperBuffer.buffer[stepperBuffer.head].dec_after>0)
         {
             stepperBuffer.buffer[stepperBuffer.head].dec_after--;
-            stepperCnts = 10000/(stepperFreq);
+            stepperCnts = MAXIMUM_FREQ/(stepperFreq);
         }
         else if (stepperBuffer.buffer[stepperBuffer.head].dec_until>0)
         {
             stepperBuffer.buffer[stepperBuffer.head].dec_until--;
-            stepperCnts = 10000/(stepperFreq - MAXIMUM_ACCELERATION);
+            stepperFreq -= MAXIMUM_ACCELERATION;
+            stepperCnts = MAXIMUM_FREQ/(stepperFreq);
         }
+        else if (stepperBuffer.buffer[(stepperBuffer.head+1)%STEPPER_BUFFER_SIZE].flag == BLOCK_READY)
+        {
+            //change block
+            stepperBuffer.head = (stepperBuffer.head+1)%STEPPER_BUFFER_SIZE;
+            stepperBuffer.buffer[stepperBuffer.head].flag = BLOCK_BUSY;
+
+
+        }
+        
     }
-    
-    
-    
-
-
-    //update current block / change blocks
-
-
     
 }

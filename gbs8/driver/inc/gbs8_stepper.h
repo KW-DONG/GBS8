@@ -31,6 +31,11 @@
 
 /*********************************TYPES*************************************/
 
+#define BLOCK_BUSY  0
+#define BLOCK_FREE  1
+#define BLOCK_READY 2
+
+
 typedef struct
 {
     uint8_t dir;
@@ -39,6 +44,7 @@ typedef struct
     uint64_t dec_after;
     uint64_t dec_until;
     uint32_t max_freq;
+    uint8_t  flag;
 }trapblock_t;
 
 typedef struct 
@@ -75,6 +81,38 @@ uint64_t stepperFreq = 0;
 
 uint8_t  stepperDir = 0;
 
+uint8_t  portState = 0;
 
+uint8_t  portStateLast = 0;
+
+/**The LeibRamp Algorithmn
+ * 
+ * The given parameters are:
+ * v0 - base speed (steps per second)
+ * v - slew speed
+ * a - acceleration
+ * F - timer frequency
+ * 
+ * and calculated parameters are:
+ * S - acceleration/deceleration distance
+ *          S = (v^2 - v0^2) / (2a)
+ * p1 - delay period for the slew speed steps
+ *          p1 = F / (v0^2 + 2a)^0.5
+ * ps - delay period for the slew speed steps
+ *          ps = F / v
+ * R - constant multiplier
+ *          R = a / F^2
+ * 
+ * p - the variable delay period
+ *          p = p*(1+m*p*p)
+ * 
+ * where 
+ * m = -R during acceleration phase
+ * m = 0 between acceleration and deceleration phases
+ * m = R during deceleration phase
+ * 
+ * 
+ * 
+ */
 
 #endif
