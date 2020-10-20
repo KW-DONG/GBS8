@@ -29,7 +29,18 @@
 #define POUT_11(X)  TRISCbits.TRISC1 = X
 #define POUT_12(X)  TRISCbits.TRISC0 = X
 
-
+#define POUT_1_R    TRISDbits.TRISD7
+#define POUT_2_R    TRISDbits.TRISD6
+#define POUT_3_R    TRISDbits.TRISD5
+#define POUT_4_R    TRISDbits.TRISD4
+#define POUT_5_R    TRISCbits.TRISC5
+#define POUT_6_R    TRISDbits.TRISD3
+#define POUT_7_R    TRISDbits.TRISD2
+#define POUT_8_R    TRISDbits.TRISD1
+#define POUT_9_R    TRISDbits.TRISD0
+#define POUT_10_R   TRISCbits.TRISC2
+#define POUT_11_R   TRISCbits.TRISC1
+#define POUT_12_R   TRISCbits.TRISC0
 
 #define RUN_BLINK(X)   TRISEbits.TRISE0 = X
 

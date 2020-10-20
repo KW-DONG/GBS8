@@ -12,8 +12,9 @@
 #define MAXIMUM_ACCELERATION    1000    //rpm^2
 #define RESOLUTION      200     //steps per rotation, default rotate angle is 1.8 degree
 
-#define P_DIR(X)    POUT_1(X)
-#define P_STP(X)    POUT_2(X)
+#define P_DIR_W(X)  POUT_1(X)
+#define P_DIR_R       
+#define P_STP_W(X)  POUT_2(X)
 
 #define TMR 2                   //timer selected
 
@@ -80,8 +81,6 @@ stepperBuffer_t stepperBuffer;
 uint64_t timerCnts = 0;
 
 uint64_t timerCntsLast = 0;
-
-uint64_t stepperFreq = 0;
 
 uint8_t  stepperDir = 0;
 
