@@ -104,14 +104,17 @@ uint8_t  portStateLast = 0;
  *          R = a / F^2
  * 
  * p - the variable delay period
- *          p = p*(1+m*p*p)
+ *          p = p*(1 + m*p*p)
  * 
  * where 
  * m = -R during acceleration phase
  * m = 0 between acceleration and deceleration phases
  * m = R during deceleration phase
  * 
- * 
+ * with better precision
+ * p = p * (1 + q + q^2)
+ * where
+ * q = m*p*p
  * 
  */
 
