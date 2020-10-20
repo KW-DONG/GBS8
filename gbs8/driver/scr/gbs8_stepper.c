@@ -9,5 +9,38 @@ void GBS_Stepper_Init()
 
 void TMR_ISR()
 {
+    //check counter
+    if (stepperCnts>0)
+    {
+        stepperCnts--;
+    }
+    else
+    {
+        //check current block
+        if (stepperBuffer.buffer[stepperBuffer.head].acc_until>0)
+        {
+            stepperBuffer.buffer[stepperBuffer.head].acc_until--;
+            stepperBuffer.buffer[stepperBuffer.head].dec_after--;
+            stepperCnts = 10000/(stepperFreq + MAXIMUM_ACCELERATION);
+        }
+        else if (stepperBuffer.buffer[stepperBuffer.head].dec_after>0)
+        {
+            stepperBuffer.buffer[stepperBuffer.head].dec_after--;
+            stepperCnts = 10000/(stepperFreq);
+        }
+        else if (stepperBuffer.buffer[stepperBuffer.head].dec_until>0)
+        {
+            stepperBuffer.buffer[stepperBuffer.head].dec_until--;
+            stepperCnts = 10000/(stepperFreq - MAXIMUM_ACCELERATION);
+        }
+    }
+    
+    
+    
+
+
+    //update current block / change blocks
+
+
     
 }

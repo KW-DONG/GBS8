@@ -8,7 +8,8 @@
 
 #define STEPPER_BUFFER_SIZE 5   //number of trapezoidal curves in the buffer
 
-#define MAXIMUM_SPEED   3000    //use rpm
+#define MAXIMUM_SPEED           3000    //use rpm
+#define MAXIMUM_ACCELERATION    1000    //rpm^2
 #define RESOLUTION      200     //steps per rotation, default rotate angle is 1.8 degree
 
 #define P_DIR(X)    POUT_1(X)
@@ -34,8 +35,9 @@ typedef struct
 {
     uint8_t dir;
     uint32_t freq_in;
-    uint32_t acc_until;
-    uint32_t dec_after;
+    uint64_t acc_until;
+    uint64_t dec_after;
+    uint64_t dec_until;
     uint32_t max_freq;
 }trapblock_t;
 
