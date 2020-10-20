@@ -79,12 +79,14 @@ stepperBuffer_t stepperBuffer;
 
 //used for timer delay
 //each count causes 0.0001s
-uint64_t timerCnts = 0;
+uint64_t timerCnts;
 
-uint64_t timerCntsLast = 0;
+uint64_t timerCntsLast;
 
-uint8_t  stepperDir = 0;
+uint8_t  stepperDir;
 
+#define PORT_FLAG_UP    0
+#define PORT_FLAG_FALL  1
 uint8_t  portFlag = 0;
 
 /****************************************************************************/
@@ -104,7 +106,7 @@ uint8_t  portFlag = 0;
  * and calculated parameters are:
  * S - acceleration/deceleration distance
  *          S = (v^2 - v0^2) / (2a)
- * p1 - delay period for the slew speed steps
+ * p1 - delay period for the base speed steps
  *          p1 = F / (v0^2 + 2a)^0.5
  * ps - delay period for the slew speed steps
  *          ps = F / v
