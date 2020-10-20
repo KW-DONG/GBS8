@@ -5,6 +5,8 @@
 void GBS_Stepper_Init()
 {
     GBS_Timer2_Config(ENABLE,T2CKPS1,T2OUTPS1);
+    P_DIR_W(ON);
+    P_STEP_W(ON);
 }
 
 
@@ -12,10 +14,9 @@ void GBS_Stepper_Init()
  * 
  * ^
  * |   0.00001s
- * |   +-+
- * |   | |  
  * ----+ +---------->t
- *       
+ * |   | |
+ * |   +-+     
  */
 void TMR_ISR()
 {
@@ -25,11 +26,7 @@ void TMR_ISR()
         timerCnts--;
     }
     else
-    {
-        if ()
-        
-        
-        
+    {       
         //check current block
         if (stepperBuffer.buffer[stepperBuffer.head].dec_until>0)
         {
@@ -38,17 +35,11 @@ void TMR_ISR()
                 stepperBuffer.buffer[stepperBuffer.head].acc_until--;
                 stepperBuffer.buffer[stepperBuffer.head].dec_after--;
             }
-        }
+            else if (stepperBuffer.buffer[stepperBuffer.head].dec_after>0)
+            {
+                stepperBuffer.buffer[stepperBuffer.head].dec_after--;
 
-        
-        else if (stepperBuffer.buffer[stepperBuffer.head].dec_after>0)
-        {
-            stepperBuffer.buffer[stepperBuffer.head].dec_after--;
-
-        }
-        else if (stepperBuffer.buffer[stepperBuffer.head].dec_until>0)
-        {
-            stepperBuffer.buffer[stepperBuffer.head].dec_until--;
+            }
         }
         else if (stepperBuffer.buffer[(stepperBuffer.head+1)%STEPPER_BUFFER_SIZE].flag == BLOCK_READY)
         {

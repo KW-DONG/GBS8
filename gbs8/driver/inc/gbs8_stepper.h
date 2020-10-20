@@ -13,8 +13,9 @@
 #define RESOLUTION      200     //steps per rotation, default rotate angle is 1.8 degree
 
 #define P_DIR_W(X)  POUT_1(X)
-#define P_DIR_R       
-#define P_STP_W(X)  POUT_2(X)
+#define P_DIR_R     POUT_1_R  
+#define P_STEP_W(X) POUT_2(X)
+#define P_STEP_R    POUT_2_R
 
 #define TMR 2                   //timer selected
 
@@ -84,9 +85,7 @@ uint64_t timerCntsLast = 0;
 
 uint8_t  stepperDir = 0;
 
-uint8_t  portState = 0;
-
-uint8_t  portStateLast = 0;
+uint8_t  portFlag = 0;
 
 /****************************************************************************/
 
