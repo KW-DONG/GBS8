@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 
+#define SQ(X)  ((X)*(X))
 
 /**
  *  @brief binary reader

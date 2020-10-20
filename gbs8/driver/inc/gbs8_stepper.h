@@ -75,7 +75,11 @@ void GBS_Stepper_Config(uint32_t freq, uint8_t en);
 /************************GLOBAL_VARIABLES************************************/
 stepperBuffer_t stepperBuffer;
 
-uint64_t stepperCnts = 0;
+//used for timer delay
+//each count causes 0.0001s
+uint64_t timerCnts = 0;
+
+uint64_t timerCntsLast = 0;
 
 uint64_t stepperFreq = 0;
 
@@ -85,12 +89,18 @@ uint8_t  portState = 0;
 
 uint8_t  portStateLast = 0;
 
+/****************************************************************************/
+
+#define STEPPER_ACC     1
+#define STEPPER_CST     0
+#define STEPPER_DEC     -1
+
 /**The LeibRamp Algorithmn
  * 
  * The given parameters are:
  * v0 - base speed (steps per second)
  * v - slew speed
- * a - acceleration
+ * a - acceleration (steps per second per second)
  * F - timer frequency
  * 
  * and calculated parameters are:
@@ -117,5 +127,10 @@ uint8_t  portStateLast = 0;
  * q = m*p*p
  * 
  */
+#define LR_p    timerCntsLast*MAXIMUM_FREQ
+#define LR_R    MAXIMUM_FREQ*SQ(LR_p)
+#define LR_q    LR_R*SQ(LR_p)
+
+#define LEIBRAMP_CAL(X) LR_p*(1+X*LR_q+SQ(X*LR_q))
 
 #endif

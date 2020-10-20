@@ -7,12 +7,13 @@ void GBS_Stepper_Init()
     GBS_Timer2_Config(ENABLE,T2CKPS1,T2OUTPS1);
 }
 
+
 void TMR_ISR()
 {
     //check counter
-    if (stepperCnts>0)
+    if (timerCnts>0)
     {
-        stepperCnts--;
+        timerCnts--;
     }
     else
     {
@@ -31,18 +32,18 @@ void TMR_ISR()
             stepperBuffer.buffer[stepperBuffer.head].acc_until--;
             stepperBuffer.buffer[stepperBuffer.head].dec_after--;
             stepperFreq += MAXIMUM_ACCELERATION;
-            stepperCnts = MAXIMUM_FREQ/(stepperFreq);
+            timerCnts = MAXIMUM_FREQ/(stepperFreq);
         }
         else if (stepperBuffer.buffer[stepperBuffer.head].dec_after>0)
         {
             stepperBuffer.buffer[stepperBuffer.head].dec_after--;
-            stepperCnts = MAXIMUM_FREQ/(stepperFreq);
+            timerCnts = MAXIMUM_FREQ/(stepperFreq);
         }
         else if (stepperBuffer.buffer[stepperBuffer.head].dec_until>0)
         {
             stepperBuffer.buffer[stepperBuffer.head].dec_until--;
             stepperFreq -= MAXIMUM_ACCELERATION;
-            stepperCnts = MAXIMUM_FREQ/(stepperFreq);
+            timerCnts = MAXIMUM_FREQ/(stepperFreq);
         }
         else if (stepperBuffer.buffer[(stepperBuffer.head+1)%STEPPER_BUFFER_SIZE].flag == BLOCK_READY)
         {
