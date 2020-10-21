@@ -4,12 +4,53 @@
 
 void GBS_Stepper_Init()
 {
-    GBS_Timer2_Config(ENABLE,T2CKPS1,T2OUTPS1);
+    
     P_DIR_W(ON);
     P_STEP_W(ON);
     timerCntsLast = -1; //2^64 - 1
     timerCnts = 0;
     stepperDir = 0;
+
+#if (TMR==0)
+
+#elif (TMR==1)
+
+#elif (TMR==2)
+    GBS_Timer2_Config(ENABLE,T2CKPS1,T2OUTPS1);
+#endif
+
+
+#if (STEPPER_A)
+    A_DIR_W(ON);
+    stepperA.state = OFF;
+    stepperA.cntsLast = 0;
+    stepperA.cnts = 0;
+#endif
+#if (STEPPER_B)
+    B_DIR_W(ON);
+    stepperB.state = OFF;
+    stepperB.cntsLast = 0;
+    stepperB.cnts = 0;
+#endif
+#if (STEPPER_C)
+    C_DIR_W(ON);
+    stepperC.state = OFF;
+    stepperC.cntsLast = 0;
+    stepperC.cnts = 0;
+#endif
+#if (STEPPER_D)
+    D_DIR_W(ON);
+    stepperD.state = OFF;
+    stepperD.cntsLast = 0;
+    stepperD.cnts = 0;
+#endif
+#if (STEPPER_E)
+    E_DIR_W(ON);
+    stepperE.state = OFF;
+    stepperE.cntsLast = 0;
+    stepperE.cnts = 0;
+#endif
+
 }
 
 /**

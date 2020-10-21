@@ -87,8 +87,6 @@
 #define TMR_ISR T1I_ISR
 #elif (TMR==2)
 #define TMR_ISR T2I_ISR
-#define STEPPER_ON  GBS_Timer2_Config(ENABLE,T2CKPS1,T2OUTPS1)
-#define STEPPER_OFF GBS_Timer2_Config(DISABLE,T2CKPS1,T2OUTPS1)
 #endif
 
 /*********************************TYPES*************************************/
@@ -152,21 +150,20 @@ void GBS_Stepper_Init();
 
 /**
  * @brief trapezoidal curve planner
- * @param stepperX stepper motor id
+ * @param sBufferX stepper motor buffer
  * @param direction clockwise or anticlockwise
  * @param rotation  rotation number (float)
  * @param maximumSpeed maximum rotation speed (rpm)
  * @param acceleration
  * @param deceleration
  */
-uint8_t GBS_Stepper_Planner(stepper_t stepperX, dir_t direction, rotate_t rotation, speedRm_t maximumSpeed, accRm_t acceleration, accRm_t deceleration);
+uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t direction, rotate_t rotation, speedRm_t maximumSpeed, accRm_t acceleration, accRm_t deceleration);
 
 /**
  * @brief stepper execution
- * @param stepperX stepper motor id
  * @note only called by ISR
  */
-void GBS_Stepper_Exe(stepper_t stepperX);
+void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX);
 
 /*****************************GLOBAL_VARIABLES************************************/
 
@@ -199,7 +196,6 @@ uint64_t timerCnts;
 
 #define PORT_FLAG_UP    0
 #define PORT_FLAG_FALL  1
-uint8_t  portFlag = 0;
 
 /*****************************ALGORITHMN****************************************/
 
@@ -245,12 +241,5 @@ uint8_t  portFlag = 0;
 
 #define JERK_DELAY(f)   10000/f
 #define LEIBRAMP_CAL(X) LR_p*(1+X*LR_q+SQ(X*LR_q))
-
-
-
-
-
-
-
 
 #endif
