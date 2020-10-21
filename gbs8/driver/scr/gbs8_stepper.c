@@ -101,9 +101,7 @@ uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t dir, rotate_t rotation, s
     steps_t s_i = 0;
     steps_t s_m = 0;
     steps_t s_o = 0;
-
-
-    
+ 
     //allocate steps
         //calculate time
     float t_i = (v_o - v_i) * a_i / (SQ(a_i) - SQ(a_o));
@@ -132,31 +130,24 @@ uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t dir, rotate_t rotation, s
         s_m = totalSteps - s_i - s_o;
     }
     
-        //if meet maximum speed
-
-
-
-    //unit transform
-
-
-
-
-
     //write buffer
-
-
-
-
+    if (sBufferX->buffer[sBufferX->head].flag==BLOCK_FREE)
+    {
+        sBufferX->buffer[sBufferX->head].dir = dir;
+        sBufferX->buffer[sBufferX->head].acc = RESOLUTION*DELAY_CNT*(accCnt_t)(a_i / 60.0);
+        sBufferX->buffer[sBufferX->head].dec = RESOLUTION*DELAY_CNT*(accCnt_t)(a_o / 60.0);
+        sBufferX->buffer[sBufferX->head].acc_until = s_i;
+        sBufferX->buffer[sBufferX->head].dec_after = s_i + s_m;
+        sBufferX->buffer[sBufferX->head].dec_until = totalSteps;
+        sBufferX->buffer[sBufferX->head].flag = BLOCK_READY;
+        sBufferX->head = (sBufferX->head + 1) % STEPPER_BUFFER_SIZE;
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
 }
-
-
-
-
-
-
-
-
-
 
 
 

@@ -12,6 +12,7 @@
 #define MAXIMUM_ACCELERATION    1000    //rpm^2
 #define JERK_SPEED              20      //rpm, speed difference that does not need an acceleration
 #define RESOLUTION              200     //steps per rotation, default rotate angle is 1.8 degree
+#define DELAY_CNT               10000   //10000 counts per second
 
 #define STEPPER_A   1
 #define STEPPER_B   0
