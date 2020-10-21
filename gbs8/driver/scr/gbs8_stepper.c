@@ -98,19 +98,38 @@ void GBS_Stepper_Init()
 
 uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t dir, rotate_t rotation, speedRm_t v_i, speedRm_t v_m, speedRm_t v_o, accRm_t a_i, accRm_t a_o)
 {
+    steps_t s_i = 0;
+    steps_t s_m = 0;
+    steps_t s_o = 0;
+
+
+    
     //allocate steps
         //calculate time
     float t_i = (v_o - v_i) * a_i / (SQ(a_i) - SQ(a_o));
 
     float v_a = v_i + a_i * t_i;
 
-    if (v_a>=v_m)
-    {
+    steps_t totalSteps = (steps_t)(rotation*(float)RESOLUTION);
 
-    }
-    else
+    if (v_a<=v_m)   //situation 1
     {
-        
+        s_i = totalSteps * s_o * a_i / a_o;
+        s_o = totalSteps - s_i;
+    }
+    else            //situation 2
+    {
+        float t_o = a_o * t_i / a_i;
+
+        float t_m = (2*rotation - (v_i + v_m) * t_i - (v_o + v_m) * t_o) / v_m;
+
+        float totaltime = t_i + t_m + t_o;
+
+        s_i = totalSteps * (steps_t)(t_i / totaltime);
+
+        s_o = totalSteps * (steps_t)(t_o / totaltime);
+
+        s_m = totalSteps - s_i - s_o;
     }
     
         //if meet maximum speed
