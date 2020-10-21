@@ -40,22 +40,20 @@ void TMR_ISR()
                 P_STEP_W(OFF);
                 if (stepperBuffer.buffer[stepperBuffer.head].acc_until>0)   //accceleration
                 {
-                    
                     stepperBuffer.buffer[stepperBuffer.head].acc_until--;
                     stepperBuffer.buffer[stepperBuffer.head].dec_after--;
-
-                    
+                    timerCnts = LEIBRAMP_CAL(1);
                 }
                 else if (stepperBuffer.buffer[stepperBuffer.head].dec_after>0)  //base speed
                 {
                     stepperBuffer.buffer[stepperBuffer.head].dec_after--;
-
+                    timerCnts = LEIBRAMP_CAL(0);
                 }
                 else    //deceleration
                 {
-                    /* code */
+                    stepperBuffer.buffer[stepperBuffer.head].dec_until--;
+                    timerCnts = LEIBRAMP_CAL(-1);
                 }
-                
             }
             else        //change block
             {
@@ -63,6 +61,7 @@ void TMR_ISR()
                 {
                     stepperBuffer.head = (stepperBuffer.head+1)%STEPPER_BUFFER_SIZE;
                     stepperBuffer.buffer[stepperBuffer.head].flag = BLOCK_BUSY;
+                    
 
                 }
             }

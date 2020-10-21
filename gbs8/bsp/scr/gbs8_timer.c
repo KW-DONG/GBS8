@@ -32,7 +32,6 @@ void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS)
     TMR2ON = state;
     T2CONbits.T2CKPS = ckPS;
     T2CONbits.TOUTPS = outPS;
-    
 }
 
 void GBS_PWM_Config(uint8_t channel, uint8_t dutyCycle)

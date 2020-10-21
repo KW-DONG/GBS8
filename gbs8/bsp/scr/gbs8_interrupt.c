@@ -118,6 +118,15 @@ void __interrupt() ISR()
     }
 #endif
 
+#if (T2I_EN)
+    if (PIR1bits.TMR2IF)
+    {
+        T2I_ISR();
+        PIR1bits.TMR2IF = 0;
+    }
+
+#endif
+
 #if (USART_EN)
     if (PIR1bits.RCIF)
     {
