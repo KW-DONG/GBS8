@@ -19,25 +19,38 @@
 #define STEPPER_D   0
 #define STEPPER_E   0
 
-#if STEPPER_A 
+#if (STEPPER_A) 
+#define A_DIR_W(dir)    POUT_1(dir)
+#define A_DIR_R         POUT_1_R
+#define A_STEP_W(state) POUT_2(dir)
+#define A_STEP_R        POUT_2_R
 
-#elif STEPPER_B
+#elif (STEPPER_B)
+#define B_DIR_W(dir)
+#define B_DIR_R
+#define B_STEP_W(state)
+#define B_STEP_R
 
+#elif (STEPPER_C)
+#define C_DIR_W(dir)
+#define C_DIR_R
+#define C_STEP_W(state)
+#define C_STEP_R
+
+#elif (STEPPER_D)
+#define D_DIR_W(dir)
+#define D_DIR_R
+#define D_STEP_W(state)
+#define D_STEP_R
+
+#elif (STEPPER_E)
+#define E_DIR_W(dir)
+#define E_DIR_R
+#define E_STEP_W(state)
+#define E_STEP_R
 
 #endif
 
-
-
-
-
-
-
-
-
-#define P_DIR_W(X)  POUT_1(X)
-#define P_DIR_R     POUT_1_R  
-#define P_STEP_W(X) POUT_2(X)
-#define P_STEP_R    POUT_2_R
 
 #define TMR 2                   //timer selected
 
