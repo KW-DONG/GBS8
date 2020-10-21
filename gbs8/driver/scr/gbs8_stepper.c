@@ -148,7 +148,52 @@ uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t dir, rotate_t rotation, s
         return 1;
     }
 }
+void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
+{
+    if (stepperX->cnts>0)
+    {
+        stepperX->cnts--;
+    }
+    else
+    {
+        if (stepperX->pinState==OFF)
+        {
+            stepperX->pinState = ON;
+            stepperX->cnts = 1;
+        }
+        else
+        {
+            //check block
+            if (sBufferX->buffer[sBufferX->tail].dec_until>=0)
+            {
+                if (sBufferX->buffer[sBufferX->tail].acc_until>=0)
+                {
 
+                }
+                else if (sBufferX->buffer[sBufferX->tail].dec_after>=0)
+                {
+
+                }
+                else
+                {
+                    
+                }
+                stepperX->pinState = OFF;
+                stepperX->cntsLast = LEIBRAMP_CAL(1,stepperX->cntsLast);
+            }
+            else if (sBufferX->buffer[(sBufferX->tail+1)%STEPPER_BUFFER_SIZE].flag==BLOCK_READY)
+            {
+                
+            }
+            
+        }
+    }  
+}
+
+void GBS_Stepper_Update()
+{
+
+}
 
 
 /**
@@ -161,52 +206,30 @@ uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t dir, rotate_t rotation, s
  */
 void TMR_ISR()
 {
-    if (timerCnts>0)        //check counter
-    {
-        timerCnts--;
-    }
-    else if (timerCnts==0)  //port trigger &steps count
-    {
-        if (P_STEP_R == OFF)
-        {
-            P_STEP_W(ON);
-            timerCnts = 1;  //set time delay 0.00001s
-        }
-        else 
-        { 
-            if (stepperBuffer.buffer[stepperBuffer.head].dec_until>0)   //the block has not been executed
-            {
-                P_STEP_W(OFF);
-                if (stepperBuffer.buffer[stepperBuffer.head].acc_until>0)   //accceleration
-                {
-                    stepperBuffer.buffer[stepperBuffer.head].acc_until--;
-                    stepperBuffer.buffer[stepperBuffer.head].dec_after--;
-                    timerCnts = LEIBRAMP_CAL(1);
-                }
-                else if (stepperBuffer.buffer[stepperBuffer.head].dec_after>0)  //base speed
-                {
-                    stepperBuffer.buffer[stepperBuffer.head].dec_after--;
-                    timerCnts = LEIBRAMP_CAL(0);
-                }
-                else    //deceleration
-                {
-                    stepperBuffer.buffer[stepperBuffer.head].dec_until--;
-                    timerCnts = LEIBRAMP_CAL(-1);
-                }
-            }
-            else        //change block
-            {
-                if (stepperBuffer.buffer[(stepperBuffer.head+1)%STEPPER_BUFFER_SIZE].flag == BLOCK_READY)
-                {
-                    stepperBuffer.head = (stepperBuffer.head+1)%STEPPER_BUFFER_SIZE;
-                    stepperBuffer.buffer[stepperBuffer.head].flag = BLOCK_BUSY;
-                    
 
-                }
-            }
-            
+#if (STEPPER_A)
 
-            //timerCnts = LEIBRAMP_CAL(stepperBuffer.buffer[stepperBuffer.head].dir);
-        }
-    }
+
+#endif
+
+#if (STEPPER_B)
+
+
+#endif
+
+#if (STEPPER_C)
+
+
+#endif
+
+#if (STEPPER_D)
+
+
+#endif
+
+#if (STEPPER_E)
+
+
+#endif
+
 }

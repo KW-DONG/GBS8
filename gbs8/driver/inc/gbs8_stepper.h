@@ -140,6 +140,7 @@ typedef struct
     uint8_t dir;            //stepper direction
     uint64_t cnts;          //used for iteration
     uint64_t cntsLast;      //represents current frequency
+    uint8_t pinState;       //ON or OFF
 }stepper_t;
 
 /*******************************Declaration***************************************/
@@ -147,7 +148,7 @@ typedef struct
 /**
  * @brief stepper motor initialization
  */
-void GBS_Stepper_Init();
+void GBS_Stepper_Init(void);
 
 /**
  * @brief trapezoidal curve planner
@@ -164,9 +165,17 @@ uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t dir, rotate_t rotation, s
 
 /**
  * @brief stepper execution
+ * @param stepperX stepper motor id
+ * @param sBufferX stepper buffer
  * @note only called by ISR
  */
 void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX);
+
+/**
+ * @brief update the pins for all stepper motrs 
+ * @note only called by ISR
+ */
+void GBS_Stepper_Update(void);
 
 /*****************************GLOBAL_VARIABLES************************************/
 
@@ -194,8 +203,6 @@ stepper_t stepperD;
 sBuffer_t sBufferE;
 stepper_t stepperE;
 #endif
-
-uint64_t timerCnts;
 
 #define PORT_FLAG_UP    0
 #define PORT_FLAG_FALL  1
@@ -238,11 +245,10 @@ uint64_t timerCnts;
  * q = m*p*p
  * 
  */
-#define LR_p    timerCntsLast*MAXIMUM_FREQ
-#define LR_R    MAXIMUM_FREQ*SQ(LR_p)
-#define LR_q    LR_R*SQ(LR_p)
+#define LR_p(cnt)    cnt*MAXIMUM_FREQ
+#define LR_R(cnt)    MAXIMUM_FREQ*SQ(LR_p(cnt))
+#define LR_q(cnt)    LR_R(cnt)*SQ(LR_p(cnt))
 
-#define JERK_DELAY(f)   10000/f
-#define LEIBRAMP_CAL(X) LR_p*(1+X*LR_q+SQ(X*LR_q))
+#define LEIBRAMP_CAL(dir,cnt) LR_p(cnt)*(1+dir*LR_q(cnt)+SQ(dir*LR_q(cnt)))
 
 #endif
