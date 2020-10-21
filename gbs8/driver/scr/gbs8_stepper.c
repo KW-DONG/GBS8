@@ -31,42 +31,44 @@ void TMR_ISR()
         if (P_STEP_R == OFF)
         {
             P_STEP_W(ON);
-            timerCnts = 1;
+            timerCnts = 1;  //set time delay 0.00001s
         }
         else 
-        {
-            P_STEP_W(OFF);
-            if (stepperBuffer.buffer[stepperBuffer.head].dec_until>0)
+        { 
+            if (stepperBuffer.buffer[stepperBuffer.head].dec_until>0)   //the block has not been executed
             {
-                if (stepperBuffer.buffer[stepperBuffer.head].acc_until>0)
+                P_STEP_W(OFF);
+                if (stepperBuffer.buffer[stepperBuffer.head].acc_until>0)   //accceleration
                 {
-                    if (P_STEP_R == ON)
-                    {
-                        P_STEP_W(OFF);
-                        stepperBuffer.buffer[stepperBuffer.head].acc_until--;
-                        stepperBuffer.buffer[stepperBuffer.head].dec_after--;
+                    
+                    stepperBuffer.buffer[stepperBuffer.head].acc_until--;
+                    stepperBuffer.buffer[stepperBuffer.head].dec_after--;
 
-                    }
+                    
                 }
-                else if (stepperBuffer.buffer[stepperBuffer.head].dec_after>0)
+                else if (stepperBuffer.buffer[stepperBuffer.head].dec_after>0)  //base speed
                 {
                     stepperBuffer.buffer[stepperBuffer.head].dec_after--;
 
                 }
-            }   
+                else    //deceleration
+                {
+                    /* code */
+                }
+                
+            }
+            else        //change block
+            {
+                if (stepperBuffer.buffer[(stepperBuffer.head+1)%STEPPER_BUFFER_SIZE].flag == BLOCK_READY)
+                {
+                    stepperBuffer.head = (stepperBuffer.head+1)%STEPPER_BUFFER_SIZE;
+                    stepperBuffer.buffer[stepperBuffer.head].flag = BLOCK_BUSY;
+
+                }
+            }
+            
 
             //timerCnts = LEIBRAMP_CAL(stepperBuffer.buffer[stepperBuffer.head].dir);
-
-        }
-
-    }else if (stepperBuffer.buffer[stepperBuffer.head].dec_until==0)    //change block
-    {
-        if (stepperBuffer.buffer[(stepperBuffer.head+1)%STEPPER_BUFFER_SIZE].flag == BLOCK_READY)
-        {
-            stepperBuffer.head = (stepperBuffer.head+1)%STEPPER_BUFFER_SIZE;
-            stepperBuffer.buffer[stepperBuffer.head].flag = BLOCK_BUSY;
-
         }
     }
-    
 }
