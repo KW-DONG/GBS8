@@ -11,7 +11,7 @@
 #define MAXIMUM_SPEED           3000    //use rpm
 #define MAXIMUM_ACCELERATION    1000    //rpm^2
 #define JERK_SPEED              20      //rpm, speed difference that does not need an acceleration
-#define RESOLUTION      200     //steps per rotation, default rotate angle is 1.8 degree
+#define RESOLUTION              200     //steps per rotation, default rotate angle is 1.8 degree
 
 #define STEPPER_A   1
 #define STEPPER_B   0
@@ -24,31 +24,34 @@
 #define A_DIR_R         POUT_1_R
 #define A_STEP_W(state) POUT_2(dir)
 #define A_STEP_R        POUT_2_R
+#endif
 
-#elif (STEPPER_B)
+#if (STEPPER_B)
 #define B_DIR_W(dir)
 #define B_DIR_R
 #define B_STEP_W(state)
 #define B_STEP_R
+#endif
 
-#elif (STEPPER_C)
+#if (STEPPER_C)
 #define C_DIR_W(dir)
 #define C_DIR_R
 #define C_STEP_W(state)
 #define C_STEP_R
+#endif
 
-#elif (STEPPER_D)
+#if (STEPPER_D)
 #define D_DIR_W(dir)
 #define D_DIR_R
 #define D_STEP_W(state)
 #define D_STEP_R
+#endif
 
-#elif (STEPPER_E)
+#if (STEPPER_E)
 #define E_DIR_W(dir)
 #define E_DIR_R
 #define E_STEP_W(state)
 #define E_STEP_R
-
 #endif
 
 
@@ -130,7 +133,7 @@ typedef struct
     uint8_t head;
     uint8_t tail;
     uint8_t size;
-}stepperBuffer_t;
+}sBuffer_t;
 
 typedef struct 
 {
@@ -164,9 +167,33 @@ uint8_t GBS_Stepper_Planner(stepper_t stepperX, dir_t direction, rotate_t rotati
  * @note only called by ISR
  */
 void GBS_Stepper_Exe(stepper_t stepperX);
-/************************GLOBAL_VARIABLES************************************/
 
-stepperBuffer_t stepperBuffer;
+/*****************************GLOBAL_VARIABLES************************************/
+
+#if (STEPPER_A)
+sBuffer_t sBufferA;
+stepper_t stepperA;
+#endif
+
+#if (STEPPER_B)
+sBuffer_t sBufferB;
+stepper_t stepperB;
+#endif
+
+#if (STEPPER_C)
+sBuffer_t sBufferC;
+stepper_t stepperC;
+#endif
+
+#if (STEPPER_D)
+sBuffer_t sBufferD;
+stepper_t stepperD;
+#endif
+
+#if (STEPPER_E)
+sBuffer_t sBufferE;
+stepper_t stepperE;
+#endif
 
 uint64_t timerCnts;
 
