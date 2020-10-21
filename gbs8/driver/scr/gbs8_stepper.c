@@ -4,13 +4,6 @@
 
 void GBS_Stepper_Init()
 {
-    
-    P_DIR_W(ON);
-    P_STEP_W(ON);
-    timerCntsLast = -1; //2^64 - 1
-    timerCnts = 0;
-    stepperDir = 0;
-
 #if (TMR==0)
 
 #elif (TMR==1)
@@ -52,6 +45,101 @@ void GBS_Stepper_Init()
 #endif
 
 }
+
+/**
+ * Trapezoidal curve calculation
+ * 
+ * The given parameters are:
+ * v_i: entry speed
+ * a_i: acceleration
+ * v_m: maximum speed
+ * v_o: leave speed
+ * a_o: deceleration
+ * s_t: totoal distance
+ * 
+ * determine:
+ * v_a: actual maximum speed
+ * 
+ * Assume the curve meets situation 1
+ * s_t = (v_i + v_a) * t_i / 2 + (v_o + v_a) * t_o / 2 -------- 1
+ * t_o = a_o * t_i / (a_i) -------------------------------------2
+ * v_i + a_i * t_i = v_o + a_o * t_o ---------------------------3
+ * 
+ * then t_i can be determined with equation 2 and 3
+ * t_i = (v_o - v_i) * a_i / (a_i^2 - a_o^2)
+ * 
+ * 
+ * Situation 1:
+ * 
+ * ^
+ * |
+ * |
+ * |      + less than maximum speed
+ * |     /|\
+ * |    / | \
+ * |   +  |  +
+ * |   |  |  |
+ * +---+--+--+--------------------->t
+ *     0 t_i t_i+t_o
+ * 
+ * 
+ * 
+ * Situation 2:
+ * 
+ * ^
+ * |     +---------------+ maximum speed
+ * |    /|               |\
+ * |   + |               | +   
+ * |   | |               | |
+ * +---+-+---------------+-+------>t
+ *    0  t_i       t_i+t_m
+ *                        t_i+t_m+t_o
+ */
+
+uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t dir, rotate_t rotation, speedRm_t v_i, speedRm_t v_m, speedRm_t v_o, accRm_t a_i, accRm_t a_o)
+{
+    //allocate steps
+        //calculate time
+    float t_i = (v_o - v_i) * a_i / (SQ(a_i) - SQ(a_o));
+
+    float v_a = v_i + a_i * t_i;
+
+    if (v_a>=v_m)
+    {
+
+    }
+    else
+    {
+        
+    }
+    
+        //if meet maximum speed
+
+
+
+    //unit transform
+
+
+
+
+
+    //write buffer
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * 

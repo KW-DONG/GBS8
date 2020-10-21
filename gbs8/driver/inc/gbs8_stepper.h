@@ -151,13 +151,15 @@ void GBS_Stepper_Init();
 /**
  * @brief trapezoidal curve planner
  * @param sBufferX stepper motor buffer
- * @param direction clockwise or anticlockwise
+ * @param dir clockwise or anticlockwise
  * @param rotation  rotation number (float)
- * @param maximumSpeed maximum rotation speed (rpm)
- * @param acceleration
- * @param deceleration
+ * @param v_i entry speed
+ * @param v_m maximum speed allowed
+ * @param v_o leave speed
+ * @param a_i acceleration
+ * @param a_o deceleration
  */
-uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t direction, rotate_t rotation, speedRm_t maximumSpeed, accRm_t acceleration, accRm_t deceleration);
+uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t dir, rotate_t rotation, speedRm_t v_i, speedRm_t v_m, speedRm_t v_o, accRm_t a_i, accRm_t a_o);
 
 /**
  * @brief stepper execution
