@@ -128,6 +128,8 @@ typedef struct
     accCnt_t acc;
     accCnt_t dec;
 
+    cnt_t maxSpeed;
+
     uint8_t  flag;
 }trapblock_t;
 

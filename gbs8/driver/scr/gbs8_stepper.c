@@ -107,12 +107,13 @@ uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t dir, rotate_t rotation, s
     steps_t s_i = 0;
     steps_t s_m = 0;
     steps_t s_o = 0;
+    cnt_t v_m_c = 0;
  
     //allocate steps
         //calculate time
     float t_i = (v_o - v_i) * a_i / (SQ(a_i) - SQ(a_o));
 
-    float v_a = v_i + a_i * t_i;
+    float v_a = v_i + a_i * t_i; //v_actual
 
     steps_t totalSteps = (steps_t)(rotation*(float)RESOLUTION);
 
@@ -120,6 +121,7 @@ uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t dir, rotate_t rotation, s
     {
         s_i = totalSteps * s_o * a_i / a_o;
         s_o = totalSteps - s_i;
+        v_m_c = RESOLUTION*TIMER_FREQ*(accCnt_t)(v_a / 60.0);
     }
     else            //situation 2
     {
@@ -134,18 +136,22 @@ uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t dir, rotate_t rotation, s
         s_o = totalSteps * (steps_t)(t_o / totaltime);
 
         s_m = totalSteps - s_i - s_o;
+
+        v_m_c = RESOLUTION*TIMER_FREQ*(accCnt_t)(v_m / 60.0);
     }
     
     //write buffer
-    if (sBufferX->buffer[sBufferX->head].flag==BLOCK_FREE)
+    if (sBufferX->buffer[sBufferX->tail].flag==BLOCK_FREE)
     {
-        sBufferX->buffer[sBufferX->head].dir = dir;
-        sBufferX->buffer[sBufferX->head].acc = RESOLUTION*TIMER_FREQ*(accCnt_t)(a_i / 60.0);
-        sBufferX->buffer[sBufferX->head].dec = RESOLUTION*TIMER_FREQ*(accCnt_t)(a_o / 60.0);
-        sBufferX->buffer[sBufferX->head].acc_until = s_i;
-        sBufferX->buffer[sBufferX->head].dec_after = s_i + s_m;
-        sBufferX->buffer[sBufferX->head].dec_until = totalSteps;
-        sBufferX->buffer[sBufferX->head].flag = BLOCK_READY;
+        sBufferX->buffer[sBufferX->tail].dir = dir;
+        sBufferX->buffer[sBufferX->tail].acc = RESOLUTION*TIMER_FREQ*(accCnt_t)(a_i / 60.0);
+        sBufferX->buffer[sBufferX->tail].dec = RESOLUTION*TIMER_FREQ*(accCnt_t)(a_o / 60.0);
+        sBufferX->buffer[sBufferX->tail].acc_until = s_i;
+        sBufferX->buffer[sBufferX->tail].dec_after = s_i + s_m;
+        sBufferX->buffer[sBufferX->tail].dec_until = totalSteps;
+        sBufferX->buffer[sBufferX->tail].maxSpeed = RESOLUTION*TIMER_FREQ*(accCnt_t)(v_m / 60.0);
+        sBufferX->buffer[sBufferX->tail].flag = BLOCK_READY;
+
         sBufferX->head = (sBufferX->head + 1) % STEPPER_BUFFER_SIZE;
         return 0;
     }
@@ -180,14 +186,15 @@ void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
         if (stepperX->cnts>0)   stepperX->cnts--;
         else
         {
-            if (sBufferX->buffer[sBufferX->tail].acc_until+sBufferX->buffer[sBufferX->tail].dec_after+sBufferX->buffer[sBufferX->tail].dec_until==0||stepperX->state==ON)
+            if (sBufferX->buffer[sBufferX->head].acc_until+sBufferX->buffer[sBufferX->head].dec_after+sBufferX->buffer[sBufferX->head].dec_until==0||stepperX->state==ON)
             {
-                if (sBufferX->buffer[(sBufferX->tail+1)%STEPPER_BUFFER_SIZE].flag==BLOCK_READY)
+                if (sBufferX->buffer[(sBufferX->head+1)%STEPPER_BUFFER_SIZE].flag==BLOCK_READY)
                 {
                     sBufferX->size--;
-                    sBufferX->tail = (sBufferX->tail+1)%STEPPER_BUFFER_SIZE;
-                    sBufferX->buffer[sBufferX->tail].flag = BLOCK_EXE;
+                    sBufferX->head = (sBufferX->head+1)%STEPPER_BUFFER_SIZE;
+                    sBufferX->buffer[sBufferX->head].flag = BLOCK_EXE;
                     stepperX->state = ON;
+                    stepperX->cntsLast = FIRST_STEP_CAL()
                 }
                 else
                 {
@@ -195,24 +202,24 @@ void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
                 }
             }
 
-            if (sBufferX->buffer[sBufferX->tail].flag == BLOCK_EXE)
+            if (sBufferX->buffer[sBufferX->head].flag == BLOCK_EXE)
             {
-                if (sBufferX->buffer[sBufferX->tail].acc_until>=0)  //acceleration
+                if (sBufferX->buffer[sBufferX->head].acc_until>=0)  //acceleration
                 {
                     stepperX->pinState = OFF;
-                    stepperX->cntsLast = NEXT_STEP_CAL(1,stepperX->cntsLast,sBufferX->buffer[sBufferX->tail].acc);
-                    sBufferX->buffer[sBufferX->tail].acc_until--;
-                    sBufferX->buffer[sBufferX->tail].dec_after--;
+                    stepperX->cntsLast = NEXT_STEP_CAL(1,stepperX->cntsLast,sBufferX->buffer[sBufferX->head].acc);
+                    sBufferX->buffer[sBufferX->head].acc_until--;
+                    sBufferX->buffer[sBufferX->head].dec_after--;
                 }
-                else if (sBufferX->buffer[sBufferX->tail].dec_after>=0) //base speed
+                else if (sBufferX->buffer[sBufferX->head].dec_after>=0) //base speed
                 {
                     stepperX->pinState = OFF;
-                    sBufferX->buffer[sBufferX->tail].dec_after--;
+                    sBufferX->buffer[sBufferX->head].dec_after--;
                 }
                 else    //deceleration
                 {
                     stepperX->pinState = OFF;
-                    stepperX->cntsLast = NEXT_STEP_CAL(-1,stepperX->cntsLast,sBufferX->buffer[sBufferX->tail].acc);
+                    stepperX->cntsLast = NEXT_STEP_CAL(-1,stepperX->cntsLast,sBufferX->buffer[sBufferX->head].acc);
                 } 
             }
   
