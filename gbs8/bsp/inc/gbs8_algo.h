@@ -2,8 +2,11 @@
 #define __GBS8_ALGO_H
 
 #include <stdint.h>
+#include <math.h>
 
-#define SQ(X)  ((X)*(X))
+#define SQ(X)   ((X)*(X))
+#define CUBE(X) ((X)*(X)*(X))
+#define SQRT(X) sqrt(X)
 
 /**
  *  @brief binary reader

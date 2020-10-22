@@ -3,6 +3,7 @@
 #include "stdint.h"
 #include <stdint.h>
 #include "gbs8_gpio.h"
+#include "gbs8_algo.h"
 
 /****************************CONFIGURATION***********************************/
 
@@ -12,7 +13,7 @@
 #define MAXIMUM_ACCELERATION    1000    //rpm^2
 #define JERK_SPEED              20      //rpm, speed difference that does not need an acceleration
 #define RESOLUTION              200     //steps per rotation, default rotate angle is 1.8 degree
-#define DELAY_CNT               10000   //10000 counts per second
+#define TIMER_FREQ              10000   //10000 counts per second
 
 #define STEPPER_A   1
 #define STEPPER_B   0
@@ -81,6 +82,9 @@
 
 #define MAXIMUM_FREQ    MAXIMUM_SPEED*RESOLUTION/60 //Hz
 #define JERK_FREQ       JERK_FREQ*RESOLUTION/60     //Hz
+
+#define IDLE_CNT        
+
 
 #if (TMR==0)
 #define TMR_ISR T0I_ISR
@@ -219,12 +223,12 @@ stepper_t stepperE;
  * v0 - base speed (steps per second)
  * v - slew speed
  * a - acceleration (steps per second per second)
- * F - timer frequency
+ * F - timer frequency (counts of timer tickes per second)
  * 
  * and calculated parameters are:
  * S - acceleration/deceleration distance
  *          S = (v^2 - v0^2) / (2a)
- * p1 - delay period for the base speed steps
+ * p1 - delay period for initial steps
  *          p1 = F / (v0^2 + 2a)^0.5
  * ps - delay period for the slew speed steps
  *          ps = F / v
@@ -245,10 +249,10 @@ stepper_t stepperE;
  * q = m*p*p
  * 
  */
-#define LR_p(cnt)    cnt*MAXIMUM_FREQ
-#define LR_R(cnt)    MAXIMUM_FREQ*SQ(LR_p(cnt))
-#define LR_q(cnt)    LR_R(cnt)*SQ(LR_p(cnt))
 
-#define LEIBRAMP_CAL(dir,cnt) LR_p(cnt)*(1+dir*LR_q(cnt)+SQ(dir*LR_q(cnt)))
+#define FIRST_STEP_CAL(v, a) TIMER_FREQ / SQRT(SQ(v) + 2*a)
+
+#define NEXT_STEP_CAL(dir,cnt,a)  cnt + dir*CUBE(cnt)*a/SQ(TIMER_FREQ) + CUBE(cnt)*SQ(cnt)*SQ(a/SQ(TIMER_FREQ))
+
 
 #endif

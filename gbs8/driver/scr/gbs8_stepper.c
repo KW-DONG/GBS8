@@ -12,7 +12,6 @@ void GBS_Stepper_Init()
     GBS_Timer2_Config(ENABLE,T2CKPS1,T2OUTPS1);
 #endif
 
-
 #if (STEPPER_A)
     A_DIR_W(ON);
     stepperA.state = OFF;
@@ -134,8 +133,8 @@ uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t dir, rotate_t rotation, s
     if (sBufferX->buffer[sBufferX->head].flag==BLOCK_FREE)
     {
         sBufferX->buffer[sBufferX->head].dir = dir;
-        sBufferX->buffer[sBufferX->head].acc = RESOLUTION*DELAY_CNT*(accCnt_t)(a_i / 60.0);
-        sBufferX->buffer[sBufferX->head].dec = RESOLUTION*DELAY_CNT*(accCnt_t)(a_o / 60.0);
+        sBufferX->buffer[sBufferX->head].acc = RESOLUTION*TIMER_FREQ*(accCnt_t)(a_i / 60.0);
+        sBufferX->buffer[sBufferX->head].dec = RESOLUTION*TIMER_FREQ*(accCnt_t)(a_o / 60.0);
         sBufferX->buffer[sBufferX->head].acc_until = s_i;
         sBufferX->buffer[sBufferX->head].dec_after = s_i + s_m;
         sBufferX->buffer[sBufferX->head].dec_until = totalSteps;
@@ -148,9 +147,21 @@ uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t dir, rotate_t rotation, s
         return 1;
     }
 }
+
+/**
+ * 
+ * ^
+ * |     <-> 1 timer tick
+ * |-----+ +---------+ +----
+ * |     | |         | |
+ * |     +-+         +-+
+ * |     <-----------> cntsLast
+ * 
+ */
+
 void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
 {
-    if (stepperX->cnts>0)
+    if (stepperX->cnts>0)   
     {
         stepperX->cnts--;
     }
@@ -159,7 +170,6 @@ void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
         if (stepperX->pinState==OFF)
         {
             stepperX->pinState = ON;
-            stepperX->cnts = 1;
         }
         else
         {
@@ -168,7 +178,8 @@ void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
             {
                 if (sBufferX->buffer[sBufferX->tail].acc_until>=0)
                 {
-
+                    stepperX->pinState = OFF;
+                    stepperX->cntsLast = LEIBRAMP_CAL(1,stepperX->cntsLast);
                 }
                 else if (sBufferX->buffer[sBufferX->tail].dec_after>=0)
                 {
@@ -176,10 +187,10 @@ void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
                 }
                 else
                 {
-                    
+                    stepperX->pinState = OFF;
+                    stepperX->cntsLast = LEIBRAMP_CAL(-1,stepperX->cntsLast);
                 }
-                stepperX->pinState = OFF;
-                stepperX->cntsLast = LEIBRAMP_CAL(1,stepperX->cntsLast);
+                
             }
             else if (sBufferX->buffer[(sBufferX->tail+1)%STEPPER_BUFFER_SIZE].flag==BLOCK_READY)
             {
