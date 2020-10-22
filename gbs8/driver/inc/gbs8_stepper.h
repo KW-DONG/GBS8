@@ -99,6 +99,7 @@
 #define BLOCK_BUSY  0
 #define BLOCK_FREE  1
 #define BLOCK_READY 2
+#define BLOCK_EXE   3
 
 #define CLOCKWISE       0
 #define ANTICLOCKWISE   1
@@ -141,6 +142,7 @@ typedef struct
 typedef struct 
 {
     uint8_t state;          //ON or OFF
+    uint8_t lock;           //manual lock
     uint8_t dir;            //stepper direction
     uint64_t cnts;          //used for iteration
     uint64_t cntsLast;      //represents current frequency
@@ -153,6 +155,12 @@ typedef struct
  * @brief stepper motor initialization
  */
 void GBS_Stepper_Init(void);
+
+/**
+ * @brief enable or diable stepper motor
+ * @param state ON or OFF
+ */
+void GBS_Stepper_Config(stepper_t* stepperX, uint8_t state);
 
 /**
  * @brief trapezoidal curve planner

@@ -45,6 +45,13 @@ void GBS_Stepper_Init()
 
 }
 
+void GBS_Stepper_Config(stepper_t* stepperX, uint8_t state)
+{
+    stepperX->pinState = ON;
+    if (state==ON)  stepperX->state = ON;
+    else            stepperX->state = OFF;
+}
+
 /**
  * Trapezoidal curve calculation
  * 
@@ -157,48 +164,60 @@ uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t dir, rotate_t rotation, s
  * |     +-+         +-+
  * |     <-----------> cntsLast
  * 
+ * test mode 1: startup
+ * test mode 2: change block
+ * test mode 3: shut down
  */
-
 void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
 {
-    if (stepperX->cnts>0)   
+    if (stepperX->pinState==OFF)
     {
+        stepperX->pinState = ON;
         stepperX->cnts--;
     }
     else
     {
-        if (stepperX->pinState==OFF)
-        {
-            stepperX->pinState = ON;
-        }
+        if (stepperX->cnts>0)   stepperX->cnts--;
         else
         {
-            //check block
-            if (sBufferX->buffer[sBufferX->tail].dec_until>=0)
+            if (sBufferX->buffer[sBufferX->tail].acc_until+sBufferX->buffer[sBufferX->tail].dec_after+sBufferX->buffer[sBufferX->tail].dec_until==0||stepperX->state==ON)
             {
-                if (sBufferX->buffer[sBufferX->tail].acc_until>=0)
+                if (sBufferX->buffer[(sBufferX->tail+1)%STEPPER_BUFFER_SIZE].flag==BLOCK_READY)
                 {
-                    stepperX->pinState = OFF;
-                    stepperX->cntsLast = LEIBRAMP_CAL(1,stepperX->cntsLast);
-                }
-                else if (sBufferX->buffer[sBufferX->tail].dec_after>=0)
-                {
-
+                    sBufferX->size--;
+                    sBufferX->tail = (sBufferX->tail+1)%STEPPER_BUFFER_SIZE;
+                    sBufferX->buffer[sBufferX->tail].flag = BLOCK_EXE;
+                    stepperX->state = ON;
                 }
                 else
                 {
-                    stepperX->pinState = OFF;
-                    stepperX->cntsLast = LEIBRAMP_CAL(-1,stepperX->cntsLast);
+                    stepperX->state = OFF;
                 }
-                
             }
-            else if (sBufferX->buffer[(sBufferX->tail+1)%STEPPER_BUFFER_SIZE].flag==BLOCK_READY)
+
+            if (sBufferX->buffer[sBufferX->tail].flag == BLOCK_EXE)
             {
-                
+                if (sBufferX->buffer[sBufferX->tail].acc_until>=0)  //acceleration
+                {
+                    stepperX->pinState = OFF;
+                    stepperX->cntsLast = NEXT_STEP_CAL(1,stepperX->cntsLast,sBufferX->buffer[sBufferX->tail].acc);
+                    sBufferX->buffer[sBufferX->tail].acc_until--;
+                    sBufferX->buffer[sBufferX->tail].dec_after--;
+                }
+                else if (sBufferX->buffer[sBufferX->tail].dec_after>=0) //base speed
+                {
+                    stepperX->pinState = OFF;
+                    sBufferX->buffer[sBufferX->tail].dec_after--;
+                }
+                else    //deceleration
+                {
+                    stepperX->pinState = OFF;
+                    stepperX->cntsLast = NEXT_STEP_CAL(-1,stepperX->cntsLast,sBufferX->buffer[sBufferX->tail].acc);
+                } 
             }
-            
+  
         }
-    }  
+    }    
 }
 
 void GBS_Stepper_Update()
@@ -207,14 +226,6 @@ void GBS_Stepper_Update()
 }
 
 
-/**
- * 
- * ^
- * |   0.00001s
- * ----+ +---------->t
- * |   | |
- * |   +-+     
- */
 void TMR_ISR()
 {
 
