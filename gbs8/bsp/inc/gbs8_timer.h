@@ -17,8 +17,6 @@ enum TIM_EN
     ENABLE
 };
 
-
-
 /****************************************************TMR0***************************************************************************/
 
 /**
@@ -64,12 +62,12 @@ void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0);
  * where PR can be 2^(X), and X is from 0 to 3
  * 
  */
-enum TIM1_FREQ
+enum TIM1_PS
 {
-    TIM1_42HZ = 0b00,
-    TIM1_21HZ,
-    TIM1_11HZ,
-    TIM1_5HZ
+    TIM1_PS1 = 0b00,
+    TIM1_PS2,
+    TIM1_PS4,
+    TIM1_PS8
 };
 
 enum TIM1_DIR
@@ -90,7 +88,7 @@ enum TIM1_DIR
  *       TMR1 counts from 0x0000 to 0xFFFF (0 - 65535)
  *
  */
-void GBS_Timer1_Config(uint8_t state, uint8_t gateEn, uint8_t gateDir, uint8_t frequency);
+void GBS_Timer1_Config(uint8_t state, uint8_t gateEn, uint8_t gateDir, uint8_t prescaler);
 
 /****************************************************TMR2*************************************************************************/
 

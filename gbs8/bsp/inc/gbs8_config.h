@@ -68,10 +68,15 @@
 #endif
 
 /**
- * 
- * 
+ * set TIMER1_GATE:
+ * 0 as diable
+ * 1 as enable
  */
-#define TIMER1       0
+#define TIMER1_GATE 0
+
+#if (TIMER1_GATE==1)
+#define TIMER1_GATE_DIR 0
+#endif
 
 #define TIMER2       0
 
