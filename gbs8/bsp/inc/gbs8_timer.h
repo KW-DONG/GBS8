@@ -6,9 +6,10 @@
 #include <stdint.h>
 #include "gbs8_algo.h"
 
+
+
+
 /***************************************************GLOBAL****************************************************************/
-
-
 
 enum TIM_EN
 {
@@ -82,7 +83,7 @@ enum WDT_FREQ
  *            -----------+------------+-----------
  *              3-bits   |  1:2^(B+1) |  1:2^(B)  
  */
-void GBS_Timer0_Config(uint8_t clockSoure, uint8_t sourceEdge, uint8_t assignment, uint8_t frequency);
+void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0);
 
 
 /****************************************************TMR1*************************************************************************/

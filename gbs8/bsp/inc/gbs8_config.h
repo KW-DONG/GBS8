@@ -25,6 +25,8 @@
 // #pragma config statements should precede project file includes.
 // Use project enums instead of #define for ON and OFF.
 
+/******************************************************INTERRUPTS**************************************************************/
+
 //INT external interrupt
 #define EXTI_EN     0
 
@@ -45,5 +47,32 @@
 
 //USART interrupt
 #define USART_EN    0
+
+/****************************************************TIMER********************************************************************/
+
+/**
+ * set TIMER0:
+ *  0 as timer mode
+ *  1 as counter mode
+ *  2 as watchdog timer
+ */
+#define TIMER0       0
+
+/**
+ * set TIMER0_SOURCE_EDGE
+ *  0 as Increment on low-to-high transition on T0CKI Pin
+ *  1 as Increment on high-to-low transition on T0CKI Pin
+ */
+#if (TIMER0==2)
+#define TIMER0_SOURCE_EDGE  0
+#endif
+
+/**
+ * 
+ * 
+ */
+#define TIMER1       0
+
+#define TIMER2       0
 
 #endif

@@ -17,32 +17,46 @@ void GBS_Stepper_Init()
     stepperA.state = OFF;
     stepperA.cntsLast = 0;
     stepperA.cnts = 0;
+    GBS_Stepper_Buffer_Init(&sBufferA);
+
 #endif
 #if (STEPPER_B)
     B_DIR_W(ON);
     stepperB.state = OFF;
     stepperB.cntsLast = 0;
     stepperB.cnts = 0;
+    GBS_Stepper_Buffer_Init(&sBufferB);
 #endif
 #if (STEPPER_C)
     C_DIR_W(ON);
     stepperC.state = OFF;
     stepperC.cntsLast = 0;
     stepperC.cnts = 0;
+    GBS_Stepper_Buffer_Init(&sBufferC);
 #endif
 #if (STEPPER_D)
     D_DIR_W(ON);
     stepperD.state = OFF;
     stepperD.cntsLast = 0;
     stepperD.cnts = 0;
+    GBS_Stepper_Buffer_Init(&sBufferD);
 #endif
 #if (STEPPER_E)
     E_DIR_W(ON);
     stepperE.state = OFF;
     stepperE.cntsLast = 0;
     stepperE.cnts = 0;
+    GBS_Stepper_Buffer_Init(&sBufferE);
 #endif
 
+}
+
+void GBS_Stepper_Buffer_Init(sBuffer_t* sBufferX)
+{
+    for (uint8_t i = 0; i < STEPPER_BUFFER_SIZE; i++)
+    {
+        sBufferX->buffer[i].flag = BLOCK_FREE;
+    }
 }
 
 void GBS_Stepper_Config(stepper_t* stepperX, uint8_t state)
@@ -279,5 +293,4 @@ void TMR_ISR()
 #endif
 
     GBS_Stepper_Update();
-
 }

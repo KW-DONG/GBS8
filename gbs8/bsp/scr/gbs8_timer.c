@@ -3,15 +3,32 @@
 #include "gbs8_config.h"
 #include "gbs8_algo.h"
 
-void GBS_Timer0_Config(uint8_t clockSource, uint8_t sourceEdge, uint8_t assignment, uint8_t frequency)
+/**
+ *  f_out = fclk / (4*Prescaler*(256-TMR0)*Count)
+ * 
+ */
+void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0)
 {
-    T0CS = clockSource;
-    T0SE = sourceEdge;
-    PSA = assignment;
-    OPTION_REGbits.PS = frequency;
-    TMR0 = 0;       //reset timer0
+    T0CS = TIMER0;
+#if (TIMER0==0)
+    PSA = 0;
+#endif
+
+#if (TIMER0==1)
+    T0SE = TIMER0_SOURCE_EDGE;
+#endif
+
+#if (TIMR0==2)
+    PSA = 1;
+#endif
+    OPTION_REGbits.PS = prescaler;
+    TMR0 = timer0;       //reset timer0
 }
 
+/**
+ *  f_out = fclk / (4*Prescaler*(65536 - TMR1)*Count)
+ * 
+ */
 void GBS_Timer1_Config(uint8_t state, uint8_t gateEn, uint8_t gateDir, uint8_t frequency)
 {
     T1CONbits.TMR1CS = 0;   //use internal clock source
@@ -24,9 +41,11 @@ void GBS_Timer1_Config(uint8_t state, uint8_t gateEn, uint8_t gateDir, uint8_t f
     //reset timer 1
     TMR1H = 0b0000;
     TMR1L = 0b0000;
-
 }
 
+/**
+ *  f_out = fclk / (4*Prescaler*(PR2-TMR2)*Postscaler*Count)
+ */
 void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS)
 {
     TMR2ON = state;

@@ -159,6 +159,11 @@ typedef struct
 void GBS_Stepper_Init(void);
 
 /**
+ * @brief stepper motor buffer initialization
+ */
+void GBS_Stepper_Buffer_Init(sBuffer_t* sBufferX);
+
+/**
  * @brief enable or diable stepper motor
  * @param state ON or OFF
  */
