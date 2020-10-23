@@ -24,7 +24,7 @@
 #if (STEPPER_A) 
 #define A_DIR_W(dir)    POUT_1(dir)
 #define A_DIR_R         POUT_1_R
-#define A_STEP_W(state) POUT_2(dir)
+#define A_STEP_W(state) POUT_2(state)
 #define A_STEP_R        POUT_2_R
 #endif
 

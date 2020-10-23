@@ -194,7 +194,7 @@ void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
                     sBufferX->head = (sBufferX->head+1)%STEPPER_BUFFER_SIZE;
                     sBufferX->buffer[sBufferX->head].flag = BLOCK_EXE;
                     stepperX->state = ON;
-                    stepperX->cntsLast = FIRST_STEP_CAL()
+                    stepperX->cntsLast = FIRST_STEP_CAL(sBufferX->buffer[sBufferX->head].maxSpeed,sBufferX->buffer[sBufferX->head].acc);
                 }
                 else
                 {
@@ -227,38 +227,57 @@ void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
     }    
 }
 
-void GBS_Stepper_Update()
+void GBS_Stepper_Update(void)
 {
-
-}
-
-
-void TMR_ISR()
-{
-
 #if (STEPPER_A)
-
-
+    A_DIR_W(stepperA.dir);
+    A_STEP_W(stepperA.pinState); 
 #endif
 
 #if (STEPPER_B)
-
-
+    B_DIR_W(stepperB.dir);
+    B_STEP_W(stepperB.pinState); 
 #endif
 
 #if (STEPPER_C)
-
-
+    C_DIR_W(stepperC.dir);
+    C_STEP_W(stepperC.pinState); 
 #endif
 
 #if (STEPPER_D)
-
-
+    D_DIR_W(stepperD.dir);
+    D_STEP_W(stepperD.pinState); 
 #endif
 
 #if (STEPPER_E)
-
-
+    E_DIR_W(stepperE.dir);
+    E_STEP_W(stepperE.pinState); 
 #endif
+
+}
+
+void TMR_ISR()
+{
+#if (STEPPER_A)
+    if (stepperA.lock==OFF) GBS_Stepper_Exe(&stepperA, &sBufferA);
+#endif
+
+#if (STEPPER_B)
+    if (stepperB.lock==OFF) GBS_Stepper_Exe(&stepperB, &sBufferB);
+#endif
+
+#if (STEPPER_C)
+    if (stepperC.lock==OFF) GBS_Stepper_Exe(&stepperC, &sBufferC);
+#endif
+
+#if (STEPPER_D)
+    if (stepperD.lock==OFF) GBS_Stepper_Exe(&stepperD, &sBufferD);
+#endif
+
+#if (STEPPER_E)
+    if (stepperE.lock==OFF) GBS_Stepper_Exe(&stepperE, &sBufferA);
+#endif
+
+    GBS_Stepper_Update();
 
 }
