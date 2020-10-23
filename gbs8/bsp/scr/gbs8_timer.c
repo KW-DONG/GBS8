@@ -5,7 +5,6 @@
 
 /**
  *  f_out = fclk / (4*Prescaler*(256-TMR0)*Count)
- * 
  */
 void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0)
 {
@@ -27,7 +26,6 @@ void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0)
 
 /**
  *  f_out = fclk / (4*Prescaler*(65536 - TMR1)*Count)
- * 
  */
 void GBS_Timer1_Config(uint8_t state, uint8_t gateEn, uint8_t gateDir, uint8_t frequency)
 {

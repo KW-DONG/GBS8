@@ -21,67 +21,37 @@ enum TIM_EN
 
 /****************************************************TMR0***************************************************************************/
 
-enum TIM0_CS    //TMR0 Clock Source Select bit
-{
-    //when used as a timer, the Timer0 module will increment every instruction cycle (without prescaler)
-    TIM0_TIMER_MODE,
-
-    //when used as a counter, the Timer0 module will increment on every rising or falling edge of the T0CKI pin
-    TIM0_COUNTER_MODE
-};
-
-enum TIM0_SE    //TMR0 Source Edge Select bit
-{
-    TIM0_L2H,        //Increment on low-to-high transition on T0CKI Pin
-    TIM0_H2L         //Increment on high-to-low transition on T0CKI Pin
-};
-
-enum TIM0_PSA
-{
-    TIM0_TIMER,
-    TIM0_WDT
-};
-
 /**
- * Frequency to Prescale
- * TMR0 input freq = Fosc/4/Prescale/256 = 11059200/(4*PR*256)
- * where PR can be 2^(X+1), and X is from 0 to 7
- * 
+ * timer 0 prescalers
  */
-enum TIM0_FREQ
+enum TMR0_PS
 {
-    TIM0_5400HZ = 0b000,
-    TIM0_2700HZ,
-    TIM0_1350HZ,
-    TIM0_775HZ,
-    TIM0_387HZ,
-    TIM0_194HZ,
-    TIM0_97HZ,
-    TIM0_48HZ
+    TIM0_PS2 = 0,
+    TIM0_PS4,
+    TIM0_PS8,
+    TIM0_PS16,
+    TIM0_PS32,
+    TIM0_PS64,
+    TIM0_PS128,
+    TIM0_PS256
 };
 
-enum WDT_FREQ
+enum WDT_PS
 {
-    WDT_10800HZ = 0b000,
-    WDT_5400HZ,
-    WDT_2700HZ,
-    WDT_1350HZ,
-    WDT_775HZ,
-    WDT_387HZ,
-    WDT_194HZ,
-    WDT_97HZ
+    WDT_PS1 = 0,
+    WDT_PS2,
+    WDT_PS4,
+    WDT_PS8,
+    WDT_PS16,
+    WDT_PS32,
+    WDT_PS64,
+    WDT_PS128
 };
 
 /**
  * @brief Timer0 configuration
- * @param clockSource   timer0 can be either timer or counter
- * @param sourceEdge    high to low or low to high
- * @param assignment    Timer or watchdog
- * @param frequency     use TIM0_FREQ or WDT_FREQ
- * 
- * @note        BIT VALUE   TMR0 RATE   WDTRATE
- *            -----------+------------+-----------
- *              3-bits   |  1:2^(B+1) |  1:2^(B)  
+ * @param prescaler 
+ * @param timer0 
  */
 void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0);
 
