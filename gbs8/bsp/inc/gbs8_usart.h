@@ -21,9 +21,9 @@ extern USART_buffer_t usartSendBuffer;
 
 uint8_t GBS_USART_Buffer_Read(USART_buffer_t* buffer);
 
-uint8_t GBS_USART_Buffer_Write(USART_buffer_t* buffer, uint8_t value);
+void GBS_USART_Buffer_Write(USART_buffer_t* buffer, uint8_t value);
 
-void GBS_USART_Init(uint32_t baudRate);
+void GBS_USART_Init(uint16_t baudRate);
 
 void GBS_USART_Receive();
 
