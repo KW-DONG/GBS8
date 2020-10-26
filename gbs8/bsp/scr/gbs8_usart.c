@@ -1,11 +1,37 @@
 #include "gbs8_usart.h"
 #include "gbs8_interrupt.h"
+#include "gbs8_config.h"
 
-void GBS_USART_Init()
+
+void GBS_USART_Init(uint16_t baudRate)
 {
     //enable interrupts
     PIE1bits.TXIE = 1;
     PIE1bits.RCIE = 1;
+
+    
+    TXSTAbits.CSRC = 1;
+    TXSTAbits.TX9 = 0;
+
+    //use asynchronous mode
+    TXSTAbits.SYNC = 0;
+    RCSTAbits.RX9 = 0;
+    BAUDCTLbits.BRG16 = 1;
+
+    //send break character bit
+    TXSTAbits.SENDB = 0;
+
+    //high boud rate select
+    TXSTAbits.BRGH = 1;
+
+    //set baud rate
+    SPBRG = _XTAL_FREQ / (baudRate*4) - 1;
+
+    //set RX input
+    TRISCbits.TRISC7 = 1;
+
+    //set TX output
+    TRISCbits.TRISC6 = 0;
 
     //enable serial ports
     TXSTAbits.TXEN = 1;
