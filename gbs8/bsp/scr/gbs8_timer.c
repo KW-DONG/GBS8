@@ -27,17 +27,16 @@ void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0)
 /**
  *  f_out = fclk / (4*Prescaler*(65536 - TMR1)*Count)
  */
-void GBS_Timer1_Config(uint8_t state, uint8_t gateEn, uint8_t gateDir, uint8_t prescaler)
+void GBS_Timer1_Config(uint8_t state, uint8_t prescaler, uint16_t timVar)
 {
+    T1CONbits.TMR1ON = 0;   //stop timer 1
     T1CONbits.TMR1CS = 0;   //use internal clock source
     T1CONbits.T1OSCEN = 0;  //LP oscillator is off  
-    T1CONbits.TMR1ON = state;
-    T1CONbits.TMR1GE = TIMER1_GATE;
-    T1CONbits.T1GINV = TIMER1_GATE_DIR;
+
     T1CONbits.T1CKPS = prescaler;
-  
+    T1CONbits.TMR1ON = state; //config timer 1
     //reset timer 1
-    TMR1 = 0;
+    TMR1 = timVar;
 }
 
 /**

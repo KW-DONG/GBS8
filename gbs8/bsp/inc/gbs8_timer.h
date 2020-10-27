@@ -70,25 +70,15 @@ enum TIM1_PS
     TIM1_PS8
 };
 
-enum TIM1_DIR
-{
-    LOW,
-    HIGH
-};
-
-
 /**
  * @brief Timer1 configuration
  * @param state     can be enable or disable
- * @param gateEN    enable or disable timer gate function
- * @param gateDir   active high or active low
- * @param frequency use TIM1_FREQ
- *                     1:2^B
+ * @param prescaler use TIM1_PS
+ * @param timVar    timer reset value
  * @note Internal clock source is selected
  *       TMR1 counts from 0x0000 to 0xFFFF (0 - 65535)
- *
  */
-void GBS_Timer1_Config(uint8_t state, uint8_t gateEn, uint8_t gateDir, uint8_t prescaler);
+void GBS_Timer1_Config(uint8_t state, uint8_t prescaler, uint16_t timVar);
 
 /****************************************************TMR2*************************************************************************/
 

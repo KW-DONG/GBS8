@@ -5,7 +5,7 @@
 #include <xc.h>
 #include <stdint.h>
 
-#define USART_BUFFER_SIZE   8
+#define USART_BUFFER_SIZE   128
 
 typedef struct 
 {
