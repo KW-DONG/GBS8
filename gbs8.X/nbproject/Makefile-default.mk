@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../test.c ../gbs8/bsp/scr/gbs8_algo.c ../gbs8/bsp/scr/gbs8_gpio.c ../gbs8/bsp/scr/gbs8_interrupt.c ../gbs8/bsp/scr/gbs8_relay.c ../gbs8/bsp/scr/gbs8_timer.c ../gbs8/bsp/scr/gbs8_usart.c
+SOURCEFILES_QUOTED_IF_SPACED=../test.c ../gbs8/bsp/scr/gbs8_algo.c ../gbs8/bsp/scr/gbs8_gpio.c ../gbs8/bsp/scr/gbs8_interrupt.c ../gbs8/bsp/scr/gbs8_relay.c ../gbs8/bsp/scr/gbs8_timer.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/test.p1 ${OBJECTDIR}/_ext/431345294/gbs8_algo.p1 ${OBJECTDIR}/_ext/431345294/gbs8_gpio.p1 ${OBJECTDIR}/_ext/431345294/gbs8_interrupt.p1 ${OBJECTDIR}/_ext/431345294/gbs8_relay.p1 ${OBJECTDIR}/_ext/431345294/gbs8_timer.p1 ${OBJECTDIR}/_ext/431345294/gbs8_usart.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/test.p1.d ${OBJECTDIR}/_ext/431345294/gbs8_algo.p1.d ${OBJECTDIR}/_ext/431345294/gbs8_gpio.p1.d ${OBJECTDIR}/_ext/431345294/gbs8_interrupt.p1.d ${OBJECTDIR}/_ext/431345294/gbs8_relay.p1.d ${OBJECTDIR}/_ext/431345294/gbs8_timer.p1.d ${OBJECTDIR}/_ext/431345294/gbs8_usart.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/test.p1 ${OBJECTDIR}/_ext/431345294/gbs8_algo.p1 ${OBJECTDIR}/_ext/431345294/gbs8_gpio.p1 ${OBJECTDIR}/_ext/431345294/gbs8_interrupt.p1 ${OBJECTDIR}/_ext/431345294/gbs8_relay.p1 ${OBJECTDIR}/_ext/431345294/gbs8_timer.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/test.p1.d ${OBJECTDIR}/_ext/431345294/gbs8_algo.p1.d ${OBJECTDIR}/_ext/431345294/gbs8_gpio.p1.d ${OBJECTDIR}/_ext/431345294/gbs8_interrupt.p1.d ${OBJECTDIR}/_ext/431345294/gbs8_relay.p1.d ${OBJECTDIR}/_ext/431345294/gbs8_timer.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1472/test.p1 ${OBJECTDIR}/_ext/431345294/gbs8_algo.p1 ${OBJECTDIR}/_ext/431345294/gbs8_gpio.p1 ${OBJECTDIR}/_ext/431345294/gbs8_interrupt.p1 ${OBJECTDIR}/_ext/431345294/gbs8_relay.p1 ${OBJECTDIR}/_ext/431345294/gbs8_timer.p1 ${OBJECTDIR}/_ext/431345294/gbs8_usart.p1
+OBJECTFILES=${OBJECTDIR}/_ext/1472/test.p1 ${OBJECTDIR}/_ext/431345294/gbs8_algo.p1 ${OBJECTDIR}/_ext/431345294/gbs8_gpio.p1 ${OBJECTDIR}/_ext/431345294/gbs8_interrupt.p1 ${OBJECTDIR}/_ext/431345294/gbs8_relay.p1 ${OBJECTDIR}/_ext/431345294/gbs8_timer.p1
 
 # Source Files
-SOURCEFILES=../test.c ../gbs8/bsp/scr/gbs8_algo.c ../gbs8/bsp/scr/gbs8_gpio.c ../gbs8/bsp/scr/gbs8_interrupt.c ../gbs8/bsp/scr/gbs8_relay.c ../gbs8/bsp/scr/gbs8_timer.c ../gbs8/bsp/scr/gbs8_usart.c
+SOURCEFILES=../test.c ../gbs8/bsp/scr/gbs8_algo.c ../gbs8/bsp/scr/gbs8_gpio.c ../gbs8/bsp/scr/gbs8_interrupt.c ../gbs8/bsp/scr/gbs8_relay.c ../gbs8/bsp/scr/gbs8_timer.c
 
 
 
@@ -142,14 +142,6 @@ ${OBJECTDIR}/_ext/431345294/gbs8_timer.p1: ../gbs8/bsp/scr/gbs8_timer.c  nbproje
 	@-${MV} ${OBJECTDIR}/_ext/431345294/gbs8_timer.d ${OBJECTDIR}/_ext/431345294/gbs8_timer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/431345294/gbs8_timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/_ext/431345294/gbs8_usart.p1: ../gbs8/bsp/scr/gbs8_usart.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/431345294" 
-	@${RM} ${OBJECTDIR}/_ext/431345294/gbs8_usart.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/431345294/gbs8_usart.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../gbs8/bsp/inc" -I"../gbs8/driver/inc" -I"C:/Program Files/Microchip/xc8/v2.20" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/431345294/gbs8_usart.p1 ../gbs8/bsp/scr/gbs8_usart.c 
-	@-${MV} ${OBJECTDIR}/_ext/431345294/gbs8_usart.d ${OBJECTDIR}/_ext/431345294/gbs8_usart.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/431345294/gbs8_usart.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
 else
 ${OBJECTDIR}/_ext/1472/test.p1: ../test.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
@@ -198,14 +190,6 @@ ${OBJECTDIR}/_ext/431345294/gbs8_timer.p1: ../gbs8/bsp/scr/gbs8_timer.c  nbproje
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../gbs8/bsp/inc" -I"../gbs8/driver/inc" -I"C:/Program Files/Microchip/xc8/v2.20" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/431345294/gbs8_timer.p1 ../gbs8/bsp/scr/gbs8_timer.c 
 	@-${MV} ${OBJECTDIR}/_ext/431345294/gbs8_timer.d ${OBJECTDIR}/_ext/431345294/gbs8_timer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/_ext/431345294/gbs8_timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
-	
-${OBJECTDIR}/_ext/431345294/gbs8_usart.p1: ../gbs8/bsp/scr/gbs8_usart.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/431345294" 
-	@${RM} ${OBJECTDIR}/_ext/431345294/gbs8_usart.p1.d 
-	@${RM} ${OBJECTDIR}/_ext/431345294/gbs8_usart.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../gbs8/bsp/inc" -I"../gbs8/driver/inc" -I"C:/Program Files/Microchip/xc8/v2.20" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx032 -Wl,--data-init -mno-keep-startup -mno-osccal -mno-resetbits -mno-save-resetbits -mno-download -mno-stackcall $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto     -o ${OBJECTDIR}/_ext/431345294/gbs8_usart.p1 ../gbs8/bsp/scr/gbs8_usart.c 
-	@-${MV} ${OBJECTDIR}/_ext/431345294/gbs8_usart.d ${OBJECTDIR}/_ext/431345294/gbs8_usart.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/_ext/431345294/gbs8_usart.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

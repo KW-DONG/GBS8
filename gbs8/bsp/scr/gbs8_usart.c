@@ -55,18 +55,18 @@ uint8_t GBS_USART_Buffer_Read(USART_buffer_t* buffer)
     }
 }
 
-void GBS_USART_Send()
+void GBS_USART_Send(USART_buffer_t* buffer)
 {
     PIE1bits.TXIE = 1;
     if (usartSendBuffer.size>0)
     {
-        TXREG = GBS_USART_Buffer_Read(&usartSendBuffer);
+        TXREG = GBS_USART_Buffer_Read(buffer);
     }
 }
 
-void GBS_USART_Receive()
+void GBS_USART_Receive(USART_buffer_t* buffer)
 {
-    GBS_USART_Buffer_Write(&usartReceiveBuffer, RCREG);
+    GBS_USART_Buffer_Write(buffer, RCREG);
 }
 
 void USART_TX_ISR()

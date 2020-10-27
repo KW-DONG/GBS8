@@ -7,11 +7,11 @@
 #define NO  0
 #define NC  1
 
-#define RELAY1_STATE  PORTEbits.RE2
-#define RELAY2_STATE  PORTEbits.RE1
-
 #define GBS_RELAY1_SET(X)   TRISEbits.TRISE2 = X
 #define GBS_RELAY2_SET(X)   TRISEbits.TRISE1 = X
+
+#define GBS_RELAY1_R        TRISEbits.TRISE2
+#define GBS_RELAY2_R        TRISEbits.TRISE1
 
 /**
  *  @brief relay initialization function

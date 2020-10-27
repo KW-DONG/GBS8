@@ -1,0 +1,111 @@
+Version 4.0 HI-TECH Software Intermediate Code
+"5 ../gbs8/bsp/scr/gbs8_algo.c
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 5: uint8_t Read_Binary(uint8_t dec, uint8_t num)
+[v _Read_Binary `(uc ~T0 @X0 1 ef2`uc`uc ]
+"6
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 6: {
+{
+[e :U _Read_Binary ]
+"5
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 5: uint8_t Read_Binary(uint8_t dec, uint8_t num)
+[v _dec `uc ~T0 @X0 1 r1 ]
+[v _num `uc ~T0 @X0 1 r2 ]
+"6
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 6: {
+[f ]
+"7
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 7:     uint8_t bit;
+[v _bit `uc ~T0 @X0 1 a ]
+"8
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 8:     while (num>=0)
+[e $U 2  ]
+[e :U 3 ]
+"9
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 9:     {
+{
+"10
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 10:         bit = dec%2;
+[e = _bit -> % -> _dec `i -> 2 `i `uc ]
+"11
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 11:         num--;
+[e -- _num -> -> 1 `i `uc ]
+"12
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 12:     }
+}
+[e :U 2 ]
+"8
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 8:     while (num>=0)
+[e $ >= -> _num `i -> 0 `i 3  ]
+[e :U 4 ]
+"13
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 13:     return bit;
+[e ) _bit ]
+[e $UE 1  ]
+"14
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 14: }
+[e :UE 1 ]
+}
+"16
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 16: uint16_t Register_Joint(uint8_t regH, uint8_t regL)
+[v _Register_Joint `(ui ~T0 @X0 1 ef2`uc`uc ]
+"17
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 17: {
+{
+[e :U _Register_Joint ]
+"16
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 16: uint16_t Register_Joint(uint8_t regH, uint8_t regL)
+[v _regH `uc ~T0 @X0 1 r1 ]
+[v _regL `uc ~T0 @X0 1 r2 ]
+"17
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 17: {
+[f ]
+"18
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 18:     uint16_t result = 0;
+[v _result `ui ~T0 @X0 1 a ]
+[e = _result -> -> 0 `i `ui ]
+"19
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 19:     result = result ^ regH;
+[e = _result ^ _result -> _regH `ui ]
+"20
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 20:     result = result << 8;
+[e = _result << _result -> 8 `i ]
+"21
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 21:     result = result ^ regL;
+[e = _result ^ _result -> _regL `ui ]
+"22
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 22:     return result;
+[e ) _result ]
+[e $UE 5  ]
+"23
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 23: }
+[e :UE 5 ]
+}
+"25
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 25: void Reg10_Decouple(uint8_t* regH, uint8_t* regL, uint16_t reg)
+[v _Reg10_Decouple `(v ~T0 @X0 1 ef3`*uc`*uc`ui ]
+"26
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 26: {
+{
+[e :U _Reg10_Decouple ]
+"25
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 25: void Reg10_Decouple(uint8_t* regH, uint8_t* regL, uint16_t reg)
+[v _regH `*uc ~T0 @X0 1 r1 ]
+[v _regL `*uc ~T0 @X0 1 r2 ]
+[v _reg `ui ~T0 @X0 1 r3 ]
+"26
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 26: {
+[f ]
+"27
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 27:     uint8_t regL_temp = 0b0000000011;
+[v _regL_temp `uc ~T0 @X0 1 a ]
+[e = _regL_temp -> -> 3 `i `uc ]
+"28
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 28:     regL = reg & regL_temp;
+[e = _regL -> & _reg -> _regL_temp `ui `*uc ]
+"29
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 29:     regH = reg >> 2;
+[e = _regH -> >> _reg -> 2 `i `*uc ]
+"30
+[; ;../gbs8/bsp/scr/gbs8_algo.c: 30: }
+[e :UE 6 ]
+}
