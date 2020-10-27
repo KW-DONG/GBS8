@@ -16,10 +16,10 @@
 #define BUTTON_STOP     NULL
 #define BUTTON_LOCK     NULL
 
-#define LED_START1      NULL
-#define LED_START2      NULL
-#define LED_STOP        NULL
-#define LED_LOCK        NULL
+#define LED_START1(X)   NULL
+#define LED_START2(X)   NULL
+#define LED_STOP(X)     NULL
+#define LED_LOCK(X)     NULL
 
 #define SAFE_STATE      0
 #define WORK_STATE      1

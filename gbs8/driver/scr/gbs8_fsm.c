@@ -26,15 +26,27 @@ void GBS_Machine_Start()
 
 void GBS_Safe_Mode()
 {
-
+    LED_START1(LED_OFF);
+    LED_START2(LED_OFF);
+    LED_STOP(LED_OFF);
+    LED_LOCK(LED_ON);
 }
 
 void GBS_Work_Mode()
 {
-
+    LED_START1(LED_OFF);
+    LED_START2(LED_OFF);
+    LED_STOP(LED_ON);
+    LED_LOCK(LED_ON);
 }
 
-void GBS_Idle_Mode();
+void GBS_Idle_Mode()
+{
+    LED_START1(LED_ON);
+    LED_START2(LED_ON);
+    LED_STOP(LED_OFF);
+    LED_LOCK(LED_ON);
+}
 
 
 void T0I_ISR()
