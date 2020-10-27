@@ -45,7 +45,8 @@
 #define POUT_11_R   TRISCbits.TRISC1
 #define POUT_12_R   TRISCbits.TRISC0
 
-#define RUN_BLINK(X)   TRISEbits.TRISE0 = X
+#define RUN_BLINK(X)    TRISEbits.TRISE0 = X
+#define RUN_BLINK_R     TRISEbits.TRISE0
 
 #define PIN_1       PORTAbits.RA2
 #define PIN_2       PORTAbits.RA3

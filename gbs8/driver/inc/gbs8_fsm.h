@@ -55,8 +55,8 @@ void GBS_Machine_Start();
 
 void GBS_Safe_Mode();
 
-void GBS_Work_Mode();
-
 void GBS_Idle_Mode();
+
+void GBS_Task_Scheduler();
 
 #endif

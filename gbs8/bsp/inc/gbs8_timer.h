@@ -6,9 +6,6 @@
 #include <stdint.h>
 #include "gbs8_algo.h"
 
-
-
-
 /***************************************************GLOBAL****************************************************************/
 
 enum TIM_EN
@@ -53,7 +50,6 @@ enum WDT_PS
  */
 void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0);
 
-
 /****************************************************TMR1*************************************************************************/
 
 /**
@@ -84,9 +80,9 @@ void GBS_Timer1_Config(uint8_t state, uint8_t prescaler, uint16_t timVar);
 
 enum
 {
-    T2CKPS1,
-    T2CKPS4,
-    T2CKPS16
+    TIM2_PS1 = 0,
+    TIM2_PS4,
+    TIM2_PS16
 };
 
 enum

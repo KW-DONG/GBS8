@@ -1,10 +1,7 @@
 #include "gbs8_fsm.h"
 #include "gbs8_interrupt.h"
 
-void GBS_Machine_Init()
-{
-
-}
+#if (USE_FSM)
 
 void GBS_Machine_Start()
 {
@@ -48,11 +45,6 @@ void GBS_Idle_Mode()
     LED_LOCK(LED_ON);
 }
 
+#endif
 
-void T0I_ISR()
-{
-
-
-     
-}
 

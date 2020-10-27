@@ -8,16 +8,18 @@
  */
 void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0)
 {
-    T0CS = TIMER0;
+    
 #if (TIMER0==0)
     PSA = 0;
+    T0CS = TIMER0;
 #endif
 
 #if (TIMER0==1)
     T0SE = TIMER0_SOURCE_EDGE;
+    T0CS = TIMER0;
 #endif
 
-#if (TIMR0==2)
+#if (TIMER0==2)
     PSA = 1;
 #endif
     OPTION_REGbits.PS = prescaler;
