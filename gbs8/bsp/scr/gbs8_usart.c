@@ -6,7 +6,7 @@
 void GBS_USART_Init(uint16_t baudRate)
 {
     //enable interrupts
-    PIE1bits.TXIE = 1;
+    PIE1bits.TXIE = 0;
     PIE1bits.RCIE = 1;
     
     TXSTAbits.TX9 = 0;
@@ -57,6 +57,7 @@ uint8_t GBS_USART_Buffer_Read(USART_buffer_t* buffer)
 
 void GBS_USART_Send()
 {
+    PIE1bits.TXIE = 1;
     if (usartSendBuffer.size>0)
     {
         TXREG = GBS_USART_Buffer_Read(&usartSendBuffer);
@@ -71,6 +72,7 @@ void GBS_USART_Receive()
 void USART_TX_ISR()
 {
     GBS_USART_Send(&usartSendBuffer);
+    PIE1bits.TXIE = 0;
 }
 
 void USART_RX_ISR()
