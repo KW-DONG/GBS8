@@ -59,6 +59,8 @@
 
 #define TMR 2                   //timer selected
 
+#define STEPPER_ON  1
+#define STEPPER_OFF 0
 
 /*****************************************************************************/
 
