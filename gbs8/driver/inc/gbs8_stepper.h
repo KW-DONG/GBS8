@@ -87,10 +87,7 @@
 
 #define IDLE_CNT        
 
-
-#if (TMR==0)
-#define TMR_ISR T0I_ISR
-#elif (TMR==1)
+#if (TMR==1)
 #define TMR_ISR T1I_ISR
 #elif (TMR==2)
 #define TMR_ISR T2I_ISR

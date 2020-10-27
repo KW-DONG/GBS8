@@ -1,9 +1,11 @@
-#include "gbs8_machine.h"
+#include "gbs8_fsm.h"
 #include "gbs8_interrupt.h"
 
 void GBS_Machine_Init()
 {
-
+    myMachine.enable = 0;
+    myMachine.safety = 0;
+    myMachine.startRequest = 0;
 }
 
 void GBS_Machine_Start()
@@ -29,7 +31,7 @@ void GBS_Safe_Mode()
 
 void GBS_Work_Mode()
 {
-    
+
 }
 
 void GBS_Idle_Mode();

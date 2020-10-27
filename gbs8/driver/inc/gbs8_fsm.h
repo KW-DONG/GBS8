@@ -1,12 +1,12 @@
 /**
- *  state machine for a standard SSVE device
+ *  finit state machine for a standard SSVE device
  *  this state machine is controlled by four buttons with leds and other signals
  *  the state machine is updated by timer 0
  *  please do not write ISR for timer 0 if you would like to use the state machine
  */
 
-#ifndef __GBS8_BUTTON_H
-#define __GBS_BUTTON_H
+#ifndef __GBS8_FSM_H
+#define __GBS_FSM_H
 #include <stdint.h>
 #include "gbs8_gpio.h"
 #include "gbs8_timer.h"
@@ -16,7 +16,7 @@
 #define BUTTON_STOP     NULL
 #define BUTTON_LOCK     NULL
 
-#define LED_START1   NULL
+#define LED_START1      NULL
 #define LED_START2      NULL
 #define LED_STOP        NULL
 #define LED_LOCK        NULL
