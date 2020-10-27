@@ -78,6 +78,25 @@
 #define TIMER1_GATE_DIR 0
 #endif
 
-#define TIMER2       0
+#define TIMER2          0
+
+/***********************************************USER****************************************/
+
+#define USE_FSM         1
+
+#if (USE_FSM)
+#define BUTTON_START1   NULL
+#define BUTTON_START2   NULL
+#define BUTTON_STOP     NULL
+#define BUTTON_LOCK     NULL
+
+#define LED_START1(X)   NULL
+#define LED_START2(X)   NULL
+#define LED_STOP(X)     NULL
+#define LED_LOCK(X)     NULL
+
+#define TASK_NUM        10
+
+#endif
 
 #endif

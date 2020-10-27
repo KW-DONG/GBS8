@@ -3,23 +3,19 @@
  *  this state machine is controlled by four buttons with leds and other signals
  *  the state machine is updated by timer 0
  *  please do not write ISR for timer 0 if you would like to use the state machine
+ * 
+ * 
+ *  Benefits of using fsm
+ *  1. All the SSVE equipments use the same user interface 
+ *  2. New delay function saves CPU resource
  */
 
 #ifndef __GBS8_FSM_H
-#define __GBS_FSM_H
+#define __GBS8_FSM_H
 #include <stdint.h>
 #include "gbs8_gpio.h"
 #include "gbs8_timer.h"
-
-#define BUTTON_START1   NULL
-#define BUTTON_START2   NULL
-#define BUTTON_STOP     NULL
-#define BUTTON_LOCK     NULL
-
-#define LED_START1(X)   NULL
-#define LED_START2(X)   NULL
-#define LED_STOP(X)     NULL
-#define LED_LOCK(X)     NULL
+#include "gbs8_config.h"
 
 #define SAFE_STATE      0
 #define WORK_STATE      1
@@ -31,9 +27,27 @@ typedef struct
     //states
     uint8_t state;
     
-}machine_t;
+}fsm_t;
 
-extern machine_t myMachine;
+typedef struct
+{
+    uint8_t currentState;
+    uint8_t nextState;
+    uint8_t condition;
+
+}task_t;
+
+typedef struct 
+{
+    uint8_t total
+}state_t;
+
+
+task_t taskList[TASK_NUM];
+
+fsm_t myFsm;
+
+void GBS_Delay_Ms(uint64_t t);
 
 void GBS_Machine_Init();
 

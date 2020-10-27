@@ -106,6 +106,9 @@ void __interrupt() ISR()
     if (INTCONbits.T0IF)
     {
         T0I_ISR();
+#if (USE_FSM)
+        
+#endif
         INTCONbits.T0IF = 0;
     }
 #endif

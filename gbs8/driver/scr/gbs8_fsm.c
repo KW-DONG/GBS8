@@ -8,7 +8,7 @@ void GBS_Machine_Init()
 
 void GBS_Machine_Start()
 {
-    switch (myMachine.state)
+    switch (myFsm.state)
     {
     case SAFE_STATE:
         GBS_Safe_Mode();
@@ -51,10 +51,7 @@ void GBS_Idle_Mode()
 
 void T0I_ISR()
 {
-    switch (myMachine.state)
-    {
 
-    }
 
      
 }
