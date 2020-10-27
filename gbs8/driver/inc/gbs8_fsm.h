@@ -21,30 +21,15 @@
 #define LED_STOP        NULL
 #define LED_LOCK        NULL
 
-#define FEEDBACK_A      NULL
-#define FEEDBACK_B      NULL
-#define FEEDBACK_C      NULL
-#define FEEDBACK_D      NULL
-#define FEEDBACK_E      NULL
-
-#define OUTPUT_A        NULL
-#define OUTPUT_B        NULL
-#define OUTPUT_C        NULL
-#define OUTPUT_D        NULL
-#define OUTPUT_E        NULL
+#define SAFE_STATE      0
+#define WORK_STATE      1
+#define IDLE_STATE      2
 
  
 typedef struct 
 {
     //states
-    uint8_t enable:1;  //ON or OFF
-    uint8_t machineState;
-    uint8_t safety:1;
-
-    //requestions
-    uint8_t startRequest:1;
-    uint8_t stopRequest:1;
-    uint8_t stateChangeRequest;
+    uint8_t state;
     
 }machine_t;
 

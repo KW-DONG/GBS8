@@ -3,25 +3,25 @@
 
 void GBS_Machine_Init()
 {
-    myMachine.enable = 0;
-    myMachine.safety = 0;
-    myMachine.startRequest = 0;
+
 }
 
 void GBS_Machine_Start()
 {
-    while (myMachine.safety)
+    switch (myMachine.state)
     {
+    case SAFE_STATE:
         GBS_Safe_Mode();
-    }
-    if (myMachine.machineState==0)
-    {
-        GBS_Idle_Mode();
-    }
-    else if (myMachine.machineState==1)
-    {
+        break;
+    case WORK_STATE:
         GBS_Work_Mode();
-    }
+        break;
+    case IDLE_STATE:
+        GBS_Idle_Mode();
+    default:
+        GBS_Idle_Mode();
+        break;
+    } 
 }
 
 void GBS_Safe_Mode()
@@ -39,16 +39,11 @@ void GBS_Idle_Mode();
 
 void T0I_ISR()
 {
-    if (myMachine.startRequest == 1)
+    switch (myMachine.state)
     {
-        myMachine.enable = 1;
-        myMachine.startRequest = 0;
+
     }
-    else if (myMachine.stopRequest == 1)
-    {
-        myMachine.enable = 0;
-        myMachine.stopRequest = 0;
-    }
+
      
 }
 
