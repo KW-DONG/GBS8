@@ -2,6 +2,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "58 ../gbs8/bsp/inc\gbs8_interrupt.h
 [; ;../gbs8/bsp/inc\gbs8_interrupt.h: 58: void GBS_T0I_Config(uint8_t mode);
 [v _GBS_T0I_Config `(v ~T0 @X0 0 ef1`uc ]
+"64
+[; ;../gbs8/bsp/inc\gbs8_interrupt.h: 64: void GBS_T1I_Config(uint8_t mode);
+[v _GBS_T1I_Config `(v ~T0 @X0 0 ef1`uc ]
 "76
 [; ;../gbs8/bsp/inc\gbs8_interrupt.h: 76: void GBS_Interrupt_Enable();
 [v _GBS_Interrupt_Enable `(v ~T0 @X0 0 e? ]
@@ -77,6 +80,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "25 ../gbs8/bsp/inc\gbs8_interrupt.h
 [; ;../gbs8/bsp/inc\gbs8_interrupt.h: 25: void T0I_ISR();
 [v _T0I_ISR `(v ~T0 @X0 0 e? ]
+"27
+[; ;../gbs8/bsp/inc\gbs8_interrupt.h: 27: void T1I_ISR();
+[v _T1I_ISR `(v ~T0 @X0 0 e? ]
+"29
+[; ;../gbs8/bsp/inc\gbs8_interrupt.h: 29: void T2I_ISR();
+[v _T2I_ISR `(v ~T0 @X0 0 e? ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -346,6 +355,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "15
 [; ;../gbs8/bsp/scr/gbs8_interrupt.c: 15:     GBS_T0I_Config(1);
 [e ( _GBS_T0I_Config (1 -> -> 1 `i `uc ]
+"18
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 18:     GBS_T1I_Config(1);
+[e ( _GBS_T1I_Config (1 -> -> 1 `i `uc ]
 "20
 [; ;../gbs8/bsp/scr/gbs8_interrupt.c: 20:     GBS_Interrupt_Enable();
 [e ( _GBS_Interrupt_Enable ..  ]
@@ -553,6 +565,38 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../gbs8/bsp/scr/gbs8_interrupt.c: 113:     }
 }
 [e :U 147 ]
+"117
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 117:     if (PIR1bits.TMR1IF)
+[e $ ! != -> . . _PIR1bits 0 0 `i -> 0 `i 148  ]
+"118
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 118:     {
+{
+"119
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 119:         T1I_ISR();
+[e ( _T1I_ISR ..  ]
+"120
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 120:         PIR1bits.TMR1IF = 0;
+[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
+"121
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 121:     }
+}
+[e :U 148 ]
+"125
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 125:     if (PIR1bits.TMR2IF)
+[e $ ! != -> . . _PIR1bits 0 1 `i -> 0 `i 149  ]
+"126
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 126:     {
+{
+"127
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 127:         T2I_ISR();
+[e ( _T2I_ISR ..  ]
+"128
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 128:         PIR1bits.TMR2IF = 0;
+[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
+"129
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 129:     }
+}
+[e :U 149 ]
 "146
 [; ;../gbs8/bsp/scr/gbs8_interrupt.c: 146: }
 [e :UE 146 ]

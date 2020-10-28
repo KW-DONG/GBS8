@@ -40,10 +40,10 @@
 #define T0I_EN      1
 
 //TMR1 overflow interrupt
-#define T1I_EN      0
+#define T1I_EN      1
 
 //TMR2 overflow interrupt
-#define T2I_EN      0
+#define T2I_EN      1
 
 //USART interrupt
 #define USART_EN    0

@@ -2715,21 +2715,7 @@ uint16_t Register_Joint(uint8_t regH, uint8_t regL);
 
 void Reg10_Decouple(uint8_t* regH, uint8_t* regL, uint16_t reg);
 # 7 "../gbs8/bsp/inc\\gbs8_timer.h" 2
-
-
-
-
-enum TIM_EN
-{
-    DISABLE,
-    ENABLE
-};
-
-
-
-
-
-
+# 19 "../gbs8/bsp/inc\\gbs8_timer.h"
 enum TMR0_PS
 {
     TIM0_PS2 = 0,
@@ -2760,7 +2746,7 @@ enum WDT_PS
 
 
 void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0);
-# 61 "../gbs8/bsp/inc\\gbs8_timer.h"
+# 58 "../gbs8/bsp/inc\\gbs8_timer.h"
 enum TIM1_PS
 {
     TIM1_PS1 = 0b00,
@@ -2768,7 +2754,7 @@ enum TIM1_PS
     TIM1_PS4,
     TIM1_PS8
 };
-# 77 "../gbs8/bsp/inc\\gbs8_timer.h"
+# 74 "../gbs8/bsp/inc\\gbs8_timer.h"
 void GBS_Timer1_Config(uint8_t state, uint8_t prescaler, uint16_t timVar);
 
 
@@ -2799,8 +2785,8 @@ enum
     T2OUTPS15,
     T2OUTPS16
 };
-# 134 "../gbs8/bsp/inc\\gbs8_timer.h"
-void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS);
+# 131 "../gbs8/bsp/inc\\gbs8_timer.h"
+void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS, uint8_t timVar);
 
 
 
@@ -2809,7 +2795,7 @@ enum
     PWM_DISABLE,
     PWM_ENABLE
 };
-# 153 "../gbs8/bsp/inc\\gbs8_timer.h"
+# 150 "../gbs8/bsp/inc\\gbs8_timer.h"
 enum PWM_PORTS
 {
     SINGLE,
@@ -2817,7 +2803,7 @@ enum PWM_PORTS
     HALF_BRIDGE,
     FULL_BRIDGE_R
 };
-# 186 "../gbs8/bsp/inc\\gbs8_timer.h"
+# 183 "../gbs8/bsp/inc\\gbs8_timer.h"
 void GBS_PWM_Config(uint8_t ports, uint8_t dutyCycle);
 # 3 "../test.c" 2
 
@@ -2890,27 +2876,88 @@ void GBS_Interrupt_Disable();
 # 5 "../test.c" 2
 
 
-uint32_t i;
+int i;
+uint8_t t;
+uint8_t k;
 
 int main()
 {
     GBS_Interrupt_Init();
-    GBS_Timer0_Config(TIM0_PS2, 0);
-    TRISEbits.TRISE0 = 1;
-    TRISEbits.TRISE1 = 0;
-    while(1);
+    GBS_Timer0_Config(TIM0_PS256, 0);
+    GBS_Timer1_Config(1, TIM1_PS8, 0);
+
+
+
+
+
+
+    TRISC2 = 0;
+    TRISDbits.TRISD7 = 0;
+    TRISDbits.TRISD6 = 0;
+    TRISDbits.TRISD5 = 0;
+
+    CCPR1L = 0x7;
+
+    CCP1CONbits.CCP1M = 0b1100;
+
+    T2CON = 0x04;
+
+    while(1)
+    {
+
+
+
+
+
+
+
+        if (i>500)
+        {
+
+
+        }
+        else
+        {
+
+
+        }
+
+    }
 }
 
 void T0I_ISR()
 {
-    if (i>10)
+    if (i>1)
     {
         i = 0;
-        TRISEbits.TRISE2 = 1;
+
+        TRISEbits.TRISE0 = 1;
+
     }
     else
     {
-        TRISEbits.TRISE2 = 0;
+
+        TRISEbits.TRISE0 = 0;
+
         i++;
     }
+}
+
+void T1I_ISR()
+{
+    if (t>1)
+    {
+        t = 0;
+        TRISEbits.TRISE2 = 0;
+    }
+    else
+    {
+        TRISEbits.TRISE2 = 1;
+        t++;
+    }
+}
+
+void T2I_ISR()
+{
+
 }

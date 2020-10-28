@@ -5,6 +5,7 @@
 
 /**
  *  f_out = fclk / (4*Prescaler*(256-TMR0)*Count)
+ *  t_out = 1 / f_out
  */
 void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0)
 {
@@ -28,6 +29,7 @@ void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0)
 
 /**
  *  f_out = fclk / (4*Prescaler*(65536 - TMR1)*Count)
+ *  t_out = 1 / f_out
  */
 void GBS_Timer1_Config(uint8_t state, uint8_t prescaler, uint16_t timVar)
 {
@@ -43,17 +45,19 @@ void GBS_Timer1_Config(uint8_t state, uint8_t prescaler, uint16_t timVar)
 
 /**
  *  f_out = fclk / (4*Prescaler*(PR2-TMR2)*Postscaler*Count)
+ *  t_out = 1 / f_out
  */
-void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS)
+void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS, uint8_t timVar)
 {
     TMR2ON = state;
     T2CONbits.T2CKPS = ckPS;
     T2CONbits.TOUTPS = outPS;
+    PR2 = 255;
+    TMR2 = timVar;
 }
 
 void GBS_PWM_Config(uint8_t channel, uint8_t dutyCycle)
 {
-    PR2 = 256*_XTAL_FREQ/4/T2CONbits.T2CKPS - 1;
     CCP1CONbits.CCP1M = 0b1100;
     CCP1CONbits.P1M = channel;
 

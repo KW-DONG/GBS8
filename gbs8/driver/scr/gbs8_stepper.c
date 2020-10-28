@@ -7,9 +7,9 @@ void GBS_Stepper_Init()
 #if (TMR==0)
 
 #elif (TMR==1)
-
+    GBS_Timer1_Config(TIM_ENABLE,TIM1_PS1,0);
 #elif (TMR==2)
-    GBS_Timer2_Config(ENABLE,T2CKPS1,T2OUTPS1);
+    GBS_Timer2_Config(TIM_ENABLE,T2CKPS1,T2OUTPS1,0);
 #endif
 
 #if (STEPPER_A)

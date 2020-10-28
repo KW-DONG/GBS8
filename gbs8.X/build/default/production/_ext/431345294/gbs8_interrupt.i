@@ -2720,7 +2720,7 @@ void GBS_Interrupt_Init()
     GBS_T0I_Config(1);
 
 
-
+    GBS_T1I_Config(1);
 
     GBS_Interrupt_Enable();
 }
@@ -2799,6 +2799,22 @@ void __attribute__((picinterrupt(("")))) ISR()
 
 
         INTCONbits.T0IF = 0;
+    }
+
+
+
+    if (PIR1bits.TMR1IF)
+    {
+        T1I_ISR();
+        PIR1bits.TMR1IF = 0;
+    }
+
+
+
+    if (PIR1bits.TMR2IF)
+    {
+        T2I_ISR();
+        PIR1bits.TMR2IF = 0;
     }
 # 146 "../gbs8/bsp/scr/gbs8_interrupt.c"
 }

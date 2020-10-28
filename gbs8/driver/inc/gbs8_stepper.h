@@ -7,7 +7,7 @@
 
 /****************************CONFIGURATION***********************************/
 
-#define STEPPER_BUFFER_SIZE 5   //number of trapezoidal curves in the buffer
+#define STEPPER_BUFFER_SIZE     10          //number of trapezoidal curves in the buffer
 
 #define MAXIMUM_SPEED           3000    //use rpm
 #define MAXIMUM_ACCELERATION    1000    //rpm^2

@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Tue Oct 27 16:32:46 2020
+                                                                                               Wed Oct 28 11:29:52 2020
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	16F887
@@ -10,1149 +10,1548 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
      4                           	psect	cinit,global,class=CODE,merge=1,delta=2
      5                           	psect	bssCOMMON,global,class=COMMON,space=1,delta=1,noexec
      6                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
-     7                           	psect	maintext,global,class=CODE,split=1,delta=2
-     8                           	psect	text1,local,class=CODE,merge=1,delta=2
-     9                           	psect	text2,local,class=CODE,merge=1,delta=2
-    10                           	psect	text3,local,class=CODE,merge=1,delta=2
-    11                           	psect	text4,local,class=CODE,merge=1,delta=2
-    12                           	psect	text5,local,class=CODE,merge=1,delta=2
-    13                           	psect	intentry,global,class=CODE,delta=2
+     7                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+     8                           	psect	maintext,global,class=CODE,split=1,delta=2
+     9                           	psect	text1,local,class=CODE,merge=1,delta=2
+    10                           	psect	text2,local,class=CODE,merge=1,delta=2
+    11                           	psect	text3,local,class=CODE,merge=1,delta=2
+    12                           	psect	text4,local,class=CODE,merge=1,delta=2
+    13                           	psect	text5,local,class=CODE,merge=1,delta=2
     14                           	psect	text6,local,class=CODE,merge=1,delta=2
-    15                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
-    16                           	dabs	1,0x7E,2
-    17  0000                     
-    18                           ; Version 2.20
-    19                           ; Generated 12/02/2020 GMT
-    20                           ; 
-    21                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    22                           ; All rights reserved.
-    23                           ; 
-    24                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
-      +                          ip").
+    15                           	psect	text7,local,class=CODE,merge=1,delta=2
+    16                           	psect	intentry,global,class=CODE,delta=2
+    17                           	psect	text8,local,class=CODE,merge=1,delta=2
+    18                           	psect	text9,local,class=CODE,merge=1,delta=2
+    19                           	psect	text10,local,class=CODE,merge=1,delta=2
+    20                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    21                           	dabs	1,0x7E,2
+    22  0000                     
+    23                           ; Version 2.20
+    24                           ; Generated 12/02/2020 GMT
     25                           ; 
-    26                           ; Redistribution and use in source and binary forms, with or without modification, are
-    27                           ; permitted provided that the following conditions are met:
+    26                           ; Copyright © 2020, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    27                           ; All rights reserved.
     28                           ; 
-    29                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+    29                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    30                           ; 
+    31                           ; Redistribution and use in source and binary forms, with or without modification, are
+    32                           ; permitted provided that the following conditions are met:
+    33                           ; 
+    34                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
       +                          t of
-    30                           ;        conditions and the following disclaimer.
-    31                           ; 
-    32                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+    35                           ;        conditions and the following disclaimer.
+    36                           ; 
+    37                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
       +                          list
-    33                           ;        of conditions and the following disclaimer in the documentation and/or other
-    34                           ;        materials provided with the distribution.
-    35                           ; 
-    36                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+    38                           ;        of conditions and the following disclaimer in the documentation and/or other
+    39                           ;        materials provided with the distribution.
+    40                           ; 
+    41                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
       +                          is
-    37                           ;        software without specific prior written permission.
-    38                           ; 
-    39                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    40                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    42                           ;        software without specific prior written permission.
+    43                           ; 
+    44                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    45                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    41                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    46                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    42                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    43                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    44                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    47                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    48                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    49                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    45                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    50                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    46                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    47                           ; 
-    48                           ; 
-    49                           ; Code-generator required, PIC16F887 Definitions
-    50                           ; 
-    51                           ; SFR Addresses
-    52  0000                     	;# 
-    53  0001                     	;# 
-    54  0002                     	;# 
-    55  0003                     	;# 
-    56  0004                     	;# 
-    57  0005                     	;# 
-    58  0006                     	;# 
-    59  0007                     	;# 
-    60  0008                     	;# 
-    61  0009                     	;# 
-    62  000A                     	;# 
-    63  000B                     	;# 
-    64  000C                     	;# 
-    65  000D                     	;# 
-    66  000E                     	;# 
-    67  000E                     	;# 
-    68  000F                     	;# 
-    69  0010                     	;# 
-    70  0011                     	;# 
-    71  0012                     	;# 
-    72  0013                     	;# 
-    73  0014                     	;# 
-    74  0015                     	;# 
-    75  0015                     	;# 
-    76  0016                     	;# 
-    77  0017                     	;# 
-    78  0018                     	;# 
-    79  0019                     	;# 
-    80  001A                     	;# 
-    81  001B                     	;# 
-    82  001B                     	;# 
-    83  001C                     	;# 
-    84  001D                     	;# 
-    85  001E                     	;# 
-    86  001F                     	;# 
-    87  0081                     	;# 
-    88  0085                     	;# 
-    89  0086                     	;# 
-    90  0087                     	;# 
-    91  0088                     	;# 
-    92  0089                     	;# 
-    93  008C                     	;# 
-    94  008D                     	;# 
-    95  008E                     	;# 
-    96  008F                     	;# 
-    97  0090                     	;# 
-    98  0091                     	;# 
-    99  0092                     	;# 
-   100  0093                     	;# 
-   101  0093                     	;# 
-   102  0093                     	;# 
-   103  0094                     	;# 
-   104  0095                     	;# 
-   105  0096                     	;# 
-   106  0097                     	;# 
-   107  0098                     	;# 
-   108  0099                     	;# 
-   109  009A                     	;# 
-   110  009B                     	;# 
-   111  009C                     	;# 
-   112  009D                     	;# 
-   113  009E                     	;# 
-   114  009F                     	;# 
-   115  0105                     	;# 
-   116  0107                     	;# 
-   117  0108                     	;# 
-   118  0109                     	;# 
-   119  010C                     	;# 
-   120  010C                     	;# 
-   121  010D                     	;# 
-   122  010E                     	;# 
-   123  010F                     	;# 
-   124  0185                     	;# 
-   125  0187                     	;# 
-   126  0188                     	;# 
-   127  0189                     	;# 
-   128  018C                     	;# 
-   129  018D                     	;# 
-   130  0000                     	;# 
-   131  0001                     	;# 
-   132  0002                     	;# 
-   133  0003                     	;# 
-   134  0004                     	;# 
-   135  0005                     	;# 
-   136  0006                     	;# 
-   137  0007                     	;# 
-   138  0008                     	;# 
-   139  0009                     	;# 
-   140  000A                     	;# 
-   141  000B                     	;# 
-   142  000C                     	;# 
-   143  000D                     	;# 
-   144  000E                     	;# 
-   145  000E                     	;# 
-   146  000F                     	;# 
-   147  0010                     	;# 
-   148  0011                     	;# 
-   149  0012                     	;# 
-   150  0013                     	;# 
-   151  0014                     	;# 
-   152  0015                     	;# 
-   153  0015                     	;# 
-   154  0016                     	;# 
-   155  0017                     	;# 
-   156  0018                     	;# 
-   157  0019                     	;# 
-   158  001A                     	;# 
-   159  001B                     	;# 
-   160  001B                     	;# 
-   161  001C                     	;# 
-   162  001D                     	;# 
-   163  001E                     	;# 
-   164  001F                     	;# 
-   165  0081                     	;# 
-   166  0085                     	;# 
-   167  0086                     	;# 
-   168  0087                     	;# 
-   169  0088                     	;# 
-   170  0089                     	;# 
-   171  008C                     	;# 
-   172  008D                     	;# 
-   173  008E                     	;# 
-   174  008F                     	;# 
-   175  0090                     	;# 
-   176  0091                     	;# 
-   177  0092                     	;# 
-   178  0093                     	;# 
-   179  0093                     	;# 
-   180  0093                     	;# 
-   181  0094                     	;# 
-   182  0095                     	;# 
-   183  0096                     	;# 
-   184  0097                     	;# 
-   185  0098                     	;# 
-   186  0099                     	;# 
-   187  009A                     	;# 
-   188  009B                     	;# 
-   189  009C                     	;# 
-   190  009D                     	;# 
-   191  009E                     	;# 
-   192  009F                     	;# 
-   193  0105                     	;# 
-   194  0107                     	;# 
-   195  0108                     	;# 
-   196  0109                     	;# 
-   197  010C                     	;# 
-   198  010C                     	;# 
-   199  010D                     	;# 
-   200  010E                     	;# 
-   201  010F                     	;# 
-   202  0185                     	;# 
-   203  0187                     	;# 
-   204  0188                     	;# 
-   205  0189                     	;# 
-   206  018C                     	;# 
-   207  018D                     	;# 
-   208  0000                     	;# 
-   209  0001                     	;# 
-   210  0002                     	;# 
-   211  0003                     	;# 
-   212  0004                     	;# 
-   213  0005                     	;# 
-   214  0006                     	;# 
-   215  0007                     	;# 
-   216  0008                     	;# 
-   217  0009                     	;# 
-   218  000A                     	;# 
-   219  000B                     	;# 
-   220  000C                     	;# 
-   221  000D                     	;# 
-   222  000E                     	;# 
-   223  000E                     	;# 
-   224  000F                     	;# 
-   225  0010                     	;# 
-   226  0011                     	;# 
-   227  0012                     	;# 
-   228  0013                     	;# 
-   229  0014                     	;# 
-   230  0015                     	;# 
-   231  0015                     	;# 
-   232  0016                     	;# 
-   233  0017                     	;# 
-   234  0018                     	;# 
-   235  0019                     	;# 
-   236  001A                     	;# 
-   237  001B                     	;# 
-   238  001B                     	;# 
-   239  001C                     	;# 
-   240  001D                     	;# 
-   241  001E                     	;# 
-   242  001F                     	;# 
-   243  0081                     	;# 
-   244  0085                     	;# 
-   245  0086                     	;# 
-   246  0087                     	;# 
-   247  0088                     	;# 
-   248  0089                     	;# 
-   249  008C                     	;# 
-   250  008D                     	;# 
-   251  008E                     	;# 
-   252  008F                     	;# 
-   253  0090                     	;# 
-   254  0091                     	;# 
-   255  0092                     	;# 
-   256  0093                     	;# 
-   257  0093                     	;# 
-   258  0093                     	;# 
-   259  0094                     	;# 
-   260  0095                     	;# 
-   261  0096                     	;# 
-   262  0097                     	;# 
-   263  0098                     	;# 
-   264  0099                     	;# 
-   265  009A                     	;# 
-   266  009B                     	;# 
-   267  009C                     	;# 
-   268  009D                     	;# 
-   269  009E                     	;# 
-   270  009F                     	;# 
-   271  0105                     	;# 
-   272  0107                     	;# 
-   273  0108                     	;# 
-   274  0109                     	;# 
-   275  010C                     	;# 
-   276  010C                     	;# 
-   277  010D                     	;# 
-   278  010E                     	;# 
-   279  010F                     	;# 
-   280  0185                     	;# 
-   281  0187                     	;# 
-   282  0188                     	;# 
-   283  0189                     	;# 
-   284  018C                     	;# 
-   285  018D                     	;# 
-   286  0000                     	;# 
-   287  0001                     	;# 
-   288  0002                     	;# 
-   289  0003                     	;# 
-   290  0004                     	;# 
-   291  0005                     	;# 
-   292  0006                     	;# 
-   293  0007                     	;# 
-   294  0008                     	;# 
-   295  0009                     	;# 
-   296  000A                     	;# 
-   297  000B                     	;# 
-   298  000C                     	;# 
-   299  000D                     	;# 
-   300  000E                     	;# 
-   301  000E                     	;# 
-   302  000F                     	;# 
-   303  0010                     	;# 
-   304  0011                     	;# 
-   305  0012                     	;# 
-   306  0013                     	;# 
-   307  0014                     	;# 
-   308  0015                     	;# 
-   309  0015                     	;# 
-   310  0016                     	;# 
-   311  0017                     	;# 
-   312  0018                     	;# 
-   313  0019                     	;# 
-   314  001A                     	;# 
-   315  001B                     	;# 
-   316  001B                     	;# 
-   317  001C                     	;# 
-   318  001D                     	;# 
-   319  001E                     	;# 
-   320  001F                     	;# 
-   321  0081                     	;# 
-   322  0085                     	;# 
-   323  0086                     	;# 
-   324  0087                     	;# 
-   325  0088                     	;# 
-   326  0089                     	;# 
-   327  008C                     	;# 
-   328  008D                     	;# 
-   329  008E                     	;# 
-   330  008F                     	;# 
-   331  0090                     	;# 
-   332  0091                     	;# 
-   333  0092                     	;# 
-   334  0093                     	;# 
-   335  0093                     	;# 
-   336  0093                     	;# 
-   337  0094                     	;# 
-   338  0095                     	;# 
-   339  0096                     	;# 
-   340  0097                     	;# 
-   341  0098                     	;# 
-   342  0099                     	;# 
-   343  009A                     	;# 
-   344  009B                     	;# 
-   345  009C                     	;# 
-   346  009D                     	;# 
-   347  009E                     	;# 
-   348  009F                     	;# 
-   349  0105                     	;# 
-   350  0107                     	;# 
-   351  0108                     	;# 
-   352  0109                     	;# 
-   353  010C                     	;# 
-   354  010C                     	;# 
-   355  010D                     	;# 
-   356  010E                     	;# 
-   357  010F                     	;# 
-   358  0185                     	;# 
-   359  0187                     	;# 
-   360  0188                     	;# 
-   361  0189                     	;# 
-   362  018C                     	;# 
-   363  018D                     	;# 
-   364  0000                     	;# 
-   365  0001                     	;# 
-   366  0002                     	;# 
-   367  0003                     	;# 
-   368  0004                     	;# 
-   369  0005                     	;# 
-   370  0006                     	;# 
-   371  0007                     	;# 
-   372  0008                     	;# 
-   373  0009                     	;# 
-   374  000A                     	;# 
-   375  000B                     	;# 
-   376  000C                     	;# 
-   377  000D                     	;# 
-   378  000E                     	;# 
-   379  000E                     	;# 
-   380  000F                     	;# 
-   381  0010                     	;# 
-   382  0011                     	;# 
-   383  0012                     	;# 
-   384  0013                     	;# 
-   385  0014                     	;# 
-   386  0015                     	;# 
-   387  0015                     	;# 
-   388  0016                     	;# 
-   389  0017                     	;# 
-   390  0018                     	;# 
-   391  0019                     	;# 
-   392  001A                     	;# 
-   393  001B                     	;# 
-   394  001B                     	;# 
-   395  001C                     	;# 
-   396  001D                     	;# 
-   397  001E                     	;# 
-   398  001F                     	;# 
-   399  0081                     	;# 
-   400  0085                     	;# 
-   401  0086                     	;# 
-   402  0087                     	;# 
-   403  0088                     	;# 
-   404  0089                     	;# 
-   405  008C                     	;# 
-   406  008D                     	;# 
-   407  008E                     	;# 
-   408  008F                     	;# 
-   409  0090                     	;# 
-   410  0091                     	;# 
-   411  0092                     	;# 
-   412  0093                     	;# 
-   413  0093                     	;# 
-   414  0093                     	;# 
-   415  0094                     	;# 
-   416  0095                     	;# 
-   417  0096                     	;# 
-   418  0097                     	;# 
-   419  0098                     	;# 
-   420  0099                     	;# 
-   421  009A                     	;# 
-   422  009B                     	;# 
-   423  009C                     	;# 
-   424  009D                     	;# 
-   425  009E                     	;# 
-   426  009F                     	;# 
-   427  0105                     	;# 
-   428  0107                     	;# 
-   429  0108                     	;# 
-   430  0109                     	;# 
-   431  010C                     	;# 
-   432  010C                     	;# 
-   433  010D                     	;# 
-   434  010E                     	;# 
-   435  010F                     	;# 
-   436  0185                     	;# 
-   437  0187                     	;# 
-   438  0188                     	;# 
-   439  0189                     	;# 
-   440  018C                     	;# 
-   441  018D                     	;# 
-   442  0000                     	;# 
-   443  0001                     	;# 
-   444  0002                     	;# 
-   445  0003                     	;# 
-   446  0004                     	;# 
-   447  0005                     	;# 
-   448  0006                     	;# 
-   449  0007                     	;# 
-   450  0008                     	;# 
-   451  0009                     	;# 
-   452  000A                     	;# 
-   453  000B                     	;# 
-   454  000C                     	;# 
-   455  000D                     	;# 
-   456  000E                     	;# 
-   457  000E                     	;# 
-   458  000F                     	;# 
-   459  0010                     	;# 
-   460  0011                     	;# 
-   461  0012                     	;# 
-   462  0013                     	;# 
-   463  0014                     	;# 
-   464  0015                     	;# 
-   465  0015                     	;# 
-   466  0016                     	;# 
-   467  0017                     	;# 
-   468  0018                     	;# 
-   469  0019                     	;# 
-   470  001A                     	;# 
-   471  001B                     	;# 
-   472  001B                     	;# 
-   473  001C                     	;# 
-   474  001D                     	;# 
-   475  001E                     	;# 
-   476  001F                     	;# 
-   477  0081                     	;# 
-   478  0085                     	;# 
-   479  0086                     	;# 
-   480  0087                     	;# 
-   481  0088                     	;# 
-   482  0089                     	;# 
-   483  008C                     	;# 
-   484  008D                     	;# 
-   485  008E                     	;# 
-   486  008F                     	;# 
-   487  0090                     	;# 
-   488  0091                     	;# 
-   489  0092                     	;# 
-   490  0093                     	;# 
-   491  0093                     	;# 
-   492  0093                     	;# 
-   493  0094                     	;# 
-   494  0095                     	;# 
-   495  0096                     	;# 
-   496  0097                     	;# 
-   497  0098                     	;# 
-   498  0099                     	;# 
-   499  009A                     	;# 
-   500  009B                     	;# 
-   501  009C                     	;# 
-   502  009D                     	;# 
-   503  009E                     	;# 
-   504  009F                     	;# 
-   505  0105                     	;# 
-   506  0107                     	;# 
-   507  0108                     	;# 
-   508  0109                     	;# 
-   509  010C                     	;# 
-   510  010C                     	;# 
-   511  010D                     	;# 
-   512  010E                     	;# 
-   513  010F                     	;# 
-   514  0185                     	;# 
-   515  0187                     	;# 
-   516  0188                     	;# 
-   517  0189                     	;# 
-   518  018C                     	;# 
-   519  018D                     	;# 
-   520  000E                     _TMR1	set	14
-   521  0015                     _CCPR1L	set	21
-   522  0017                     _CCP1CONbits	set	23
-   523  0010                     _T1CONbits	set	16
-   524  0001                     _TMR0	set	1
-   525  000C                     _PIR1bits	set	12
-   526  000B                     _INTCONbits	set	11
+    51                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    52                           ; 
+    53                           ; 
+    54                           ; Code-generator required, PIC16F887 Definitions
+    55                           ; 
+    56                           ; SFR Addresses
+    57  0000                     	;# 
+    58  0001                     	;# 
+    59  0002                     	;# 
+    60  0003                     	;# 
+    61  0004                     	;# 
+    62  0005                     	;# 
+    63  0006                     	;# 
+    64  0007                     	;# 
+    65  0008                     	;# 
+    66  0009                     	;# 
+    67  000A                     	;# 
+    68  000B                     	;# 
+    69  000C                     	;# 
+    70  000D                     	;# 
+    71  000E                     	;# 
+    72  000E                     	;# 
+    73  000F                     	;# 
+    74  0010                     	;# 
+    75  0011                     	;# 
+    76  0012                     	;# 
+    77  0013                     	;# 
+    78  0014                     	;# 
+    79  0015                     	;# 
+    80  0015                     	;# 
+    81  0016                     	;# 
+    82  0017                     	;# 
+    83  0018                     	;# 
+    84  0019                     	;# 
+    85  001A                     	;# 
+    86  001B                     	;# 
+    87  001B                     	;# 
+    88  001C                     	;# 
+    89  001D                     	;# 
+    90  001E                     	;# 
+    91  001F                     	;# 
+    92  0081                     	;# 
+    93  0085                     	;# 
+    94  0086                     	;# 
+    95  0087                     	;# 
+    96  0088                     	;# 
+    97  0089                     	;# 
+    98  008C                     	;# 
+    99  008D                     	;# 
+   100  008E                     	;# 
+   101  008F                     	;# 
+   102  0090                     	;# 
+   103  0091                     	;# 
+   104  0092                     	;# 
+   105  0093                     	;# 
+   106  0093                     	;# 
+   107  0093                     	;# 
+   108  0094                     	;# 
+   109  0095                     	;# 
+   110  0096                     	;# 
+   111  0097                     	;# 
+   112  0098                     	;# 
+   113  0099                     	;# 
+   114  009A                     	;# 
+   115  009B                     	;# 
+   116  009C                     	;# 
+   117  009D                     	;# 
+   118  009E                     	;# 
+   119  009F                     	;# 
+   120  0105                     	;# 
+   121  0107                     	;# 
+   122  0108                     	;# 
+   123  0109                     	;# 
+   124  010C                     	;# 
+   125  010C                     	;# 
+   126  010D                     	;# 
+   127  010E                     	;# 
+   128  010F                     	;# 
+   129  0185                     	;# 
+   130  0187                     	;# 
+   131  0188                     	;# 
+   132  0189                     	;# 
+   133  018C                     	;# 
+   134  018D                     	;# 
+   135  0000                     	;# 
+   136  0001                     	;# 
+   137  0002                     	;# 
+   138  0003                     	;# 
+   139  0004                     	;# 
+   140  0005                     	;# 
+   141  0006                     	;# 
+   142  0007                     	;# 
+   143  0008                     	;# 
+   144  0009                     	;# 
+   145  000A                     	;# 
+   146  000B                     	;# 
+   147  000C                     	;# 
+   148  000D                     	;# 
+   149  000E                     	;# 
+   150  000E                     	;# 
+   151  000F                     	;# 
+   152  0010                     	;# 
+   153  0011                     	;# 
+   154  0012                     	;# 
+   155  0013                     	;# 
+   156  0014                     	;# 
+   157  0015                     	;# 
+   158  0015                     	;# 
+   159  0016                     	;# 
+   160  0017                     	;# 
+   161  0018                     	;# 
+   162  0019                     	;# 
+   163  001A                     	;# 
+   164  001B                     	;# 
+   165  001B                     	;# 
+   166  001C                     	;# 
+   167  001D                     	;# 
+   168  001E                     	;# 
+   169  001F                     	;# 
+   170  0081                     	;# 
+   171  0085                     	;# 
+   172  0086                     	;# 
+   173  0087                     	;# 
+   174  0088                     	;# 
+   175  0089                     	;# 
+   176  008C                     	;# 
+   177  008D                     	;# 
+   178  008E                     	;# 
+   179  008F                     	;# 
+   180  0090                     	;# 
+   181  0091                     	;# 
+   182  0092                     	;# 
+   183  0093                     	;# 
+   184  0093                     	;# 
+   185  0093                     	;# 
+   186  0094                     	;# 
+   187  0095                     	;# 
+   188  0096                     	;# 
+   189  0097                     	;# 
+   190  0098                     	;# 
+   191  0099                     	;# 
+   192  009A                     	;# 
+   193  009B                     	;# 
+   194  009C                     	;# 
+   195  009D                     	;# 
+   196  009E                     	;# 
+   197  009F                     	;# 
+   198  0105                     	;# 
+   199  0107                     	;# 
+   200  0108                     	;# 
+   201  0109                     	;# 
+   202  010C                     	;# 
+   203  010C                     	;# 
+   204  010D                     	;# 
+   205  010E                     	;# 
+   206  010F                     	;# 
+   207  0185                     	;# 
+   208  0187                     	;# 
+   209  0188                     	;# 
+   210  0189                     	;# 
+   211  018C                     	;# 
+   212  018D                     	;# 
+   213  0000                     	;# 
+   214  0001                     	;# 
+   215  0002                     	;# 
+   216  0003                     	;# 
+   217  0004                     	;# 
+   218  0005                     	;# 
+   219  0006                     	;# 
+   220  0007                     	;# 
+   221  0008                     	;# 
+   222  0009                     	;# 
+   223  000A                     	;# 
+   224  000B                     	;# 
+   225  000C                     	;# 
+   226  000D                     	;# 
+   227  000E                     	;# 
+   228  000E                     	;# 
+   229  000F                     	;# 
+   230  0010                     	;# 
+   231  0011                     	;# 
+   232  0012                     	;# 
+   233  0013                     	;# 
+   234  0014                     	;# 
+   235  0015                     	;# 
+   236  0015                     	;# 
+   237  0016                     	;# 
+   238  0017                     	;# 
+   239  0018                     	;# 
+   240  0019                     	;# 
+   241  001A                     	;# 
+   242  001B                     	;# 
+   243  001B                     	;# 
+   244  001C                     	;# 
+   245  001D                     	;# 
+   246  001E                     	;# 
+   247  001F                     	;# 
+   248  0081                     	;# 
+   249  0085                     	;# 
+   250  0086                     	;# 
+   251  0087                     	;# 
+   252  0088                     	;# 
+   253  0089                     	;# 
+   254  008C                     	;# 
+   255  008D                     	;# 
+   256  008E                     	;# 
+   257  008F                     	;# 
+   258  0090                     	;# 
+   259  0091                     	;# 
+   260  0092                     	;# 
+   261  0093                     	;# 
+   262  0093                     	;# 
+   263  0093                     	;# 
+   264  0094                     	;# 
+   265  0095                     	;# 
+   266  0096                     	;# 
+   267  0097                     	;# 
+   268  0098                     	;# 
+   269  0099                     	;# 
+   270  009A                     	;# 
+   271  009B                     	;# 
+   272  009C                     	;# 
+   273  009D                     	;# 
+   274  009E                     	;# 
+   275  009F                     	;# 
+   276  0105                     	;# 
+   277  0107                     	;# 
+   278  0108                     	;# 
+   279  0109                     	;# 
+   280  010C                     	;# 
+   281  010C                     	;# 
+   282  010D                     	;# 
+   283  010E                     	;# 
+   284  010F                     	;# 
+   285  0185                     	;# 
+   286  0187                     	;# 
+   287  0188                     	;# 
+   288  0189                     	;# 
+   289  018C                     	;# 
+   290  018D                     	;# 
+   291  0000                     	;# 
+   292  0001                     	;# 
+   293  0002                     	;# 
+   294  0003                     	;# 
+   295  0004                     	;# 
+   296  0005                     	;# 
+   297  0006                     	;# 
+   298  0007                     	;# 
+   299  0008                     	;# 
+   300  0009                     	;# 
+   301  000A                     	;# 
+   302  000B                     	;# 
+   303  000C                     	;# 
+   304  000D                     	;# 
+   305  000E                     	;# 
+   306  000E                     	;# 
+   307  000F                     	;# 
+   308  0010                     	;# 
+   309  0011                     	;# 
+   310  0012                     	;# 
+   311  0013                     	;# 
+   312  0014                     	;# 
+   313  0015                     	;# 
+   314  0015                     	;# 
+   315  0016                     	;# 
+   316  0017                     	;# 
+   317  0018                     	;# 
+   318  0019                     	;# 
+   319  001A                     	;# 
+   320  001B                     	;# 
+   321  001B                     	;# 
+   322  001C                     	;# 
+   323  001D                     	;# 
+   324  001E                     	;# 
+   325  001F                     	;# 
+   326  0081                     	;# 
+   327  0085                     	;# 
+   328  0086                     	;# 
+   329  0087                     	;# 
+   330  0088                     	;# 
+   331  0089                     	;# 
+   332  008C                     	;# 
+   333  008D                     	;# 
+   334  008E                     	;# 
+   335  008F                     	;# 
+   336  0090                     	;# 
+   337  0091                     	;# 
+   338  0092                     	;# 
+   339  0093                     	;# 
+   340  0093                     	;# 
+   341  0093                     	;# 
+   342  0094                     	;# 
+   343  0095                     	;# 
+   344  0096                     	;# 
+   345  0097                     	;# 
+   346  0098                     	;# 
+   347  0099                     	;# 
+   348  009A                     	;# 
+   349  009B                     	;# 
+   350  009C                     	;# 
+   351  009D                     	;# 
+   352  009E                     	;# 
+   353  009F                     	;# 
+   354  0105                     	;# 
+   355  0107                     	;# 
+   356  0108                     	;# 
+   357  0109                     	;# 
+   358  010C                     	;# 
+   359  010C                     	;# 
+   360  010D                     	;# 
+   361  010E                     	;# 
+   362  010F                     	;# 
+   363  0185                     	;# 
+   364  0187                     	;# 
+   365  0188                     	;# 
+   366  0189                     	;# 
+   367  018C                     	;# 
+   368  018D                     	;# 
+   369  0000                     	;# 
+   370  0001                     	;# 
+   371  0002                     	;# 
+   372  0003                     	;# 
+   373  0004                     	;# 
+   374  0005                     	;# 
+   375  0006                     	;# 
+   376  0007                     	;# 
+   377  0008                     	;# 
+   378  0009                     	;# 
+   379  000A                     	;# 
+   380  000B                     	;# 
+   381  000C                     	;# 
+   382  000D                     	;# 
+   383  000E                     	;# 
+   384  000E                     	;# 
+   385  000F                     	;# 
+   386  0010                     	;# 
+   387  0011                     	;# 
+   388  0012                     	;# 
+   389  0013                     	;# 
+   390  0014                     	;# 
+   391  0015                     	;# 
+   392  0015                     	;# 
+   393  0016                     	;# 
+   394  0017                     	;# 
+   395  0018                     	;# 
+   396  0019                     	;# 
+   397  001A                     	;# 
+   398  001B                     	;# 
+   399  001B                     	;# 
+   400  001C                     	;# 
+   401  001D                     	;# 
+   402  001E                     	;# 
+   403  001F                     	;# 
+   404  0081                     	;# 
+   405  0085                     	;# 
+   406  0086                     	;# 
+   407  0087                     	;# 
+   408  0088                     	;# 
+   409  0089                     	;# 
+   410  008C                     	;# 
+   411  008D                     	;# 
+   412  008E                     	;# 
+   413  008F                     	;# 
+   414  0090                     	;# 
+   415  0091                     	;# 
+   416  0092                     	;# 
+   417  0093                     	;# 
+   418  0093                     	;# 
+   419  0093                     	;# 
+   420  0094                     	;# 
+   421  0095                     	;# 
+   422  0096                     	;# 
+   423  0097                     	;# 
+   424  0098                     	;# 
+   425  0099                     	;# 
+   426  009A                     	;# 
+   427  009B                     	;# 
+   428  009C                     	;# 
+   429  009D                     	;# 
+   430  009E                     	;# 
+   431  009F                     	;# 
+   432  0105                     	;# 
+   433  0107                     	;# 
+   434  0108                     	;# 
+   435  0109                     	;# 
+   436  010C                     	;# 
+   437  010C                     	;# 
+   438  010D                     	;# 
+   439  010E                     	;# 
+   440  010F                     	;# 
+   441  0185                     	;# 
+   442  0187                     	;# 
+   443  0188                     	;# 
+   444  0189                     	;# 
+   445  018C                     	;# 
+   446  018D                     	;# 
+   447  0000                     	;# 
+   448  0001                     	;# 
+   449  0002                     	;# 
+   450  0003                     	;# 
+   451  0004                     	;# 
+   452  0005                     	;# 
+   453  0006                     	;# 
+   454  0007                     	;# 
+   455  0008                     	;# 
+   456  0009                     	;# 
+   457  000A                     	;# 
+   458  000B                     	;# 
+   459  000C                     	;# 
+   460  000D                     	;# 
+   461  000E                     	;# 
+   462  000E                     	;# 
+   463  000F                     	;# 
+   464  0010                     	;# 
+   465  0011                     	;# 
+   466  0012                     	;# 
+   467  0013                     	;# 
+   468  0014                     	;# 
+   469  0015                     	;# 
+   470  0015                     	;# 
+   471  0016                     	;# 
+   472  0017                     	;# 
+   473  0018                     	;# 
+   474  0019                     	;# 
+   475  001A                     	;# 
+   476  001B                     	;# 
+   477  001B                     	;# 
+   478  001C                     	;# 
+   479  001D                     	;# 
+   480  001E                     	;# 
+   481  001F                     	;# 
+   482  0081                     	;# 
+   483  0085                     	;# 
+   484  0086                     	;# 
+   485  0087                     	;# 
+   486  0088                     	;# 
+   487  0089                     	;# 
+   488  008C                     	;# 
+   489  008D                     	;# 
+   490  008E                     	;# 
+   491  008F                     	;# 
+   492  0090                     	;# 
+   493  0091                     	;# 
+   494  0092                     	;# 
+   495  0093                     	;# 
+   496  0093                     	;# 
+   497  0093                     	;# 
+   498  0094                     	;# 
+   499  0095                     	;# 
+   500  0096                     	;# 
+   501  0097                     	;# 
+   502  0098                     	;# 
+   503  0099                     	;# 
+   504  009A                     	;# 
+   505  009B                     	;# 
+   506  009C                     	;# 
+   507  009D                     	;# 
+   508  009E                     	;# 
+   509  009F                     	;# 
+   510  0105                     	;# 
+   511  0107                     	;# 
+   512  0108                     	;# 
+   513  0109                     	;# 
+   514  010C                     	;# 
+   515  010C                     	;# 
+   516  010D                     	;# 
+   517  010E                     	;# 
+   518  010F                     	;# 
+   519  0185                     	;# 
+   520  0187                     	;# 
+   521  0188                     	;# 
+   522  0189                     	;# 
+   523  018C                     	;# 
+   524  018D                     	;# 
+   525  000E                     _TMR1	set	14
+   526  0011                     _TMR2	set	17
    527  0012                     _T2CONbits	set	18
-   528  0092                     _TMR2ON	set	146
-   529  0092                     _PR2	set	146
-   530  008C                     _PIE1bits	set	140
-   531  0096                     _IOCBbits	set	150
-   532  0081                     _OPTION_REGbits	set	129
-   533  0087                     _TRISCbits	set	135
-   534  0088                     _TRISDbits	set	136
-   535  0086                     _TRISBbits	set	134
-   536  0085                     _TRISAbits	set	133
-   537  0089                     _TRISEbits	set	137
-   538  040D                     _T0CS	set	1037
-   539  040B                     _PSA	set	1035
-   540  0189                     _ANSELH	set	393
-   541  0188                     _ANSEL	set	392
-   542                           
-   543                           	psect	cinit
-   544  000F                     start_initialization:	
-   545                           ; #config settings
-   546                           
-   547  000F                     __initialization:
-   548                           
-   549                           ; Clear objects allocated to COMMON
-   550  000F  01F0               	clrf	__pbssCOMMON& (0+127)
-   551  0010  01F1               	clrf	(__pbssCOMMON+1)& (0+127)
-   552  0011  01F2               	clrf	(__pbssCOMMON+2)& (0+127)
-   553  0012  01F3               	clrf	(__pbssCOMMON+3)& (0+127)
-   554  0013                     end_of_initialization:	
-   555                           ;End of C runtime variable initialization code
+   528  0010                     _T1CONbits	set	16
+   529  0001                     _TMR0	set	1
+   530  000C                     _PIR1bits	set	12
+   531  000B                     _INTCONbits	set	11
+   532  0012                     _T2CON	set	18
+   533  0017                     _CCP1CONbits	set	23
+   534  0015                     _CCPR1L	set	21
+   535  0092                     _TMR2ON	set	146
+   536  0092                     _PR2	set	146
+   537  008C                     _PIE1bits	set	140
+   538  0096                     _IOCBbits	set	150
+   539  0081                     _OPTION_REGbits	set	129
+   540  0087                     _TRISCbits	set	135
+   541  0086                     _TRISBbits	set	134
+   542  0085                     _TRISAbits	set	133
+   543  0089                     _TRISEbits	set	137
+   544  0088                     _TRISDbits	set	136
+   545  040D                     _T0CS	set	1037
+   546  040B                     _PSA	set	1035
+   547  043A                     _TRISC2	set	1082
+   548  0189                     _ANSELH	set	393
+   549  0188                     _ANSEL	set	392
+   550                           
+   551                           	psect	cinit
+   552  0013                     start_initialization:	
+   553                           ; #config settings
+   554                           
+   555  0013                     __initialization:
    556                           
-   557  0013                     __end_of__initialization:
-   558  0013  0183               	clrf	3
-   559  0014  120A  118A  2846   	ljmp	_main	;jump to C main() function
-   560                           
-   561                           	psect	bssCOMMON
-   562  0070                     __pbssCOMMON:
-   563  0070                     _i:
-   564  0070                     	ds	4
-   565                           
-   566                           	psect	cstackCOMMON
-   567  0074                     __pcstackCOMMON:
-   568  0074                     ?_GBS_Interrupt_Init:
-   569  0074                     ?_GBS_T0I_Config:	
-   570                           ; 1 bytes @ 0x0
-   571                           
-   572  0074                     ?_GBS_Interrupt_Enable:	
-   573                           ; 1 bytes @ 0x0
-   574                           
-   575  0074                     ?_T0I_ISR:	
-   576                           ; 1 bytes @ 0x0
+   557                           ; Clear objects allocated to COMMON
+   558  0013  01F7               	clrf	__pbssCOMMON& (0+127)
+   559  0014  01F8               	clrf	(__pbssCOMMON+1)& (0+127)
+   560  0015  01F9               	clrf	(__pbssCOMMON+2)& (0+127)
+   561  0016  01FA               	clrf	(__pbssCOMMON+3)& (0+127)
+   562  0017                     end_of_initialization:	
+   563                           ;End of C runtime variable initialization code
+   564                           
+   565  0017                     __end_of__initialization:
+   566  0017  0183               	clrf	3
+   567  0018  120A  118A  281B   	ljmp	_main	;jump to C main() function
+   568                           
+   569                           	psect	bssCOMMON
+   570  0077                     __pbssCOMMON:
+   571  0077                     _i:
+   572  0077                     	ds	2
+   573  0079                     _k:
+   574  0079                     	ds	1
+   575  007A                     _t:
+   576  007A                     	ds	1
    577                           
-   578  0074                     ??_T0I_ISR:	
-   579                           ; 1 bytes @ 0x0
-   580                           
-   581  0074                     ?_ISR:	
+   578                           	psect	cstackCOMMON
+   579  0070                     __pcstackCOMMON:
+   580  0070                     ?_GBS_Interrupt_Init:
+   581  0070                     ?_GBS_T0I_Config:	
    582                           ; 1 bytes @ 0x0
    583                           
-   584  0074                     ??_ISR:	
+   584  0070                     ?_GBS_T1I_Config:	
    585                           ; 1 bytes @ 0x0
    586                           
-   587  0074                     ?_main:	
+   587  0070                     ?_GBS_Interrupt_Enable:	
    588                           ; 1 bytes @ 0x0
    589                           
-   590                           
-   591                           ; 2 bytes @ 0x0
-   592  0074                     	ds	2
-   593  0076                     ?_GBS_Timer0_Config:
-   594  0076                     ??_GBS_T0I_Config:	
-   595                           ; 1 bytes @ 0x2
-   596                           
-   597  0076                     ??_GBS_Interrupt_Enable:	
-   598                           ; 1 bytes @ 0x2
-   599                           
-   600  0076                     GBS_T0I_Config@mode:	
-   601                           ; 1 bytes @ 0x2
-   602                           
-   603  0076                     GBS_Timer0_Config@timer0:	
-   604                           ; 1 bytes @ 0x2
-   605                           
-   606                           
-   607                           ; 1 bytes @ 0x2
-   608  0076                     	ds	1
-   609  0077                     ??_GBS_Interrupt_Init:
-   610  0077                     ??_GBS_Timer0_Config:	
-   611                           ; 1 bytes @ 0x3
-   612                           
-   613  0077                     GBS_Timer0_Config@prescaler:	
-   614                           ; 1 bytes @ 0x3
-   615                           
+   590  0070                     ?_T0I_ISR:	
+   591                           ; 1 bytes @ 0x0
+   592                           
+   593  0070                     ??_T0I_ISR:	
+   594                           ; 1 bytes @ 0x0
+   595                           
+   596  0070                     ?_T1I_ISR:	
+   597                           ; 1 bytes @ 0x0
+   598                           
+   599  0070                     ??_T1I_ISR:	
+   600                           ; 1 bytes @ 0x0
+   601                           
+   602  0070                     ?_T2I_ISR:	
+   603                           ; 1 bytes @ 0x0
+   604                           
+   605  0070                     ??_T2I_ISR:	
+   606                           ; 1 bytes @ 0x0
+   607                           
+   608  0070                     ?_ISR:	
+   609                           ; 1 bytes @ 0x0
+   610                           
+   611  0070                     ??_ISR:	
+   612                           ; 1 bytes @ 0x0
+   613                           
+   614  0070                     ?_main:	
+   615                           ; 1 bytes @ 0x0
    616                           
-   617                           ; 1 bytes @ 0x3
-   618  0077                     	ds	1
-   619  0078                     ??_main:
-   620                           
-   621                           	psect	maintext
-   622  0046                     __pmaintext:	
-   623                           ; 1 bytes @ 0x4
-   624 ;;
-   625 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   626 ;;
-   627 ;; *************** function _main *****************
-   628 ;; Defined at:
-   629 ;;		line 9 in file "../test.c"
-   630 ;; Parameters:    Size  Location     Type
-   631 ;;		None
-   632 ;; Auto vars:     Size  Location     Type
-   633 ;;		None
-   634 ;; Return value:  Size  Location     Type
-   635 ;;                  2   12[None  ] int 
-   636 ;; Registers used:
-   637 ;;		wreg, status,2, status,0, pclath, cstack
-   638 ;; Tracked objects:
-   639 ;;		On entry : B00/0
-   640 ;;		On exit  : 0/0
-   641 ;;		Unchanged: 0/0
-   642 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   643 ;;      Params:         0       0       0       0       0
-   644 ;;      Locals:         0       0       0       0       0
-   645 ;;      Temps:          0       0       0       0       0
-   646 ;;      Totals:         0       0       0       0       0
-   647 ;;Total ram usage:        0 bytes
-   648 ;; Hardware stack levels required when called:    4
-   649 ;; This function calls:
-   650 ;;		_GBS_Interrupt_Init
-   651 ;;		_GBS_Timer0_Config
-   652 ;; This function is called by:
-   653 ;;		Startup code after reset
-   654 ;; This function uses a non-reentrant model
-   655 ;;
-   656                           
+   617                           
+   618                           ; 2 bytes @ 0x0
+   619  0070                     	ds	3
+   620  0073                     ?_GBS_Timer0_Config:
+   621  0073                     ?_GBS_Timer1_Config:	
+   622                           ; 1 bytes @ 0x3
+   623                           
+   624  0073                     ??_GBS_T0I_Config:	
+   625                           ; 1 bytes @ 0x3
+   626                           
+   627  0073                     ??_GBS_T1I_Config:	
+   628                           ; 1 bytes @ 0x3
+   629                           
+   630  0073                     ??_GBS_Interrupt_Enable:	
+   631                           ; 1 bytes @ 0x3
+   632                           
+   633  0073                     GBS_T0I_Config@mode:	
+   634                           ; 1 bytes @ 0x3
+   635                           
+   636  0073                     GBS_T1I_Config@mode:	
+   637                           ; 1 bytes @ 0x3
+   638                           
+   639  0073                     GBS_Timer0_Config@timer0:	
+   640                           ; 1 bytes @ 0x3
+   641                           
+   642  0073                     GBS_Timer1_Config@prescaler:	
+   643                           ; 1 bytes @ 0x3
+   644                           
+   645                           
+   646                           ; 1 bytes @ 0x3
+   647  0073                     	ds	1
+   648  0074                     ??_GBS_Interrupt_Init:
+   649  0074                     ??_GBS_Timer0_Config:	
+   650                           ; 1 bytes @ 0x4
+   651                           
+   652  0074                     GBS_Timer0_Config@prescaler:	
+   653                           ; 1 bytes @ 0x4
+   654                           
+   655  0074                     GBS_Timer1_Config@timVar:	
+   656                           ; 1 bytes @ 0x4
    657                           
-   658                           ;psect for function _main
-   659  0046                     _main:
-   660  0046                     l861:	
-   661                           ;incstack = 0
-   662                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
-   663                           
-   664                           
-   665                           ;../test.c: 11:     GBS_Interrupt_Init();
-   666  0046  120A  118A  207A  120A  118A  	fcall	_GBS_Interrupt_Init
-   667                           
-   668                           ;../test.c: 12:     GBS_Timer0_Config(TIM0_PS2, 0);
-   669  004B  01F6               	clrf	GBS_Timer0_Config@timer0
-   670  004C  3000               	movlw	0
-   671  004D  120A  118A  206B  120A  118A  	fcall	_GBS_Timer0_Config
-   672  0052                     l863:
-   673                           
-   674                           ;../test.c: 13:     TRISEbits.TRISE0 = 1;
-   675  0052  1683               	bsf	3,5	;RP0=1, select bank1
-   676  0053  1303               	bcf	3,6	;RP1=0, select bank1
-   677  0054  1409               	bsf	9,0	;volatile
-   678  0055                     l865:
-   679                           
-   680                           ;../test.c: 14:     TRISEbits.TRISE1 = 0;
-   681  0055  1089               	bcf	9,1	;volatile
-   682  0056                     l13:	
-   683                           ;../test.c: 15:     while(1);
-   684                           
-   685  0056                     l14:
-   686  0056  2856               	goto	l13
-   687  0057  120A  118A  280C   	ljmp	start
-   688  005A                     __end_of_main:
-   689                           
-   690                           	psect	text1
-   691  006B                     __ptext1:	
-   692 ;; *************** function _GBS_Timer0_Config *****************
-   693 ;; Defined at:
-   694 ;;		line 9 in file "../gbs8/bsp/scr/gbs8_timer.c"
-   695 ;; Parameters:    Size  Location     Type
-   696 ;;  prescaler       1    wreg     unsigned char 
-   697 ;;  timer0          1    2[COMMON] unsigned char 
-   698 ;; Auto vars:     Size  Location     Type
-   699 ;;  prescaler       1    3[COMMON] unsigned char 
-   700 ;; Return value:  Size  Location     Type
-   701 ;;                  1    wreg      void 
-   702 ;; Registers used:
-   703 ;;		wreg, status,2, status,0
-   704 ;; Tracked objects:
-   705 ;;		On entry : 0/0
-   706 ;;		On exit  : 0/0
-   707 ;;		Unchanged: 0/0
-   708 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   709 ;;      Params:         1       0       0       0       0
-   710 ;;      Locals:         1       0       0       0       0
-   711 ;;      Temps:          0       0       0       0       0
-   712 ;;      Totals:         2       0       0       0       0
-   713 ;;Total ram usage:        2 bytes
-   714 ;; Hardware stack levels used:    1
-   715 ;; Hardware stack levels required when called:    2
-   716 ;; This function calls:
-   717 ;;		Nothing
-   718 ;; This function is called by:
-   719 ;;		_main
-   720 ;; This function uses a non-reentrant model
-   721 ;;
+   658                           
+   659                           ; 2 bytes @ 0x4
+   660  0074                     	ds	2
+   661  0076                     ??_GBS_Timer1_Config:
+   662                           
+   663                           ; 1 bytes @ 0x6
+   664  0076                     	ds	1
+   665  0077                     ??_main:
+   666                           
+   667                           	psect	cstackBANK0
+   668  0020                     __pcstackBANK0:	
+   669                           ; 1 bytes @ 0x7
+   670                           
+   671  0020                     GBS_Timer1_Config@state:
+   672                           
+   673                           ; 1 bytes @ 0x0
+   674  0020                     	ds	1
+   675                           
+   676                           	psect	maintext
+   677  001B                     __pmaintext:	
+   678 ;;
+   679 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   680 ;;
+   681 ;; *************** function _main *****************
+   682 ;; Defined at:
+   683 ;;		line 11 in file "../test.c"
+   684 ;; Parameters:    Size  Location     Type
+   685 ;;		None
+   686 ;; Auto vars:     Size  Location     Type
+   687 ;;		None
+   688 ;; Return value:  Size  Location     Type
+   689 ;;                  2   28[None  ] int 
+   690 ;; Registers used:
+   691 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+   692 ;; Tracked objects:
+   693 ;;		On entry : B00/0
+   694 ;;		On exit  : 0/0
+   695 ;;		Unchanged: 0/0
+   696 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   697 ;;      Params:         0       0       0       0       0
+   698 ;;      Locals:         0       0       0       0       0
+   699 ;;      Temps:          0       0       0       0       0
+   700 ;;      Totals:         0       0       0       0       0
+   701 ;;Total ram usage:        0 bytes
+   702 ;; Hardware stack levels required when called:    4
+   703 ;; This function calls:
+   704 ;;		_GBS_Interrupt_Init
+   705 ;;		_GBS_Timer0_Config
+   706 ;;		_GBS_Timer1_Config
+   707 ;; This function is called by:
+   708 ;;		Startup code after reset
+   709 ;; This function uses a non-reentrant model
+   710 ;;
+   711                           
+   712                           
+   713                           ;psect for function _main
+   714  001B                     _main:
+   715  001B                     l973:	
+   716                           ;incstack = 0
+   717                           ; Regs used in _main: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+   718                           
+   719                           
+   720                           ;../test.c: 13:     GBS_Interrupt_Init();
+   721  001B  120A  118A  20BD  120A  118A  	fcall	_GBS_Interrupt_Init
    722                           
-   723                           
-   724                           ;psect for function _GBS_Timer0_Config
-   725  006B                     _GBS_Timer0_Config:
-   726                           
-   727                           ;incstack = 0
-   728                           ; Regs used in _GBS_Timer0_Config: [wreg+status,2+status,0]
-   729                           ;GBS_Timer0_Config@prescaler stored from wreg
-   730  006B  00F7               	movwf	GBS_Timer0_Config@prescaler
-   731  006C                     l855:
-   732                           
-   733                           ;../gbs8/bsp/scr/gbs8_timer.c: 9: void GBS_Timer0_Config(uint8_t prescaler, uint8_t time
-      +                          r0);../gbs8/bsp/scr/gbs8_timer.c: 10: {;../gbs8/bsp/scr/gbs8_timer.c: 13:     PSA = 0;
-   734  006C  1683               	bsf	3,5	;RP0=1, select bank1
-   735  006D  1303               	bcf	3,6	;RP1=0, select bank1
-   736  006E  1181               	bcf	1,3	;volatile
-   737                           
-   738                           ;../gbs8/bsp/scr/gbs8_timer.c: 14:     T0CS = 0;
-   739  006F  1281               	bcf	1,5	;volatile
-   740  0070                     l857:
-   741                           
-   742                           ;../gbs8/bsp/scr/gbs8_timer.c: 25:     OPTION_REGbits.PS = prescaler;
-   743  0070  0801               	movf	1,w	;volatile
-   744  0071  0677               	xorwf	GBS_Timer0_Config@prescaler,w
-   745  0072  39F8               	andlw	-8
-   746  0073  0677               	xorwf	GBS_Timer0_Config@prescaler,w
-   747  0074  0081               	movwf	1	;volatile
-   748  0075                     l859:
-   749                           
-   750                           ;../gbs8/bsp/scr/gbs8_timer.c: 26:     TMR0 = timer0;
-   751  0075  0876               	movf	GBS_Timer0_Config@timer0,w
-   752  0076  1283               	bcf	3,5	;RP0=0, select bank0
-   753  0077  1303               	bcf	3,6	;RP1=0, select bank0
-   754  0078  0081               	movwf	1	;volatile
-   755  0079                     l126:
-   756  0079  0008               	return
-   757  007A                     __end_of_GBS_Timer0_Config:
+   723                           ;../test.c: 14:     GBS_Timer0_Config(TIM0_PS256, 0);
+   724  0020  01F3               	clrf	GBS_Timer0_Config@timer0
+   725  0021  3007               	movlw	7
+   726  0022  120A  118A  20CF  120A  118A  	fcall	_GBS_Timer0_Config
+   727  0027                     l975:
+   728                           
+   729                           ;../test.c: 15:     GBS_Timer1_Config(1, TIM1_PS8, 0);
+   730  0027  3003               	movlw	3
+   731  0028  00FF               	movwf	btemp+1
+   732  0029  087F               	movf	btemp+1,w
+   733  002A  00F3               	movwf	GBS_Timer1_Config@prescaler
+   734  002B  3000               	movlw	0
+   735  002C  00F4               	movwf	GBS_Timer1_Config@timVar
+   736  002D  00F5               	movwf	GBS_Timer1_Config@timVar+1
+   737  002E  3001               	movlw	1
+   738  002F  120A  118A  2092  120A  118A  	fcall	_GBS_Timer1_Config
+   739  0034                     l977:
+   740                           
+   741                           ;../test.c: 22:     TRISC2 = 0;
+   742  0034  1683               	bsf	3,5	;RP0=1, select bank1
+   743  0035  1303               	bcf	3,6	;RP1=0, select bank1
+   744  0036  1107               	bcf	7,2	;volatile
+   745  0037                     l979:
+   746                           
+   747                           ;../test.c: 23:     TRISDbits.TRISD7 = 0;
+   748  0037  1388               	bcf	8,7	;volatile
+   749  0038                     l981:
+   750                           
+   751                           ;../test.c: 24:     TRISDbits.TRISD6 = 0;
+   752  0038  1308               	bcf	8,6	;volatile
+   753  0039                     l983:
+   754                           
+   755                           ;../test.c: 25:     TRISDbits.TRISD5 = 0;
+   756  0039  1288               	bcf	8,5	;volatile
+   757  003A                     l985:
    758                           
-   759                           	psect	text2
-   760  007A                     __ptext2:	
-   761 ;; *************** function _GBS_Interrupt_Init *****************
-   762 ;; Defined at:
-   763 ;;		line 6 in file "../gbs8/bsp/scr/gbs8_interrupt.c"
-   764 ;; Parameters:    Size  Location     Type
-   765 ;;		None
-   766 ;; Auto vars:     Size  Location     Type
-   767 ;;		None
-   768 ;; Return value:  Size  Location     Type
-   769 ;;                  1    wreg      void 
-   770 ;; Registers used:
-   771 ;;		wreg, status,2, status,0, pclath, cstack
-   772 ;; Tracked objects:
-   773 ;;		On entry : 0/0
-   774 ;;		On exit  : 0/0
-   775 ;;		Unchanged: 0/0
-   776 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   777 ;;      Params:         0       0       0       0       0
-   778 ;;      Locals:         0       0       0       0       0
-   779 ;;      Temps:          0       0       0       0       0
-   780 ;;      Totals:         0       0       0       0       0
-   781 ;;Total ram usage:        0 bytes
-   782 ;; Hardware stack levels used:    1
-   783 ;; Hardware stack levels required when called:    3
-   784 ;; This function calls:
-   785 ;;		_GBS_Interrupt_Enable
-   786 ;;		_GBS_T0I_Config
-   787 ;; This function is called by:
-   788 ;;		_main
-   789 ;; This function uses a non-reentrant model
-   790 ;;
-   791                           
-   792                           
-   793                           ;psect for function _GBS_Interrupt_Init
-   794  007A                     _GBS_Interrupt_Init:
-   795  007A                     l733:	
-   796                           ;incstack = 0
-   797                           ; Regs used in _GBS_Interrupt_Init: [wreg+status,2+status,0+pclath+cstack]
-   798                           
-   799                           
-   800                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 15:     GBS_T0I_Config(1);
-   801  007A  3001               	movlw	1
-   802  007B  120A  118A  2086  120A  118A  	fcall	_GBS_T0I_Config
-   803  0080                     l735:
-   804                           
-   805                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 20:     GBS_Interrupt_Enable();
-   806  0080  120A  118A  208E  120A  118A  	fcall	_GBS_Interrupt_Enable
-   807  0085                     l67:
-   808  0085  0008               	return
-   809  0086                     __end_of_GBS_Interrupt_Init:
-   810                           
-   811                           	psect	text3
-   812  0086                     __ptext3:	
-   813 ;; *************** function _GBS_T0I_Config *****************
-   814 ;; Defined at:
-   815 ;;		line 67 in file "../gbs8/bsp/scr/gbs8_interrupt.c"
-   816 ;; Parameters:    Size  Location     Type
-   817 ;;  mode            1    wreg     unsigned char 
-   818 ;; Auto vars:     Size  Location     Type
-   819 ;;  mode            1    2[COMMON] unsigned char 
-   820 ;; Return value:  Size  Location     Type
-   821 ;;                  1    wreg      void 
-   822 ;; Registers used:
-   823 ;;		wreg, status,0
-   824 ;; Tracked objects:
-   825 ;;		On entry : 0/0
-   826 ;;		On exit  : 0/0
-   827 ;;		Unchanged: 0/0
-   828 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   829 ;;      Params:         0       0       0       0       0
-   830 ;;      Locals:         1       0       0       0       0
-   831 ;;      Temps:          0       0       0       0       0
-   832 ;;      Totals:         1       0       0       0       0
-   833 ;;Total ram usage:        1 bytes
-   834 ;; Hardware stack levels used:    1
-   835 ;; Hardware stack levels required when called:    2
-   836 ;; This function calls:
-   837 ;;		Nothing
-   838 ;; This function is called by:
-   839 ;;		_GBS_Interrupt_Init
-   840 ;; This function uses a non-reentrant model
-   841 ;;
-   842                           
-   843                           
-   844                           ;psect for function _GBS_T0I_Config
-   845  0086                     _GBS_T0I_Config:
-   846                           
-   847                           ;incstack = 0
-   848                           ; Regs used in _GBS_T0I_Config: [wreg+status,0]
-   849                           ;GBS_T0I_Config@mode stored from wreg
-   850  0086  00F6               	movwf	GBS_T0I_Config@mode
-   851  0087                     l727:
-   852                           
-   853                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 67: void GBS_T0I_Config(uint8_t mode);../gbs8/bsp/scr
-      +                          /gbs8_interrupt.c: 68: {;../gbs8/bsp/scr/gbs8_interrupt.c: 69:     INTCONbits.T0IF = 0;
-   854  0087  110B               	bcf	11,2	;volatile
-   855  0088                     l729:
-   856                           
-   857                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 70:     INTCONbits.T0IE = mode;
-   858  0088  0C76               	rrf	GBS_T0I_Config@mode,w
-   859  0089  1C03               	skipc
-   860  008A  128B               	bcf	11,5	;volatile
-   861  008B  1803               	skipnc
-   862  008C  168B               	bsf	11,5	;volatile
-   863  008D                     l82:
-   864  008D  0008               	return
-   865  008E                     __end_of_GBS_T0I_Config:
-   866                           
-   867                           	psect	text4
-   868  008E                     __ptext4:	
-   869 ;; *************** function _GBS_Interrupt_Enable *****************
-   870 ;; Defined at:
-   871 ;;		line 23 in file "../gbs8/bsp/scr/gbs8_interrupt.c"
-   872 ;; Parameters:    Size  Location     Type
-   873 ;;		None
-   874 ;; Auto vars:     Size  Location     Type
-   875 ;;		None
-   876 ;; Return value:  Size  Location     Type
-   877 ;;                  1    wreg      void 
-   878 ;; Registers used:
-   879 ;;		None
-   880 ;; Tracked objects:
-   881 ;;		On entry : 0/0
-   882 ;;		On exit  : 0/0
-   883 ;;		Unchanged: 0/0
-   884 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   885 ;;      Params:         0       0       0       0       0
-   886 ;;      Locals:         0       0       0       0       0
-   887 ;;      Temps:          0       0       0       0       0
-   888 ;;      Totals:         0       0       0       0       0
-   889 ;;Total ram usage:        0 bytes
-   890 ;; Hardware stack levels used:    1
-   891 ;; Hardware stack levels required when called:    2
-   892 ;; This function calls:
-   893 ;;		Nothing
-   894 ;; This function is called by:
-   895 ;;		_GBS_Interrupt_Init
-   896 ;; This function uses a non-reentrant model
-   897 ;;
-   898                           
-   899                           
-   900                           ;psect for function _GBS_Interrupt_Enable
-   901  008E                     _GBS_Interrupt_Enable:
-   902  008E                     l731:	
-   903                           ;incstack = 0
-   904                           ; Regs used in _GBS_Interrupt_Enable: []
-   905                           
-   906                           
-   907                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 25:     INTCONbits.PEIE = 1;
-   908  008E  170B               	bsf	11,6	;volatile
-   909                           
-   910                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 26:     INTCONbits.GIE = 1;
-   911  008F  178B               	bsf	11,7	;volatile
-   912  0090                     l70:
-   913  0090  0008               	return
-   914  0091                     __end_of_GBS_Interrupt_Enable:
+   759                           ;../test.c: 27:     CCPR1L = 0x7;
+   760  003A  3007               	movlw	7
+   761  003B  1283               	bcf	3,5	;RP0=0, select bank0
+   762  003C  1303               	bcf	3,6	;RP1=0, select bank0
+   763  003D  0095               	movwf	21	;volatile
+   764  003E                     l987:
+   765                           
+   766                           ;../test.c: 29:     CCP1CONbits.CCP1M = 0b1100;
+   767  003E  0817               	movf	23,w	;volatile
+   768  003F  39F0               	andlw	-16
+   769  0040  380C               	iorlw	12
+   770  0041  0097               	movwf	23	;volatile
+   771  0042                     l989:
+   772                           
+   773                           ;../test.c: 31:     T2CON = 0x04;
+   774  0042  3004               	movlw	4
+   775  0043  0092               	movwf	18	;volatile
+   776  0044                     l991:
+   777  0044                     l31:	
+   778                           ;../test.c: 48:         {;../test.c: 51:         }
+   779                           
+   780  0044  2844               	goto	l991
+   781  0045  120A  118A  2810   	ljmp	start
+   782  0048                     __end_of_main:
+   783                           
+   784                           	psect	text1
+   785  0092                     __ptext1:	
+   786 ;; *************** function _GBS_Timer1_Config *****************
+   787 ;; Defined at:
+   788 ;;		line 34 in file "../gbs8/bsp/scr/gbs8_timer.c"
+   789 ;; Parameters:    Size  Location     Type
+   790 ;;  state           1    wreg     unsigned char 
+   791 ;;  prescaler       1    3[COMMON] unsigned char 
+   792 ;;  timVar          2    4[COMMON] unsigned int 
+   793 ;; Auto vars:     Size  Location     Type
+   794 ;;  state           1    0[BANK0 ] unsigned char 
+   795 ;; Return value:  Size  Location     Type
+   796 ;;                  1    wreg      void 
+   797 ;; Registers used:
+   798 ;;		wreg, status,2, status,0
+   799 ;; Tracked objects:
+   800 ;;		On entry : 0/0
+   801 ;;		On exit  : 0/0
+   802 ;;		Unchanged: 0/0
+   803 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   804 ;;      Params:         3       0       0       0       0
+   805 ;;      Locals:         0       1       0       0       0
+   806 ;;      Temps:          1       0       0       0       0
+   807 ;;      Totals:         4       1       0       0       0
+   808 ;;Total ram usage:        5 bytes
+   809 ;; Hardware stack levels used:    1
+   810 ;; Hardware stack levels required when called:    2
+   811 ;; This function calls:
+   812 ;;		Nothing
+   813 ;; This function is called by:
+   814 ;;		_main
+   815 ;; This function uses a non-reentrant model
+   816 ;;
+   817                           
+   818                           
+   819                           ;psect for function _GBS_Timer1_Config
+   820  0092                     _GBS_Timer1_Config:
+   821                           
+   822                           ;incstack = 0
+   823                           ; Regs used in _GBS_Timer1_Config: [wreg+status,2+status,0]
+   824                           ;GBS_Timer1_Config@state stored from wreg
+   825  0092  1283               	bcf	3,5	;RP0=0, select bank0
+   826  0093  1303               	bcf	3,6	;RP1=0, select bank0
+   827  0094  00A0               	movwf	GBS_Timer1_Config@state
+   828  0095                     l965:
+   829                           
+   830                           ;../gbs8/bsp/scr/gbs8_timer.c: 34: void GBS_Timer1_Config(uint8_t state, uint8_t prescal
+      +                          er, uint16_t timVar);../gbs8/bsp/scr/gbs8_timer.c: 35: {;../gbs8/bsp/scr/gbs8_timer.c: 3
+      +                          6:     T1CONbits.TMR1ON = 0;
+   831  0095  1010               	bcf	16,0	;volatile
+   832                           
+   833                           ;../gbs8/bsp/scr/gbs8_timer.c: 37:     T1CONbits.TMR1CS = 0;
+   834  0096  1090               	bcf	16,1	;volatile
+   835                           
+   836                           ;../gbs8/bsp/scr/gbs8_timer.c: 38:     T1CONbits.T1OSCEN = 0;
+   837  0097  1190               	bcf	16,3	;volatile
+   838  0098                     l967:
+   839                           
+   840                           ;../gbs8/bsp/scr/gbs8_timer.c: 40:     T1CONbits.T1CKPS = prescaler;
+   841  0098  0873               	movf	GBS_Timer1_Config@prescaler,w
+   842  0099  00F6               	movwf	??_GBS_Timer1_Config
+   843  009A  0EF6               	swapf	??_GBS_Timer1_Config,f
+   844  009B  0810               	movf	16,w	;volatile
+   845  009C  0676               	xorwf	??_GBS_Timer1_Config,w
+   846  009D  39CF               	andlw	-49
+   847  009E  0676               	xorwf	??_GBS_Timer1_Config,w
+   848  009F  0090               	movwf	16	;volatile
+   849  00A0                     l969:
+   850                           
+   851                           ;../gbs8/bsp/scr/gbs8_timer.c: 41:     T1CONbits.TMR1ON = state;
+   852  00A0  0C20               	rrf	GBS_Timer1_Config@state,w
+   853  00A1  1C03               	skipc
+   854  00A2  1010               	bcf	16,0	;volatile
+   855  00A3  1803               	skipnc
+   856  00A4  1410               	bsf	16,0	;volatile
+   857  00A5                     l971:
+   858                           
+   859                           ;../gbs8/bsp/scr/gbs8_timer.c: 43:     TMR1 = timVar;
+   860  00A5  0875               	movf	GBS_Timer1_Config@timVar+1,w
+   861  00A6  008F               	movwf	15	;volatile
+   862  00A7  0874               	movf	GBS_Timer1_Config@timVar,w
+   863  00A8  008E               	movwf	14	;volatile
+   864  00A9                     l165:
+   865  00A9  0008               	return
+   866  00AA                     __end_of_GBS_Timer1_Config:
+   867                           
+   868                           	psect	text2
+   869  00CF                     __ptext2:	
+   870 ;; *************** function _GBS_Timer0_Config *****************
+   871 ;; Defined at:
+   872 ;;		line 10 in file "../gbs8/bsp/scr/gbs8_timer.c"
+   873 ;; Parameters:    Size  Location     Type
+   874 ;;  prescaler       1    wreg     unsigned char 
+   875 ;;  timer0          1    3[COMMON] unsigned char 
+   876 ;; Auto vars:     Size  Location     Type
+   877 ;;  prescaler       1    4[COMMON] unsigned char 
+   878 ;; Return value:  Size  Location     Type
+   879 ;;                  1    wreg      void 
+   880 ;; Registers used:
+   881 ;;		wreg, status,2, status,0
+   882 ;; Tracked objects:
+   883 ;;		On entry : 0/0
+   884 ;;		On exit  : 0/0
+   885 ;;		Unchanged: 0/0
+   886 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   887 ;;      Params:         1       0       0       0       0
+   888 ;;      Locals:         1       0       0       0       0
+   889 ;;      Temps:          0       0       0       0       0
+   890 ;;      Totals:         2       0       0       0       0
+   891 ;;Total ram usage:        2 bytes
+   892 ;; Hardware stack levels used:    1
+   893 ;; Hardware stack levels required when called:    2
+   894 ;; This function calls:
+   895 ;;		Nothing
+   896 ;; This function is called by:
+   897 ;;		_main
+   898 ;; This function uses a non-reentrant model
+   899 ;;
+   900                           
+   901                           
+   902                           ;psect for function _GBS_Timer0_Config
+   903  00CF                     _GBS_Timer0_Config:
+   904                           
+   905                           ;incstack = 0
+   906                           ; Regs used in _GBS_Timer0_Config: [wreg+status,2+status,0]
+   907                           ;GBS_Timer0_Config@prescaler stored from wreg
+   908  00CF  00F4               	movwf	GBS_Timer0_Config@prescaler
+   909  00D0                     l929:
+   910                           
+   911                           ;../gbs8/bsp/scr/gbs8_timer.c: 10: void GBS_Timer0_Config(uint8_t prescaler, uint8_t tim
+      +                          er0);../gbs8/bsp/scr/gbs8_timer.c: 11: {;../gbs8/bsp/scr/gbs8_timer.c: 14:     PSA = 0;
+   912  00D0  1683               	bsf	3,5	;RP0=1, select bank1
+   913  00D1  1303               	bcf	3,6	;RP1=0, select bank1
+   914  00D2  1181               	bcf	1,3	;volatile
    915                           
-   916                           	psect	text5
-   917  005A                     __ptext5:	
-   918 ;; *************** function _ISR *****************
-   919 ;; Defined at:
-   920 ;;		line 87 in file "../gbs8/bsp/scr/gbs8_interrupt.c"
-   921 ;; Parameters:    Size  Location     Type
-   922 ;;		None
-   923 ;; Auto vars:     Size  Location     Type
-   924 ;;		None
-   925 ;; Return value:  Size  Location     Type
-   926 ;;                  1    wreg      void 
-   927 ;; Registers used:
-   928 ;;		wreg, status,2, status,0, pclath, cstack
-   929 ;; Tracked objects:
-   930 ;;		On entry : 0/0
-   931 ;;		On exit  : 0/0
-   932 ;;		Unchanged: 0/0
-   933 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-   934 ;;      Params:         0       0       0       0       0
-   935 ;;      Locals:         0       0       0       0       0
-   936 ;;      Temps:          2       0       0       0       0
-   937 ;;      Totals:         2       0       0       0       0
-   938 ;;Total ram usage:        2 bytes
-   939 ;; Hardware stack levels used:    1
-   940 ;; Hardware stack levels required when called:    1
-   941 ;; This function calls:
-   942 ;;		_T0I_ISR
-   943 ;; This function is called by:
-   944 ;;		Interrupt level 1
-   945 ;; This function uses a non-reentrant model
-   946 ;;
-   947                           
-   948                           
-   949                           ;psect for function _ISR
-   950  005A                     _ISR:
-   951  005A                     i1l819:
-   952                           
-   953                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 106:     if (INTCONbits.T0IF)
-   954  005A  1D0B               	btfss	11,2	;volatile
-   955  005B  285D               	goto	u2_21
-   956  005C  285E               	goto	u2_20
-   957  005D                     u2_21:
-   958  005D  2864               	goto	i1l94
-   959  005E                     u2_20:
-   960  005E                     i1l821:
-   961                           
-   962                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 107:     {;../gbs8/bsp/scr/gbs8_interrupt.c: 108:    
-      +                               T0I_ISR();
-   963  005E  120A  118A  2017  120A  118A  	fcall	_T0I_ISR
-   964  0063                     i1l823:
-   965                           
-   966                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 112:         INTCONbits.T0IF = 0;
-   967  0063  110B               	bcf	11,2	;volatile
-   968  0064                     i1l94:
-   969  0064  0875               	movf	??_ISR+1,w
-   970  0065  008A               	movwf	10
-   971  0066  0E74               	swapf	??_ISR^(0+4294967168),w
-   972  0067  0083               	movwf	3
-   973  0068  0EFE               	swapf	btemp,f
-   974  0069  0E7E               	swapf	btemp,w
-   975  006A  0009               	retfie
-   976  006B                     __end_of_ISR:
+   916                           ;../gbs8/bsp/scr/gbs8_timer.c: 15:     T0CS = 0;
+   917  00D3  1281               	bcf	1,5	;volatile
+   918  00D4                     l931:
+   919                           
+   920                           ;../gbs8/bsp/scr/gbs8_timer.c: 26:     OPTION_REGbits.PS = prescaler;
+   921  00D4  0801               	movf	1,w	;volatile
+   922  00D5  0674               	xorwf	GBS_Timer0_Config@prescaler,w
+   923  00D6  39F8               	andlw	-8
+   924  00D7  0674               	xorwf	GBS_Timer0_Config@prescaler,w
+   925  00D8  0081               	movwf	1	;volatile
+   926  00D9                     l933:
+   927                           
+   928                           ;../gbs8/bsp/scr/gbs8_timer.c: 27:     TMR0 = timer0;
+   929  00D9  0873               	movf	GBS_Timer0_Config@timer0,w
+   930  00DA  1283               	bcf	3,5	;RP0=0, select bank0
+   931  00DB  1303               	bcf	3,6	;RP1=0, select bank0
+   932  00DC  0081               	movwf	1	;volatile
+   933  00DD                     l162:
+   934  00DD  0008               	return
+   935  00DE                     __end_of_GBS_Timer0_Config:
+   936                           
+   937                           	psect	text3
+   938  00BD                     __ptext3:	
+   939 ;; *************** function _GBS_Interrupt_Init *****************
+   940 ;; Defined at:
+   941 ;;		line 6 in file "../gbs8/bsp/scr/gbs8_interrupt.c"
+   942 ;; Parameters:    Size  Location     Type
+   943 ;;		None
+   944 ;; Auto vars:     Size  Location     Type
+   945 ;;		None
+   946 ;; Return value:  Size  Location     Type
+   947 ;;                  1    wreg      void 
+   948 ;; Registers used:
+   949 ;;		wreg, status,2, status,0, pclath, cstack
+   950 ;; Tracked objects:
+   951 ;;		On entry : 0/0
+   952 ;;		On exit  : 0/0
+   953 ;;		Unchanged: 0/0
+   954 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   955 ;;      Params:         0       0       0       0       0
+   956 ;;      Locals:         0       0       0       0       0
+   957 ;;      Temps:          0       0       0       0       0
+   958 ;;      Totals:         0       0       0       0       0
+   959 ;;Total ram usage:        0 bytes
+   960 ;; Hardware stack levels used:    1
+   961 ;; Hardware stack levels required when called:    3
+   962 ;; This function calls:
+   963 ;;		_GBS_Interrupt_Enable
+   964 ;;		_GBS_T0I_Config
+   965 ;;		_GBS_T1I_Config
+   966 ;; This function is called by:
+   967 ;;		_main
+   968 ;; This function uses a non-reentrant model
+   969 ;;
+   970                           
+   971                           
+   972                           ;psect for function _GBS_Interrupt_Init
+   973  00BD                     _GBS_Interrupt_Init:
+   974  00BD                     l773:	
+   975                           ;incstack = 0
+   976                           ; Regs used in _GBS_Interrupt_Init: [wreg+status,2+status,0+pclath+cstack]
    977                           
-   978                           	psect	intentry
-   979  0004                     __pintentry:	
-   980                           ;incstack = 0
-   981                           ; Regs used in _ISR: [wreg+status,2+status,0+pclath+cstack]
+   978                           
+   979                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 15:     GBS_T0I_Config(1);
+   980  00BD  3001               	movlw	1
+   981  00BE  120A  118A  20EA  120A  118A  	fcall	_GBS_T0I_Config
    982                           
-   983  0004                     interrupt_function:
-   984  007E                     saved_w	set	btemp
-   985  0004  00FE               	movwf	btemp
-   986  0005  0E03               	swapf	3,w
-   987  0006  00F4               	movwf	??_ISR
-   988  0007  080A               	movf	10,w
-   989  0008  00F5               	movwf	??_ISR+1
-   990  0009  120A  118A  285A   	ljmp	_ISR
-   991                           
-   992                           	psect	text6
-   993  0017                     __ptext6:	
-   994 ;; *************** function _T0I_ISR *****************
-   995 ;; Defined at:
-   996 ;;		line 18 in file "../test.c"
-   997 ;; Parameters:    Size  Location     Type
-   998 ;;		None
-   999 ;; Auto vars:     Size  Location     Type
-  1000 ;;		None
-  1001 ;; Return value:  Size  Location     Type
-  1002 ;;                  1    wreg      void 
-  1003 ;; Registers used:
-  1004 ;;		wreg, status,2, status,0
-  1005 ;; Tracked objects:
-  1006 ;;		On entry : 0/0
-  1007 ;;		On exit  : 0/0
-  1008 ;;		Unchanged: 0/0
-  1009 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
-  1010 ;;      Params:         0       0       0       0       0
-  1011 ;;      Locals:         0       0       0       0       0
-  1012 ;;      Temps:          0       0       0       0       0
-  1013 ;;      Totals:         0       0       0       0       0
-  1014 ;;Total ram usage:        0 bytes
-  1015 ;; Hardware stack levels used:    1
-  1016 ;; This function calls:
-  1017 ;;		Nothing
-  1018 ;; This function is called by:
-  1019 ;;		_ISR
-  1020 ;; This function uses a non-reentrant model
-  1021 ;;
-  1022                           
-  1023                           
-  1024                           ;psect for function _T0I_ISR
-  1025  0017                     _T0I_ISR:
-  1026  0017                     i1l743:	
-  1027                           ;incstack = 0
-  1028                           ; Regs used in _T0I_ISR: [wreg+status,2+status,0]
+   983                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 18:     GBS_T1I_Config(1);
+   984  00C3  3001               	movlw	1
+   985  00C4  120A  118A  20DE  120A  118A  	fcall	_GBS_T1I_Config
+   986  00C9                     l775:
+   987                           
+   988                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 20:     GBS_Interrupt_Enable();
+   989  00C9  120A  118A  20F2  120A  118A  	fcall	_GBS_Interrupt_Enable
+   990  00CE                     l99:
+   991  00CE  0008               	return
+   992  00CF                     __end_of_GBS_Interrupt_Init:
+   993                           
+   994                           	psect	text4
+   995  00DE                     __ptext4:	
+   996 ;; *************** function _GBS_T1I_Config *****************
+   997 ;; Defined at:
+   998 ;;		line 73 in file "../gbs8/bsp/scr/gbs8_interrupt.c"
+   999 ;; Parameters:    Size  Location     Type
+  1000 ;;  mode            1    wreg     unsigned char 
+  1001 ;; Auto vars:     Size  Location     Type
+  1002 ;;  mode            1    3[COMMON] unsigned char 
+  1003 ;; Return value:  Size  Location     Type
+  1004 ;;                  1    wreg      void 
+  1005 ;; Registers used:
+  1006 ;;		wreg, status,0
+  1007 ;; Tracked objects:
+  1008 ;;		On entry : 0/0
+  1009 ;;		On exit  : 0/0
+  1010 ;;		Unchanged: 0/0
+  1011 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1012 ;;      Params:         0       0       0       0       0
+  1013 ;;      Locals:         1       0       0       0       0
+  1014 ;;      Temps:          0       0       0       0       0
+  1015 ;;      Totals:         1       0       0       0       0
+  1016 ;;Total ram usage:        1 bytes
+  1017 ;; Hardware stack levels used:    1
+  1018 ;; Hardware stack levels required when called:    2
+  1019 ;; This function calls:
+  1020 ;;		Nothing
+  1021 ;; This function is called by:
+  1022 ;;		_GBS_Interrupt_Init
+  1023 ;; This function uses a non-reentrant model
+  1024 ;;
+  1025                           
+  1026                           
+  1027                           ;psect for function _GBS_T1I_Config
+  1028  00DE                     _GBS_T1I_Config:
   1029                           
-  1030                           
-  1031                           ;../test.c: 20:     if (i>10)
-  1032  0017  0873               	movf	_i+3,w
-  1033  0018  1D03               	btfss	3,2
-  1034  0019  2828               	goto	u1_20
-  1035  001A  0872               	movf	_i+2,w
-  1036  001B  1D03               	btfss	3,2
-  1037  001C  2828               	goto	u1_20
-  1038  001D  0871               	movf	_i+1,w
-  1039  001E  1D03               	btfss	3,2
-  1040  001F  2828               	goto	u1_20
-  1041  0020  300B               	movlw	11
-  1042  0021  0270               	subwf	_i,w
-  1043  0022  1D03               	skipz
-  1044  0023  2824               	goto	u1_23
-  1045  0024                     u1_23:
-  1046  0024  1C03               	btfss	3,0
-  1047  0025  2827               	goto	u1_21
-  1048  0026  2828               	goto	u1_20
-  1049  0027                     u1_21:
-  1050  0027  2834               	goto	i1l19
-  1051  0028                     u1_20:
-  1052  0028                     i1l745:
+  1030                           ;incstack = 0
+  1031                           ; Regs used in _GBS_T1I_Config: [wreg+status,0]
+  1032                           ;GBS_T1I_Config@mode stored from wreg
+  1033  00DE  00F3               	movwf	GBS_T1I_Config@mode
+  1034  00DF                     l767:
+  1035                           
+  1036                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 73: void GBS_T1I_Config(uint8_t mode);../gbs8/bsp/scr
+      +                          /gbs8_interrupt.c: 74: {;../gbs8/bsp/scr/gbs8_interrupt.c: 75:     PIR1bits.TMR1IF = 0;
+  1037  00DF  1283               	bcf	3,5	;RP0=0, select bank0
+  1038  00E0  1303               	bcf	3,6	;RP1=0, select bank0
+  1039  00E1  100C               	bcf	12,0	;volatile
+  1040  00E2                     l769:
+  1041                           
+  1042                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 76:     PIE1bits.TMR1IE = mode;
+  1043  00E2  0C73               	rrf	GBS_T1I_Config@mode,w
+  1044  00E3  1683               	bsf	3,5	;RP0=1, select bank1
+  1045  00E4  1303               	bcf	3,6	;RP1=0, select bank1
+  1046  00E5  1C03               	skipc
+  1047  00E6  100C               	bcf	12,0	;volatile
+  1048  00E7  1803               	skipnc
+  1049  00E8  140C               	bsf	12,0	;volatile
+  1050  00E9                     l117:
+  1051  00E9  0008               	return
+  1052  00EA                     __end_of_GBS_T1I_Config:
   1053                           
-  1054                           ;../test.c: 21:     {;../test.c: 22:         i = 0;
-  1055  0028  3000               	movlw	0
-  1056  0029  00F3               	movwf	_i+3
-  1057  002A  3000               	movlw	0
-  1058  002B  00F2               	movwf	_i+2
-  1059  002C  3000               	movlw	0
-  1060  002D  00F1               	movwf	_i+1
-  1061  002E  3000               	movlw	0
-  1062  002F  00F0               	movwf	_i
-  1063  0030                     i1l747:
-  1064                           
-  1065                           ;../test.c: 23:         TRISEbits.TRISE2 = 1;
-  1066  0030  1683               	bsf	3,5	;RP0=1, select bank1
-  1067  0031  1303               	bcf	3,6	;RP1=0, select bank1
-  1068  0032  1509               	bsf	9,2	;volatile
-  1069                           
-  1070                           ;../test.c: 24:     }
-  1071  0033  2845               	goto	i1l21
-  1072  0034                     i1l19:	
-  1073                           ;../test.c: 25:     else
-  1074                           
-  1075                           
-  1076                           ;../test.c: 26:     {;../test.c: 27:         TRISEbits.TRISE2 = 0;
-  1077  0034  1683               	bsf	3,5	;RP0=1, select bank1
-  1078  0035  1303               	bcf	3,6	;RP1=0, select bank1
-  1079  0036  1109               	bcf	9,2	;volatile
-  1080  0037                     i1l749:
-  1081                           
-  1082                           ;../test.c: 28:         i++;
-  1083  0037  3001               	movlw	1
-  1084  0038  07F0               	addwf	_i,f
-  1085  0039  3000               	movlw	0
-  1086  003A  1803               	skipnc
-  1087  003B  3001               	movlw	1
-  1088  003C  07F1               	addwf	_i+1,f
-  1089  003D  3000               	movlw	0
-  1090  003E  1803               	skipnc
-  1091  003F  3001               	movlw	1
-  1092  0040  07F2               	addwf	_i+2,f
-  1093  0041  3000               	movlw	0
-  1094  0042  1803               	skipnc
-  1095  0043  3001               	movlw	1
-  1096  0044  07F3               	addwf	_i+3,f
-  1097  0045                     i1l21:
-  1098  0045  0008               	return
-  1099  0046                     __end_of_T0I_ISR:
-  1100  007E                     btemp	set	126	;btemp
-  1101  007E                     wtemp0	set	126
-  1102                           
-  1103                           	psect	config
-  1104                           
-  1105                           ;Config register CONFIG1 @ 0x2007
-  1106                           ;	Oscillator Selection bits
-  1107                           ;	FOSC = HS, HS oscillator: High-speed crystal/resonator on RA6/OSC2/CLKOUT and RA7/OSC1
+  1054                           	psect	text5
+  1055  00EA                     __ptext5:	
+  1056 ;; *************** function _GBS_T0I_Config *****************
+  1057 ;; Defined at:
+  1058 ;;		line 67 in file "../gbs8/bsp/scr/gbs8_interrupt.c"
+  1059 ;; Parameters:    Size  Location     Type
+  1060 ;;  mode            1    wreg     unsigned char 
+  1061 ;; Auto vars:     Size  Location     Type
+  1062 ;;  mode            1    3[COMMON] unsigned char 
+  1063 ;; Return value:  Size  Location     Type
+  1064 ;;                  1    wreg      void 
+  1065 ;; Registers used:
+  1066 ;;		wreg, status,0
+  1067 ;; Tracked objects:
+  1068 ;;		On entry : 0/0
+  1069 ;;		On exit  : 0/0
+  1070 ;;		Unchanged: 0/0
+  1071 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1072 ;;      Params:         0       0       0       0       0
+  1073 ;;      Locals:         1       0       0       0       0
+  1074 ;;      Temps:          0       0       0       0       0
+  1075 ;;      Totals:         1       0       0       0       0
+  1076 ;;Total ram usage:        1 bytes
+  1077 ;; Hardware stack levels used:    1
+  1078 ;; Hardware stack levels required when called:    2
+  1079 ;; This function calls:
+  1080 ;;		Nothing
+  1081 ;; This function is called by:
+  1082 ;;		_GBS_Interrupt_Init
+  1083 ;; This function uses a non-reentrant model
+  1084 ;;
+  1085                           
+  1086                           
+  1087                           ;psect for function _GBS_T0I_Config
+  1088  00EA                     _GBS_T0I_Config:
+  1089                           
+  1090                           ;incstack = 0
+  1091                           ; Regs used in _GBS_T0I_Config: [wreg+status,0]
+  1092                           ;GBS_T0I_Config@mode stored from wreg
+  1093  00EA  00F3               	movwf	GBS_T0I_Config@mode
+  1094  00EB                     l763:
+  1095                           
+  1096                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 67: void GBS_T0I_Config(uint8_t mode);../gbs8/bsp/scr
+      +                          /gbs8_interrupt.c: 68: {;../gbs8/bsp/scr/gbs8_interrupt.c: 69:     INTCONbits.T0IF = 0;
+  1097  00EB  110B               	bcf	11,2	;volatile
+  1098  00EC                     l765:
+  1099                           
+  1100                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 70:     INTCONbits.T0IE = mode;
+  1101  00EC  0C73               	rrf	GBS_T0I_Config@mode,w
+  1102  00ED  1C03               	skipc
+  1103  00EE  128B               	bcf	11,5	;volatile
+  1104  00EF  1803               	skipnc
+  1105  00F0  168B               	bsf	11,5	;volatile
+  1106  00F1                     l114:
+  1107  00F1  0008               	return
+  1108  00F2                     __end_of_GBS_T0I_Config:
+  1109                           
+  1110                           	psect	text6
+  1111  00F2                     __ptext6:	
+  1112 ;; *************** function _GBS_Interrupt_Enable *****************
+  1113 ;; Defined at:
+  1114 ;;		line 23 in file "../gbs8/bsp/scr/gbs8_interrupt.c"
+  1115 ;; Parameters:    Size  Location     Type
+  1116 ;;		None
+  1117 ;; Auto vars:     Size  Location     Type
+  1118 ;;		None
+  1119 ;; Return value:  Size  Location     Type
+  1120 ;;                  1    wreg      void 
+  1121 ;; Registers used:
+  1122 ;;		None
+  1123 ;; Tracked objects:
+  1124 ;;		On entry : 0/0
+  1125 ;;		On exit  : 0/0
+  1126 ;;		Unchanged: 0/0
+  1127 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1128 ;;      Params:         0       0       0       0       0
+  1129 ;;      Locals:         0       0       0       0       0
+  1130 ;;      Temps:          0       0       0       0       0
+  1131 ;;      Totals:         0       0       0       0       0
+  1132 ;;Total ram usage:        0 bytes
+  1133 ;; Hardware stack levels used:    1
+  1134 ;; Hardware stack levels required when called:    2
+  1135 ;; This function calls:
+  1136 ;;		Nothing
+  1137 ;; This function is called by:
+  1138 ;;		_GBS_Interrupt_Init
+  1139 ;; This function uses a non-reentrant model
+  1140 ;;
+  1141                           
+  1142                           
+  1143                           ;psect for function _GBS_Interrupt_Enable
+  1144  00F2                     _GBS_Interrupt_Enable:
+  1145  00F2                     l771:	
+  1146                           ;incstack = 0
+  1147                           ; Regs used in _GBS_Interrupt_Enable: []
+  1148                           
+  1149                           
+  1150                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 25:     INTCONbits.PEIE = 1;
+  1151  00F2  170B               	bsf	11,6	;volatile
+  1152                           
+  1153                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 26:     INTCONbits.GIE = 1;
+  1154  00F3  178B               	bsf	11,7	;volatile
+  1155  00F4                     l102:
+  1156  00F4  0008               	return
+  1157  00F5                     __end_of_GBS_Interrupt_Enable:
+  1158                           
+  1159                           	psect	text7
+  1160  0048                     __ptext7:	
+  1161 ;; *************** function _ISR *****************
+  1162 ;; Defined at:
+  1163 ;;		line 87 in file "../gbs8/bsp/scr/gbs8_interrupt.c"
+  1164 ;; Parameters:    Size  Location     Type
+  1165 ;;		None
+  1166 ;; Auto vars:     Size  Location     Type
+  1167 ;;		None
+  1168 ;; Return value:  Size  Location     Type
+  1169 ;;                  1    wreg      void 
+  1170 ;; Registers used:
+  1171 ;;		wreg, status,2, status,0, btemp+1, pclath, cstack
+  1172 ;; Tracked objects:
+  1173 ;;		On entry : 0/0
+  1174 ;;		On exit  : 0/0
+  1175 ;;		Unchanged: 0/0
+  1176 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1177 ;;      Params:         0       0       0       0       0
+  1178 ;;      Locals:         0       0       0       0       0
+  1179 ;;      Temps:          3       0       0       0       0
+  1180 ;;      Totals:         3       0       0       0       0
+  1181 ;;Total ram usage:        3 bytes
+  1182 ;; Hardware stack levels used:    1
+  1183 ;; Hardware stack levels required when called:    1
+  1184 ;; This function calls:
+  1185 ;;		_T0I_ISR
+  1186 ;;		_T1I_ISR
+  1187 ;;		_T2I_ISR
+  1188 ;; This function is called by:
+  1189 ;;		Interrupt level 1
+  1190 ;; This function uses a non-reentrant model
+  1191 ;;
+  1192                           
+  1193                           
+  1194                           ;psect for function _ISR
+  1195  0048                     _ISR:
+  1196  0048                     i1l887:
+  1197                           
+  1198                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 106:     if (INTCONbits.T0IF)
+  1199  0048  1D0B               	btfss	11,2	;volatile
+  1200  0049  284B               	goto	u3_21
+  1201  004A  284C               	goto	u3_20
+  1202  004B                     u3_21:
+  1203  004B  2852               	goto	i1l893
+  1204  004C                     u3_20:
+  1205  004C                     i1l889:
+  1206                           
+  1207                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 107:     {;../gbs8/bsp/scr/gbs8_interrupt.c: 108:    
+      +                               T0I_ISR();
+  1208  004C  120A  118A  2075  120A  118A  	fcall	_T0I_ISR
+  1209  0051                     i1l891:
+  1210                           
+  1211                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 112:         INTCONbits.T0IF = 0;
+  1212  0051  110B               	bcf	11,2	;volatile
+  1213  0052                     i1l893:
+  1214                           
+  1215                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 117:     if (PIR1bits.TMR1IF)
+  1216  0052  1283               	bcf	3,5	;RP0=0, select bank0
+  1217  0053  1303               	bcf	3,6	;RP1=0, select bank0
+  1218  0054  1C0C               	btfss	12,0	;volatile
+  1219  0055  2857               	goto	u4_21
+  1220  0056  2858               	goto	u4_20
+  1221  0057                     u4_21:
+  1222  0057  2860               	goto	i1l899
+  1223  0058                     u4_20:
+  1224  0058                     i1l895:
+  1225                           
+  1226                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 118:     {;../gbs8/bsp/scr/gbs8_interrupt.c: 119:    
+      +                               T1I_ISR();
+  1227  0058  120A  118A  20AA  120A  118A  	fcall	_T1I_ISR
+  1228  005D                     i1l897:
+  1229                           
+  1230                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 120:         PIR1bits.TMR1IF = 0;
+  1231  005D  1283               	bcf	3,5	;RP0=0, select bank0
+  1232  005E  1303               	bcf	3,6	;RP1=0, select bank0
+  1233  005F  100C               	bcf	12,0	;volatile
+  1234  0060                     i1l899:
+  1235                           
+  1236                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 125:     if (PIR1bits.TMR2IF)
+  1237  0060  1C8C               	btfss	12,1	;volatile
+  1238  0061  2863               	goto	u5_21
+  1239  0062  2864               	goto	u5_20
+  1240  0063                     u5_21:
+  1241  0063  286C               	goto	i1l128
+  1242  0064                     u5_20:
+  1243  0064                     i1l901:
+  1244                           
+  1245                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 126:     {;../gbs8/bsp/scr/gbs8_interrupt.c: 127:    
+      +                               T2I_ISR();
+  1246  0064  120A  118A  20F5  120A  118A  	fcall	_T2I_ISR
+  1247  0069                     i1l903:
+  1248                           
+  1249                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 128:         PIR1bits.TMR2IF = 0;
+  1250  0069  1283               	bcf	3,5	;RP0=0, select bank0
+  1251  006A  1303               	bcf	3,6	;RP1=0, select bank0
+  1252  006B  108C               	bcf	12,1	;volatile
+  1253  006C                     i1l128:
+  1254  006C  0872               	movf	??_ISR+2,w
+  1255  006D  00FF               	movwf	btemp+1
+  1256  006E  0871               	movf	??_ISR+1,w
+  1257  006F  008A               	movwf	10
+  1258  0070  0E70               	swapf	??_ISR^(0+4294967168),w
+  1259  0071  0083               	movwf	3
+  1260  0072  0EFE               	swapf	btemp,f
+  1261  0073  0E7E               	swapf	btemp,w
+  1262  0074  0009               	retfie
+  1263  0075                     __end_of_ISR:
+  1264                           
+  1265                           	psect	intentry
+  1266  0004                     __pintentry:	
+  1267                           ;incstack = 0
+  1268                           ; Regs used in _ISR: [wreg+status,2+status,0+btemp+1+pclath+cstack]
+  1269                           
+  1270  0004                     interrupt_function:
+  1271  007E                     saved_w	set	btemp
+  1272  0004  00FE               	movwf	btemp
+  1273  0005  0E03               	swapf	3,w
+  1274  0006  00F0               	movwf	??_ISR
+  1275  0007  080A               	movf	10,w
+  1276  0008  00F1               	movwf	??_ISR+1
+  1277  0009  1283               	bcf	3,5	;RP0=0, select bank0
+  1278  000A  1303               	bcf	3,6	;RP1=0, select bank0
+  1279  000B  087F               	movf	btemp+1,w
+  1280  000C  00F2               	movwf	??_ISR+2
+  1281  000D  120A  118A  2848   	ljmp	_ISR
+  1282                           
+  1283                           	psect	text8
+  1284  00F5                     __ptext8:	
+  1285 ;; *************** function _T2I_ISR *****************
+  1286 ;; Defined at:
+  1287 ;;		line 88 in file "../test.c"
+  1288 ;; Parameters:    Size  Location     Type
+  1289 ;;		None
+  1290 ;; Auto vars:     Size  Location     Type
+  1291 ;;		None
+  1292 ;; Return value:  Size  Location     Type
+  1293 ;;                  1    wreg      void 
+  1294 ;; Registers used:
+  1295 ;;		None
+  1296 ;; Tracked objects:
+  1297 ;;		On entry : 0/0
+  1298 ;;		On exit  : 0/0
+  1299 ;;		Unchanged: 0/0
+  1300 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1301 ;;      Params:         0       0       0       0       0
+  1302 ;;      Locals:         0       0       0       0       0
+  1303 ;;      Temps:          0       0       0       0       0
+  1304 ;;      Totals:         0       0       0       0       0
+  1305 ;;Total ram usage:        0 bytes
+  1306 ;; Hardware stack levels used:    1
+  1307 ;; This function calls:
+  1308 ;;		Nothing
+  1309 ;; This function is called by:
+  1310 ;;		_ISR
+  1311 ;; This function uses a non-reentrant model
+  1312 ;;
+  1313                           
+  1314                           
+  1315                           ;psect for function _T2I_ISR
+  1316  00F5                     _T2I_ISR:
+  1317  00F5                     i1l47:	
+  1318                           ;incstack = 0
+  1319                           ; Regs used in _T2I_ISR: []
+  1320                           
+  1321  00F5  0008               	return
+  1322  00F6                     __end_of_T2I_ISR:
+  1323                           
+  1324                           	psect	text9
+  1325  00AA                     __ptext9:	
+  1326 ;; *************** function _T1I_ISR *****************
+  1327 ;; Defined at:
+  1328 ;;		line 74 in file "../test.c"
+  1329 ;; Parameters:    Size  Location     Type
+  1330 ;;		None
+  1331 ;; Auto vars:     Size  Location     Type
+  1332 ;;		None
+  1333 ;; Return value:  Size  Location     Type
+  1334 ;;                  1    wreg      void 
+  1335 ;; Registers used:
+  1336 ;;		wreg, status,2, status,0, btemp+1
+  1337 ;; Tracked objects:
+  1338 ;;		On entry : 0/0
+  1339 ;;		On exit  : 0/0
+  1340 ;;		Unchanged: 0/0
+  1341 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1342 ;;      Params:         0       0       0       0       0
+  1343 ;;      Locals:         0       0       0       0       0
+  1344 ;;      Temps:          0       0       0       0       0
+  1345 ;;      Totals:         0       0       0       0       0
+  1346 ;;Total ram usage:        0 bytes
+  1347 ;; Hardware stack levels used:    1
+  1348 ;; This function calls:
+  1349 ;;		Nothing
+  1350 ;; This function is called by:
+  1351 ;;		_ISR
+  1352 ;; This function uses a non-reentrant model
+  1353 ;;
+  1354                           
+  1355                           
+  1356                           ;psect for function _T1I_ISR
+  1357  00AA                     _T1I_ISR:
+  1358  00AA                     i1l799:	
+  1359                           ;incstack = 0
+  1360                           ; Regs used in _T1I_ISR: [wreg+status,2+status,0+btemp+1]
+  1361                           
+  1362                           
+  1363                           ;../test.c: 76:     if (t>1)
+  1364  00AA  3002               	movlw	2
+  1365  00AB  027A               	subwf	_t,w
+  1366  00AC  1C03               	skipc
+  1367  00AD  28AF               	goto	u2_21
+  1368  00AE  28B0               	goto	u2_20
+  1369  00AF                     u2_21:
+  1370  00AF  28B5               	goto	i1l42
+  1371  00B0                     u2_20:
+  1372  00B0                     i1l801:
+  1373                           
+  1374                           ;../test.c: 77:     {;../test.c: 78:         t = 0;
+  1375  00B0  01FA               	clrf	_t
+  1376  00B1                     i1l803:
+  1377                           
+  1378                           ;../test.c: 79:         TRISEbits.TRISE2 = 0;
+  1379  00B1  1683               	bsf	3,5	;RP0=1, select bank1
+  1380  00B2  1303               	bcf	3,6	;RP1=0, select bank1
+  1381  00B3  1109               	bcf	9,2	;volatile
+  1382                           
+  1383                           ;../test.c: 80:     }
+  1384  00B4  28BC               	goto	i1l44
+  1385  00B5                     i1l42:	
+  1386                           ;../test.c: 81:     else
+  1387                           
+  1388                           
+  1389                           ;../test.c: 82:     {;../test.c: 83:         TRISEbits.TRISE2 = 1;
+  1390  00B5  1683               	bsf	3,5	;RP0=1, select bank1
+  1391  00B6  1303               	bcf	3,6	;RP1=0, select bank1
+  1392  00B7  1509               	bsf	9,2	;volatile
+  1393  00B8                     i1l805:
+  1394                           
+  1395                           ;../test.c: 84:         t++;
+  1396  00B8  3001               	movlw	1
+  1397  00B9  00FF               	movwf	btemp+1
+  1398  00BA  087F               	movf	btemp+1,w
+  1399  00BB  07FA               	addwf	_t,f
+  1400  00BC                     i1l44:
+  1401  00BC  0008               	return
+  1402  00BD                     __end_of_T1I_ISR:
+  1403                           
+  1404                           	psect	text10
+  1405  0075                     __ptext10:	
+  1406 ;; *************** function _T0I_ISR *****************
+  1407 ;; Defined at:
+  1408 ;;		line 56 in file "../test.c"
+  1409 ;; Parameters:    Size  Location     Type
+  1410 ;;		None
+  1411 ;; Auto vars:     Size  Location     Type
+  1412 ;;		None
+  1413 ;; Return value:  Size  Location     Type
+  1414 ;;                  1    wreg      void 
+  1415 ;; Registers used:
+  1416 ;;		wreg, status,2, btemp+1
+  1417 ;; Tracked objects:
+  1418 ;;		On entry : 0/0
+  1419 ;;		On exit  : 0/0
+  1420 ;;		Unchanged: 0/0
+  1421 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+  1422 ;;      Params:         0       0       0       0       0
+  1423 ;;      Locals:         0       0       0       0       0
+  1424 ;;      Temps:          0       0       0       0       0
+  1425 ;;      Totals:         0       0       0       0       0
+  1426 ;;Total ram usage:        0 bytes
+  1427 ;; Hardware stack levels used:    1
+  1428 ;; This function calls:
+  1429 ;;		Nothing
+  1430 ;; This function is called by:
+  1431 ;;		_ISR
+  1432 ;; This function uses a non-reentrant model
+  1433 ;;
+  1434                           
+  1435                           
+  1436                           ;psect for function _T0I_ISR
+  1437  0075                     _T0I_ISR:
+  1438  0075                     i1l791:	
+  1439                           ;incstack = 0
+  1440                           ; Regs used in _T0I_ISR: [wreg+status,2+btemp+1]
+  1441                           
+  1442                           
+  1443                           ;../test.c: 58:     if (i>1)
+  1444  0075  0878               	movf	_i+1,w
+  1445  0076  3A80               	xorlw	128
+  1446  0077  00FF               	movwf	btemp+1
+  1447  0078  3080               	movlw	128
+  1448  0079  027F               	subwf	btemp+1,w
+  1449  007A  1D03               	skipz
+  1450  007B  287E               	goto	u1_25
+  1451  007C  3002               	movlw	2
+  1452  007D  0277               	subwf	_i,w
+  1453  007E                     u1_25:
+  1454  007E  1C03               	skipc
+  1455  007F  2881               	goto	u1_21
+  1456  0080  2882               	goto	u1_20
+  1457  0081                     u1_21:
+  1458  0081  2888               	goto	i1l37
+  1459  0082                     u1_20:
+  1460  0082                     i1l793:
+  1461                           
+  1462                           ;../test.c: 59:     {;../test.c: 60:         i = 0;
+  1463  0082  01F7               	clrf	_i
+  1464  0083  01F8               	clrf	_i+1
+  1465  0084                     i1l795:
+  1466                           
+  1467                           ;../test.c: 62:         TRISEbits.TRISE0 = 1;
+  1468  0084  1683               	bsf	3,5	;RP0=1, select bank1
+  1469  0085  1303               	bcf	3,6	;RP1=0, select bank1
+  1470  0086  1409               	bsf	9,0	;volatile
+  1471                           
+  1472                           ;../test.c: 64:     }
+  1473  0087  2891               	goto	i1l39
+  1474  0088                     i1l37:	
+  1475                           ;../test.c: 65:     else
+  1476                           
+  1477                           
+  1478                           ;../test.c: 66:     {;../test.c: 68:         TRISEbits.TRISE0 = 0;
+  1479  0088  1683               	bsf	3,5	;RP0=1, select bank1
+  1480  0089  1303               	bcf	3,6	;RP1=0, select bank1
+  1481  008A  1009               	bcf	9,0	;volatile
+  1482  008B                     i1l797:
+  1483                           
+  1484                           ;../test.c: 70:         i++;
+  1485  008B  3001               	movlw	1
+  1486  008C  07F7               	addwf	_i,f
+  1487  008D  1803               	skipnc
+  1488  008E  0AF8               	incf	_i+1,f
+  1489  008F  3000               	movlw	0
+  1490  0090  07F8               	addwf	_i+1,f
+  1491  0091                     i1l39:
+  1492  0091  0008               	return
+  1493  0092                     __end_of_T0I_ISR:
+  1494  007E                     btemp	set	126	;btemp
+  1495  007E                     wtemp0	set	126
+  1496                           
+  1497                           	psect	config
+  1498                           
+  1499                           ;Config register CONFIG1 @ 0x2007
+  1500                           ;	Oscillator Selection bits
+  1501                           ;	FOSC = HS, HS oscillator: High-speed crystal/resonator on RA6/OSC2/CLKOUT and RA7/OSC1
       +                          /CLKIN
-  1108                           ;	Watchdog Timer Enable bit
-  1109                           ;	WDTE = OFF, WDT disabled and can be enabled by SWDTEN bit of the WDTCON register
-  1110                           ;	Power-up Timer Enable bit
-  1111                           ;	PWRTE = OFF, PWRT disabled
-  1112                           ;	RE3/MCLR pin function select bit
-  1113                           ;	MCLRE = ON, RE3/MCLR pin function is MCLR
-  1114                           ;	Code Protection bit
-  1115                           ;	CP = OFF, Program memory code protection is disabled
-  1116                           ;	Data Code Protection bit
-  1117                           ;	CPD = OFF, Data memory code protection is disabled
-  1118                           ;	Brown Out Reset Selection bits
-  1119                           ;	BOREN = OFF, BOR disabled
-  1120                           ;	Internal External Switchover bit
-  1121                           ;	IESO = OFF, Internal/External Switchover mode is disabled
-  1122                           ;	Fail-Safe Clock Monitor Enabled bit
-  1123                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
-  1124                           ;	Low Voltage Programming Enable bit
-  1125                           ;	LVP = OFF, RB3 pin has digital I/O, HV on MCLR must be used for programming
-  1126                           ;	In-Circuit Debugger Mode bit
-  1127                           ;	DEBUG = 0x1, unprogrammed default
-  1128  2007                     	org	8199
-  1129  2007  20F2               	dw	8434
-  1130                           
-  1131                           ;Config register CONFIG2 @ 0x2008
-  1132                           ;	Brown-out Reset Selection bit
-  1133                           ;	BOR4V = BOR21V, Brown-out Reset set to 2.1V
-  1134                           ;	Flash Program Memory Self Write Enable bits
-  1135                           ;	WRT = OFF, Write protection off
-  1136  2008                     	org	8200
-  1137  2008  3EFF               	dw	16127
+  1502                           ;	Watchdog Timer Enable bit
+  1503                           ;	WDTE = OFF, WDT disabled and can be enabled by SWDTEN bit of the WDTCON register
+  1504                           ;	Power-up Timer Enable bit
+  1505                           ;	PWRTE = OFF, PWRT disabled
+  1506                           ;	RE3/MCLR pin function select bit
+  1507                           ;	MCLRE = ON, RE3/MCLR pin function is MCLR
+  1508                           ;	Code Protection bit
+  1509                           ;	CP = OFF, Program memory code protection is disabled
+  1510                           ;	Data Code Protection bit
+  1511                           ;	CPD = OFF, Data memory code protection is disabled
+  1512                           ;	Brown Out Reset Selection bits
+  1513                           ;	BOREN = OFF, BOR disabled
+  1514                           ;	Internal External Switchover bit
+  1515                           ;	IESO = OFF, Internal/External Switchover mode is disabled
+  1516                           ;	Fail-Safe Clock Monitor Enabled bit
+  1517                           ;	FCMEN = OFF, Fail-Safe Clock Monitor is disabled
+  1518                           ;	Low Voltage Programming Enable bit
+  1519                           ;	LVP = OFF, RB3 pin has digital I/O, HV on MCLR must be used for programming
+  1520                           ;	In-Circuit Debugger Mode bit
+  1521                           ;	DEBUG = 0x1, unprogrammed default
+  1522  2007                     	org	8199
+  1523  2007  20F2               	dw	8434
+  1524                           
+  1525                           ;Config register CONFIG2 @ 0x2008
+  1526                           ;	Brown-out Reset Selection bit
+  1527                           ;	BOR4V = BOR21V, Brown-out Reset set to 2.1V
+  1528                           ;	Flash Program Memory Self Write Enable bits
+  1529                           ;	WRT = OFF, Write protection off
+  1530  2008                     	org	8200
+  1531  2008  3EFF               	dw	16127
 
 Data Sizes:
     Strings     0
@@ -1164,8 +1563,8 @@ Data Sizes:
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMMON           14      4       8
-    BANK0            80      0       0
+    COMMON           14      7      11
+    BANK0            80      1       1
     BANK1            80      0       0
     BANK3            96      0       0
     BANK2            96      0       0
@@ -1176,8 +1575,9 @@ Pointer List with Targets:
 
 Critical Paths under _main in COMMON
 
-    _main->_GBS_Timer0_Config
+    _main->_GBS_Timer1_Config
     _GBS_Interrupt_Init->_GBS_T0I_Config
+    _GBS_Interrupt_Init->_GBS_T1I_Config
 
 Critical Paths under _ISR in COMMON
 
@@ -1185,7 +1585,7 @@ Critical Paths under _ISR in COMMON
 
 Critical Paths under _main in BANK0
 
-    None.
+    _main->_GBS_Timer1_Config
 
 Critical Paths under _ISR in BANK0
 
@@ -1220,19 +1620,28 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 0     0      0     135
+ (0) _main                                                 0     0      0     423
                  _GBS_Interrupt_Init
                   _GBS_Timer0_Config
+                  _GBS_Timer1_Config
+ ---------------------------------------------------------------------------------
+ (1) _GBS_Timer1_Config                                    5     2      3     273
+                                              3 COMMON     4     1      3
+                                              0 BANK0      1     1      0
  ---------------------------------------------------------------------------------
  (1) _GBS_Timer0_Config                                    2     1      1     120
-                                              2 COMMON     2     1      1
+                                              3 COMMON     2     1      1
  ---------------------------------------------------------------------------------
- (1) _GBS_Interrupt_Init                                   0     0      0      15
+ (1) _GBS_Interrupt_Init                                   0     0      0      30
                _GBS_Interrupt_Enable
                      _GBS_T0I_Config
+                     _GBS_T1I_Config
+ ---------------------------------------------------------------------------------
+ (2) _GBS_T1I_Config                                       1     1      0      15
+                                              3 COMMON     1     1      0
  ---------------------------------------------------------------------------------
  (2) _GBS_T0I_Config                                       1     1      0      15
-                                              2 COMMON     1     1      0
+                                              3 COMMON     1     1      0
  ---------------------------------------------------------------------------------
  (2) _GBS_Interrupt_Enable                                 0     0      0       0
  ---------------------------------------------------------------------------------
@@ -1240,9 +1649,15 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (3) _ISR                                                  2     2      0       0
-                                              0 COMMON     2     2      0
+ (3) _ISR                                                  3     3      0       0
+                                              0 COMMON     3     3      0
                             _T0I_ISR
+                            _T1I_ISR
+                            _T2I_ISR
+ ---------------------------------------------------------------------------------
+ (4) _T2I_ISR                                              0     0      0       0
+ ---------------------------------------------------------------------------------
+ (4) _T1I_ISR                                              0     0      0       0
  ---------------------------------------------------------------------------------
  (4) _T0I_ISR                                              0     0      0       0
  ---------------------------------------------------------------------------------
@@ -1255,10 +1670,14 @@ Call Graph Tables:
    _GBS_Interrupt_Init
      _GBS_Interrupt_Enable
      _GBS_T0I_Config
+     _GBS_T1I_Config
    _GBS_Timer0_Config
+   _GBS_Timer1_Config
 
  _ISR (ROOT)
    _T0I_ISR
+   _T1I_ISR
+   _T2I_ISR
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
@@ -1266,17 +1685,17 @@ BITCOMMON            E      0       0       0        0.0%
 EEDATA             100      0       0       0        0.0%
 NULL                 0      0       0       0        0.0%
 CODE                 0      0       0       0        0.0%
-COMMON               E      4       8       1       57.1%
+COMMON               E      7       B       1       78.6%
 BITSFR0              0      0       0       1        0.0%
 SFR0                 0      0       0       1        0.0%
 BITSFR1              0      0       0       2        0.0%
 SFR1                 0      0       0       2        0.0%
 STACK                0      0       0       2        0.0%
-ABS                  0      0       8       3        0.0%
+ABS                  0      0       C       3        0.0%
 BITBANK0            50      0       0       4        0.0%
 BITSFR3              0      0       0       4        0.0%
 SFR3                 0      0       0       4        0.0%
-BANK0               50      0       0       5        0.0%
+BANK0               50      1       1       5        1.2%
 BITSFR2              0      0       0       5        0.0%
 SFR2                 0      0       0       5        0.0%
 BITBANK1            50      0       0       6        0.0%
@@ -1285,48 +1704,70 @@ BITBANK3            60      0       0       8        0.0%
 BANK3               60      0       0       9        0.0%
 BITBANK2            60      0       0      10        0.0%
 BANK2               60      0       0      11        0.0%
-DATA                 0      0       8      12        0.0%
+DATA                 0      0       C      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Tue Oct 27 16:32:46 2020
+Symbol Table                                                                                   Wed Oct 28 11:29:52 2020
 
-                            _i 0070                             l13 0056                             l14 0056  
-                           l70 0090                             l82 008D                             l67 0085  
-                          l126 0079                            l731 008E                            l733 007A  
-                          l727 0087                            l735 0080                            l729 0088  
-                          l861 0046                            l855 006C                            l863 0052  
-                          l857 0070                            l865 0055                            l859 0075  
-                          _PR2 0092                            _ISR 005A                            _PSA 040B  
-              __end_of_T0I_ISR 0046                           ?_ISR 0074                           _T0CS 040D  
-                         i1l21 0045                           i1l19 0034                           i1l94 0064  
-                         _TMR0 0001                           _TMR1 000E                           u1_20 0028  
-                         u1_21 0027                           u1_23 0024                           u2_20 005E  
-                         u2_21 005D                           _main 0046                           btemp 007E  
-                         start 000C                          ??_ISR 0074                          ?_main 0074  
-                        _ANSEL 0188                          i1l821 005E                          i1l743 0017  
-                        i1l823 0063                          i1l745 0028                          i1l747 0030  
-                        i1l819 005A                          i1l749 0037                          pclath 000A  
-                        status 0003                          wtemp0 007E                __initialization 000F  
-                 __end_of_main 005A                         ??_main 0078                      ??_T0I_ISR 0074  
-                       _CCPR1L 0015     GBS_Timer0_Config@prescaler 0077                         _ANSELH 0189  
-                       _TMR2ON 0092                         saved_w 007E   __end_of_GBS_Interrupt_Enable 0091  
-      __end_of__initialization 0013                 __pcstackCOMMON 0074                 _OPTION_REGbits 0081  
-      __size_of_GBS_T0I_Config 0008     __end_of_GBS_Interrupt_Init 0086                     __pmaintext 0046  
-                   __pintentry 0004                        _T0I_ISR 0017           _GBS_Interrupt_Enable 008E  
-                      __ptext1 006B                        __ptext2 007A                        __ptext3 0086  
-                      __ptext4 008E                        __ptext5 005A                        __ptext6 0017  
-                 __size_of_ISR 0011                      _T1CONbits 0010                      _T2CONbits 0012  
-           GBS_T0I_Config@mode 0076           end_of_initialization 0013          ?_GBS_Interrupt_Enable 0074  
-               _GBS_T0I_Config 0086                      _TRISAbits 0085                      _TRISBbits 0086  
-                    _TRISCbits 0087                      _TRISDbits 0088                      _TRISEbits 0089  
-                  _CCP1CONbits 0017         __end_of_GBS_T0I_Config 008E            start_initialization 000F  
-                  __end_of_ISR 006B              _GBS_Timer0_Config 006B             ?_GBS_Timer0_Config 0076  
-          ??_GBS_Timer0_Config 0077         ??_GBS_Interrupt_Enable 0076             _GBS_Interrupt_Init 007A  
-          ?_GBS_Interrupt_Init 0074                ?_GBS_T0I_Config 0074                       ?_T0I_ISR 0074  
-                  __pbssCOMMON 0070                      ___latbits 0002      __end_of_GBS_Timer0_Config 007A  
-         ??_GBS_Interrupt_Init 0077              interrupt_function 0004                       _IOCBbits 0096  
-                     _PIE1bits 008C                       _PIR1bits 000C               __size_of_T0I_ISR 002F  
-   __size_of_GBS_Timer0_Config 000F                  __size_of_main 0014               ??_GBS_T0I_Config 0076  
-                   _INTCONbits 000B                       intlevel1 0000  __size_of_GBS_Interrupt_Enable 0003  
-  __size_of_GBS_Interrupt_Init 000C        GBS_Timer0_Config@timer0 0076  
+                            _i 0077                              _k 0079                              _t 007A  
+                           l31 0044                             l99 00CE                            l102 00F4  
+                          l114 00F1                            l117 00E9                            l162 00DD  
+                          l165 00A9                            l771 00F2                            l763 00EB  
+                          l931 00D4                            l765 00EC                            l773 00BD  
+                          l933 00D9                            l767 00DF                            l775 00C9  
+                          l769 00E2                            l929 00D0                            l971 00A5  
+                          l965 0095                            l981 0038                            l973 001B  
+                          l967 0098                            l991 0044                            l983 0039  
+                          l975 0027                            l969 00A0                            l985 003A  
+                          l977 0034                            l987 003E                            l979 0037  
+                          l989 0042                            _PR2 0092                            _ISR 0048  
+                          _PSA 040B                __end_of_T0I_ISR 0092                __end_of_T1I_ISR 00BD  
+              __end_of_T2I_ISR 00F6                           ?_ISR 0070                           _T0CS 040D  
+                         i1l42 00B5                           i1l44 00BC                           i1l37 0088  
+                         i1l39 0091                           i1l47 00F5                           _TMR0 0001  
+                         _TMR1 000E                           _TMR2 0011                           u1_20 0082  
+                         u1_21 0081                           u1_25 007E                           u2_20 00B0  
+                         u2_21 00AF                           u3_20 004C                           u3_21 004B  
+                         u4_20 0058                           u4_21 0057                           u5_20 0064  
+                         u5_21 0063                           _main 001B                           btemp 007E  
+                         start 0010                          ??_ISR 0070                          ?_main 0070  
+                        _ANSEL 0188                          _T2CON 0012                          i1l128 006C  
+                        i1l801 00B0                          i1l803 00B1                          i1l805 00B8  
+                        i1l901 0064                          i1l903 0069                          i1l791 0075  
+                        i1l793 0082                          i1l795 0084                          i1l891 0051  
+                        i1l797 008B                          i1l893 0052                          i1l799 00AA  
+                        i1l895 0058                          i1l887 0048                          i1l897 005D  
+                        i1l889 004C                          i1l899 0060                          pclath 000A  
+                        status 0003                          wtemp0 007E                __initialization 0013  
+       GBS_Timer1_Config@state 0020                   __end_of_main 0048                         ??_main 0077  
+                    ??_T0I_ISR 0070                      ??_T1I_ISR 0070                      ??_T2I_ISR 0070  
+                       _CCPR1L 0015     GBS_Timer0_Config@prescaler 0074                         _ANSELH 0189  
+                       _TMR2ON 0092                         _TRISC2 043A                         saved_w 007E  
+ __end_of_GBS_Interrupt_Enable 00F5        __end_of__initialization 0017                 __pcstackCOMMON 0070  
+      GBS_Timer1_Config@timVar 0074                 _OPTION_REGbits 0081        __size_of_GBS_T0I_Config 0008  
+      __size_of_GBS_T1I_Config 000C     __end_of_GBS_Interrupt_Init 00CF                     __pmaintext 001B  
+                   __pintentry 0004     GBS_Timer1_Config@prescaler 0073                        _T0I_ISR 0075  
+                      _T1I_ISR 00AA                        _T2I_ISR 00F5           _GBS_Interrupt_Enable 00F2  
+                      __ptext1 0092                        __ptext2 00CF                        __ptext3 00BD  
+                      __ptext4 00DE                        __ptext5 00EA                        __ptext6 00F2  
+                      __ptext7 0048                        __ptext8 00F5                        __ptext9 00AA  
+                 __size_of_ISR 002D                      _T1CONbits 0010                      _T2CONbits 0012  
+           GBS_T0I_Config@mode 0073           end_of_initialization 0017          ?_GBS_Interrupt_Enable 0070  
+               _GBS_T0I_Config 00EA                 _GBS_T1I_Config 00DE                      _TRISAbits 0085  
+                    _TRISBbits 0086                      _TRISCbits 0087                      _TRISDbits 0088  
+                    _TRISEbits 0089                    _CCP1CONbits 0017         __end_of_GBS_T0I_Config 00F2  
+       __end_of_GBS_T1I_Config 00EA            start_initialization 0013                    __end_of_ISR 0075  
+           GBS_T1I_Config@mode 0073              _GBS_Timer0_Config 00CF              _GBS_Timer1_Config 0092  
+           ?_GBS_Timer0_Config 0073             ?_GBS_Timer1_Config 0073            ??_GBS_Timer0_Config 0074  
+       ??_GBS_Interrupt_Enable 0073            ??_GBS_Timer1_Config 0076             _GBS_Interrupt_Init 00BD  
+          ?_GBS_Interrupt_Init 0070                ?_GBS_T0I_Config 0070                ?_GBS_T1I_Config 0070  
+                     ?_T0I_ISR 0070                       ?_T1I_ISR 0070                       ?_T2I_ISR 0070  
+                  __pbssCOMMON 0077                      ___latbits 0002                  __pcstackBANK0 0020  
+    __end_of_GBS_Timer0_Config 00DE      __end_of_GBS_Timer1_Config 00AA           ??_GBS_Interrupt_Init 0074  
+            interrupt_function 0004                       _IOCBbits 0096                       _PIE1bits 008C  
+                     _PIR1bits 000C               __size_of_T0I_ISR 001D               __size_of_T1I_ISR 0013  
+             __size_of_T2I_ISR 0001     __size_of_GBS_Timer0_Config 000F     __size_of_GBS_Timer1_Config 0018  
+                     __ptext10 0075                  __size_of_main 002D               ??_GBS_T0I_Config 0073  
+             ??_GBS_T1I_Config 0073                     _INTCONbits 000B                       intlevel1 0000  
+__size_of_GBS_Interrupt_Enable 0003    __size_of_GBS_Interrupt_Init 0012        GBS_Timer0_Config@timer0 0073  

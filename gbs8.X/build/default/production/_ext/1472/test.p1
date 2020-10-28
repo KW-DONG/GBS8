@@ -3,14 +3,60 @@ Version 4.0 HI-TECH Software Intermediate Code
 "71 ../gbs8/bsp/inc\gbs8_interrupt.h
 [; ;../gbs8/bsp/inc\gbs8_interrupt.h: 71: void GBS_Interrupt_Init();
 [v _GBS_Interrupt_Init `(v ~T0 @X0 0 e? ]
-"51 ../gbs8/bsp/inc\gbs8_timer.h
-[; ;../gbs8/bsp/inc\gbs8_timer.h: 51: void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0);
+"48 ../gbs8/bsp/inc\gbs8_timer.h
+[; ;../gbs8/bsp/inc\gbs8_timer.h: 48: void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0);
 [v _GBS_Timer0_Config `(v ~T0 @X0 0 ef2`uc`uc ]
-"12 ../test.c
-[; ;../test.c: 12:     GBS_Timer0_Config(TIM0_PS2, 0);
-[c E1366 0 1 2 3 4 5 6 7 .. ]
-[n E1366 TMR0_PS TIM0_PS2 TIM0_PS4 TIM0_PS8 TIM0_PS16 TIM0_PS32 TIM0_PS64 TIM0_PS128 TIM0_PS256  ]
-"1670 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+"14 ../test.c
+[; ;../test.c: 14:     GBS_Timer0_Config(TIM0_PS256, 0);
+[c E1363 0 1 2 3 4 5 6 7 .. ]
+[n E1363 TMR0_PS TIM0_PS2 TIM0_PS4 TIM0_PS8 TIM0_PS16 TIM0_PS32 TIM0_PS64 TIM0_PS128 TIM0_PS256  ]
+"74 ../gbs8/bsp/inc\gbs8_timer.h
+[; ;../gbs8/bsp/inc\gbs8_timer.h: 74: void GBS_Timer1_Config(uint8_t state, uint8_t prescaler, uint16_t timVar);
+[v _GBS_Timer1_Config `(v ~T0 @X0 0 ef3`uc`uc`ui ]
+"15 ../test.c
+[; ;../test.c: 15:     GBS_Timer1_Config(1, TIM1_PS8, 0);
+[c E1384 0 1 2 3 .. ]
+[n E1384 TIM1_PS TIM1_PS1 TIM1_PS2 TIM1_PS4 TIM1_PS8  ]
+"4454 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 4454: extern volatile __bit TRISC2 __attribute__((address(0x43A)));
+[v _TRISC2 `Vb ~T0 @X0 0 e@1082 ]
+"1608
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1608:     struct {
+[s S59 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S59 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"1607
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1607: typedef union {
+[u S58 `S59 1 ]
+[n S58 . . ]
+"1619
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1619: extern volatile TRISDbits_t TRISDbits __attribute__((address(0x088)));
+[v _TRISDbits `VS58 ~T0 @X0 0 e@136 ]
+"927
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 927: extern volatile unsigned char CCPR1L __attribute__((address(0x015)));
+[v _CCPR1L `Vuc ~T0 @X0 0 e@21 ]
+"947
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 947:     struct {
+[s S33 :4 `uc 1 :2 `uc 1 :2 `uc 1 ]
+[n S33 . CCP1M DC1B P1M ]
+"952
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 952:     struct {
+[s S34 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S34 . CCP1M0 CCP1M1 CCP1M2 CCP1M3 DC1B0 DC1B1 P1M0 P1M1 ]
+"962
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 962:     struct {
+[s S35 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S35 . . CCP1Y CCP1X ]
+"946
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 946: typedef union {
+[u S32 `S33 1 `S34 1 `S35 1 ]
+[n S32 . . . . ]
+"968
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 968: extern volatile CCP1CONbits_t CCP1CONbits __attribute__((address(0x017)));
+[v _CCP1CONbits `VS32 ~T0 @X0 0 e@23 ]
+"772
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 772: extern volatile unsigned char T2CON __attribute__((address(0x012)));
+[v _T2CON `Vuc ~T0 @X0 0 e@18 ]
+"1670
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1670:     struct {
 [s S61 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S61 . TRISE0 TRISE1 TRISE2 TRISE3 ]
@@ -280,80 +326,186 @@ Version 4.0 HI-TECH Software Intermediate Code
 "20
 [p x WRT = OFF ]
 "7 ../test.c
-[; ;../test.c: 7: uint32_t i;
-[v _i `ul ~T0 @X0 1 e ]
-[v $root$_main `(v ~T0 @X0 0 e ]
+[; ;../test.c: 7: int i;
+[v _i `i ~T0 @X0 1 e ]
+"8
+[; ;../test.c: 8: uint8_t t;
+[v _t `uc ~T0 @X0 1 e ]
 "9
-[; ;../test.c: 9: int main()
+[; ;../test.c: 9: uint8_t k;
+[v _k `uc ~T0 @X0 1 e ]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"11
+[; ;../test.c: 11: int main()
 [v _main `(i ~T0 @X0 1 ef ]
-"10
-[; ;../test.c: 10: {
+"12
+[; ;../test.c: 12: {
 {
 [e :U _main ]
 [f ]
-"11
-[; ;../test.c: 11:     GBS_Interrupt_Init();
-[e ( _GBS_Interrupt_Init ..  ]
-"12
-[; ;../test.c: 12:     GBS_Timer0_Config(TIM0_PS2, 0);
-[e ( _GBS_Timer0_Config (2 , -> . `E1366 0 `uc -> -> 0 `i `uc ]
 "13
-[; ;../test.c: 13:     TRISEbits.TRISE0 = 1;
-[e = . . _TRISEbits 0 0 -> -> 1 `i `uc ]
+[; ;../test.c: 13:     GBS_Interrupt_Init();
+[e ( _GBS_Interrupt_Init ..  ]
 "14
-[; ;../test.c: 14:     TRISEbits.TRISE1 = 0;
-[e = . . _TRISEbits 0 1 -> -> 0 `i `uc ]
+[; ;../test.c: 14:     GBS_Timer0_Config(TIM0_PS256, 0);
+[e ( _GBS_Timer0_Config (2 , -> . `E1363 7 `uc -> -> 0 `i `uc ]
 "15
-[; ;../test.c: 15:     while(1);
+[; ;../test.c: 15:     GBS_Timer1_Config(1, TIM1_PS8, 0);
+[e ( _GBS_Timer1_Config (3 , , -> -> 1 `i `uc -> . `E1384 3 `uc -> -> 0 `i `ui ]
+"22
+[; ;../test.c: 22:     TRISC2 = 0;
+[e = _TRISC2 -> -> 0 `i `b ]
+"23
+[; ;../test.c: 23:     TRISDbits.TRISD7 = 0;
+[e = . . _TRISDbits 0 7 -> -> 0 `i `uc ]
+"24
+[; ;../test.c: 24:     TRISDbits.TRISD6 = 0;
+[e = . . _TRISDbits 0 6 -> -> 0 `i `uc ]
+"25
+[; ;../test.c: 25:     TRISDbits.TRISD5 = 0;
+[e = . . _TRISDbits 0 5 -> -> 0 `i `uc ]
+"27
+[; ;../test.c: 27:     CCPR1L = 0x7;
+[e = _CCPR1L -> -> 7 `i `uc ]
+"29
+[; ;../test.c: 29:     CCP1CONbits.CCP1M = 0b1100;
+[e = . . _CCP1CONbits 0 0 -> -> 12 `i `uc ]
+"31
+[; ;../test.c: 31:     T2CON = 0x04;
+[e = _T2CON -> -> 4 `i `uc ]
+"33
+[; ;../test.c: 33:     while(1)
 [e :U 140 ]
+"34
+[; ;../test.c: 34:     {
+{
+"42
+[; ;../test.c: 42:         if (i>500)
+[e $ ! > _i -> 500 `i 142  ]
+"43
+[; ;../test.c: 43:         {
+{
+"46
+[; ;../test.c: 46:         }
+}
+[e $U 143  ]
+"47
+[; ;../test.c: 47:         else
+[e :U 142 ]
+"48
+[; ;../test.c: 48:         {
+{
+"51
+[; ;../test.c: 51:         }
+}
+[e :U 143 ]
+"53
+[; ;../test.c: 53:     }
+}
 [e :U 139 ]
 [e $U 140  ]
 [e :U 141 ]
-"16
-[; ;../test.c: 16: }
+"54
+[; ;../test.c: 54: }
 [e :UE 138 ]
 }
-"18
-[; ;../test.c: 18: void T0I_ISR()
+"56
+[; ;../test.c: 56: void T0I_ISR()
 [v _T0I_ISR `(v ~T0 @X0 1 ef ]
-"19
-[; ;../test.c: 19: {
+"57
+[; ;../test.c: 57: {
 {
 [e :U _T0I_ISR ]
 [f ]
-"20
-[; ;../test.c: 20:     if (i>10)
-[e $ ! > _i -> -> -> 10 `i `l `ul 143  ]
-"21
-[; ;../test.c: 21:     {
+"58
+[; ;../test.c: 58:     if (i>1)
+[e $ ! > _i -> 1 `i 145  ]
+"59
+[; ;../test.c: 59:     {
 {
-"22
-[; ;../test.c: 22:         i = 0;
-[e = _i -> -> -> 0 `i `l `ul ]
-"23
-[; ;../test.c: 23:         TRISEbits.TRISE2 = 1;
-[e = . . _TRISEbits 0 2 -> -> 1 `i `uc ]
-"24
-[; ;../test.c: 24:     }
+"60
+[; ;../test.c: 60:         i = 0;
+[e = _i -> 0 `i ]
+"62
+[; ;../test.c: 62:         TRISEbits.TRISE0 = 1;
+[e = . . _TRISEbits 0 0 -> -> 1 `i `uc ]
+"64
+[; ;../test.c: 64:     }
 }
-[e $U 144  ]
-"25
-[; ;../test.c: 25:     else
-[e :U 143 ]
-"26
-[; ;../test.c: 26:     {
+[e $U 146  ]
+"65
+[; ;../test.c: 65:     else
+[e :U 145 ]
+"66
+[; ;../test.c: 66:     {
 {
-"27
-[; ;../test.c: 27:         TRISEbits.TRISE2 = 0;
+"68
+[; ;../test.c: 68:         TRISEbits.TRISE0 = 0;
+[e = . . _TRISEbits 0 0 -> -> 0 `i `uc ]
+"70
+[; ;../test.c: 70:         i++;
+[e ++ _i -> 1 `i ]
+"71
+[; ;../test.c: 71:     }
+}
+[e :U 146 ]
+"72
+[; ;../test.c: 72: }
+[e :UE 144 ]
+}
+"74
+[; ;../test.c: 74: void T1I_ISR()
+[v _T1I_ISR `(v ~T0 @X0 1 ef ]
+"75
+[; ;../test.c: 75: {
+{
+[e :U _T1I_ISR ]
+[f ]
+"76
+[; ;../test.c: 76:     if (t>1)
+[e $ ! > -> _t `i -> 1 `i 148  ]
+"77
+[; ;../test.c: 77:     {
+{
+"78
+[; ;../test.c: 78:         t = 0;
+[e = _t -> -> 0 `i `uc ]
+"79
+[; ;../test.c: 79:         TRISEbits.TRISE2 = 0;
 [e = . . _TRISEbits 0 2 -> -> 0 `i `uc ]
-"28
-[; ;../test.c: 28:         i++;
-[e ++ _i -> -> -> 1 `i `l `ul ]
-"29
-[; ;../test.c: 29:     }
+"80
+[; ;../test.c: 80:     }
 }
-[e :U 144 ]
-"30
-[; ;../test.c: 30: }
-[e :UE 142 ]
+[e $U 149  ]
+"81
+[; ;../test.c: 81:     else
+[e :U 148 ]
+"82
+[; ;../test.c: 82:     {
+{
+"83
+[; ;../test.c: 83:         TRISEbits.TRISE2 = 1;
+[e = . . _TRISEbits 0 2 -> -> 1 `i `uc ]
+"84
+[; ;../test.c: 84:         t++;
+[e ++ _t -> -> 1 `i `uc ]
+"85
+[; ;../test.c: 85:     }
+}
+[e :U 149 ]
+"86
+[; ;../test.c: 86: }
+[e :UE 147 ]
+}
+"88
+[; ;../test.c: 88: void T2I_ISR()
+[v _T2I_ISR `(v ~T0 @X0 1 ef ]
+"89
+[; ;../test.c: 89: {
+{
+[e :U _T2I_ISR ]
+[f ]
+"91
+[; ;../test.c: 91: }
+[e :UE 150 ]
 }

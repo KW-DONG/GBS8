@@ -8,11 +8,8 @@
 
 /***************************************************GLOBAL****************************************************************/
 
-enum TIM_EN
-{
-    DISABLE,
-    ENABLE
-};
+#define TIM_DISABLE 0
+#define TIM_ENABLE  1
 
 /****************************************************TMR0***************************************************************************/
 
@@ -131,7 +128,7 @@ enum
  * 
  * 
  */
-void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS);
+void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS, uint8_t timVar);
 
 /***********************************PWM_PORTS***********************************************/
 

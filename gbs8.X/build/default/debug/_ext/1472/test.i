@@ -2890,27 +2890,51 @@ void GBS_Interrupt_Disable();
 # 5 "../test.c" 2
 
 
-uint32_t i;
+int i;
 
 int main()
 {
     GBS_Interrupt_Init();
     GBS_Timer0_Config(TIM0_PS2, 0);
-    TRISEbits.TRISE0 = 1;
-    TRISEbits.TRISE1 = 0;
-    while(1);
+
+
+    while(1)
+    {
+
+
+
+
+
+
+
+        if (i>50)
+        {
+            TRISEbits.TRISE0 = 1;
+            _delay((unsigned long)((1)*(11059200/4000.0)));
+        }
+        else
+        {
+            TRISEbits.TRISE0 = 0;
+            _delay((unsigned long)((1)*(11059200/4000.0)));
+        }
+
+    }
 }
 
 void T0I_ISR()
 {
-    if (i>10)
+    if (i>100)
     {
         i = 0;
-        TRISEbits.TRISE2 = 1;
+
+
+
     }
     else
     {
-        TRISEbits.TRISE2 = 0;
+
+
+
         i++;
     }
 }
