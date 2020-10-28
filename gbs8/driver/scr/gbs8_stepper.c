@@ -204,7 +204,6 @@ void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
             {
                 if (sBufferX->buffer[(sBufferX->head+1)%STEPPER_BUFFER_SIZE].flag==BLOCK_READY)
                 {
-                    sBufferX->size--;
                     sBufferX->head = (sBufferX->head+1)%STEPPER_BUFFER_SIZE;
                     sBufferX->buffer[sBufferX->head].flag = BLOCK_EXE;
                     stepperX->state = STEPPER_OFF;

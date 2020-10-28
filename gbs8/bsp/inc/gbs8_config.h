@@ -37,10 +37,10 @@
 #define CNIT_EN     0
 
 //TMR0 overflow interrupt
-#define T0I_EN      1
+#define T0I_EN      0
 
 //TMR1 overflow interrupt
-#define T1I_EN      1
+#define T1I_EN      0
 
 //TMR2 overflow interrupt
 #define T2I_EN      1

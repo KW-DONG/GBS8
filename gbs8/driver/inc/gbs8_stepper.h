@@ -137,7 +137,6 @@ typedef struct
     trapblock_t buffer[STEPPER_BUFFER_SIZE];
     uint8_t head;
     uint8_t tail;
-    uint8_t size;
 }sBuffer_t;
 
 typedef struct 
