@@ -1,6 +1,7 @@
 #include "gbs8_stepper.h"
 #include "gbs8_timer.h"
 #include "gbs8_interrupt.h"
+#include "gbs8_relay.h"
 
 void GBS_Stepper_Init()
 {
@@ -200,8 +201,10 @@ void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
         if (stepperX->cnts>0)   stepperX->cnts--;
         else
         {
+            //the block is empty and the stepper is ON
             if (sBufferX->buffer[sBufferX->head].acc_until+sBufferX->buffer[sBufferX->head].dec_after+sBufferX->buffer[sBufferX->head].dec_until==0||stepperX->state==STEPPER_ON)
             {
+                //change block or stop the stepper
                 if (sBufferX->buffer[(sBufferX->head+1)%STEPPER_BUFFER_SIZE].flag==BLOCK_READY)
                 {
                     sBufferX->head = (sBufferX->head+1)%STEPPER_BUFFER_SIZE;
@@ -215,12 +218,14 @@ void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
                 }
             }
 
+            //execute buffer
             if (sBufferX->buffer[sBufferX->head].flag == BLOCK_EXE)
             {
                 if (sBufferX->buffer[sBufferX->head].acc_until>=0)  //acceleration
                 {
                     stepperX->pinState = P_OFF;
                     stepperX->cntsLast = NEXT_STEP_CAL(1,stepperX->cntsLast,sBufferX->buffer[sBufferX->head].acc);
+                    
                     sBufferX->buffer[sBufferX->head].acc_until--;
                     sBufferX->buffer[sBufferX->head].dec_after--;
                 }
@@ -233,9 +238,9 @@ void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
                 {
                     stepperX->pinState = P_OFF;
                     stepperX->cntsLast = NEXT_STEP_CAL(-1,stepperX->cntsLast,sBufferX->buffer[sBufferX->head].acc);
-                } 
+                }
+                stepperX->cnts = stepperX->cntsLast;
             }
-  
         }
     }    
 }
@@ -243,34 +248,74 @@ void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
 void GBS_Stepper_Update(void)
 {
 #if (STEPPER_A)
-    A_DIR_W(stepperA.dir);
-    A_STEP_W(stepperA.pinState); 
+    if (stepperA.state == STEPPER_ON)
+    {
+        A_STEP_W(P_ON);
+    }
+    else
+    {
+        A_DIR_W(stepperA.dir);
+        A_STEP_W(stepperA.pinState); 
+    }
 #endif
 
 #if (STEPPER_B)
-    B_DIR_W(stepperB.dir);
-    B_STEP_W(stepperB.pinState); 
+    if (stepperB.state == STEPPER_ON)
+    {
+        B_STEP_W(P_ON);
+    }
+    else
+    {
+        B_DIR_W(stepperB.dir);
+        B_STEP_W(stepperB.pinState); 
+    } 
 #endif
 
 #if (STEPPER_C)
-    C_DIR_W(stepperC.dir);
-    C_STEP_W(stepperC.pinState); 
+    if (stepperC.state == STEPPER_ON)
+    {
+        C_STEP_W(P_ON);
+    }
+    else
+    {
+        C_DIR_W(stepperC.dir);
+        C_STEP_W(stepperC.pinState); 
+    }
 #endif
 
 #if (STEPPER_D)
-    D_DIR_W(stepperD.dir);
-    D_STEP_W(stepperD.pinState); 
+    if (stepperD.state == STEPPER_ON)
+    {
+        D_STEP_W(P_ON);
+    }
+    else
+    {
+        D_DIR_W(stepperD.dir);
+        D_STEP_W(stepperD.pinState); 
+    } 
 #endif
 
 #if (STEPPER_E)
-    E_DIR_W(stepperE.dir);
-    E_STEP_W(stepperE.pinState); 
+    if (stepperE.state == STEPPER_ON)
+    {
+        E_STEP_W(P_ON);
+    }
+    else
+    {
+        E_DIR_W(stepperE.dir);
+        E_STEP_W(stepperE.pinState); 
+    } 
 #endif
 
 }
 
 void TMR_ISR()
+//void TMR_ISR()
 {
+
+    //if (GBS_RELAY1_R==NC)   GBS_RELAY1_SET(NO);
+    //else                    GBS_RELAY1_SET(NC);
+
 #if (STEPPER_A)
     if (stepperA.lock==STEPPER_OFF) GBS_Stepper_Exe(&stepperA, &sBufferA);
 #endif
@@ -288,7 +333,7 @@ void TMR_ISR()
 #endif
 
 #if (STEPPER_E)
-    if (stepperE.lock==STEPPER_OFF) GBS_Stepper_Exe(&stepperE, &sBufferA);
+    if (stepperE.lock==STEPPER_OFF) GBS_Stepper_Exe(&stepperE, &sBufferE);
 #endif
 
     GBS_Stepper_Update();

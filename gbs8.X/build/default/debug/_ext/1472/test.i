@@ -2715,21 +2715,7 @@ uint16_t Register_Joint(uint8_t regH, uint8_t regL);
 
 void Reg10_Decouple(uint8_t* regH, uint8_t* regL, uint16_t reg);
 # 7 "../gbs8/bsp/inc\\gbs8_timer.h" 2
-
-
-
-
-enum TIM_EN
-{
-    DISABLE,
-    ENABLE
-};
-
-
-
-
-
-
+# 19 "../gbs8/bsp/inc\\gbs8_timer.h"
 enum TMR0_PS
 {
     TIM0_PS2 = 0,
@@ -2760,7 +2746,7 @@ enum WDT_PS
 
 
 void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0);
-# 61 "../gbs8/bsp/inc\\gbs8_timer.h"
+# 58 "../gbs8/bsp/inc\\gbs8_timer.h"
 enum TIM1_PS
 {
     TIM1_PS1 = 0b00,
@@ -2768,7 +2754,7 @@ enum TIM1_PS
     TIM1_PS4,
     TIM1_PS8
 };
-# 77 "../gbs8/bsp/inc\\gbs8_timer.h"
+# 74 "../gbs8/bsp/inc\\gbs8_timer.h"
 void GBS_Timer1_Config(uint8_t state, uint8_t prescaler, uint16_t timVar);
 
 
@@ -2799,8 +2785,8 @@ enum
     T2OUTPS15,
     T2OUTPS16
 };
-# 134 "../gbs8/bsp/inc\\gbs8_timer.h"
-void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS);
+# 131 "../gbs8/bsp/inc\\gbs8_timer.h"
+void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS, uint8_t timVar);
 
 
 
@@ -2809,7 +2795,7 @@ enum
     PWM_DISABLE,
     PWM_ENABLE
 };
-# 153 "../gbs8/bsp/inc\\gbs8_timer.h"
+# 150 "../gbs8/bsp/inc\\gbs8_timer.h"
 enum PWM_PORTS
 {
     SINGLE,
@@ -2817,7 +2803,7 @@ enum PWM_PORTS
     HALF_BRIDGE,
     FULL_BRIDGE_R
 };
-# 186 "../gbs8/bsp/inc\\gbs8_timer.h"
+# 183 "../gbs8/bsp/inc\\gbs8_timer.h"
 void GBS_PWM_Config(uint8_t ports, uint8_t dutyCycle);
 # 3 "../test.c" 2
 
@@ -2875,6 +2861,12 @@ void GBS_T1I_Config(uint8_t mode);
 
 
 
+void GBS_T2I_Config(uint8_t mode);
+
+
+
+
+
 
 void GBS_Interrupt_Init();
 
@@ -2889,52 +2881,125 @@ void GBS_Interrupt_Enable();
 void GBS_Interrupt_Disable();
 # 5 "../test.c" 2
 
+# 1 "../gbs8/driver/inc\\gbs8_stepper.h" 1
 
-int i;
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 3 "../gbs8/driver/inc\\gbs8_stepper.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 4 "../gbs8/driver/inc\\gbs8_stepper.h" 2
+# 106 "../gbs8/driver/inc\\gbs8_stepper.h"
+typedef uint8_t dir_t;
+
+typedef float accRm_t;
+typedef float speedRm_t;
+typedef float rotate_t;
+
+typedef uint32_t accSec_t;
+typedef uint32_t speedSec_t;
+typedef uint32_t steps_t;
+
+typedef uint32_t accCnt_t;
+typedef uint32_t cnt_t;
+
+typedef struct
+{
+    dir_t dir;
+
+    steps_t acc_until;
+    steps_t dec_after;
+    steps_t dec_until;
+
+    accCnt_t acc;
+    accCnt_t dec;
+
+    cnt_t maxSpeed;
+
+    uint8_t flag;
+}trapblock_t;
+
+typedef struct
+{
+    trapblock_t buffer[3];
+    uint8_t head;
+    uint8_t tail;
+}sBuffer_t;
+
+typedef struct
+{
+    uint8_t state;
+    uint8_t lock;
+    uint8_t dir;
+    uint32_t cnts;
+    uint32_t cntsLast;
+    uint8_t pinState;
+}stepper_t;
+
+
+
+
+
+
+void GBS_Stepper_Init(void);
+
+
+
+
+void GBS_Stepper_Buffer_Init(sBuffer_t* sBufferX);
+
+
+
+
+
+void GBS_Stepper_Config(stepper_t* stepperX, uint8_t state);
+# 181 "../gbs8/driver/inc\\gbs8_stepper.h"
+uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t dir, rotate_t rotation, speedRm_t v_i, speedRm_t v_m, speedRm_t v_o, accRm_t a_i, accRm_t a_o);
+
+
+
+
+
+
+
+void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX);
+
+
+
+
+
+void GBS_Stepper_Update(void);
+
+
+
+
+sBuffer_t sBufferA;
+stepper_t stepperA;
+# 6 "../test.c" 2
+
+
 
 int main()
 {
     GBS_Interrupt_Init();
-    GBS_Timer0_Config(TIM0_PS2, 0);
-
+    GBS_Stepper_Init();
 
     while(1)
     {
-
-
-
-
-
-
-
-        if (i>50)
+        if (sBufferA.buffer[sBufferA.tail].flag == 1)
         {
-            TRISEbits.TRISE0 = 1;
-            _delay((unsigned long)((1)*(11059200/4000.0)));
+            sBufferA.buffer[sBufferA.tail].acc = 10;
+            sBufferA.buffer[sBufferA.tail].acc_until = 50;
+            sBufferA.buffer[sBufferA.tail].dec = 10;
+            sBufferA.buffer[sBufferA.tail].dec_after = 50;
+            sBufferA.buffer[sBufferA.tail].dec_until = 150;
+            sBufferA.buffer[sBufferA.tail].dir = 0;
+            sBufferA.buffer[sBufferA.tail].flag = 2;
+            sBufferA.buffer[sBufferA.tail].maxSpeed = 500;
+            sBufferA.tail = (sBufferA.tail+1)%3;
+
+
+            _delay((unsigned long)((100)*(11059200/4000.0)));
         }
-        else
-        {
-            TRISEbits.TRISE0 = 0;
-            _delay((unsigned long)((1)*(11059200/4000.0)));
-        }
-
-    }
-}
-
-void T0I_ISR()
-{
-    if (i>100)
-    {
-        i = 0;
-
-
-
-    }
-    else
-    {
-
-
-
-        i++;
     }
 }

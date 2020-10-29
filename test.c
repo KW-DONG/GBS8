@@ -4,8 +4,7 @@
 #include "gbs8_relay.h"
 #include "gbs8_interrupt.h"
 #include "gbs8_stepper.h"
-
-void Stepper_Test();
+#include "pic16f887.h"
 
 int main()
 {
@@ -24,6 +23,10 @@ int main()
             sBufferA.buffer[sBufferA.tail].dir = CLOCKWISE;
             sBufferA.buffer[sBufferA.tail].flag = BLOCK_READY;
             sBufferA.buffer[sBufferA.tail].maxSpeed = 500;
+            sBufferA.tail = (sBufferA.tail+1)%STEPPER_BUFFER_SIZE;
+            //if (RUN_BLINK_R==LED_ON)    RUN_BLINK(LED_OFF);
+            //else                        RUN_BLINK(LED_ON);
+            __delay_ms(100);
         }
     }
 }

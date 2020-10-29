@@ -10,6 +10,7 @@
       <itemPath>../gbs8/bsp/inc/gbs8_interrupt.h</itemPath>
       <itemPath>../gbs8/bsp/inc/gbs8_relay.h</itemPath>
       <itemPath>../gbs8/bsp/inc/gbs8_timer.h</itemPath>
+      <itemPath>../gbs8/driver/inc/gbs8_stepper.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -24,6 +25,7 @@
       <itemPath>../gbs8/bsp/scr/gbs8_interrupt.c</itemPath>
       <itemPath>../gbs8/bsp/scr/gbs8_relay.c</itemPath>
       <itemPath>../gbs8/bsp/scr/gbs8_timer.c</itemPath>
+      <itemPath>../gbs8/driver/scr/gbs8_stepper.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

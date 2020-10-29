@@ -2948,7 +2948,6 @@ void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS, uint8_t timVa
 
 void GBS_PWM_Config(uint8_t channel, uint8_t dutyCycle)
 {
-
     CCP1CONbits.CCP1M = 0b1100;
     CCP1CONbits.P1M = channel;
 

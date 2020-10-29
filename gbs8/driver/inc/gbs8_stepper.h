@@ -7,7 +7,7 @@
 
 /****************************CONFIGURATION***********************************/
 
-#define STEPPER_BUFFER_SIZE     10          //number of trapezoidal curves in the buffer
+#define STEPPER_BUFFER_SIZE     3       //number of trapezoidal curves in the buffer
 
 #define MAXIMUM_SPEED           3000    //use rpm
 #define MAXIMUM_ACCELERATION    1000    //rpm^2
@@ -24,8 +24,8 @@
 #if (STEPPER_A) 
 #define A_DIR_W(dir)    POUT_1(dir)
 #define A_DIR_R         POUT_1_R
-#define A_STEP_W(state) POUT_2(state)
-#define A_STEP_R        POUT_2_R
+#define A_STEP_W(state) RUN_BLINK(state)
+#define A_STEP_R        RUN_BLINK_R
 #endif
 
 #if (STEPPER_B)
@@ -109,12 +109,12 @@ typedef float accRm_t;          //rotations per minute per minute
 typedef float speedRm_t;        //rotations per minute
 typedef float rotate_t;         //rotations
 
-typedef uint64_t accSec_t;      //steps per second per second
-typedef uint64_t speedSec_t;    //steps per second
-typedef uint64_t steps_t;       //steps
+typedef uint32_t accSec_t;      //steps per second per second
+typedef uint32_t speedSec_t;    //steps per second
+typedef uint32_t steps_t;       //steps
 
-typedef uint64_t accCnt_t;      //Counts increasement per step
-typedef uint64_t cnt_t;         //Counts per step
+typedef uint32_t accCnt_t;      //Counts increasement per step
+typedef uint32_t cnt_t;         //Counts per step
 
 typedef struct
 {
@@ -144,8 +144,8 @@ typedef struct
     uint8_t state;          //ON or OFF
     uint8_t lock;           //manual lock
     uint8_t dir;            //stepper direction
-    uint64_t cnts;          //used for iteration
-    uint64_t cntsLast;      //represents current frequency
+    uint32_t cnts;          //used for iteration
+    uint32_t cntsLast;      //represents current frequency
     uint8_t pinState;       //ON or OFF
 }stepper_t;
 

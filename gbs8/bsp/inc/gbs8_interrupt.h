@@ -63,6 +63,12 @@ void GBS_T0I_Config(uint8_t mode);
  */
 void GBS_T1I_Config(uint8_t mode);
 
+/**
+ * @brief config timer2 overflow interrupt
+ * @note  please config the corresponding timer first
+ */
+void GBS_T2I_Config(uint8_t mode);
+
 /**************************************GLOBAL****************************************************/
 
 /**

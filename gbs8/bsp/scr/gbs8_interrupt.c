@@ -17,6 +17,9 @@ void GBS_Interrupt_Init()
 #if (T1I_EN)
     GBS_T1I_Config(1);
 #endif
+#if (T2I_EN)
+    GBS_T2I_Config(1);
+#endif
     GBS_Interrupt_Enable();
 }
 

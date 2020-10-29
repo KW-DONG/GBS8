@@ -1,26 +1,23 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"120 ../gbs8/driver/inc\gbs8_stepper.h
+[; ;../gbs8/driver/inc\gbs8_stepper.h: 120: {
+[s S138 `uc 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `ul 1 `uc 1 ]
+[n S138 . dir acc_until dec_after dec_until acc dec maxSpeed flag ]
+"136
+[; ;../gbs8/driver/inc\gbs8_stepper.h: 136: {
+[s S139 `S138 -> 3 `i `uc 1 `uc 1 ]
+[n S139 . buffer head tail ]
+"143
+[; ;../gbs8/driver/inc\gbs8_stepper.h: 143: {
+[s S140 `uc 1 `uc 1 `uc 1 `ul 1 `ul 1 `uc 1 ]
+[n S140 . state lock dir cnts cntsLast pinState ]
 [p mainexit ]
-"71 ../gbs8/bsp/inc\gbs8_interrupt.h
-[; ;../gbs8/bsp/inc\gbs8_interrupt.h: 71: void GBS_Interrupt_Init();
+"77 ../gbs8/bsp/inc\gbs8_interrupt.h
+[; ;../gbs8/bsp/inc\gbs8_interrupt.h: 77: void GBS_Interrupt_Init();
 [v _GBS_Interrupt_Init `(v ~T0 @X0 0 e? ]
-"51 ../gbs8/bsp/inc\gbs8_timer.h
-[; ;../gbs8/bsp/inc\gbs8_timer.h: 51: void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0);
-[v _GBS_Timer0_Config `(v ~T0 @X0 0 ef2`uc`uc ]
-"12 ../test.c
-[; ;../test.c: 12:     GBS_Timer0_Config(TIM0_PS2, 0);
-[c E1366 0 1 2 3 4 5 6 7 .. ]
-[n E1366 TMR0_PS TIM0_PS2 TIM0_PS4 TIM0_PS8 TIM0_PS16 TIM0_PS32 TIM0_PS64 TIM0_PS128 TIM0_PS256  ]
-"1670 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1670:     struct {
-[s S61 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S61 . TRISE0 TRISE1 TRISE2 TRISE3 ]
-"1669
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1669: typedef union {
-[u S60 `S61 1 ]
-[n S60 . . ]
-"1677
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1677: extern volatile TRISEbits_t TRISEbits __attribute__((address(0x089)));
-[v _TRISEbits `VS60 ~T0 @X0 0 e@137 ]
+"157 ../gbs8/driver/inc\gbs8_stepper.h
+[; ;../gbs8/driver/inc\gbs8_stepper.h: 157: void GBS_Stepper_Init(void);
+[v _GBS_Stepper_Init `(v ~T0 @X0 0 ef ]
 [v F1256 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
 [v __delay `JF1256 ~T0 @X0 0 e ]
@@ -283,11 +280,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x BOR4V = BOR21V ]
 "20
 [p x WRT = OFF ]
-"7 ../test.c
-[; ;../test.c: 7: int i;
-[v _i `i ~T0 @X0 1 e ]
+"200 ../gbs8/driver/inc\gbs8_stepper.h
+[; ;../gbs8/driver/inc\gbs8_stepper.h: 200: sBuffer_t sBufferA;
+[v _sBufferA `S139 ~T0 @X0 1 e ]
+"201
+[; ;../gbs8/driver/inc\gbs8_stepper.h: 201: stepper_t stepperA;
+[v _stepperA `S140 ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"9
+"9 ../test.c
 [; ;../test.c: 9: int main()
 [v _main `(i ~T0 @X0 1 ef ]
 "10
@@ -299,91 +299,61 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../test.c: 11:     GBS_Interrupt_Init();
 [e ( _GBS_Interrupt_Init ..  ]
 "12
-[; ;../test.c: 12:     GBS_Timer0_Config(TIM0_PS2, 0);
-[e ( _GBS_Timer0_Config (2 , -> . `E1366 0 `uc -> -> 0 `i `uc ]
-"15
-[; ;../test.c: 15:     while(1)
-[e :U 140 ]
-"16
-[; ;../test.c: 16:     {
-{
-"24
-[; ;../test.c: 24:         if (i>50)
-[e $ ! > _i -> 50 `i 142  ]
-"25
-[; ;../test.c: 25:         {
-{
-"26
-[; ;../test.c: 26:             TRISEbits.TRISE0 = 1;
-[e = . . _TRISEbits 0 0 -> -> 1 `i `uc ]
-"27
-[; ;../test.c: 27:             _delay((unsigned long)((1)*(11059200/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 11059200 `l `d .4000.0 `ul ]
-"28
-[; ;../test.c: 28:         }
-}
-[e $U 143  ]
-"29
-[; ;../test.c: 29:         else
-[e :U 142 ]
-"30
-[; ;../test.c: 30:         {
-{
-"31
-[; ;../test.c: 31:             TRISEbits.TRISE0 = 0;
-[e = . . _TRISEbits 0 0 -> -> 0 `i `uc ]
-"32
-[; ;../test.c: 32:             _delay((unsigned long)((1)*(11059200/4000.0)));
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 11059200 `l `d .4000.0 `ul ]
-"33
-[; ;../test.c: 33:         }
-}
+[; ;../test.c: 12:     GBS_Stepper_Init();
+[e ( _GBS_Stepper_Init ..  ]
+"14
+[; ;../test.c: 14:     while(1)
 [e :U 143 ]
-"35
-[; ;../test.c: 35:     }
-}
-[e :U 139 ]
-[e $U 140  ]
-[e :U 141 ]
-"36
-[; ;../test.c: 36: }
-[e :UE 138 ]
-}
-"38
-[; ;../test.c: 38: void T0I_ISR()
-[v _T0I_ISR `(v ~T0 @X0 1 ef ]
-"39
-[; ;../test.c: 39: {
+"15
+[; ;../test.c: 15:     {
 {
-[e :U _T0I_ISR ]
-[f ]
-"40
-[; ;../test.c: 40:     if (i>100)
-[e $ ! > _i -> 100 `i 145  ]
-"41
-[; ;../test.c: 41:     {
+"16
+[; ;../test.c: 16:         if (sBufferA.buffer[sBufferA.tail].flag == 1)
+[e $ ! == -> . *U + &U . _sBufferA 0 * -> . _sBufferA 2 `ux -> -> # *U &U . _sBufferA 0 `ui `ux 7 `i -> 1 `i 145  ]
+"17
+[; ;../test.c: 17:         {
 {
-"42
-[; ;../test.c: 42:         i = 0;
-[e = _i -> 0 `i ]
-"46
-[; ;../test.c: 46:     }
+"18
+[; ;../test.c: 18:             sBufferA.buffer[sBufferA.tail].acc = 10;
+[e = . *U + &U . _sBufferA 0 * -> . _sBufferA 2 `ux -> -> # *U &U . _sBufferA 0 `ui `ux 4 -> -> -> 10 `i `l `ul ]
+"19
+[; ;../test.c: 19:             sBufferA.buffer[sBufferA.tail].acc_until = 50;
+[e = . *U + &U . _sBufferA 0 * -> . _sBufferA 2 `ux -> -> # *U &U . _sBufferA 0 `ui `ux 1 -> -> -> 50 `i `l `ul ]
+"20
+[; ;../test.c: 20:             sBufferA.buffer[sBufferA.tail].dec = 10;
+[e = . *U + &U . _sBufferA 0 * -> . _sBufferA 2 `ux -> -> # *U &U . _sBufferA 0 `ui `ux 5 -> -> -> 10 `i `l `ul ]
+"21
+[; ;../test.c: 21:             sBufferA.buffer[sBufferA.tail].dec_after = 50;
+[e = . *U + &U . _sBufferA 0 * -> . _sBufferA 2 `ux -> -> # *U &U . _sBufferA 0 `ui `ux 2 -> -> -> 50 `i `l `ul ]
+"22
+[; ;../test.c: 22:             sBufferA.buffer[sBufferA.tail].dec_until = 150;
+[e = . *U + &U . _sBufferA 0 * -> . _sBufferA 2 `ux -> -> # *U &U . _sBufferA 0 `ui `ux 3 -> -> -> 150 `i `l `ul ]
+"23
+[; ;../test.c: 23:             sBufferA.buffer[sBufferA.tail].dir = 0;
+[e = . *U + &U . _sBufferA 0 * -> . _sBufferA 2 `ux -> -> # *U &U . _sBufferA 0 `ui `ux 0 -> -> 0 `i `uc ]
+"24
+[; ;../test.c: 24:             sBufferA.buffer[sBufferA.tail].flag = 2;
+[e = . *U + &U . _sBufferA 0 * -> . _sBufferA 2 `ux -> -> # *U &U . _sBufferA 0 `ui `ux 7 -> -> 2 `i `uc ]
+"25
+[; ;../test.c: 25:             sBufferA.buffer[sBufferA.tail].maxSpeed = 500;
+[e = . *U + &U . _sBufferA 0 * -> . _sBufferA 2 `ux -> -> # *U &U . _sBufferA 0 `ui `ux 6 -> -> -> 500 `i `l `ul ]
+"26
+[; ;../test.c: 26:             sBufferA.tail = (sBufferA.tail+1)%3;
+[e = . _sBufferA 2 -> % + -> . _sBufferA 2 `i -> 1 `i -> 3 `i `uc ]
+"29
+[; ;../test.c: 29:             _delay((unsigned long)((100)*(11059200/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 11059200 `l `d .4000.0 `ul ]
+"30
+[; ;../test.c: 30:         }
 }
-[e $U 146  ]
-"47
-[; ;../test.c: 47:     else
 [e :U 145 ]
-"48
-[; ;../test.c: 48:     {
-{
-"52
-[; ;../test.c: 52:         i++;
-[e ++ _i -> 1 `i ]
-"53
-[; ;../test.c: 53:     }
+"31
+[; ;../test.c: 31:     }
 }
-[e :U 146 ]
-"54
-[; ;../test.c: 54: }
-[e :UE 144 ]
+[e :U 142 ]
+[e $U 143  ]
+[e :U 144 ]
+"32
+[; ;../test.c: 32: }
+[e :UE 141 ]
 }

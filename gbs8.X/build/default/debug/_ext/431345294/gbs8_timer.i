@@ -2785,21 +2785,7 @@ uint16_t Register_Joint(uint8_t regH, uint8_t regL);
 
 void Reg10_Decouple(uint8_t* regH, uint8_t* regL, uint16_t reg);
 # 7 "../gbs8/bsp/inc\\gbs8_timer.h" 2
-
-
-
-
-enum TIM_EN
-{
-    DISABLE,
-    ENABLE
-};
-
-
-
-
-
-
+# 19 "../gbs8/bsp/inc\\gbs8_timer.h"
 enum TMR0_PS
 {
     TIM0_PS2 = 0,
@@ -2830,7 +2816,7 @@ enum WDT_PS
 
 
 void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0);
-# 61 "../gbs8/bsp/inc\\gbs8_timer.h"
+# 58 "../gbs8/bsp/inc\\gbs8_timer.h"
 enum TIM1_PS
 {
     TIM1_PS1 = 0b00,
@@ -2838,7 +2824,7 @@ enum TIM1_PS
     TIM1_PS4,
     TIM1_PS8
 };
-# 77 "../gbs8/bsp/inc\\gbs8_timer.h"
+# 74 "../gbs8/bsp/inc\\gbs8_timer.h"
 void GBS_Timer1_Config(uint8_t state, uint8_t prescaler, uint16_t timVar);
 
 
@@ -2869,8 +2855,8 @@ enum
     T2OUTPS15,
     T2OUTPS16
 };
-# 134 "../gbs8/bsp/inc\\gbs8_timer.h"
-void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS);
+# 131 "../gbs8/bsp/inc\\gbs8_timer.h"
+void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS, uint8_t timVar);
 
 
 
@@ -2879,7 +2865,7 @@ enum
     PWM_DISABLE,
     PWM_ENABLE
 };
-# 153 "../gbs8/bsp/inc\\gbs8_timer.h"
+# 150 "../gbs8/bsp/inc\\gbs8_timer.h"
 enum PWM_PORTS
 {
     SINGLE,
@@ -2887,7 +2873,7 @@ enum PWM_PORTS
     HALF_BRIDGE,
     FULL_BRIDGE_R
 };
-# 186 "../gbs8/bsp/inc\\gbs8_timer.h"
+# 183 "../gbs8/bsp/inc\\gbs8_timer.h"
 void GBS_PWM_Config(uint8_t ports, uint8_t dutyCycle);
 # 2 "../gbs8/bsp/scr/gbs8_timer.c" 2
 
@@ -2919,16 +2905,18 @@ void GBS_PWM_Config(uint8_t ports, uint8_t dutyCycle);
 
 
 
+
 void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0)
 {
 
 
     PSA = 0;
     T0CS = 0;
-# 25 "../gbs8/bsp/scr/gbs8_timer.c"
+# 26 "../gbs8/bsp/scr/gbs8_timer.c"
     OPTION_REGbits.PS = prescaler;
     TMR0 = timer0;
 }
+
 
 
 
@@ -2948,16 +2936,18 @@ void GBS_Timer1_Config(uint8_t state, uint8_t prescaler, uint16_t timVar)
 
 
 
-void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS)
+
+void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS, uint8_t timVar)
 {
     TMR2ON = state;
     T2CONbits.T2CKPS = ckPS;
     T2CONbits.TOUTPS = outPS;
+    PR2 = 255;
+    TMR2 = timVar;
 }
 
 void GBS_PWM_Config(uint8_t channel, uint8_t dutyCycle)
 {
-    PR2 = 256*11059200/4/T2CONbits.T2CKPS - 1;
     CCP1CONbits.CCP1M = 0b1100;
     CCP1CONbits.P1M = channel;
 

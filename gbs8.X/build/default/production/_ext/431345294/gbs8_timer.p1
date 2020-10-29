@@ -467,32 +467,32 @@ Version 4.0 HI-TECH Software Intermediate Code
 "60
 [; ;../gbs8/bsp/scr/gbs8_timer.c: 60: {
 [f ]
-"62
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 62:     CCP1CONbits.CCP1M = 0b1100;
+"61
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 61:     CCP1CONbits.CCP1M = 0b1100;
 [e = . . _CCP1CONbits 0 0 -> -> 12 `i `uc ]
-"63
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 63:     CCP1CONbits.P1M = channel;
+"62
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 62:     CCP1CONbits.P1M = channel;
 [e = . . _CCP1CONbits 0 2 _channel ]
-"68
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 68:     uint8_t regH = 0, regL = 0;
+"67
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 67:     uint8_t regH = 0, regL = 0;
 [v _regH `uc ~T0 @X0 1 a ]
 [e = _regH -> -> 0 `i `uc ]
 [v _regL `uc ~T0 @X0 1 a ]
 [e = _regL -> -> 0 `i `uc ]
-"70
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 70:     uint16_t ccprxl_ccpxcon = dutyCycle * 4 * (PR2 + 1) / 10;
+"69
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 69:     uint16_t ccprxl_ccpxcon = dutyCycle * 4 * (PR2 + 1) / 10;
 [v _ccprxl_ccpxcon `ui ~T0 @X0 1 a ]
 [e = _ccprxl_ccpxcon -> / * * -> _dutyCycle `i -> 4 `i + -> _PR2 `i -> 1 `i -> 10 `i `ui ]
-"72
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 72:     Reg10_Decouple(&regH, &regL, ccprxl_ccpxcon);
+"71
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 71:     Reg10_Decouple(&regH, &regL, ccprxl_ccpxcon);
 [e ( _Reg10_Decouple (3 , , &U _regH &U _regL _ccprxl_ccpxcon ]
-"74
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 74:     CCPR1L = regH;
+"73
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 73:     CCPR1L = regH;
 [e = _CCPR1L _regH ]
-"75
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 75:     CCP1CONbits.DC1B = regL;
+"74
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 74:     CCP1CONbits.DC1B = regL;
 [e = . . _CCP1CONbits 0 1 _regL ]
-"77
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 77: }
+"76
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 76: }
 [e :UE 145 ]
 }

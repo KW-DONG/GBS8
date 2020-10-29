@@ -66,6 +66,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2041
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 2041: extern volatile unsigned char PR2 __attribute__((address(0x092)));
 [v _PR2 `Vuc ~T0 @X0 0 e@146 ]
+"765
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 765: extern volatile unsigned char TMR2 __attribute__((address(0x011)));
+[v _TMR2 `Vuc ~T0 @X0 0 e@17 ]
 "947
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 947:     struct {
 [s S37 :4 `uc 1 :2 `uc 1 :2 `uc 1 ]
@@ -348,144 +351,148 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x BOR4V = BOR21V ]
 "20
 [p x WRT = OFF ]
-"9 ../gbs8/bsp/scr/gbs8_timer.c
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 9: void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0)
+"10 ../gbs8/bsp/scr/gbs8_timer.c
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 10: void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0)
 [v _GBS_Timer0_Config `(v ~T0 @X0 1 ef2`uc`uc ]
-"10
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 10: {
+"11
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 11: {
 {
 [e :U _GBS_Timer0_Config ]
-"9
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 9: void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0)
+"10
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 10: void GBS_Timer0_Config(uint8_t prescaler, uint8_t timer0)
 [v _prescaler `uc ~T0 @X0 1 r1 ]
 [v _timer0 `uc ~T0 @X0 1 r2 ]
-"10
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 10: {
+"11
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 11: {
 [f ]
-"13
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 13:     PSA = 0;
-[e = _PSA -> -> 0 `i `b ]
 "14
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 14:     T0CS = 0;
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 14:     PSA = 0;
+[e = _PSA -> -> 0 `i `b ]
+"15
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 15:     T0CS = 0;
 [e = _T0CS -> -> 0 `i `b ]
-"25
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 25:     OPTION_REGbits.PS = prescaler;
-[e = . . _OPTION_REGbits 0 0 _prescaler ]
 "26
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 26:     TMR0 = timer0;
-[e = _TMR0 _timer0 ]
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 26:     OPTION_REGbits.PS = prescaler;
+[e = . . _OPTION_REGbits 0 0 _prescaler ]
 "27
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 27: }
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 27:     TMR0 = timer0;
+[e = _TMR0 _timer0 ]
+"28
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 28: }
 [e :UE 142 ]
 }
-"32
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 32: void GBS_Timer1_Config(uint8_t state, uint8_t prescaler, uint16_t timVar)
+"34
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 34: void GBS_Timer1_Config(uint8_t state, uint8_t prescaler, uint16_t timVar)
 [v _GBS_Timer1_Config `(v ~T0 @X0 1 ef3`uc`uc`ui ]
-"33
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 33: {
+"35
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 35: {
 {
 [e :U _GBS_Timer1_Config ]
-"32
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 32: void GBS_Timer1_Config(uint8_t state, uint8_t prescaler, uint16_t timVar)
+"34
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 34: void GBS_Timer1_Config(uint8_t state, uint8_t prescaler, uint16_t timVar)
 [v _state `uc ~T0 @X0 1 r1 ]
 [v _prescaler `uc ~T0 @X0 1 r2 ]
 [v _timVar `ui ~T0 @X0 1 r3 ]
-"33
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 33: {
-[f ]
-"34
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 34:     T1CONbits.TMR1ON = 0;
-[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
 "35
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 35:     T1CONbits.TMR1CS = 0;
-[e = . . _T1CONbits 0 1 -> -> 0 `i `uc ]
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 35: {
+[f ]
 "36
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 36:     T1CONbits.T1OSCEN = 0;
-[e = . . _T1CONbits 0 3 -> -> 0 `i `uc ]
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 36:     T1CONbits.TMR1ON = 0;
+[e = . . _T1CONbits 0 0 -> -> 0 `i `uc ]
+"37
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 37:     T1CONbits.TMR1CS = 0;
+[e = . . _T1CONbits 0 1 -> -> 0 `i `uc ]
 "38
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 38:     T1CONbits.T1CKPS = prescaler;
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 38:     T1CONbits.T1OSCEN = 0;
+[e = . . _T1CONbits 0 3 -> -> 0 `i `uc ]
+"40
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 40:     T1CONbits.T1CKPS = prescaler;
 [e = . . _T1CONbits 0 4 _prescaler ]
-"39
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 39:     T1CONbits.TMR1ON = state;
-[e = . . _T1CONbits 0 0 _state ]
 "41
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 41:     TMR1 = timVar;
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 41:     T1CONbits.TMR1ON = state;
+[e = . . _T1CONbits 0 0 _state ]
+"43
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 43:     TMR1 = timVar;
 [e = _TMR1 -> _timVar `us ]
-"42
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 42: }
+"44
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 44: }
 [e :UE 143 ]
 }
-"47
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 47: void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS)
-[v _GBS_Timer2_Config `(v ~T0 @X0 1 ef3`uc`uc`uc ]
-"48
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 48: {
+"50
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 50: void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS, uint8_t timVar)
+[v _GBS_Timer2_Config `(v ~T0 @X0 1 ef4`uc`uc`uc`uc ]
+"51
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 51: {
 {
 [e :U _GBS_Timer2_Config ]
-"47
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 47: void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS)
+"50
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 50: void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS, uint8_t timVar)
 [v _state `uc ~T0 @X0 1 r1 ]
 [v _ckPS `uc ~T0 @X0 1 r2 ]
 [v _outPS `uc ~T0 @X0 1 r3 ]
-"48
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 48: {
-[f ]
-"49
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 49:     TMR2ON = state;
-[e = _TMR2ON -> _state `b ]
-"50
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 50:     T2CONbits.T2CKPS = ckPS;
-[e = . . _T2CONbits 0 0 _ckPS ]
+[v _timVar `uc ~T0 @X0 1 r4 ]
 "51
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 51:     T2CONbits.TOUTPS = outPS;
-[e = . . _T2CONbits 0 2 _outPS ]
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 51: {
+[f ]
 "52
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 52: }
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 52:     TMR2ON = state;
+[e = _TMR2ON -> _state `b ]
+"53
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 53:     T2CONbits.T2CKPS = ckPS;
+[e = . . _T2CONbits 0 0 _ckPS ]
+"54
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 54:     T2CONbits.TOUTPS = outPS;
+[e = . . _T2CONbits 0 2 _outPS ]
+"55
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 55:     PR2 = 255;
+[e = _PR2 -> -> 255 `i `uc ]
+"56
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 56:     TMR2 = timVar;
+[e = _TMR2 _timVar ]
+"57
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 57: }
 [e :UE 144 ]
 }
-"54
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 54: void GBS_PWM_Config(uint8_t channel, uint8_t dutyCycle)
+"59
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 59: void GBS_PWM_Config(uint8_t channel, uint8_t dutyCycle)
 [v _GBS_PWM_Config `(v ~T0 @X0 1 ef2`uc`uc ]
-"55
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 55: {
+"60
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 60: {
 {
 [e :U _GBS_PWM_Config ]
-"54
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 54: void GBS_PWM_Config(uint8_t channel, uint8_t dutyCycle)
+"59
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 59: void GBS_PWM_Config(uint8_t channel, uint8_t dutyCycle)
 [v _channel `uc ~T0 @X0 1 r1 ]
 [v _dutyCycle `uc ~T0 @X0 1 r2 ]
-"55
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 55: {
+"60
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 60: {
 [f ]
-"56
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 56:     PR2 = 256*11059200/4/T2CONbits.T2CKPS - 1;
-[e = _PR2 -> - / / * -> -> 256 `i `l -> 11059200 `l -> -> 4 `i `l -> . . _T2CONbits 0 0 `l -> -> 1 `i `l `uc ]
-"57
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 57:     CCP1CONbits.CCP1M = 0b1100;
+"61
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 61:     CCP1CONbits.CCP1M = 0b1100;
 [e = . . _CCP1CONbits 0 0 -> -> 12 `i `uc ]
-"58
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 58:     CCP1CONbits.P1M = channel;
+"62
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 62:     CCP1CONbits.P1M = channel;
 [e = . . _CCP1CONbits 0 2 _channel ]
-"63
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 63:     uint8_t regH = 0, regL = 0;
+"67
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 67:     uint8_t regH = 0, regL = 0;
 [v _regH `uc ~T0 @X0 1 a ]
 [e = _regH -> -> 0 `i `uc ]
 [v _regL `uc ~T0 @X0 1 a ]
 [e = _regL -> -> 0 `i `uc ]
-"65
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 65:     uint16_t ccprxl_ccpxcon = dutyCycle * 4 * (PR2 + 1) / 10;
+"69
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 69:     uint16_t ccprxl_ccpxcon = dutyCycle * 4 * (PR2 + 1) / 10;
 [v _ccprxl_ccpxcon `ui ~T0 @X0 1 a ]
 [e = _ccprxl_ccpxcon -> / * * -> _dutyCycle `i -> 4 `i + -> _PR2 `i -> 1 `i -> 10 `i `ui ]
-"67
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 67:     Reg10_Decouple(&regH, &regL, ccprxl_ccpxcon);
+"71
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 71:     Reg10_Decouple(&regH, &regL, ccprxl_ccpxcon);
 [e ( _Reg10_Decouple (3 , , &U _regH &U _regL _ccprxl_ccpxcon ]
-"69
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 69:     CCPR1L = regH;
+"73
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 73:     CCPR1L = regH;
 [e = _CCPR1L _regH ]
-"70
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 70:     CCP1CONbits.DC1B = regL;
+"74
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 74:     CCP1CONbits.DC1B = regL;
 [e = . . _CCP1CONbits 0 1 _regL ]
-"72
-[; ;../gbs8/bsp/scr/gbs8_timer.c: 72: }
+"76
+[; ;../gbs8/bsp/scr/gbs8_timer.c: 76: }
 [e :UE 145 ]
 }
