@@ -5,4 +5,5 @@ build/default/production/_ext/633567387/gbs8_stepper.p1:  \
 ../gbs8/bsp/inc/gbs8_algo.h  \
 ../gbs8/bsp/inc/gbs8_timer.h  \
 ../gbs8/bsp/inc/gbs8_interrupt.h  \
-../gbs8/bsp/inc/gbs8_relay.h 
+../gbs8/bsp/inc/gbs8_relay.h  \
+

@@ -61,6 +61,7 @@ void GBS_USART_Send(USART_buffer_t* buffer)
     if (usartSendBuffer.size>0)
     {
         TXREG = GBS_USART_Buffer_Read(buffer);
+        while (TXSTAbits.TRMT==0);
     }
 }
 
@@ -71,6 +72,7 @@ void GBS_USART_Receive(USART_buffer_t* buffer)
 
 void USART_TX_ISR()
 {
+    if ()
     GBS_USART_Send(&usartSendBuffer);
     PIE1bits.TXIE = 0;
 }
