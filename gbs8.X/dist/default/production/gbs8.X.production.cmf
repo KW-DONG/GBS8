@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\ssge\AppData\Local\Temp\sisc.o
+$C:\Users\ssge\AppData\Local\Temp\sl98.o
 reset_vec CODE 0 0 0 3 2
 end_init CODE 0 16 16 3 2
 config CONFIG 4 2007 2007 2 2
@@ -97,24 +97,24 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\gbs8.X.production.o
-19 cinit CODE >1277:C:\Users\ssge\AppData\Local\Temp\sisk.s
-19 cinit CODE >1280:C:\Users\ssge\AppData\Local\Temp\sisk.s
-19 cinit CODE >1318:C:\Users\ssge\AppData\Local\Temp\sisk.s
-1A cinit CODE >1319:C:\Users\ssge\AppData\Local\Temp\sisk.s
-1B cinit CODE >1320:C:\Users\ssge\AppData\Local\Temp\sisk.s
-1C cinit CODE >1321:C:\Users\ssge\AppData\Local\Temp\sisk.s
-1D cinit CODE >1324:C:\Users\ssge\AppData\Local\Temp\sisk.s
-1E cinit CODE >1325:C:\Users\ssge\AppData\Local\Temp\sisk.s
-1F cinit CODE >1326:C:\Users\ssge\AppData\Local\Temp\sisk.s
-20 cinit CODE >1327:C:\Users\ssge\AppData\Local\Temp\sisk.s
-21 cinit CODE >1328:C:\Users\ssge\AppData\Local\Temp\sisk.s
-26 cinit CODE >1331:C:\Users\ssge\AppData\Local\Temp\sisk.s
-27 cinit CODE >1332:C:\Users\ssge\AppData\Local\Temp\sisk.s
-28 cinit CODE >1333:C:\Users\ssge\AppData\Local\Temp\sisk.s
-29 cinit CODE >1334:C:\Users\ssge\AppData\Local\Temp\sisk.s
-2E cinit CODE >1340:C:\Users\ssge\AppData\Local\Temp\sisk.s
-2E cinit CODE >1342:C:\Users\ssge\AppData\Local\Temp\sisk.s
-2F cinit CODE >1343:C:\Users\ssge\AppData\Local\Temp\sisk.s
+19 cinit CODE >1277:C:\Users\ssge\AppData\Local\Temp\sl98.s
+19 cinit CODE >1280:C:\Users\ssge\AppData\Local\Temp\sl98.s
+19 cinit CODE >1318:C:\Users\ssge\AppData\Local\Temp\sl98.s
+1A cinit CODE >1319:C:\Users\ssge\AppData\Local\Temp\sl98.s
+1B cinit CODE >1320:C:\Users\ssge\AppData\Local\Temp\sl98.s
+1C cinit CODE >1321:C:\Users\ssge\AppData\Local\Temp\sl98.s
+1D cinit CODE >1324:C:\Users\ssge\AppData\Local\Temp\sl98.s
+1E cinit CODE >1325:C:\Users\ssge\AppData\Local\Temp\sl98.s
+1F cinit CODE >1326:C:\Users\ssge\AppData\Local\Temp\sl98.s
+20 cinit CODE >1327:C:\Users\ssge\AppData\Local\Temp\sl98.s
+21 cinit CODE >1328:C:\Users\ssge\AppData\Local\Temp\sl98.s
+26 cinit CODE >1331:C:\Users\ssge\AppData\Local\Temp\sl98.s
+27 cinit CODE >1332:C:\Users\ssge\AppData\Local\Temp\sl98.s
+28 cinit CODE >1333:C:\Users\ssge\AppData\Local\Temp\sl98.s
+29 cinit CODE >1334:C:\Users\ssge\AppData\Local\Temp\sl98.s
+2E cinit CODE >1340:C:\Users\ssge\AppData\Local\Temp\sl98.s
+2E cinit CODE >1342:C:\Users\ssge\AppData\Local\Temp\sl98.s
+2F cinit CODE >1343:C:\Users\ssge\AppData\Local\Temp\sl98.s
 4 intentry CODE >90:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
 D6B text20 CODE >8:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
 D6B text20 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
@@ -475,16 +475,16 @@ A66 text1 CODE >34:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\a
 710 maintext CODE >25:E:\Workspace\GBS8/test.c
 72C maintext CODE >26:E:\Workspace\GBS8/test.c
 74A maintext CODE >29:E:\Workspace\GBS8/test.c
-851 clrtext CODE >1305:C:\Users\ssge\AppData\Local\Temp\sisk.s
-851 clrtext CODE >1306:C:\Users\ssge\AppData\Local\Temp\sisk.s
-852 clrtext CODE >1307:C:\Users\ssge\AppData\Local\Temp\sisk.s
-852 clrtext CODE >1308:C:\Users\ssge\AppData\Local\Temp\sisk.s
-853 clrtext CODE >1309:C:\Users\ssge\AppData\Local\Temp\sisk.s
-854 clrtext CODE >1310:C:\Users\ssge\AppData\Local\Temp\sisk.s
-855 clrtext CODE >1311:C:\Users\ssge\AppData\Local\Temp\sisk.s
-856 clrtext CODE >1312:C:\Users\ssge\AppData\Local\Temp\sisk.s
-857 clrtext CODE >1313:C:\Users\ssge\AppData\Local\Temp\sisk.s
-858 clrtext CODE >1314:C:\Users\ssge\AppData\Local\Temp\sisk.s
+851 clrtext CODE >1305:C:\Users\ssge\AppData\Local\Temp\sl98.s
+851 clrtext CODE >1306:C:\Users\ssge\AppData\Local\Temp\sl98.s
+852 clrtext CODE >1307:C:\Users\ssge\AppData\Local\Temp\sl98.s
+852 clrtext CODE >1308:C:\Users\ssge\AppData\Local\Temp\sl98.s
+853 clrtext CODE >1309:C:\Users\ssge\AppData\Local\Temp\sl98.s
+854 clrtext CODE >1310:C:\Users\ssge\AppData\Local\Temp\sl98.s
+855 clrtext CODE >1311:C:\Users\ssge\AppData\Local\Temp\sl98.s
+856 clrtext CODE >1312:C:\Users\ssge\AppData\Local\Temp\sl98.s
+857 clrtext CODE >1313:C:\Users\ssge\AppData\Local\Temp\sl98.s
+858 clrtext CODE >1314:C:\Users\ssge\AppData\Local\Temp\sl98.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -511,12 +511,12 @@ _T0CS 40D 0 ABS 0 - dist/default/production\gbs8.X.production.o
 _TMR0 1 0 ABS 0 - dist/default/production\gbs8.X.production.o
 _TMR1 E 0 ABS 0 - dist/default/production\gbs8.X.production.o
 _TMR2 11 0 ABS 0 - dist/default/production\gbs8.X.production.o
-___sp 0 0 STACK 2 stack C:\Users\ssge\AppData\Local\Temp\sisc.o
+___sp 0 0 STACK 2 stack C:\Users\ssge\AppData\Local\Temp\sl98.o
 _main C7A 0 CODE 0 maintext dist/default/production\gbs8.X.production.o
 _sqrt 1716 0 CODE 0 text15 dist/default/production\gbs8.X.production.o
 btemp 7E 0 ABS 0 - dist/default/production\gbs8.X.production.o
 __end_of_GBS_Timer2_Config 12D6 0 CODE 0 text3 dist/default/production\gbs8.X.production.o
-start 2C 0 CODE 0 init C:\Users\ssge\AppData\Local\Temp\sisc.o
+start 2C 0 CODE 0 init C:\Users\ssge\AppData\Local\Temp\sl98.o
 __size_of___awmod 0 0 ABS 0 - dist/default/production\gbs8.X.production.o
 __size_of___fldiv 0 0 ABS 0 - dist/default/production\gbs8.X.production.o
 __size_of___fltol 0 0 ABS 0 - dist/default/production\gbs8.X.production.o
@@ -534,12 +534,12 @@ sqrt@a 47 0 BANK0 1 cstackBANK0 dist/default/production\gbs8.X.production.o
 sqrt@i 50 0 BANK0 1 cstackBANK0 dist/default/production\gbs8.X.production.o
 sqrt@p 55 0 BANK0 1 cstackBANK0 dist/default/production\gbs8.X.production.o
 ___awmod@sign 1A1 0 BANK3 1 cstackBANK3 dist/default/production\gbs8.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\sisc.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\sisc.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\sisc.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\sisc.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\sisc.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\sisc.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\sl98.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\sl98.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\sl98.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\sl98.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\sl98.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\sl98.o
 _stepperA 190 0 BANK3 1 bssBANK3 dist/default/production\gbs8.X.production.o
 ___bmul@multiplicand 19C 0 BANK3 1 cstackBANK3 dist/default/production\gbs8.X.production.o
 sqrt@tfrac 51 0 BANK0 1 cstackBANK0 dist/default/production\gbs8.X.production.o
@@ -574,8 +574,8 @@ __end_of___awmod 14CE 0 CODE 0 text1 dist/default/production\gbs8.X.production.o
 __end_of___fldiv 2000 0 CODE 0 text20 dist/default/production\gbs8.X.production.o
 __end_of___fltol FE0 0 CODE 0 text19 dist/default/production\gbs8.X.production.o
 __end_of___lldiv 159E 0 CODE 0 text18 dist/default/production\gbs8.X.production.o
-___stackhi 0 0 ABS 0 - C:\Users\ssge\AppData\Local\Temp\sisc.o
-___stacklo 0 0 ABS 0 - C:\Users\ssge\AppData\Local\Temp\sisc.o
+___stackhi 0 0 ABS 0 - C:\Users\ssge\AppData\Local\Temp\sl98.o
+___stacklo 0 0 ABS 0 - C:\Users\ssge\AppData\Local\Temp\sl98.o
 __size_ofi1___bmul 0 0 ABS 0 - dist/default/production\gbs8.X.production.o
 ___fldiv@a 64 0 BANK0 1 cstackBANK0 dist/default/production\gbs8.X.production.o
 ___fldiv@b 68 0 BANK0 1 cstackBANK0 dist/default/production\gbs8.X.production.o
@@ -602,7 +602,7 @@ __pcstackBANK3 19C 0 BANK3 1 cstackBANK3 dist/default/production\gbs8.X.producti
 _TMR2ON 92 0 ABS 0 - dist/default/production\gbs8.X.production.o
 i1___bmul@product 77 0 COMMON 1 cstackCOMMON dist/default/production\gbs8.X.production.o
 __end_of_GBS_Interrupt_Init 10CA 0 CODE 0 text6 dist/default/production\gbs8.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\ssge\AppData\Local\Temp\sisc.o
+___int_sp 0 0 STACK 2 stack C:\Users\ssge\AppData\Local\Temp\sl98.o
 i1___bmul 10CA 0 CODE 0 text13 dist/default/production\gbs8.X.production.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
@@ -664,7 +664,7 @@ ___xxtofl 159E 0 CODE 0 text16 dist/default/production\gbs8.X.production.o
 __end_of_ISR 11CA 0 CODE 0 text9 dist/default/production\gbs8.X.production.o
 __Lintentry 8 0 CODE 0 intentry -
 ___lldiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/production\gbs8.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\ssge\AppData\Local\Temp\sisc.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\ssge\AppData\Local\Temp\sl98.o
 __end_of___xxtofl 1716 0 CODE 0 text16 dist/default/production\gbs8.X.production.o
 __size_of___bmul 0 0 ABS 0 - dist/default/production\gbs8.X.production.o
 __size_of___lmul 0 0 ABS 0 - dist/default/production\gbs8.X.production.o

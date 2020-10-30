@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.20 build 20200408173844 
-                                                                                               Fri Oct 30 10:07:45 2020
+                                                                                               Fri Oct 30 11:18:59 2020
 
 Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1 
      1                           	processor	16F887
@@ -1736,10 +1736,8 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1720  093B                     l1994:
   1721                           
   1722                           ;../gbs8/bsp/scr/gbs8_timer.c: 50: void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, u
-      +                          int8_t outPS, uint8_t timVar);../gbs8/bsp/scr/gbs8_timer.c: 50: void GBS_Timer2_Config(u
-      +                          int8_t state, uint8_t ckPS, uint8_t outPS, uint8_t timVar);../gbs8/bsp/scr/gbs8_timer.c:
-      +                           51: {;../gbs8/bsp/scr/gbs8_timer.c: 51: {;../gbs8/bsp/scr/gbs8_timer.c: 52:     TMR2ON 
-      +                          = state;;../gbs8/bsp/scr/gbs8_timer.c: 52:     TMR2ON = state;
+      +                          int8_t outPS, uint8_t timVar);../gbs8/bsp/scr/gbs8_timer.c: 51: {;../gbs8/bsp/scr/gbs8_t
+      +                          imer.c: 52:     TMR2ON = state;
   1723  093B  1820               	btfsc	GBS_Timer2_Config@state^(0+384),0
   1724  093C  293E               	goto	u2301
   1725  093D  2942               	goto	u2300
@@ -1755,8 +1753,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1735  0945                     u2314:
   1736  0945                     l1996:
   1737                           
-  1738                           ;../gbs8/bsp/scr/gbs8_timer.c: 53:     T2CONbits.T2CKPS = ckPS;;../gbs8/bsp/scr/gbs8_tim
-      +                          er.c: 53:     T2CONbits.T2CKPS = ckPS;
+  1738                           ;../gbs8/bsp/scr/gbs8_timer.c: 53:     T2CONbits.T2CKPS = ckPS;
   1739  0945  0812               	movf	18,w	;volatile
   1740  0946  1683               	bsf	3,5	;RP0=1, select bank3
   1741  0947  1703               	bsf	3,6	;RP1=1, select bank3
@@ -1767,8 +1764,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1746  094C  1303               	bcf	3,6	;RP1=0, select bank0
   1747  094D  0092               	movwf	18	;volatile
   1748                           
-  1749                           ;../gbs8/bsp/scr/gbs8_timer.c: 54:     T2CONbits.TOUTPS = outPS;;../gbs8/bsp/scr/gbs8_ti
-      +                          mer.c: 54:     T2CONbits.TOUTPS = outPS;
+  1749                           ;../gbs8/bsp/scr/gbs8_timer.c: 54:     T2CONbits.TOUTPS = outPS;
   1750  094E  1683               	bsf	3,5	;RP0=1, select bank3
   1751  094F  1703               	bsf	3,6	;RP1=1, select bank3
   1752  0950  081D               	movf	GBS_Timer2_Config@outPS^(0+384),w
@@ -1789,16 +1785,14 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1767  095F  0092               	movwf	18	;volatile
   1768  0960                     l1998:
   1769                           
-  1770                           ;../gbs8/bsp/scr/gbs8_timer.c: 55:     PR2 = 255;;../gbs8/bsp/scr/gbs8_timer.c: 55:     
-      +                          PR2 = 255;
+  1770                           ;../gbs8/bsp/scr/gbs8_timer.c: 55:     PR2 = 255;
   1771  0960  30FF               	movlw	255
   1772  0961  1683               	bsf	3,5	;RP0=1, select bank1
   1773  0962  1303               	bcf	3,6	;RP1=0, select bank1
   1774  0963  0092               	movwf	18	;volatile
   1775  0964                     l2000:
   1776                           
-  1777                           ;../gbs8/bsp/scr/gbs8_timer.c: 56:     TMR2 = timVar;;../gbs8/bsp/scr/gbs8_timer.c: 56: 
-      +                              TMR2 = timVar;
+  1777                           ;../gbs8/bsp/scr/gbs8_timer.c: 56:     TMR2 = timVar;
   1778  0964  1683               	bsf	3,5	;RP0=1, select bank3
   1779  0965  1703               	bsf	3,6	;RP1=1, select bank3
   1780  0966  081E               	movf	GBS_Timer2_Config@timVar^(0+384),w
@@ -2023,14 +2017,12 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   1995                           ; Regs used in _GBS_Interrupt_Init: [wreg+status,2+status,0+pclath+cstack]
   1996                           
   1997                           
-  1998                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 21:     GBS_T2I_Config(1);;../gbs8/bsp/scr/gbs8_inter
-      +                          rupt.c: 21:     GBS_T2I_Config(1);
+  1998                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 21:     GBS_T2I_Config(1);
   1999  0859  3001               	movlw	1
   2000  085A  120A  118A  27F0  120A  158A  	fcall	_GBS_T2I_Config
   2001  085F                     l2090:
   2002                           
-  2003                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 23:     GBS_Interrupt_Enable();;../gbs8/bsp/scr/gbs8_
-      +                          interrupt.c: 23:     GBS_Interrupt_Enable();
+  2003                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 23:     GBS_Interrupt_Enable();
   2004  085F  120A  158A  204E  120A  158A  	fcall	_GBS_Interrupt_Enable
   2005  0864                     l65:
   2006  0864  0008               	return
@@ -2081,16 +2073,13 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2051  07F3                     l1988:
   2052                           
   2053                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 82: void GBS_T2I_Config(uint8_t mode);../gbs8/bsp/scr
-      +                          /gbs8_interrupt.c: 82: void GBS_T2I_Config(uint8_t mode);../gbs8/bsp/scr/gbs8_interrupt.
-      +                          c: 83: {;../gbs8/bsp/scr/gbs8_interrupt.c: 83: {;../gbs8/bsp/scr/gbs8_interrupt.c: 84:  
-      +                             PIR1bits.TMR2IF = 0;;../gbs8/bsp/scr/gbs8_interrupt.c: 84:     PIR1bits.TMR2IF = 0;
+      +                          /gbs8_interrupt.c: 83: {;../gbs8/bsp/scr/gbs8_interrupt.c: 84:     PIR1bits.TMR2IF = 0;
   2054  07F3  1283               	bcf	3,5	;RP0=0, select bank0
   2055  07F4  1303               	bcf	3,6	;RP1=0, select bank0
   2056  07F5  108C               	bcf	12,1	;volatile
   2057  07F6                     l1990:
   2058                           
-  2059                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 85:     PIE1bits.TMR2IE = mode;;../gbs8/bsp/scr/gbs8_
-      +                          interrupt.c: 85:     PIE1bits.TMR2IE = mode;
+  2059                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 85:     PIE1bits.TMR2IE = mode;
   2060  07F6  1683               	bsf	3,5	;RP0=1, select bank3
   2061  07F7  1703               	bsf	3,6	;RP1=1, select bank3
   2062  07F8  0C1C               	rrf	GBS_T2I_Config@mode^(0+384),w
@@ -2144,12 +2133,10 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2110                           ; Regs used in _GBS_Interrupt_Enable: []
   2111                           
   2112                           
-  2113                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 28:     INTCONbits.PEIE = 1;;../gbs8/bsp/scr/gbs8_int
-      +                          errupt.c: 28:     INTCONbits.PEIE = 1;
+  2113                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 28:     INTCONbits.PEIE = 1;
   2114  084E  170B               	bsf	11,6	;volatile
   2115                           
-  2116                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 29:     INTCONbits.GIE = 1;;../gbs8/bsp/scr/gbs8_inte
-      +                          rrupt.c: 29:     INTCONbits.GIE = 1;
+  2116                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 29:     INTCONbits.GIE = 1;
   2117  084F  178B               	bsf	11,7	;volatile
   2118  0850                     l68:
   2119  0850  0008               	return
@@ -2192,8 +2179,7 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2156  08C6                     _ISR:
   2157  08C6                     i1l2160:
   2158                           
-  2159                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 128:     if (PIR1bits.TMR2IF);../gbs8/bsp/scr/gbs8_in
-      +                          terrupt.c: 128:     if (PIR1bits.TMR2IF)
+  2159                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 128:     if (PIR1bits.TMR2IF)
   2160  08C6  1283               	bcf	3,5	;RP0=0, select bank0
   2161  08C7  1303               	bcf	3,6	;RP1=0, select bank0
   2162  08C8  1C8C               	btfss	12,1	;volatile
@@ -2204,14 +2190,12 @@ Microchip MPLAB XC8 C Compiler v2.20 (Free license) build 20200408173844 Og1
   2167  08CC                     u257_20:
   2168  08CC                     i1l2162:
   2169                           
-  2170                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 129:     {;../gbs8/bsp/scr/gbs8_interrupt.c: 129:    
-      +                           {;../gbs8/bsp/scr/gbs8_interrupt.c: 130:         T2I_ISR();;../gbs8/bsp/scr/gbs8_interr
-      +                          upt.c: 130:         T2I_ISR();
+  2170                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 129:     {;../gbs8/bsp/scr/gbs8_interrupt.c: 130:    
+      +                               T2I_ISR();
   2171  08CC  120A  158A  2091  120A  158A  	fcall	_T2I_ISR
   2172  08D1                     i1l2164:
   2173                           
-  2174                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 131:         PIR1bits.TMR2IF = 0;;../gbs8/bsp/scr/gbs
-      +                          8_interrupt.c: 131:         PIR1bits.TMR2IF = 0;
+  2174                           ;../gbs8/bsp/scr/gbs8_interrupt.c: 131:         PIR1bits.TMR2IF = 0;
   2175  08D1  1283               	bcf	3,5	;RP0=0, select bank0
   2176  08D2  1303               	bcf	3,6	;RP1=0, select bank0
   2177  08D3  108C               	bcf	12,1	;volatile
@@ -6978,7 +6962,7 @@ DATA                 0      0     10B      12        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.20 build 20200408173844 
-Symbol Table                                                                                   Fri Oct 30 10:07:45 2020
+Symbol Table                                                                                   Fri Oct 30 11:18:59 2020
 
                     ___fldiv@aexp 00B1                      ___fldiv@bexp 00B0                      ___fldiv@sign 00A9  
                   ___bmul@product 019D                                l65 0864                                l68 0850  

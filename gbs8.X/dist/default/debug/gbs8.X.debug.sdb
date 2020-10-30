@@ -38,11 +38,11 @@ T2OUTPS16 15
 [v _GBS_Stepper_Init GBS_Stepper_Init `(v  1 e 1 0 ]
 "55
 [v _GBS_Stepper_Buffer_Init GBS_Stepper_Buffer_Init `(v  1 e 1 0 ]
-"192
+"197
 [v _GBS_Stepper_Exe GBS_Stepper_Exe `(v  1 e 1 0 ]
-"248
+"256
 [v _GBS_Stepper_Update GBS_Stepper_Update `(v  1 e 1 0 ]
-"312
+"320
 [v _T2I_ISR T2I_ISR `(v  1 e 1 0 ]
 "9 E:\Workspace\GBS8/test.c
 [v _main main `(i  1 e 2 0 ]
@@ -378,17 +378,17 @@ T2OUTPS16 15
 {
 "149
 } 0
-"312 E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+"320 E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
 [v _T2I_ISR T2I_ISR `(v  1 e 1 0 ]
 {
-"340
+"348
 } 0
-"248
+"256
 [v _GBS_Stepper_Update GBS_Stepper_Update `(v  1 e 1 0 ]
 {
-"310
+"318
 } 0
-"192
+"197
 [v _GBS_Stepper_Exe GBS_Stepper_Exe `(v  1 e 1 0 ]
 {
 [s S35 . 12 `uc 1 state 1 0 `uc 1 lock 1 1 `uc 1 dir 1 2 `ul 1 cnts 4 3 `ul 1 cntsLast 4 7 `uc 1 pinState 1 11 ]
@@ -397,10 +397,10 @@ T2OUTPS16 15
 [s S22 . 26 `uc 1 dir 1 0 `ul 1 acc_until 4 1 `ul 1 dec_after 4 5 `ul 1 dec_until 4 9 `ul 1 acc 4 13 `ul 1 dec 4 17 `ul 1 maxSpeed 4 21 `uc 1 flag 1 25 ]
 [s S31 . 80 `[3]S22 1 buffer 78 0 `uc 1 head 1 78 `uc 1 tail 1 79 ]
 [v GBS_Stepper_Exe@sBufferX sBufferX `*.5S31  1 p 1 22 ]
-"194
-"192
+"199
+"197
 [v GBS_Stepper_Exe@stepperX stepperX `*.5S35  1 a 1 66 ]
-"246
+"254
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
 [v i1___bmul __bmul `(uc  1 e 1 0 ]

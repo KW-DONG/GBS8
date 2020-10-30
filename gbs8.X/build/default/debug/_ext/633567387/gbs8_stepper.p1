@@ -548,130 +548,117 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 177: }
 [e :UE 149 ]
 }
-"192
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 192: void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
+"197
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 197: void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
 [v _GBS_Stepper_Exe `(v ~T0 @X0 1 ef2`*S140`*S139 ]
-"193
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 193: {
+"198
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 198: {
 {
 [e :U _GBS_Stepper_Exe ]
-"192
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 192: void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
+"197
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 197: void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
 [v _stepperX `*S140 ~T0 @X0 1 r1 ]
 [v _sBufferX `*S139 ~T0 @X0 1 r2 ]
-"193
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 193: {
-[f ]
-"194
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 194:     if (stepperX->pinState==1)
-[e $ ! == -> . *U _stepperX 5 `i -> 1 `i 155  ]
-"195
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 195:     {
-{
-"196
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 196:         stepperX->pinState = 0;
-[e = . *U _stepperX 5 -> -> 0 `i `uc ]
-"197
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 197:         stepperX->cnts--;
-[e -- . *U _stepperX 3 -> -> -> 1 `i `l `ul ]
 "198
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 198:     }
-}
-[e $U 156  ]
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 198: {
+[f ]
 "199
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 199:     else
-[e :U 155 ]
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 199:     if (stepperX->pinState==1)
+[e $ ! == -> . *U _stepperX 5 `i -> 1 `i 155  ]
 "200
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 200:     {
 {
 "201
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 201:         if (stepperX->cnts>0) stepperX->cnts--;
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 201:         stepperX->pinState = 0;
+[e = . *U _stepperX 5 -> -> 0 `i `uc ]
+"202
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 202:         stepperX->cnts--;
+[e -- . *U _stepperX 3 -> -> -> 1 `i `l `ul ]
+"203
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 203:     }
+}
+[e $U 156  ]
+"204
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 204:     else
+[e :U 155 ]
+"205
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 205:     {
+{
+"206
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 206:         if (stepperX->cnts>0) stepperX->cnts--;
 [e $ ! > . *U _stepperX 3 -> -> -> 0 `i `l `ul 157  ]
 [e -- . *U _stepperX 3 -> -> -> 1 `i `l `ul ]
 [e $U 158  ]
-"202
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 202:         else
+"207
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 207:         else
 [e :U 157 ]
-"203
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 203:         {
-{
-"205
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 205:             if (sBufferX->buffer[sBufferX->head].acc_until+sBufferX->buffer[sBufferX->head].dec_after+sBufferX->buffer[sBufferX->head].dec_until==0||stepperX->state==1)
-[e $ ! || == + + . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 1 . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 2 . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 3 -> -> -> 0 `i `l `ul == -> . *U _stepperX 0 `i -> 1 `i 159  ]
-"206
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 206:             {
-{
 "208
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 208:                 if (sBufferX->buffer[(sBufferX->head+1)%3].flag==2)
-[e $ ! == -> . *U + &U . *U _sBufferX 0 * -> -> % + -> . *U _sBufferX 1 `i -> 1 `i -> 3 `i `ui `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 7 `i -> 2 `i 160  ]
-"209
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 209:                 {
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 208:         {
 {
 "210
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 210:                     sBufferX->head = (sBufferX->head+1)%3;
-[e = . *U _sBufferX 1 -> % + -> . *U _sBufferX 1 `i -> 1 `i -> 3 `i `uc ]
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 210:             if (sBufferX->buffer[sBufferX->head].acc_until+sBufferX->buffer[sBufferX->head].dec_after+sBufferX->buffer[sBufferX->head].dec_until==0)
+[e $ ! == + + . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 1 . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 2 . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 3 -> -> -> 0 `i `l `ul 159  ]
 "211
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 211:                     sBufferX->buffer[sBufferX->head].flag = 3;
-[e = . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 7 -> -> 3 `i `uc ]
-"212
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 212:                     stepperX->state = 0;
-[e = . *U _stepperX 0 -> -> 0 `i `uc ]
-"213
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 213:                     stepperX->cntsLast = 10000 / sqrt(((sBufferX->buffer[sBufferX->head].maxSpeed)*(sBufferX->buffer[sBufferX->head].maxSpeed)) + 2*sBufferX->buffer[sBufferX->head].acc);
-[e = . *U _stepperX 4 -> / -> -> 10000 `i `d ( _sqrt (1 -> + * . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 6 . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 6 * -> -> -> 2 `i `l `ul . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 4 `d `ul ]
-"214
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 214:                 }
-}
-[e $U 161  ]
-"215
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 215:                 else
-[e :U 160 ]
-"216
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 216:                 {
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 211:             {
 {
+"213
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 213:                 if (sBufferX->buffer[(sBufferX->head+1)%3].flag==2)
+[e $ ! == -> . *U + &U . *U _sBufferX 0 * -> -> % + -> . *U _sBufferX 1 `i -> 1 `i -> 3 `i `ui `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 7 `i -> 2 `i 160  ]
+"214
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 214:                 {
+{
+"215
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 215:                     sBufferX->head = (sBufferX->head+1)%3;
+[e = . *U _sBufferX 1 -> % + -> . *U _sBufferX 1 `i -> 1 `i -> 3 `i `uc ]
+"216
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 216:                     sBufferX->buffer[sBufferX->head].flag = 3;
+[e = . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 7 -> -> 3 `i `uc ]
 "217
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 217:                     stepperX->state = 0;
-[e = . *U _stepperX 0 -> -> 0 `i `uc ]
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 217:                     if (stepperX->state==0)
+[e $ ! == -> . *U _stepperX 0 `i -> 0 `i 161  ]
 "218
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 218:                 }
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 218:                     {
+{
+"219
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 219:                         stepperX->cntsLast = 10000 / sqrt(((sBufferX->buffer[sBufferX->head].maxSpeed)*(sBufferX->buffer[sBufferX->head].maxSpeed)) + 2*sBufferX->buffer[sBufferX->head].acc);
+[e = . *U _stepperX 4 -> / -> -> 10000 `i `d ( _sqrt (1 -> + * . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 6 . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 6 * -> -> -> 2 `i `l `ul . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 4 `d `ul ]
+"220
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 220:                         stepperX->state = 1;
+[e = . *U _stepperX 0 -> -> 1 `i `uc ]
+"221
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 221:                     }
 }
 [e :U 161 ]
-"219
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 219:             }
+"222
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 222:                 }
+}
+[e $U 162  ]
+"223
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 223:                 else
+[e :U 160 ]
+"224
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 224:                 {
+{
+"225
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 225:                     stepperX->state = 0;
+[e = . *U _stepperX 0 -> -> 0 `i `uc ]
+"226
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 226:                 }
+}
+[e :U 162 ]
+"227
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 227:             }
 }
 [e :U 159 ]
-"222
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 222:             if (sBufferX->buffer[sBufferX->head].flag == 3)
-[e $ ! == -> . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 7 `i -> 3 `i 162  ]
-"223
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 223:             {
-{
-"224
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 224:                 if (sBufferX->buffer[sBufferX->head].acc_until>=0)
-[e $ ! >= . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 1 -> -> -> 0 `i `l `ul 163  ]
-"225
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 225:                 {
-{
-"226
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 226:                     stepperX->pinState = 1;
-[e = . *U _stepperX 5 -> -> 1 `i `uc ]
-"227
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 227:                     stepperX->cntsLast = stepperX->cntsLast + 1*((stepperX->cntsLast)*(stepperX->cntsLast)*(stepperX->cntsLast))*sBufferX->buffer[sBufferX->head].acc/((10000)*(10000)) + ((stepperX->cntsLast)*(stepperX->cntsLast)*(stepperX->cntsLast))*((stepperX->cntsLast)*(stepperX->cntsLast))*((sBufferX->buffer[sBufferX->head].acc/((10000)*(10000)))*(sBufferX->buffer[sBufferX->head].acc/((10000)*(10000))));
-[e = . *U _stepperX 4 + + . *U _stepperX 4 / * * -> -> -> 1 `i `l `ul * * . *U _stepperX 4 . *U _stepperX 4 . *U _stepperX 4 . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 4 -> -> * -> 10000 `i -> 10000 `i `l `ul * * * * . *U _stepperX 4 . *U _stepperX 4 . *U _stepperX 4 * . *U _stepperX 4 . *U _stepperX 4 * / . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 4 -> -> * -> 10000 `i -> 10000 `i `l `ul / . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 4 -> -> * -> 10000 `i -> 10000 `i `l `ul ]
-"229
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 229:                     sBufferX->buffer[sBufferX->head].acc_until--;
-[e -- . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 1 -> -> -> 1 `i `l `ul ]
 "230
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 230:                     sBufferX->buffer[sBufferX->head].dec_after--;
-[e -- . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 2 -> -> -> 1 `i `l `ul ]
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 230:             if (sBufferX->buffer[sBufferX->head].flag == 3)
+[e $ ! == -> . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 7 `i -> 3 `i 163  ]
 "231
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 231:                 }
-}
-[e $U 164  ]
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 231:             {
+{
 "232
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 232:                 else if (sBufferX->buffer[sBufferX->head].dec_after>=0)
-[e :U 163 ]
-[e $ ! >= . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 2 -> -> -> 0 `i `l `ul 165  ]
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 232:                 if (sBufferX->buffer[sBufferX->head].acc_until>=0)
+[e $ ! >= . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 1 -> -> -> 0 `i `l `ul 164  ]
 "233
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 233:                 {
 {
@@ -679,106 +666,129 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 234:                     stepperX->pinState = 1;
 [e = . *U _stepperX 5 -> -> 1 `i `uc ]
 "235
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 235:                     sBufferX->buffer[sBufferX->head].dec_after--;
-[e -- . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 2 -> -> -> 1 `i `l `ul ]
-"236
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 236:                 }
-}
-[e $U 166  ]
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 235:                     stepperX->cntsLast = stepperX->cntsLast + 1*((stepperX->cntsLast)*(stepperX->cntsLast)*(stepperX->cntsLast))*sBufferX->buffer[sBufferX->head].acc/((10000)*(10000)) + ((stepperX->cntsLast)*(stepperX->cntsLast)*(stepperX->cntsLast))*((stepperX->cntsLast)*(stepperX->cntsLast))*((sBufferX->buffer[sBufferX->head].acc/((10000)*(10000)))*(sBufferX->buffer[sBufferX->head].acc/((10000)*(10000))));
+[e = . *U _stepperX 4 + + . *U _stepperX 4 / * * -> -> -> 1 `i `l `ul * * . *U _stepperX 4 . *U _stepperX 4 . *U _stepperX 4 . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 4 -> -> * -> 10000 `i -> 10000 `i `l `ul * * * * . *U _stepperX 4 . *U _stepperX 4 . *U _stepperX 4 * . *U _stepperX 4 . *U _stepperX 4 * / . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 4 -> -> * -> 10000 `i -> 10000 `i `l `ul / . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 4 -> -> * -> 10000 `i -> 10000 `i `l `ul ]
 "237
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 237:                 else
-[e :U 165 ]
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 237:                     sBufferX->buffer[sBufferX->head].acc_until--;
+[e -- . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 1 -> -> -> 1 `i `l `ul ]
 "238
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 238:                 {
-{
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 238:                     sBufferX->buffer[sBufferX->head].dec_after--;
+[e -- . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 2 -> -> -> 1 `i `l `ul ]
 "239
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 239:                     stepperX->pinState = 1;
-[e = . *U _stepperX 5 -> -> 1 `i `uc ]
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 239:                 }
+}
+[e $U 165  ]
 "240
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 240:                     stepperX->cntsLast = stepperX->cntsLast + -1*((stepperX->cntsLast)*(stepperX->cntsLast)*(stepperX->cntsLast))*sBufferX->buffer[sBufferX->head].acc/((10000)*(10000)) + ((stepperX->cntsLast)*(stepperX->cntsLast)*(stepperX->cntsLast))*((stepperX->cntsLast)*(stepperX->cntsLast))*((sBufferX->buffer[sBufferX->head].acc/((10000)*(10000)))*(sBufferX->buffer[sBufferX->head].acc/((10000)*(10000))));
-[e = . *U _stepperX 4 + + . *U _stepperX 4 / * * -> -> -U -> 1 `i `l `ul * * . *U _stepperX 4 . *U _stepperX 4 . *U _stepperX 4 . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 4 -> -> * -> 10000 `i -> 10000 `i `l `ul * * * * . *U _stepperX 4 . *U _stepperX 4 . *U _stepperX 4 * . *U _stepperX 4 . *U _stepperX 4 * / . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 4 -> -> * -> 10000 `i -> 10000 `i `l `ul / . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 4 -> -> * -> 10000 `i -> 10000 `i `l `ul ]
-"241
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 241:                 }
-}
-[e :U 166 ]
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 240:                 else if (sBufferX->buffer[sBufferX->head].dec_after>=0)
 [e :U 164 ]
+[e $ ! >= . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 2 -> -> -> 0 `i `l `ul 166  ]
+"241
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 241:                 {
+{
 "242
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 242:                 stepperX->cnts = stepperX->cntsLast;
-[e = . *U _stepperX 3 . *U _stepperX 4 ]
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 242:                     stepperX->pinState = 1;
+[e = . *U _stepperX 5 -> -> 1 `i `uc ]
 "243
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 243:             }
-}
-[e :U 162 ]
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 243:                     sBufferX->buffer[sBufferX->head].dec_after--;
+[e -- . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 2 -> -> -> 1 `i `l `ul ]
 "244
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 244:         }
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 244:                 }
+}
+[e $U 167  ]
+"245
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 245:                 else
+[e :U 166 ]
+"246
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 246:                 {
+{
+"247
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 247:                     stepperX->pinState = 1;
+[e = . *U _stepperX 5 -> -> 1 `i `uc ]
+"248
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 248:                     stepperX->cntsLast = stepperX->cntsLast + -1*((stepperX->cntsLast)*(stepperX->cntsLast)*(stepperX->cntsLast))*sBufferX->buffer[sBufferX->head].acc/((10000)*(10000)) + ((stepperX->cntsLast)*(stepperX->cntsLast)*(stepperX->cntsLast))*((stepperX->cntsLast)*(stepperX->cntsLast))*((sBufferX->buffer[sBufferX->head].acc/((10000)*(10000)))*(sBufferX->buffer[sBufferX->head].acc/((10000)*(10000))));
+[e = . *U _stepperX 4 + + . *U _stepperX 4 / * * -> -> -U -> 1 `i `l `ul * * . *U _stepperX 4 . *U _stepperX 4 . *U _stepperX 4 . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 4 -> -> * -> 10000 `i -> 10000 `i `l `ul * * * * . *U _stepperX 4 . *U _stepperX 4 . *U _stepperX 4 * . *U _stepperX 4 . *U _stepperX 4 * / . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 4 -> -> * -> 10000 `i -> 10000 `i `l `ul / . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 4 -> -> * -> 10000 `i -> 10000 `i `l `ul ]
+"249
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 249:                 }
+}
+[e :U 167 ]
+[e :U 165 ]
+"250
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 250:                 stepperX->cnts = stepperX->cntsLast;
+[e = . *U _stepperX 3 . *U _stepperX 4 ]
+"251
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 251:             }
+}
+[e :U 163 ]
+"252
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 252:         }
 }
 [e :U 158 ]
-"245
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 245:     }
+"253
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 253:     }
 }
 [e :U 156 ]
-"246
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 246: }
+"254
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 254: }
 [e :UE 154 ]
 }
-"248
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 248: void GBS_Stepper_Update(void)
+"256
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 256: void GBS_Stepper_Update(void)
 [v _GBS_Stepper_Update `(v ~T0 @X0 1 ef ]
-"249
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 249: {
+"257
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 257: {
 {
 [e :U _GBS_Stepper_Update ]
 [f ]
-"251
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 251:     if (stepperA.state == 1)
-[e $ ! == -> . _stepperA 0 `i -> 1 `i 168  ]
-"252
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 252:     {
-{
-"253
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 253:         TRISEbits.TRISE0 = 0;
-[e = . . _TRISEbits 0 0 -> -> 0 `i `uc ]
-"254
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 254:     }
-}
-[e $U 169  ]
-"255
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 255:     else
-[e :U 168 ]
-"256
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 256:     {
-{
-"257
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 257:         TRISDbits.TRISD7 = stepperA.dir;
-[e = . . _TRISDbits 0 7 . _stepperA 2 ]
-"258
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 258:         TRISEbits.TRISE0 = stepperA.pinState;
-[e = . . _TRISEbits 0 0 . _stepperA 5 ]
 "259
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 259:     }
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 259:     if (stepperA.state == 0)
+[e $ ! == -> . _stepperA 0 `i -> 0 `i 169  ]
+"260
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 260:     {
+{
+"261
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 261:         TRISEbits.TRISE0 = 0;
+[e = . . _TRISEbits 0 0 -> -> 0 `i `uc ]
+"262
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 262:     }
 }
+[e $U 170  ]
+"263
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 263:     else
 [e :U 169 ]
-"310
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 310: }
-[e :UE 167 ]
+"264
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 264:     {
+{
+"265
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 265:         TRISDbits.TRISD7 = stepperA.dir;
+[e = . . _TRISDbits 0 7 . _stepperA 2 ]
+"266
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 266:         TRISEbits.TRISE0 = stepperA.pinState;
+[e = . . _TRISEbits 0 0 . _stepperA 5 ]
+"267
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 267:     }
 }
-"312
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 312: void T2I_ISR()
+[e :U 170 ]
+"318
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 318: }
+[e :UE 168 ]
+}
+"320
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 320: void T2I_ISR()
 [v _T2I_ISR `(v ~T0 @X0 1 ef ]
-"314
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 314: {
+"322
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 322: {
 {
 [e :U _T2I_ISR ]
 [f ]
-"320
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 320:     if (stepperA.lock==0) GBS_Stepper_Exe(&stepperA, &sBufferA);
-[e $ ! == -> . _stepperA 1 `i -> 0 `i 171  ]
+"328
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 328:     if (stepperA.lock==0) GBS_Stepper_Exe(&stepperA, &sBufferA);
+[e $ ! == -> . _stepperA 1 `i -> 0 `i 172  ]
 [e ( _GBS_Stepper_Exe (2 , &U _stepperA &U _sBufferA ]
-[e :U 171 ]
-"339
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 339:     GBS_Stepper_Update();
+[e :U 172 ]
+"347
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 347:     GBS_Stepper_Update();
 [e ( _GBS_Stepper_Update ..  ]
-"340
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 340: }
-[e :UE 170 ]
+"348
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 348: }
+[e :UE 171 ]
 }
