@@ -17,15 +17,15 @@ text1 CODE 0 A0C A0C 5B 2
 text2 CODE 0 908 908 30 2
 text3 CODE 0 938 938 33 2
 text4 CODE 0 8E5 8E5 23 2
-text5 CODE 0 896 896 17 2
-text6 CODE 0 862 862 C 2
+text5 CODE 0 87A 87A 17 2
+text6 CODE 0 859 859 C 2
 text7 CODE 0 1A 1A 10 2
-text8 CODE 0 857 857 3 2
+text8 CODE 0 84E 84E 3 2
 text9 CODE 0 8C6 8C6 1F 2
-text10 CODE 0 8AD 8AD 19 2
-text11 CODE 0 86E 86E 13 2
+text10 CODE 0 891 891 19 2
+text11 CODE 0 8AA 8AA 1C 2
 text12 CODE 0 1DD 1DD 60A 2
-text13 CODE 0 881 881 15 2
+text13 CODE 0 865 865 15 2
 text14 CODE 0 9B3 9B3 59 2
 text15 CODE 0 B8B B8B 1E0 2
 text16 CODE 0 ACF ACF BC 2
@@ -42,9 +42,9 @@ intentry CODE 0 4 4 12 2
 bssBANK1 BANK1 1 E7 E7 2 1
 bssBANK2 BANK2 1 110 110 50 1
 bssBANK3 BANK3 1 190 190 C 1
-clrtext CODE 0 85A 85A 8 2
+clrtext CODE 0 851 851 8 2
 config CONFIG 4 2007 2007 2 2
-$C:\Users\ssge\AppData\Local\Temp\s143k.o
+$C:\Users\ssge\AppData\Local\Temp\s1blg.o
 reset_vec CODE 0 0 0 4 2
 end_init CODE 0 16 16 3 2
 config CONFIG 4 2007 2007 2 2
@@ -61,17 +61,17 @@ BANK1 E9-EF 1
 BANK2 160-16F 1
 BANK3 1A5-1E4 1
 CONST 19-19 2
-CONST 800-856 2
+CONST 800-84D 2
 CONST 1000-1EFF 2
 CONST 1FFF-1FFF 2
 ENTRY 19-19 2
-ENTRY 800-856 2
+ENTRY 800-84D 2
 ENTRY 1000-1EFF 2
 ENTRY 1FFF-1FFF 2
 IDLOC 2000-2003 2
 STACK 1A5-1E4 1
 CODE 19-19 2
-CODE 800-856 2
+CODE 800-84D 2
 CODE 1000-1EFF 2
 CODE 1FFF-1FFF 2
 SFR0 0-1F 1
@@ -80,11 +80,11 @@ SFR2 100-10F 1
 SFR3 180-18F 1
 EEDATA 2100-21FF 2
 STRCODE 19-19 2
-STRCODE 800-856 2
+STRCODE 800-84D 2
 STRCODE 1000-1EFF 2
 STRCODE 1FFF-1FFF 2
 STRING 19-19 2
-STRING 800-856 2
+STRING 800-84D 2
 STRING 1000-1EFF 2
 STRING 1FFF-1FFF 2
 # %LINETAB Section
@@ -101,24 +101,24 @@ STRING 1FFF-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/debug\gbs8.X.debug.o
-7E7 cinit CODE >1277:C:\Users\ssge\AppData\Local\Temp\s143k.s
-7E7 cinit CODE >1280:C:\Users\ssge\AppData\Local\Temp\s143k.s
-7E7 cinit CODE >1318:C:\Users\ssge\AppData\Local\Temp\s143k.s
-7E8 cinit CODE >1319:C:\Users\ssge\AppData\Local\Temp\s143k.s
-7E9 cinit CODE >1320:C:\Users\ssge\AppData\Local\Temp\s143k.s
-7EA cinit CODE >1321:C:\Users\ssge\AppData\Local\Temp\s143k.s
-7EB cinit CODE >1324:C:\Users\ssge\AppData\Local\Temp\s143k.s
-7EC cinit CODE >1325:C:\Users\ssge\AppData\Local\Temp\s143k.s
-7ED cinit CODE >1326:C:\Users\ssge\AppData\Local\Temp\s143k.s
-7EE cinit CODE >1327:C:\Users\ssge\AppData\Local\Temp\s143k.s
-7EF cinit CODE >1328:C:\Users\ssge\AppData\Local\Temp\s143k.s
-7F4 cinit CODE >1331:C:\Users\ssge\AppData\Local\Temp\s143k.s
-7F5 cinit CODE >1332:C:\Users\ssge\AppData\Local\Temp\s143k.s
-7F6 cinit CODE >1333:C:\Users\ssge\AppData\Local\Temp\s143k.s
-7F7 cinit CODE >1334:C:\Users\ssge\AppData\Local\Temp\s143k.s
-7FC cinit CODE >1340:C:\Users\ssge\AppData\Local\Temp\s143k.s
-7FC cinit CODE >1342:C:\Users\ssge\AppData\Local\Temp\s143k.s
-7FD cinit CODE >1343:C:\Users\ssge\AppData\Local\Temp\s143k.s
+7E7 cinit CODE >1277:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+7E7 cinit CODE >1280:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+7E7 cinit CODE >1318:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+7E8 cinit CODE >1319:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+7E9 cinit CODE >1320:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+7EA cinit CODE >1321:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+7EB cinit CODE >1324:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+7EC cinit CODE >1325:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+7ED cinit CODE >1326:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+7EE cinit CODE >1327:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+7EF cinit CODE >1328:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+7F4 cinit CODE >1331:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+7F5 cinit CODE >1332:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+7F6 cinit CODE >1333:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+7F7 cinit CODE >1334:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+7FC cinit CODE >1340:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+7FC cinit CODE >1342:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+7FD cinit CODE >1343:C:\Users\ssge\AppData\Local\Temp\s1blg.s
 4 intentry CODE >90:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
 D6B text20 CODE >8:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
 D6B text20 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
@@ -356,15 +356,15 @@ D6A text15 CODE >159:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common
 A02 text14 CODE >32:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
 A07 text14 CODE >33:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
 A0B text14 CODE >34:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-881 text13 CODE >4:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-882 text13 CODE >6:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-883 text13 CODE >43:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-887 text13 CODE >44:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-88B text13 CODE >45:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-88D text13 CODE >46:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-88F text13 CODE >47:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-894 text13 CODE >50:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-895 text13 CODE >51:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+865 text13 CODE >4:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+866 text13 CODE >6:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+867 text13 CODE >43:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+86B text13 CODE >44:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+86F text13 CODE >45:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+871 text13 CODE >46:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+873 text13 CODE >47:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+878 text13 CODE >50:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+879 text13 CODE >51:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
 1DD text12 CODE >192:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
 1E0 text12 CODE >194:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
 1E9 text12 CODE >196:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
@@ -387,40 +387,43 @@ A0B text14 CODE >34:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\
 7CA text12 CODE >241:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
 7CA text12 CODE >242:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
 7E6 text12 CODE >246:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-86E text11 CODE >248:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-86E text11 CODE >251:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-877 text11 CODE >252:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-880 text11 CODE >275:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-8AD text10 CODE >277:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-8AD text10 CODE >285:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-8C0 text10 CODE >304:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-8C5 text10 CODE >305:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+8AA text11 CODE >248:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+8AA text11 CODE >251:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+8B1 text11 CODE >253:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+8B4 text11 CODE >254:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+8B5 text11 CODE >257:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+8BC text11 CODE >258:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+8C5 text11 CODE >310:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+891 text10 CODE >312:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+891 text10 CODE >320:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+8A4 text10 CODE >339:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+8A9 text10 CODE >340:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
 8C6 text9 CODE >90:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
 8C6 text9 CODE >128:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
 8CC text9 CODE >130:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
 8D1 text9 CODE >131:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
 8D4 text9 CODE >149:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-857 text8 CODE >26:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-857 text8 CODE >28:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-858 text8 CODE >29:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-859 text8 CODE >30:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+84E text8 CODE >26:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+84E text8 CODE >28:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+84F text8 CODE >29:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+850 text8 CODE >30:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
 1A text7 CODE >82:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
 1D text7 CODE >84:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
 20 text7 CODE >85:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
 29 text7 CODE >86:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-862 text6 CODE >6:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-862 text6 CODE >21:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-868 text6 CODE >23:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-86D text6 CODE >24:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-896 text5 CODE >4:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-899 text5 CODE >6:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-89A text5 CODE >43:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-89E text5 CODE >44:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-8A2 text5 CODE >45:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-8A4 text5 CODE >46:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-8A6 text5 CODE >47:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-8AB text5 CODE >50:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-8AC text5 CODE >51:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+859 text6 CODE >6:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+859 text6 CODE >21:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+85F text6 CODE >23:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+864 text6 CODE >24:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+87A text5 CODE >4:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+87D text5 CODE >6:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+87E text5 CODE >43:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+882 text5 CODE >44:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+886 text5 CODE >45:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+888 text5 CODE >46:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+88A text5 CODE >47:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+88F text5 CODE >50:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+890 text5 CODE >51:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
 8E5 text4 CODE >55:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
 8E8 text4 CODE >57:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
 8E9 text4 CODE >59:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
@@ -476,16 +479,16 @@ F9 maintext CODE >19:E:\Workspace\GBS8/test.c
 190 maintext CODE >25:E:\Workspace\GBS8/test.c
 1AC maintext CODE >26:E:\Workspace\GBS8/test.c
 1CA maintext CODE >29:E:\Workspace\GBS8/test.c
-85A clrtext CODE >1305:C:\Users\ssge\AppData\Local\Temp\s143k.s
-85A clrtext CODE >1306:C:\Users\ssge\AppData\Local\Temp\s143k.s
-85B clrtext CODE >1307:C:\Users\ssge\AppData\Local\Temp\s143k.s
-85B clrtext CODE >1308:C:\Users\ssge\AppData\Local\Temp\s143k.s
-85C clrtext CODE >1309:C:\Users\ssge\AppData\Local\Temp\s143k.s
-85D clrtext CODE >1310:C:\Users\ssge\AppData\Local\Temp\s143k.s
-85E clrtext CODE >1311:C:\Users\ssge\AppData\Local\Temp\s143k.s
-85F clrtext CODE >1312:C:\Users\ssge\AppData\Local\Temp\s143k.s
-860 clrtext CODE >1313:C:\Users\ssge\AppData\Local\Temp\s143k.s
-861 clrtext CODE >1314:C:\Users\ssge\AppData\Local\Temp\s143k.s
+851 clrtext CODE >1305:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+851 clrtext CODE >1306:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+852 clrtext CODE >1307:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+852 clrtext CODE >1308:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+853 clrtext CODE >1309:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+854 clrtext CODE >1310:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+855 clrtext CODE >1311:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+856 clrtext CODE >1312:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+857 clrtext CODE >1313:C:\Users\ssge\AppData\Local\Temp\s1blg.s
+858 clrtext CODE >1314:C:\Users\ssge\AppData\Local\Temp\s1blg.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -499,7 +502,7 @@ F9 maintext CODE >19:E:\Workspace\GBS8/test.c
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
-__end_of_GBS_Interrupt_Enable 10B4 0 CODE 0 text8 dist/default/debug\gbs8.X.debug.o
+__end_of_GBS_Interrupt_Enable 10A2 0 CODE 0 text8 dist/default/debug\gbs8.X.debug.o
 __Hspace_0 1000 0 ABS 0 - -
 __Hspace_1 1A5 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
@@ -512,12 +515,12 @@ _T0CS 40D 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _TMR0 1 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _TMR1 E 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _TMR2 11 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
-___sp 0 0 STACK 2 stack C:\Users\ssge\AppData\Local\Temp\s143k.o
+___sp 0 0 STACK 2 stack C:\Users\ssge\AppData\Local\Temp\s1blg.o
 _main 17A 0 CODE 0 maintext dist/default/debug\gbs8.X.debug.o
 _sqrt 1716 0 CODE 0 text15 dist/default/debug\gbs8.X.debug.o
 btemp 7E 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __end_of_GBS_Timer2_Config 12D6 0 CODE 0 text3 dist/default/debug\gbs8.X.debug.o
-start 2C 0 CODE 0 init C:\Users\ssge\AppData\Local\Temp\s143k.o
+start 2C 0 CODE 0 init C:\Users\ssge\AppData\Local\Temp\s1blg.o
 __size_of___awmod 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __size_of___fldiv 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __size_of___fltol 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
@@ -535,12 +538,12 @@ sqrt@a 47 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 sqrt@i 50 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 sqrt@p 55 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 ___awmod@sign 1A1 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\s143k.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\s143k.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\s143k.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\s143k.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\s143k.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\s143k.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\s1blg.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\s1blg.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\s1blg.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\s1blg.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\s1blg.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\s1blg.o
 _stepperA 190 0 BANK3 1 bssBANK3 dist/default/debug\gbs8.X.debug.o
 ___bmul@multiplicand 19C 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
 sqrt@tfrac 51 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
@@ -558,7 +561,7 @@ _ANSELH 189 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _CCPR1L 15 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 GBS_Stepper_Exe@sBufferX B6 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
 __end_of_GBS_T2I_Config 54 0 CODE 0 text7 dist/default/debug\gbs8.X.debug.o
-__end_of___bmul 115A 0 CODE 0 text5 dist/default/debug\gbs8.X.debug.o
+__end_of___bmul 1122 0 CODE 0 text5 dist/default/debug\gbs8.X.debug.o
 __end_of___lmul 1366 0 CODE 0 text17 dist/default/debug\gbs8.X.debug.o
 GBS_Timer2_Config@ckPS 19C 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
 i1___awmod@divisor 71 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
@@ -575,8 +578,8 @@ __end_of___awmod 14CE 0 CODE 0 text1 dist/default/debug\gbs8.X.debug.o
 __end_of___fldiv 2000 0 CODE 0 text20 dist/default/debug\gbs8.X.debug.o
 __end_of___fltol 17A 0 CODE 0 text19 dist/default/debug\gbs8.X.debug.o
 __end_of___lldiv 159E 0 CODE 0 text18 dist/default/debug\gbs8.X.debug.o
-___stackhi 0 0 ABS 0 - C:\Users\ssge\AppData\Local\Temp\s143k.o
-___stacklo 0 0 ABS 0 - C:\Users\ssge\AppData\Local\Temp\s143k.o
+___stackhi 0 0 ABS 0 - C:\Users\ssge\AppData\Local\Temp\s1blg.o
+___stacklo 0 0 ABS 0 - C:\Users\ssge\AppData\Local\Temp\s1blg.o
 __size_ofi1___bmul 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 ___fldiv@a 64 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 ___fldiv@b 68 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
@@ -585,7 +588,7 @@ _GBS_Stepper_Buffer_Init 11CA 0 CODE 0 text4 dist/default/debug\gbs8.X.debug.o
 ___lldiv@counter 2C 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 __end_of_GBS_Stepper_Buffer_Init 1210 0 CODE 0 text4 dist/default/debug\gbs8.X.debug.o
 start_initialization FCE 0 CODE 0 cinit dist/default/debug\gbs8.X.debug.o
-__end_of_GBS_Stepper_Update 1102 0 CODE 0 text11 dist/default/debug\gbs8.X.debug.o
+__end_of_GBS_Stepper_Update 118C 0 CODE 0 text11 dist/default/debug\gbs8.X.debug.o
 _TRISAbits 85 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _TRISBbits 86 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _TRISCbits 87 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
@@ -596,22 +599,22 @@ __size_of_T2I_ISR 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 i1___bmul@multiplicand 77 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
 GBS_Timer2_Config@outPS 19D 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
 GBS_Timer2_Config@state 1A0 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
-clear_ram0 10B4 0 CODE 0 clrtext dist/default/debug\gbs8.X.debug.o
+clear_ram0 10A2 0 CODE 0 clrtext dist/default/debug\gbs8.X.debug.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 __pcstackBANK1 A0 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
 __pcstackBANK3 19C 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
 _TMR2ON 92 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 i1___bmul@product 78 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
-__end_of_GBS_Interrupt_Init 10DC 0 CODE 0 text6 dist/default/debug\gbs8.X.debug.o
-___int_sp 0 0 STACK 2 stack C:\Users\ssge\AppData\Local\Temp\s143k.o
-i1___bmul 1102 0 CODE 0 text13 dist/default/debug\gbs8.X.debug.o
+__end_of_GBS_Interrupt_Init 10CA 0 CODE 0 text6 dist/default/debug\gbs8.X.debug.o
+___int_sp 0 0 STACK 2 stack C:\Users\ssge\AppData\Local\Temp\s1blg.o
+i1___bmul 10CA 0 CODE 0 text13 dist/default/debug\gbs8.X.debug.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
 __Hcinit 1000 0 CODE 0 cinit -
 __Hstack 0 0 STACK 2 stack -
-_GBS_Stepper_Update 10DC 0 CODE 0 text11 dist/default/debug\gbs8.X.debug.o
+_GBS_Stepper_Update 1154 0 CODE 0 text11 dist/default/debug\gbs8.X.debug.o
 __size_of___xxtofl 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __Hmaintext 0 0 ABS 0 maintext -
 ___xxtofl@arg 43 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
@@ -619,8 +622,8 @@ ___xxtofl@exp 42 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 ___xxtofl@val 39 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4012 0 CONFIG 4 config -
-__end_ofi1___bmul 112C 0 CODE 0 text13 dist/default/debug\gbs8.X.debug.o
-_GBS_Interrupt_Enable 10AE 0 CODE 0 text8 dist/default/debug\gbs8.X.debug.o
+__end_ofi1___bmul 10F4 0 CODE 0 text13 dist/default/debug\gbs8.X.debug.o
+_GBS_Interrupt_Enable 109C 0 CODE 0 text8 dist/default/debug\gbs8.X.debug.o
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
@@ -644,12 +647,12 @@ __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
-___bmul 112C 0 CODE 0 text5 dist/default/debug\gbs8.X.debug.o
+___bmul 10F4 0 CODE 0 text5 dist/default/debug\gbs8.X.debug.o
 ___lmul 12D6 0 CODE 0 text17 dist/default/debug\gbs8.X.debug.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __LcstackBANK1 0 0 ABS 0 cstackBANK1 -
 __LcstackBANK3 0 0 ABS 0 cstackBANK3 -
-_GBS_Interrupt_Init 10C4 0 CODE 0 text6 dist/default/debug\gbs8.X.debug.o
+_GBS_Interrupt_Init 10B2 0 CODE 0 text6 dist/default/debug\gbs8.X.debug.o
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 _ISR 118C 0 CODE 0 text9 dist/default/debug\gbs8.X.debug.o
 _PR2 92 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
@@ -660,12 +663,12 @@ __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 saved_w 7E 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 GBS_Stepper_Buffer_Init@sBufferX 1A0 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
-__end_of_T2I_ISR 118C 0 CODE 0 text10 dist/default/debug\gbs8.X.debug.o
+__end_of_T2I_ISR 1154 0 CODE 0 text10 dist/default/debug\gbs8.X.debug.o
 ___xxtofl 159E 0 CODE 0 text16 dist/default/debug\gbs8.X.debug.o
 __end_of_ISR 11CA 0 CODE 0 text9 dist/default/debug\gbs8.X.debug.o
 __Lintentry 8 0 CODE 0 intentry -
 ___lldiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\ssge\AppData\Local\Temp\s143k.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\ssge\AppData\Local\Temp\s1blg.o
 __end_of___xxtofl 1716 0 CODE 0 text16 dist/default/debug\gbs8.X.debug.o
 __size_of___bmul 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __size_of___lmul 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
@@ -676,10 +679,10 @@ ___awmod@counter 1A0 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
 _PIE1bits 8C 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 i1___awmod@sign 76 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
 i1___awmod@dividend 73 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
-__ptext10 115A 0 CODE 0 text10 dist/default/debug\gbs8.X.debug.o
-__ptext11 10DC 0 CODE 0 text11 dist/default/debug\gbs8.X.debug.o
+__ptext10 1122 0 CODE 0 text10 dist/default/debug\gbs8.X.debug.o
+__ptext11 1154 0 CODE 0 text11 dist/default/debug\gbs8.X.debug.o
 __ptext12 3BA 0 CODE 0 text12 dist/default/debug\gbs8.X.debug.o
-__ptext13 1102 0 CODE 0 text13 dist/default/debug\gbs8.X.debug.o
+__ptext13 10CA 0 CODE 0 text13 dist/default/debug\gbs8.X.debug.o
 __ptext14 1366 0 CODE 0 text14 dist/default/debug\gbs8.X.debug.o
 __ptext15 1716 0 CODE 0 text15 dist/default/debug\gbs8.X.debug.o
 __ptext16 159E 0 CODE 0 text16 dist/default/debug\gbs8.X.debug.o
@@ -734,10 +737,10 @@ __ptext1 1418 0 CODE 0 text1 dist/default/debug\gbs8.X.debug.o
 __ptext2 1210 0 CODE 0 text2 dist/default/debug\gbs8.X.debug.o
 __ptext3 1270 0 CODE 0 text3 dist/default/debug\gbs8.X.debug.o
 __ptext4 11CA 0 CODE 0 text4 dist/default/debug\gbs8.X.debug.o
-__ptext5 112C 0 CODE 0 text5 dist/default/debug\gbs8.X.debug.o
-__ptext6 10C4 0 CODE 0 text6 dist/default/debug\gbs8.X.debug.o
+__ptext5 10F4 0 CODE 0 text5 dist/default/debug\gbs8.X.debug.o
+__ptext6 10B2 0 CODE 0 text6 dist/default/debug\gbs8.X.debug.o
 __ptext7 34 0 CODE 0 text7 dist/default/debug\gbs8.X.debug.o
-__ptext8 10AE 0 CODE 0 text8 dist/default/debug\gbs8.X.debug.o
+__ptext8 109C 0 CODE 0 text8 dist/default/debug\gbs8.X.debug.o
 __ptext9 118C 0 CODE 0 text9 dist/default/debug\gbs8.X.debug.o
 __size_of_GBS_Stepper_Buffer_Init 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __Lpowerup 0 0 CODE 0 powerup -
@@ -760,7 +763,7 @@ ___lmul@multiplicand 31 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 ___lldiv@quotient 28 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 __pcstackCOMMON 71 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
 _T2CKPS1 91 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
-_T2I_ISR 115A 0 CODE 0 text10 dist/default/debug\gbs8.X.debug.o
+_T2I_ISR 1122 0 CODE 0 text10 dist/default/debug\gbs8.X.debug.o
 __Hend_init 32 0 CODE 0 end_init -
 __end_of_main 3BA 0 CODE 0 maintext dist/default/debug\gbs8.X.debug.o
 __end_of_sqrt 1AD6 0 CODE 0 text15 dist/default/debug\gbs8.X.debug.o
@@ -818,15 +821,15 @@ text1 0 A0C 1418 5B 2
 text2 0 908 1210 30 2
 text3 0 938 1270 33 2
 text4 0 8E5 11CA 23 2
-text5 0 896 112C 17 2
-text6 0 862 10C4 C 2
+text5 0 87A 10F4 17 2
+text6 0 859 10B2 C 2
 text7 0 1A 34 10 2
-text8 0 857 10AE 3 2
+text8 0 84E 109C 3 2
 text9 0 8C6 118C 1F 2
-text10 0 8AD 115A 19 2
-text11 0 86E 10DC 13 2
+text10 0 891 1122 19 2
+text11 0 8AA 1154 1C 2
 text12 0 1DD 3BA 60A 2
-text13 0 881 1102 15 2
+text13 0 865 10CA 15 2
 text14 0 9B3 1366 59 2
 text15 0 B8B 1716 1E0 2
 text16 0 ACF 159E BC 2
@@ -842,7 +845,7 @@ intentry 0 4 8 15 2
 reset_vec 0 0 0 4 2
 bssBANK2 1 110 110 50 1
 bssBANK3 1 190 190 15 1
-clrtext 0 85A 10B4 8 2
+clrtext 0 851 10A2 8 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

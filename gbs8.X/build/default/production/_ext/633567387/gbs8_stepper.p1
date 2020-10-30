@@ -730,32 +730,55 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _GBS_Stepper_Update ]
 [f ]
 "251
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 251:     TRISDbits.TRISD7 = stepperA.dir;
-[e = . . _TRISDbits 0 7 . _stepperA 2 ]
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 251:     if (stepperA.state == 1)
+[e $ ! == -> . _stepperA 0 `i -> 1 `i 168  ]
 "252
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 252:     TRISEbits.TRISE0 = stepperA.pinState;
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 252:     {
+{
+"253
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 253:         TRISEbits.TRISE0 = 0;
+[e = . . _TRISEbits 0 0 -> -> 0 `i `uc ]
+"254
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 254:     }
+}
+[e $U 169  ]
+"255
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 255:     else
+[e :U 168 ]
+"256
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 256:     {
+{
+"257
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 257:         TRISDbits.TRISD7 = stepperA.dir;
+[e = . . _TRISDbits 0 7 . _stepperA 2 ]
+"258
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 258:         TRISEbits.TRISE0 = stepperA.pinState;
 [e = . . _TRISEbits 0 0 . _stepperA 5 ]
-"275
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 275: }
+"259
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 259:     }
+}
+[e :U 169 ]
+"310
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 310: }
 [e :UE 167 ]
 }
-"277
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 277: void T2I_ISR()
+"312
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 312: void T2I_ISR()
 [v _T2I_ISR `(v ~T0 @X0 1 ef ]
-"279
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 279: {
+"314
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 314: {
 {
 [e :U _T2I_ISR ]
 [f ]
-"285
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 285:     if (stepperA.lock==0) GBS_Stepper_Exe(&stepperA, &sBufferA);
-[e $ ! == -> . _stepperA 1 `i -> 0 `i 169  ]
+"320
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 320:     if (stepperA.lock==0) GBS_Stepper_Exe(&stepperA, &sBufferA);
+[e $ ! == -> . _stepperA 1 `i -> 0 `i 171  ]
 [e ( _GBS_Stepper_Exe (2 , &U _stepperA &U _sBufferA ]
-[e :U 169 ]
-"304
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 304:     GBS_Stepper_Update();
+[e :U 171 ]
+"339
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 339:     GBS_Stepper_Update();
 [e ( _GBS_Stepper_Update ..  ]
-"305
-[; ;../gbs8/driver/scr/gbs8_stepper.c: 305: }
-[e :UE 168 ]
+"340
+[; ;../gbs8/driver/scr/gbs8_stepper.c: 340: }
+[e :UE 170 ]
 }

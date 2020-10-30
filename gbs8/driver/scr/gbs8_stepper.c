@@ -188,6 +188,11 @@ uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t dir, rotate_t rotation, s
  * test mode 1: startup
  * test mode 2: change block
  * test mode 3: shut down
+ * 
+ * the FIRST_STEP_CAL must be called only when the stepper starts up
+ * otherwise use NEXT_STEP_CAL
+ * the stepper must stop if the block buffer is empty
+ * 
  */
 void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
 {
@@ -202,15 +207,18 @@ void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
         else
         {
             //the block is empty and the stepper is ON
-            if (sBufferX->buffer[sBufferX->head].acc_until+sBufferX->buffer[sBufferX->head].dec_after+sBufferX->buffer[sBufferX->head].dec_until==0||stepperX->state==STEPPER_ON)
+            if (sBufferX->buffer[sBufferX->head].acc_until+sBufferX->buffer[sBufferX->head].dec_after+sBufferX->buffer[sBufferX->head].dec_until==0)
             {
                 //change block or stop the stepper
                 if (sBufferX->buffer[(sBufferX->head+1)%STEPPER_BUFFER_SIZE].flag==BLOCK_READY)
                 {
                     sBufferX->head = (sBufferX->head+1)%STEPPER_BUFFER_SIZE;
                     sBufferX->buffer[sBufferX->head].flag = BLOCK_EXE;
-                    stepperX->state = STEPPER_OFF;
-                    stepperX->cntsLast = FIRST_STEP_CAL(sBufferX->buffer[sBufferX->head].maxSpeed,sBufferX->buffer[sBufferX->head].acc);
+                    if (stepperX->state==STEPPER_OFF)
+                    {
+                        stepperX->cntsLast = FIRST_STEP_CAL(sBufferX->buffer[sBufferX->head].maxSpeed,sBufferX->buffer[sBufferX->head].acc);
+                        stepperX->state = STEPPER_ON;
+                    }  
                 }
                 else
                 {
@@ -248,7 +256,7 @@ void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
 void GBS_Stepper_Update(void)
 {
 #if (STEPPER_A)
-    if (stepperA.state == STEPPER_ON)
+    if (stepperA.state == STEPPER_OFF)
     {
         A_STEP_W(P_ON);
     }
@@ -260,7 +268,7 @@ void GBS_Stepper_Update(void)
 #endif
 
 #if (STEPPER_B)
-    if (stepperB.state == STEPPER_ON)
+    if (stepperB.state == STEPPER_OFF)
     {
         B_STEP_W(P_ON);
     }
@@ -272,7 +280,7 @@ void GBS_Stepper_Update(void)
 #endif
 
 #if (STEPPER_C)
-    if (stepperC.state == STEPPER_ON)
+    if (stepperC.state == STEPPER_OFF)
     {
         C_STEP_W(P_ON);
     }
@@ -284,7 +292,7 @@ void GBS_Stepper_Update(void)
 #endif
 
 #if (STEPPER_D)
-    if (stepperD.state == STEPPER_ON)
+    if (stepperD.state == STEPPER_OFF)
     {
         D_STEP_W(P_ON);
     }
@@ -296,7 +304,7 @@ void GBS_Stepper_Update(void)
 #endif
 
 #if (STEPPER_E)
-    if (stepperE.state == STEPPER_ON)
+    if (stepperE.state == STEPPER_OFF)
     {
         E_STEP_W(P_ON);
     }

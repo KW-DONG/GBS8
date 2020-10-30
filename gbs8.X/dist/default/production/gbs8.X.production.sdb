@@ -42,7 +42,7 @@ T2OUTPS16 15
 [v _GBS_Stepper_Exe GBS_Stepper_Exe `(v  1 e 1 0 ]
 "248
 [v _GBS_Stepper_Update GBS_Stepper_Update `(v  1 e 1 0 ]
-"277
+"312
 [v _T2I_ISR T2I_ISR `(v  1 e 1 0 ]
 "9 E:\Workspace\GBS8/test.c
 [v _main main `(i  1 e 2 0 ]
@@ -378,15 +378,15 @@ T2OUTPS16 15
 {
 "149
 } 0
-"277 E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+"312 E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
 [v _T2I_ISR T2I_ISR `(v  1 e 1 0 ]
 {
-"305
+"340
 } 0
 "248
 [v _GBS_Stepper_Update GBS_Stepper_Update `(v  1 e 1 0 ]
 {
-"275
+"310
 } 0
 "192
 [v _GBS_Stepper_Exe GBS_Stepper_Exe `(v  1 e 1 0 ]

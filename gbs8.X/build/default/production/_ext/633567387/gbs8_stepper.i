@@ -3107,9 +3107,16 @@ void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
 void GBS_Stepper_Update(void)
 {
 
-    TRISDbits.TRISD7 = stepperA.dir;
-    TRISEbits.TRISE0 = stepperA.pinState;
-# 275 "../gbs8/driver/scr/gbs8_stepper.c"
+    if (stepperA.state == 1)
+    {
+        TRISEbits.TRISE0 = 0;
+    }
+    else
+    {
+        TRISDbits.TRISD7 = stepperA.dir;
+        TRISEbits.TRISE0 = stepperA.pinState;
+    }
+# 310 "../gbs8/driver/scr/gbs8_stepper.c"
 }
 
 void T2I_ISR()
@@ -3121,6 +3128,6 @@ void T2I_ISR()
 
 
     if (stepperA.lock==0) GBS_Stepper_Exe(&stepperA, &sBufferA);
-# 304 "../gbs8/driver/scr/gbs8_stepper.c"
+# 339 "../gbs8/driver/scr/gbs8_stepper.c"
     GBS_Stepper_Update();
 }

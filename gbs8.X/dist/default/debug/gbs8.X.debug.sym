@@ -32,7 +32,7 @@ sqrt@a 47 0 BANK0 1
 sqrt@i 50 0 BANK0 1
 __end_of_GBS_T2I_Config 2A 0 CODE 0
 sqrt@p 55 0 BANK0 1
-__end_of_GBS_Stepper_Update 881 0 CODE 0
+__end_of_GBS_Stepper_Update 8C6 0 CODE 0
 __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
 sqrt@sign 4F 0 BANK0 1
@@ -46,7 +46,7 @@ __end_of_ISR 8E5 0 CODE 0
 __Hfunctab 0 0 ENTRY 0
 __Lfunctab 0 0 ENTRY 0
 sqrt@tfrac 51 0 BANK0 1
-i1___bmul 881 0 CODE 0
+i1___bmul 865 0 CODE 0
 ?___fltol B2 0 BANK1 1
 __Hcommon 0 0 ABS 0
 __Lcommon 0 0 ABS 0
@@ -99,7 +99,7 @@ __LcstackBANK0 0 0 ABS 0
 __pcstackBANK0 20 0 BANK0 1
 ___awmod@sign 1A1 0 BANK3 1
 saved_w 7E 0 ABS 0
-___bmul 896 0 CODE 0
+___bmul 87A 0 CODE 0
 ___lmul 96B 0 CODE 0
 __Hinit 16 0 CODE 0
 __Linit 16 0 CODE 0
@@ -111,7 +111,7 @@ __size_of_GBS_Stepper_Update 0 0 ABS 0
 ___bmul@multiplier 19E 0 BANK3 1
 ___lmul@multiplier 2D 0 BANK0 1
 ?___xxtofl 39 0 BANK0 1
-_GBS_Interrupt_Init 862 0 CODE 0
+_GBS_Interrupt_Init 859 0 CODE 0
 end_of_initialization 7FC 0 CODE 0
 ___fldiv@sign A9 0 BANK1 1
 __size_of_ISR 0 0 ABS 0
@@ -143,19 +143,19 @@ __end_of___lmul 9B3 0 CODE 0
 __Hpowerup 0 0 CODE 0
 __Lpowerup 0 0 CODE 0
 __size_of_GBS_Stepper_Exe 0 0 ABS 0
-_T2I_ISR 8AD 0 CODE 0
+_T2I_ISR 891 0 CODE 0
 __ptext1 A0C 0 CODE 0
 __ptext2 908 0 CODE 0
 ___fldiv@grs AC 0 BANK1 1
 __ptext3 938 0 CODE 0
 __ptext4 8E5 0 CODE 0
 GBS_Stepper_Buffer_Init@sBufferX 1A0 0 BANK3 1
-__ptext5 896 0 CODE 0
-__ptext6 862 0 CODE 0
+__ptext5 87A 0 CODE 0
+__ptext6 859 0 CODE 0
 __ptext7 1A 0 CODE 0
 __HcstackBANK1 0 0 ABS 0
 __LcstackBANK1 0 0 ABS 0
-__ptext8 857 0 CODE 0
+__ptext8 84E 0 CODE 0
 __ptext9 8C6 0 CODE 0
 __pcstackBANK1 A0 0 BANK1 1
 __Hclrtext 0 0 ABS 0
@@ -168,7 +168,7 @@ __size_of___xxtofl 0 0 ABS 0
 ?i1___awmod 71 0 COMMON 1
 GBS_T2I_Config@mode 19C 0 BANK3 1
 GBS_Timer2_Config@ckPS 19C 0 BANK3 1
-_GBS_Stepper_Update 86E 0 CODE 0
+_GBS_Stepper_Update 8AA 0 CODE 0
 __size_of_GBS_Timer2_Config 0 0 ABS 0
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
@@ -197,10 +197,10 @@ __end_of_sqrt D6B 0 CODE 0
 __Hspace_4 4010 0 ABS 0
 __Lspace_4 0 0 ABS 0
 ___xxtofl@sign 41 0 BANK0 1
-_GBS_Interrupt_Enable 857 0 CODE 0
+_GBS_Interrupt_Enable 84E 0 CODE 0
 ___fltol@exp1 7D 0 COMMON 1
 GBS_Timer2_Config@outPS 19D 0 BANK3 1
-clear_ram0 85A 0 CODE 0
+clear_ram0 851 0 CODE 0
 GBS_Stepper_Exe@sBufferX B6 0 BANK1 1
 GBS_Stepper_Exe@stepperX E2 0 BANK1 1
 i1___bmul@multiplier 79 0 COMMON 1
@@ -210,16 +210,16 @@ __LbssBANK1 0 0 ABS 0
 GBS_Timer2_Config@state 1A0 0 BANK3 1
 ___xxtofl@arg 43 0 BANK0 1
 __pbssBANK1 E7 0 BANK1 1
-__ptext10 8AD 0 CODE 0
+__ptext10 891 0 CODE 0
 __ptext20 D6B 0 CODE 0
-__ptext11 86E 0 CODE 0
+__ptext11 8AA 0 CODE 0
 __ptext12 1DD 0 CODE 0
 __HbssBANK2 0 0 ABS 0
 __LbssBANK2 0 0 ABS 0
-__ptext13 881 0 CODE 0
+__ptext13 865 0 CODE 0
 __pbssBANK2 110 0 BANK2 1
 __ptext14 9B3 0 CODE 0
-__end_of_GBS_Interrupt_Enable 85A 0 CODE 0
+__end_of_GBS_Interrupt_Enable 851 0 CODE 0
 __ptext15 B8B 0 CODE 0
 __ptext16 ACF 0 CODE 0
 __HbssBANK3 0 0 ABS 0
@@ -237,7 +237,7 @@ __end_of_GBS_Timer2_Config 96B 0 CODE 0
 ___lldiv@divisor 20 0 BANK0 1
 __size_of___lldiv 0 0 ABS 0
 i1___bmul@multiplicand 77 0 COMMON 1
-__end_ofi1___bmul 896 0 CODE 0
+__end_ofi1___bmul 87A 0 CODE 0
 __Hreset_vec 4 0 CODE 0
 __Lreset_vec 0 0 CODE 0
 __HcstackBANK3 0 0 ABS 0
@@ -255,8 +255,8 @@ intlevel3 0 0 ENTRY 0
 __size_of___lmul 0 0 ABS 0
 intlevel4 0 0 ENTRY 0
 intlevel5 0 0 ENTRY 0
-__end_of_T2I_ISR 8C6 0 CODE 0
-__end_of_GBS_Interrupt_Init 86E 0 CODE 0
+__end_of_T2I_ISR 8AA 0 CODE 0
+__end_of_GBS_Interrupt_Init 865 0 CODE 0
 GBS_Stepper_Buffer_Init@i 1A1 0 BANK3 1
 __size_of___fltol 0 0 ABS 0
 __HcstackCOMMON 0 0 ABS 0
@@ -286,7 +286,7 @@ ___fldiv@a 64 0 BANK0 1
 _GBS_T2I_Config 1A 0 CODE 0
 __size_of___bmul 0 0 ABS 0
 ___fldiv@b 68 0 BANK0 1
-__end_of___bmul 8AD 0 CODE 0
+__end_of___bmul 891 0 CODE 0
 ___lldiv@dividend 24 0 BANK0 1
 %segments
 reset_vec 0 7 CODE 0 0
@@ -311,17 +311,17 @@ text3 1270 12D5 CODE 1270 0
 text2 1210 126F CODE 1210 0
 text4 11CA 120F CODE 11CA 0
 text9 118C 11C9 CODE 118C 0
-text10 115A 118B CODE 115A 0
-text5 112C 1159 CODE 112C 0
-text13 1102 112B CODE 1102 0
-text11 10DC 1101 CODE 10DC 0
+text11 1154 118B CODE 1154 0
+text10 1122 1153 CODE 1122 0
+text5 10F4 1121 CODE 10F4 0
+text13 10CA 10F3 CODE 10CA 0
 text7 34 53 CODE 34 0
-text6 10C4 10DB CODE 10C4 0
-clrtext 10B4 10C3 CODE 10B4 0
-text8 10AE 10B3 CODE 10AE 0
+text6 10B2 10C9 CODE 10B2 0
+clrtext 10A2 10B1 CODE 10A2 0
+text8 109C 10A1 CODE 109C 0
 %locals
 dist/default/debug\gbs8.X.debug.o
-C:\Users\ssge\AppData\Local\Temp\s143k.s
+C:\Users\ssge\AppData\Local\Temp\s1blg.s
 1277 7E7 0 CODE 0
 1280 7E7 0 CODE 0
 1318 7E7 0 CODE 0
@@ -340,16 +340,16 @@ C:\Users\ssge\AppData\Local\Temp\s143k.s
 1340 7FC 0 CODE 0
 1342 7FC 0 CODE 0
 1343 7FD 0 CODE 0
-1305 85A 0 CODE 0
-1306 85A 0 CODE 0
-1307 85B 0 CODE 0
-1308 85B 0 CODE 0
-1309 85C 0 CODE 0
-1310 85D 0 CODE 0
-1311 85E 0 CODE 0
-1312 85F 0 CODE 0
-1313 860 0 CODE 0
-1314 861 0 CODE 0
+1305 851 0 CODE 0
+1306 851 0 CODE 0
+1307 852 0 CODE 0
+1308 852 0 CODE 0
+1309 853 0 CODE 0
+1310 854 0 CODE 0
+1311 855 0 CODE 0
+1312 856 0 CODE 0
+1313 857 0 CODE 0
+1314 858 0 CODE 0
 ../test.c
 9 BD 0 CODE 0
 11 BD 0 CODE 0
@@ -411,28 +411,28 @@ C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
 60 8FD 0 CODE 0
 61 907 0 CODE 0
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-4 896 0 CODE 0
-6 899 0 CODE 0
-43 89A 0 CODE 0
-44 89E 0 CODE 0
-45 8A2 0 CODE 0
-46 8A4 0 CODE 0
-47 8A6 0 CODE 0
-50 8AB 0 CODE 0
-51 8AC 0 CODE 0
+4 87A 0 CODE 0
+6 87D 0 CODE 0
+43 87E 0 CODE 0
+44 882 0 CODE 0
+45 886 0 CODE 0
+46 888 0 CODE 0
+47 88A 0 CODE 0
+50 88F 0 CODE 0
+51 890 0 CODE 0
 ../gbs8/bsp/scr/gbs8_interrupt.c
-6 862 0 CODE 0
-21 862 0 CODE 0
-23 868 0 CODE 0
-24 86D 0 CODE 0
+6 859 0 CODE 0
+21 859 0 CODE 0
+23 85F 0 CODE 0
+24 864 0 CODE 0
 82 1A 0 CODE 0
 84 1D 0 CODE 0
 85 20 0 CODE 0
 86 29 0 CODE 0
-26 857 0 CODE 0
-28 857 0 CODE 0
-29 858 0 CODE 0
-30 859 0 CODE 0
+26 84E 0 CODE 0
+28 84E 0 CODE 0
+29 84F 0 CODE 0
+30 850 0 CODE 0
 90 8C6 0 CODE 0
 128 8C6 0 CODE 0
 130 8CC 0 CODE 0
@@ -440,14 +440,17 @@ C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
 149 8D4 0 CODE 0
 90 4 0 CODE 0
 ../gbs8/driver/scr/gbs8_stepper.c
-277 8AD 0 CODE 0
-285 8AD 0 CODE 0
-304 8C0 0 CODE 0
-305 8C5 0 CODE 0
-248 86E 0 CODE 0
-251 86E 0 CODE 0
-252 877 0 CODE 0
-275 880 0 CODE 0
+312 891 0 CODE 0
+320 891 0 CODE 0
+339 8A4 0 CODE 0
+340 8A9 0 CODE 0
+248 8AA 0 CODE 0
+251 8AA 0 CODE 0
+253 8B1 0 CODE 0
+254 8B4 0 CODE 0
+257 8B5 0 CODE 0
+258 8BC 0 CODE 0
+310 8C5 0 CODE 0
 192 1DD 0 CODE 0
 194 1E0 0 CODE 0
 196 1E9 0 CODE 0
@@ -471,15 +474,15 @@ C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
 242 7CA 0 CODE 0
 246 7E6 0 CODE 0
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-4 881 0 CODE 0
-6 882 0 CODE 0
-43 883 0 CODE 0
-44 887 0 CODE 0
-45 88B 0 CODE 0
-46 88D 0 CODE 0
-47 88F 0 CODE 0
-50 894 0 CODE 0
-51 895 0 CODE 0
+4 865 0 CODE 0
+6 866 0 CODE 0
+43 867 0 CODE 0
+44 86B 0 CODE 0
+45 86F 0 CODE 0
+46 871 0 CODE 0
+47 873 0 CODE 0
+50 878 0 CODE 0
+51 879 0 CODE 0
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
 5 9B3 0 CODE 0
 12 9B3 0 CODE 0

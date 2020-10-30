@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.20\pic\dat\en_msgs.txt -cn \
   -h+dist/default/debug\gbs8.X.debug.sym \
   --cmf=dist/default/debug\gbs8.X.debug.cmf -z -Q16F887 \
-  -oC:\Users\ssge\AppData\Local\Temp\s143k.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\ssge\AppData\Local\Temp\s1blg.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/debug/gbs8.X.debug.map -E1 -ver=XC8 Compiler --acfsm=1493 \
   -ASTACK=01A5h-01E4h -pstack=STACK \
   -ACODE=00h-07FFhx3,01800h-01EFFh,01FFFh-01FFFh \
@@ -20,7 +20,7 @@ Linker command line:
   -preset_vec=00h,intentry=04h,init,end_init -ppowerup=CODE -pcinit=CODE \
   -pfunctab=ENTRY -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 \
   -DCODE=2 -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 -k \
-  C:\Users\ssge\AppData\Local\Temp\s143k.o \
+  C:\Users\ssge\AppData\Local\Temp\s1blg.o \
   dist/default/debug\gbs8.X.debug.o 
 
 Object code version is 3.11
@@ -30,7 +30,7 @@ Machine type is 16F887
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\ssge\AppData\Local\Temp\s143k.o
+C:\Users\ssge\AppData\Local\Temp\s1blg.o
                 end_init                             16       16        3        8       0
                 reset_vec                             0        0        4        0       0
                 config                             2007     2007        2        0       4
@@ -45,15 +45,15 @@ dist/default/debug\gbs8.X.debug.o
                 text16                              ACF      ACF       BC     159E       0
                 text15                              B8B      B8B      1E0     1716       0
                 text14                              9B3      9B3       59     1366       0
-                text13                              881      881       15     1102       0
+                text13                              865      865       15     10CA       0
                 text12                              1DD      1DD      60A      3BA       0
-                text11                              86E      86E       13     10DC       0
-                text10                              8AD      8AD       19     115A       0
+                text11                              8AA      8AA       1C     1154       0
+                text10                              891      891       19     1122       0
                 text9                               8C6      8C6       1F     118C       0
-                text8                               857      857        3     10AE       0
+                text8                               84E      84E        3     109C       0
                 text7                                1A       1A       10       34       0
-                text6                               862      862        C     10C4       0
-                text5                               896      896       17     112C       0
+                text6                               859      859        C     10B2       0
+                text5                               87A      87A       17     10F4       0
                 text4                               8E5      8E5       23     11CA       0
                 text3                               938      938       33     1270       0
                 text2                               908      908       30     1210       0
@@ -63,7 +63,7 @@ dist/default/debug\gbs8.X.debug.o
                 cstackCOMMON                         71       71        D       71       1
                 cstackBANK1                          A0       A0       47       A0       1
                 cstackBANK3                         19C      19C        9      190       1
-                clrtext                             85A      85A        8     10B4       0
+                clrtext                             851      851        8     10A2       0
                 bssBANK2                            110      110       50      110       1
                 bssBANK3                            190      190        C      190       1
                 bssBANK1                             E7       E7        2       A0       1
@@ -83,21 +83,21 @@ TOTAL           Name                               Link     Load   Length     Sp
                 text16                              ACF      ACF       BC         0
                 text15                              B8B      B8B      1E0         0
                 text14                              9B3      9B3       59         0
-                text13                              881      881       15         0
+                text13                              865      865       15         0
                 text12                              1DD      1DD      60A         0
-                text11                              86E      86E       13         0
-                text10                              8AD      8AD       19         0
+                text11                              8AA      8AA       1C         0
+                text10                              891      891       19         0
                 text9                               8C6      8C6       1F         0
-                text8                               857      857        3         0
+                text8                               84E      84E        3         0
                 text7                                1A       1A       10         0
-                text6                               862      862        C         0
-                text5                               896      896       17         0
+                text6                               859      859        C         0
+                text5                               87A      87A       17         0
                 text4                               8E5      8E5       23         0
                 text3                               938      938       33         0
                 text2                               908      908       30         0
                 text1                               A0C      A0C       5B         0
                 maintext                             BD       BD      120         0
-                clrtext                             85A      85A        8         0
+                clrtext                             851      851        8         0
 
         CLASS   STRCODE        
 
@@ -160,13 +160,13 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 bssBANK3                       000190  000015  0001A5       190       1  BANK3       1
                 text12                         0001DD  00060A  0007E7       3BA       0  CODE        2
                 cinit                          0007E7  000019  000800       FCE       0  CODE        2
-                text8                          000857  000003  00085A      10AE       0  CODE        2
-                clrtext                        00085A  000008  000862      10B4       0  CODE        2
-                text6                          000862  00000C  00086E      10C4       0  CODE        2
-                text11                         00086E  000013  000881      10DC       0  CODE        2
-                text13                         000881  000015  000896      1102       0  CODE        2
-                text5                          000896  000017  0008AD      112C       0  CODE        2
-                text10                         0008AD  000019  0008C6      115A       0  CODE        2
+                text8                          00084E  000003  000851      109C       0  CODE        2
+                clrtext                        000851  000008  000859      10A2       0  CODE        2
+                text6                          000859  00000C  000865      10B2       0  CODE        2
+                text13                         000865  000015  00087A      10CA       0  CODE        2
+                text5                          00087A  000017  000891      10F4       0  CODE        2
+                text10                         000891  000019  0008AA      1122       0  CODE        2
+                text11                         0008AA  00001C  0008C6      1154       0  CODE        2
                 text9                          0008C6  00001F  0008E5      118C       0  CODE        2
                 text4                          0008E5  000023  000908      11CA       0  CODE        2
                 text2                          000908  000030  000938      1210       0  CODE        2
@@ -187,16 +187,16 @@ UNUSED ADDRESS RANGES
         BANK2            0160-016F             10           1
         BANK3            01A5-01E4             40           1
         CODE             0019-0019              1           2
-                         0800-0856             57
+                         0800-084D             4E
                          1000-1EFF            800
                          1FFF-1FFF              1
         CONST            0019-0019              1           2
-                         0800-0856             57
+                         0800-084D             4E
                          1000-1EFF            100
                          1FFF-1FFF              1
         EEDATA           2100-21FF            100           2
         ENTRY            0019-0019              1           2
-                         0800-0856             57
+                         0800-084D             4E
                          1000-1EFF            100
                          1FFF-1FFF              1
         IDLOC            2000-2003              4           2
@@ -209,11 +209,11 @@ UNUSED ADDRESS RANGES
         SFR3             0180-018F             10           1
         STACK            01A5-01E4             40           1
         STRCODE          0019-0019              1           2
-                         0800-0856             57
+                         0800-084D             4E
                          1000-1EFF            F00
                          1FFF-1FFF              1
         STRING           0019-0019              1           2
-                         0800-0856             57
+                         0800-084D             4E
                          1000-1EFF            100
                          1FFF-1FFF              1
 
@@ -240,8 +240,8 @@ _ANSEL                            (abs)        0188
 _ANSELH                           (abs)        0189
 _CCP1CONbits                      (abs)        0017
 _CCPR1L                           (abs)        0015
-_GBS_Interrupt_Enable             text8        0857
-_GBS_Interrupt_Init               text6        0862
+_GBS_Interrupt_Enable             text8        084E
+_GBS_Interrupt_Init               text6        0859
 _GBS_Stepper_Buffer_Init          text4        08E5
 _GBS_Stepper_Exe                  text12       01DD
 _GBS_Stepper_Exe$1422             cstackBANK1  00C6
@@ -252,7 +252,7 @@ _GBS_Stepper_Exe$1426             cstackBANK1  00D6
 _GBS_Stepper_Exe$1427             cstackBANK1  00DA
 _GBS_Stepper_Exe$1428             cstackBANK1  00DE
 _GBS_Stepper_Init                 text2        0908
-_GBS_Stepper_Update               text11       086E
+_GBS_Stepper_Update               text11       08AA
 _GBS_T2I_Config                   text7        001A
 _GBS_Timer2_Config                text3        0938
 _INTCONbits                       (abs)        000B
@@ -267,7 +267,7 @@ _T0CS                             (abs)        040D
 _T1CONbits                        (abs)        0010
 _T2CKPS1                          (abs)        0091
 _T2CONbits                        (abs)        0012
-_T2I_ISR                          text10       08AD
+_T2I_ISR                          text10       0891
 _TMR0                             (abs)        0001
 _TMR1                             (abs)        000E
 _TMR2                             (abs)        0011
@@ -362,7 +362,7 @@ ___awmod@counter                  cstackBANK3  01A0
 ___awmod@dividend                 cstackBANK3  019E
 ___awmod@divisor                  cstackBANK3  019C
 ___awmod@sign                     cstackBANK3  01A1
-___bmul                           text5        0896
+___bmul                           text5        087A
 ___bmul@multiplicand              cstackBANK3  019C
 ___bmul@multiplier                cstackBANK3  019E
 ___bmul@product                   cstackBANK3  019D
@@ -398,18 +398,18 @@ ___xxtofl@arg                     cstackBANK0  0043
 ___xxtofl@exp                     cstackBANK0  0042
 ___xxtofl@sign                    cstackBANK0  0041
 ___xxtofl@val                     cstackBANK0  0039
-__end_of_GBS_Interrupt_Enable     text8        085A
-__end_of_GBS_Interrupt_Init       text6        086E
+__end_of_GBS_Interrupt_Enable     text8        0851
+__end_of_GBS_Interrupt_Init       text6        0865
 __end_of_GBS_Stepper_Buffer_Init  text4        0908
 __end_of_GBS_Stepper_Exe          text12       07E7
 __end_of_GBS_Stepper_Init         text2        0938
-__end_of_GBS_Stepper_Update       text11       0881
+__end_of_GBS_Stepper_Update       text11       08C6
 __end_of_GBS_T2I_Config           text7        002A
 __end_of_GBS_Timer2_Config        text3        096B
 __end_of_ISR                      text9        08E5
-__end_of_T2I_ISR                  text10       08C6
+__end_of_T2I_ISR                  text10       08AA
 __end_of___awmod                  text1        0A67
-__end_of___bmul                   text5        08AD
+__end_of___bmul                   text5        0891
 __end_of___fldiv                  text20       1000
 __end_of___fltol                  text19       00BD
 __end_of___lldiv                  text18       0ACF
@@ -419,7 +419,7 @@ __end_of__initialization          cinit        07FC
 __end_of_main                     maintext     01DD
 __end_of_sqrt                     text15       0D6B
 __end_ofi1___awmod                text14       0A0C
-__end_ofi1___bmul                 text13       0896
+__end_ofi1___bmul                 text13       087A
 __initialization                  cinit        07E7
 __pbssBANK1                       bssBANK1     00E7
 __pbssBANK2                       bssBANK2     0110
@@ -431,10 +431,10 @@ __pcstackCOMMON                   cstackCOMMON 0071
 __pintentry                       intentry     0004
 __pmaintext                       maintext     00BD
 __ptext1                          text1        0A0C
-__ptext10                         text10       08AD
-__ptext11                         text11       086E
+__ptext10                         text10       0891
+__ptext11                         text11       08AA
 __ptext12                         text12       01DD
-__ptext13                         text13       0881
+__ptext13                         text13       0865
 __ptext14                         text14       09B3
 __ptext15                         text15       0B8B
 __ptext16                         text16       0ACF
@@ -445,10 +445,10 @@ __ptext2                          text2        0908
 __ptext20                         text20       0D6B
 __ptext3                          text3        0938
 __ptext4                          text4        08E5
-__ptext5                          text5        0896
-__ptext6                          text6        0862
+__ptext5                          text5        087A
+__ptext6                          text6        0859
 __ptext7                          text7        001A
-__ptext8                          text8        0857
+__ptext8                          text8        084E
 __ptext9                          text9        08C6
 __size_of_GBS_Interrupt_Enable    (abs)        0000
 __size_of_GBS_Interrupt_Init      (abs)        0000
@@ -477,14 +477,14 @@ _sBufferA                         bssBANK2     0110
 _sqrt                             text15       0B8B
 _stepperA                         bssBANK3     0190
 btemp                             (abs)        007E
-clear_ram0                        clrtext      085A
+clear_ram0                        clrtext      0851
 end_of_initialization             cinit        07FC
 i1___awmod                        text14       09B3
 i1___awmod@counter                cstackCOMMON 0075
 i1___awmod@dividend               cstackCOMMON 0073
 i1___awmod@divisor                cstackCOMMON 0071
 i1___awmod@sign                   cstackCOMMON 0076
-i1___bmul                         text13       0881
+i1___bmul                         text13       0865
 i1___bmul@multiplicand            cstackCOMMON 0077
 i1___bmul@multiplier              cstackCOMMON 0079
 i1___bmul@product                 cstackCOMMON 0078
@@ -833,7 +833,7 @@ Total ram usage:        4 bytes
 
  *************** function _T2I_ISR *****************
  Defined at:
-		line 277 in file "../gbs8/driver/scr/gbs8_stepper.c"
+		line 312 in file "../gbs8/driver/scr/gbs8_stepper.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -872,7 +872,7 @@ Total ram usage:        0 bytes
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, status,0
+		wreg, status,2, status,0
  Tracked objects:
 		On entry : 
 		On exit  : 
@@ -1234,15 +1234,15 @@ C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c estimated si
 shared
 		__initialization		CODE           	07E7	0000	22
 		i1___awmod     		CODE           	09B3	0000	90
-		i1___bmul      		CODE           	0881	0000	22
+		i1___bmul      		CODE           	0865	0000	22
 
 shared estimated size: 134
 
 ../gbs8/bsp/scr/gbs8_interrupt.c
 		_GBS_T2I_Config		CODE           	001A	0000	17
 		_ISR           		CODE           	08C6	0000	32
-		_GBS_Interrupt_Enable		CODE           	0857	0000	4
-		_GBS_Interrupt_Init		CODE           	0862	0000	13
+		_GBS_Interrupt_Enable		CODE           	084E	0000	4
+		_GBS_Interrupt_Init		CODE           	0859	0000	13
 
 ../gbs8/bsp/scr/gbs8_interrupt.c estimated size: 66
 
@@ -1252,16 +1252,16 @@ C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c estimated size: 148
 
 ../gbs8/driver/scr/gbs8_stepper.c
-		_GBS_Stepper_Update		CODE           	086E	0000	20
+		_GBS_Stepper_Update		CODE           	08AA	0000	29
 		_GBS_Stepper_Exe		CODE           	01DD	0000	1547
 		_GBS_Stepper_Buffer_Init		CODE           	08E5	0000	36
 		_GBS_Stepper_Init		CODE           	0908	0000	49
-		_T2I_ISR       		CODE           	08AD	0000	26
+		_T2I_ISR       		CODE           	0891	0000	26
 
-../gbs8/driver/scr/gbs8_stepper.c estimated size: 1678
+../gbs8/driver/scr/gbs8_stepper.c estimated size: 1687
 
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-		___bmul        		CODE           	0896	0000	24
+		___bmul        		CODE           	087A	0000	24
 
 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c estimated size: 24
 
