@@ -6,6 +6,17 @@
 #include "gbs8_stepper.h"
 #include "pic16f887.h"
 
+/**
+ * test scheme:
+ * 1. 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+
+
 int main()
 {
     GBS_Interrupt_Init();
