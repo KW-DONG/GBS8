@@ -2,6 +2,7 @@
 #include "gbs8_timer.h"
 #include "gbs8_interrupt.h"
 #include "gbs8_relay.h"
+#include "gbs8_usart.h"
 
 void GBS_Stepper_Init()
 {
@@ -200,6 +201,10 @@ void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
     {
         stepperX->pinState = P_ON;
         stepperX->cnts--;
+#if TEST
+    
+#endif
+        
     }
     else
     {

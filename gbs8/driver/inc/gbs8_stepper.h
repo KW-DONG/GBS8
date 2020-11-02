@@ -62,6 +62,8 @@
 #define STEPPER_ON  1
 #define STEPPER_OFF 0
 
+#define TEST    1
+
 /*****************************************************************************/
 
 /**
@@ -149,7 +151,7 @@ typedef struct
     uint8_t pinState;       //ON or OFF
 }stepper_t;
 
-/*******************************Declaration***************************************/
+/*******************************STEPPER_FUNCTION***************************************/
 
 /**
  * @brief stepper motor initialization
@@ -193,6 +195,23 @@ void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX);
  * @note only called by ISR
  */
 void GBS_Stepper_Update(void);
+
+/******************************FEEDBACK**********************************************/
+
+/**
+ * @brief print stepper structure
+ * @param stepperX
+ * @note config serial port first
+ */
+void GBS_Print_Stepper(stepper_t* stepperX);
+
+/**
+ * @brief print stepper buffer structure
+ * @param sBufferX
+ * @note config serial port first
+ */
+void GBS_Print_Buffer(sBuffer_t* sBufferX);
+
 
 /*****************************GLOBAL_VARIABLES************************************/
 
