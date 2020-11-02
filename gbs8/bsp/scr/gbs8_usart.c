@@ -36,7 +36,7 @@ void GBS_USART_Init(uint16_t baudRate)
     RCSTAbits.CREN = 1;
 }
 
-void GBS_USART_Buffer_Write(USART_buffer_t* buffer, uint8_t value)
+void GBS_USART_Buffer_Write(USART_buffer_t* buffer, uint8_t value[])
 {
     buffer->buffer[buffer->tail] = value;
     buffer->tail = (buffer->tail + 1)%USART_BUFFER_SIZE;
@@ -63,6 +63,15 @@ void GBS_USART_Send(USART_buffer_t* buffer)
         TXREG = GBS_USART_Buffer_Read(buffer);
         while (TXSTAbits.TRMT==0);
     }
+}
+
+void GBS_USART_Send_Bits(uint8_t bits)
+{
+    PIE1bits.TXIE = 0;
+    while (TXSTAbits.TRMT==0);
+    TXREG = bits;
+    while (TXSTAbits.TRMT==0);
+    GBS_USART_Send(&usartSendBuffer);
 }
 
 void GBS_USART_Receive(USART_buffer_t* buffer)

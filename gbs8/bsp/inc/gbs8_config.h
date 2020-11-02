@@ -99,4 +99,7 @@
 
 #endif
 
+#define USE_PROTOCAL    1
+
+
 #endif

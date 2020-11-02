@@ -5,6 +5,7 @@
 #include "gbs8_interrupt.h"
 #include "gbs8_stepper.h"
 #include "pic16f887.h"
+#include "gbs8_usart.h"
 
 /**
  * test scheme:
@@ -16,6 +17,9 @@
  * 
  */
 
+#define TEST_STEPPER    0
+#define TEST_USART      1
+
 
 int main()
 {
@@ -24,6 +28,7 @@ int main()
     
     while(1)
     {
+    #if (TEST_STEPPER)
         if (sBufferA.buffer[sBufferA.tail].flag == BLOCK_FREE)
         {
             sBufferA.buffer[sBufferA.tail].acc = 10;
@@ -39,6 +44,19 @@ int main()
             //else                        RUN_BLINK(LED_ON);
             __delay_ms(100);
         }
+    #endif
+    #if (TEST_USART)
+        for(uint8_t i=0; i<128;i++)
+        {
+            TXREG = i;
+            while (TXSTAbits.TRMT==0);
+            TXREG = 0x0d;
+            while (TXSTAbits.TRMT==0);
+            TXREG = 0x0a;
+            while (TXSTAbits.TRMT==0);
+            __delay_ms(1000);
+        }
+    #endif
     }
 }
 

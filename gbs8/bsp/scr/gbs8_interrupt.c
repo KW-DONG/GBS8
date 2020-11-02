@@ -144,6 +144,10 @@ void __interrupt() ISR()
         USART_TX_ISR();
         PIR1bits.TXIF = 0;
     }
+#if USE_PROTOCAL
+    
+#endif
+
 #endif
 
 }
