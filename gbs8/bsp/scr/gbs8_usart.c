@@ -72,7 +72,7 @@ void GBS_USART_Receive(USART_buffer_t* buffer)
 
 void USART_TX_ISR()
 {
-    if ()
+    if (usartSendBuffer.size!=0)
     GBS_USART_Send(&usartSendBuffer);
     PIE1bits.TXIE = 0;
 }

@@ -5,6 +5,12 @@
 
 //serial port protocal for testing
 
+
+
+
+
+
+
 typedef struct 
 {
     uint8_t m0:1;
