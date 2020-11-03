@@ -11,42 +11,48 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\ssge\AppData\Local\Temp\skg0.o
+$C:\Users\ssge\AppData\Local\Temp\sgd4.o
 reset_vec CODE 0 0 0 4 2
 end_init CODE 0 16 16 3 2
 config CONFIG 4 2007 2007 2 2
 $dist/default/debug\gbs8.X.debug.o
 cinit CODE 0 7E7 7E7 19 2
-text1 CODE 0 A0C A0C 5B 2
-text2 CODE 0 908 908 30 2
-text3 CODE 0 938 938 33 2
-text4 CODE 0 8E5 8E5 23 2
-text5 CODE 0 87A 87A 17 2
-text6 CODE 0 859 859 C 2
-text7 CODE 0 19 19 10 2
-text8 CODE 0 84E 84E 3 2
-text9 CODE 0 8C6 8C6 1F 2
-text10 CODE 0 891 891 19 2
-text11 CODE 0 8AA 8AA 1C 2
-text12 CODE 0 1DC 1DC 60B 2
-text13 CODE 0 865 865 15 2
-text14 CODE 0 9B3 9B3 59 2
-text15 CODE 0 B8B B8B 1E0 2
-text16 CODE 0 ACF ACF BC 2
-text17 CODE 0 96B 96B 48 2
-text18 CODE 0 A67 A67 68 2
-text19 CODE 0 29 29 93 2
-text20 CODE 0 D6B D6B 295 2
-maintext CODE 0 BC BC 120 2
+text1 CODE 0 8DF 8DF 1D 2
+text2 CODE 0 976 976 2B 2
+text3 CODE 0 A4D A4D 52 2
+text4 CODE 0 83 83 9D 2
+text5 CODE 0 9A1 9A1 2D 2
+text6 CODE 0 83F 83F C 2
+text7 CODE 0 859 859 10 2
+text8 CODE 0 82D 82D 3 2
+text9 CODE 0 9CE 9CE 37 2
+text10 CODE 0 869 869 11 2
+text11 CODE 0 8A8 8A8 1B 2
+text12 CODE 0 922 922 29 2
+text13 CODE 0 830 830 7 2
+text14 CODE 0 84B 84B E 2
+text15 CODE 0 94B 94B 2B 2
+text16 CODE 0 88F 88F 19 2
+text17 CODE 0 8C3 8C3 1C 2
+text18 CODE 0 1DC 1DC 60B 2
+text19 CODE 0 B8B B8B 1E0 2
+text20 CODE 0 120 120 BC 2
+text21 CODE 0 A05 A05 48 2
+text22 CODE 0 1B 1B 68 2
+text23 CODE 0 AF8 AF8 93 2
+text24 CODE 0 D6B D6B 295 2
+text25 CODE 0 87A 87A 15 2
+text26 CODE 0 A9F A9F 59 2
+maintext CODE 0 8FC 8FC 26 2
 cstackCOMMON COMMON 1 71 71 D 1
 cstackBANK0 BANK0 1 20 20 50 1
 cstackBANK1 BANK1 1 A0 A0 47 1
-cstackBANK3 BANK3 1 19C 19C 9 1
+cstackBANK3 BANK3 1 1C2 1C2 15 1
 intentry CODE 0 4 4 12 2
 bssBANK1 BANK1 1 E7 E7 2 1
 bssBANK2 BANK2 1 110 110 50 1
-bssBANK3 BANK3 1 190 190 C 1
-clrtext CODE 0 851 851 8 2
+bssBANK3 BANK3 1 190 190 32 1
+clrtext CODE 0 837 837 8 2
 config CONFIG 4 2007 2007 2 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -56,19 +62,22 @@ config CONFIG 4 2007 2007 2 2
 %UNUSED
 RAM E9-EF 1
 RAM 160-16F 1
-RAM 1A5-1E4 1
+RAM 1D7-1E4 1
 BANK1 E9-EF 1
 BANK2 160-16F 1
-BANK3 1A5-1E4 1
-CONST 800-84D 2
+BANK3 1D7-1E4 1
+CONST 19-1A 2
+CONST 800-82C 2
 CONST 1000-1EFF 2
 CONST 1FFF-1FFF 2
-ENTRY 800-84D 2
+ENTRY 19-1A 2
+ENTRY 800-82C 2
 ENTRY 1000-1EFF 2
 ENTRY 1FFF-1FFF 2
 IDLOC 2000-2003 2
-STACK 1A5-1E4 1
-CODE 800-84D 2
+STACK 160-16F 1
+CODE 19-1A 2
+CODE 800-82C 2
 CODE 1000-1EFF 2
 CODE 1FFF-1FFF 2
 SFR0 0-1F 1
@@ -76,10 +85,12 @@ SFR1 80-9F 1
 SFR2 100-10F 1
 SFR3 180-18F 1
 EEDATA 2100-21FF 2
-STRCODE 800-84D 2
+STRCODE 19-1A 2
+STRCODE 800-82C 2
 STRCODE 1000-1EFF 2
 STRCODE 1FFF-1FFF 2
-STRING 800-84D 2
+STRING 19-1A 2
+STRING 800-82C 2
 STRING 1000-1EFF 2
 STRING 1FFF-1FFF 2
 # %LINETAB Section
@@ -96,394 +107,429 @@ STRING 1FFF-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/debug\gbs8.X.debug.o
-7E7 cinit CODE >1277:C:\Users\ssge\AppData\Local\Temp\skg0.s
-7E7 cinit CODE >1280:C:\Users\ssge\AppData\Local\Temp\skg0.s
-7E7 cinit CODE >1318:C:\Users\ssge\AppData\Local\Temp\skg0.s
-7E8 cinit CODE >1319:C:\Users\ssge\AppData\Local\Temp\skg0.s
-7E9 cinit CODE >1320:C:\Users\ssge\AppData\Local\Temp\skg0.s
-7EA cinit CODE >1321:C:\Users\ssge\AppData\Local\Temp\skg0.s
-7EB cinit CODE >1324:C:\Users\ssge\AppData\Local\Temp\skg0.s
-7EC cinit CODE >1325:C:\Users\ssge\AppData\Local\Temp\skg0.s
-7ED cinit CODE >1326:C:\Users\ssge\AppData\Local\Temp\skg0.s
-7EE cinit CODE >1327:C:\Users\ssge\AppData\Local\Temp\skg0.s
-7EF cinit CODE >1328:C:\Users\ssge\AppData\Local\Temp\skg0.s
-7F4 cinit CODE >1331:C:\Users\ssge\AppData\Local\Temp\skg0.s
-7F5 cinit CODE >1332:C:\Users\ssge\AppData\Local\Temp\skg0.s
-7F6 cinit CODE >1333:C:\Users\ssge\AppData\Local\Temp\skg0.s
-7F7 cinit CODE >1334:C:\Users\ssge\AppData\Local\Temp\skg0.s
-7FC cinit CODE >1340:C:\Users\ssge\AppData\Local\Temp\skg0.s
-7FC cinit CODE >1342:C:\Users\ssge\AppData\Local\Temp\skg0.s
-7FD cinit CODE >1343:C:\Users\ssge\AppData\Local\Temp\skg0.s
+7E7 cinit CODE >1452:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+7E7 cinit CODE >1455:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+7E7 cinit CODE >1499:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+7E8 cinit CODE >1500:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+7E9 cinit CODE >1501:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+7EA cinit CODE >1502:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+7EB cinit CODE >1505:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+7EC cinit CODE >1506:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+7ED cinit CODE >1507:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+7EE cinit CODE >1508:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+7EF cinit CODE >1509:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+7F4 cinit CODE >1512:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+7F5 cinit CODE >1513:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+7F6 cinit CODE >1514:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+7F7 cinit CODE >1515:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+7FC cinit CODE >1521:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+7FC cinit CODE >1523:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+7FD cinit CODE >1524:C:\Users\ssge\AppData\Local\Temp\sgd4.s
 4 intentry CODE >90:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-D6B text20 CODE >8:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-D6B text20 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-D74 text20 CODE >27:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-D7E text20 CODE >28:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-D84 text20 CODE >29:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-D87 text20 CODE >33:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-D8E text20 CODE >35:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-D93 text20 CODE >37:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-D9D text20 CODE >40:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-D9F text20 CODE >42:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-DA0 text20 CODE >43:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-DA1 text20 CODE >46:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-DAB text20 CODE >49:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-DB2 text20 CODE >50:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-DBC text20 CODE >51:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-DC2 text20 CODE >52:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-DC5 text20 CODE >56:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-DCC text20 CODE >58:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-DD1 text20 CODE >60:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-DDB text20 CODE >63:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-DDD text20 CODE >65:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-DDE text20 CODE >66:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-DDF text20 CODE >69:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-DE9 text20 CODE >70:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-DE9 text20 CODE >75:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-DF1 text20 CODE >76:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-DF9 text20 CODE >77:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-DFD text20 CODE >78:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-E05 text20 CODE >79:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-E0E text20 CODE >83:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-E15 text20 CODE >84:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-E15 text20 CODE >85:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-E20 text20 CODE >89:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-E32 text20 CODE >92:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-E4A text20 CODE >93:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-E54 text20 CODE >94:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-E5E text20 CODE >96:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-E5F text20 CODE >97:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-E60 text20 CODE >100:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-E65 text20 CODE >101:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-E6E text20 CODE >102:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-E7B text20 CODE >103:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-E7F text20 CODE >104:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-E82 text20 CODE >106:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-E8D text20 CODE >112:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-EAF text20 CODE >115:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-EB0 text20 CODE >116:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-ED8 text20 CODE >118:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-EDC text20 CODE >97:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-EE2 text20 CODE >122:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-EEA text20 CODE >123:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-EEC text20 CODE >128:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-EFB text20 CODE >129:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-EFF text20 CODE >130:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-F02 text20 CODE >132:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-F0D text20 CODE >133:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-F13 text20 CODE >127:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-F19 text20 CODE >139:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-F1C text20 CODE >140:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-F20 text20 CODE >141:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-F34 text20 CODE >142:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-F38 text20 CODE >143:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-F39 text20 CODE >144:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-F39 text20 CODE >145:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-F40 text20 CODE >150:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-F47 text20 CODE >151:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-F57 text20 CODE >152:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-F5B text20 CODE >153:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-F90 text20 CODE >154:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-F98 text20 CODE >159:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-FA7 text20 CODE >160:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-FAD text20 CODE >161:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-FB7 text20 CODE >165:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-FC6 text20 CODE >166:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-FCA text20 CODE >167:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-FD4 text20 CODE >169:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-FD7 text20 CODE >173:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-FDD text20 CODE >175:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-FE1 text20 CODE >176:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-FE4 text20 CODE >177:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-FE5 text20 CODE >180:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-FEB text20 CODE >181:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-FEB text20 CODE >182:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-FF6 text20 CODE >183:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-FFF text20 CODE >185:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
-29 text19 CODE >43:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-29 text19 CODE >47:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-36 text19 CODE >48:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-3F text19 CODE >49:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-62 text19 CODE >50:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-65 text19 CODE >51:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-6D text19 CODE >52:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-6F text19 CODE >53:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-73 text19 CODE >54:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-7B text19 CODE >57:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-84 text19 CODE >58:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-8D text19 CODE >60:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-94 text19 CODE >63:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-A2 text19 CODE >64:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-A4 text19 CODE >62:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-A4 text19 CODE >65:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-A9 text19 CODE >67:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-AE text19 CODE >68:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-BB text19 CODE >70:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
-A67 text18 CODE >5:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
-A67 text18 CODE >13:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
-A71 text18 CODE >14:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
-A79 text18 CODE >15:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
-A7B text18 CODE >16:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
-A7C text18 CODE >17:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
-A85 text18 CODE >18:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
-A89 text18 CODE >16:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
-A8D text18 CODE >21:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
-A96 text18 CODE >22:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
-AA8 text18 CODE >23:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
-AB6 text18 CODE >24:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
-AB7 text18 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
-AC0 text18 CODE >27:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
-AC6 text18 CODE >29:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
-ACE text18 CODE >30:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
-96B text17 CODE >15:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
-96B text17 CODE >119:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
-975 text17 CODE >121:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
-979 text17 CODE >122:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
-990 text17 CODE >123:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
-999 text17 CODE >124:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
-9A2 text17 CODE >125:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
-9AA text17 CODE >128:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
-9B2 text17 CODE >129:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
-ACF text16 CODE >10:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-AD2 text16 CODE >15:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-ADB text16 CODE >16:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-AEA text16 CODE >17:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-AEB text16 CODE >19:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-AF3 text16 CODE >20:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-AF3 text16 CODE >21:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-AFB text16 CODE >22:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B04 text16 CODE >23:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B08 text16 CODE >24:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B09 text16 CODE >25:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B0D text16 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B16 text16 CODE >24:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B1D text16 CODE >29:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B21 text16 CODE >30:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B2F text16 CODE >31:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B38 text16 CODE >28:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B3F text16 CODE >34:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B41 text16 CODE >35:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B4A text16 CODE >33:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B54 text16 CODE >37:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B58 text16 CODE >38:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B60 text16 CODE >39:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B62 text16 CODE >40:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B78 text16 CODE >41:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B81 text16 CODE >42:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B82 text16 CODE >43:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B8A text16 CODE >44:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
-B8B text15 CODE >9:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-B8B text15 CODE >20:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-B92 text15 CODE >21:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-B98 text15 CODE >22:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-B9C text15 CODE >23:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-B9D text15 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-BA4 text15 CODE >27:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-BB0 text15 CODE >30:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-BB6 text15 CODE >31:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-BB7 text15 CODE >34:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-BBD text15 CODE >37:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-BC5 text15 CODE >49:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-BCB text15 CODE >50:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-BD4 text15 CODE >54:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-BD9 text15 CODE >55:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-BE1 text15 CODE >57:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-BE5 text15 CODE >58:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-BEB text15 CODE >59:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-BF6 text15 CODE >63:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-BFC text15 CODE >64:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C04 text15 CODE >65:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C0D text15 CODE >69:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C13 text15 CODE >70:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C18 text15 CODE >71:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C1F text15 CODE >72:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C25 text15 CODE >75:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C2E text15 CODE >76:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C36 text15 CODE >77:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C3E text15 CODE >80:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C43 text15 CODE >81:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C4C text15 CODE >84:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C4D text15 CODE >85:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C4E text15 CODE >87:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C56 text15 CODE >90:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C68 text15 CODE >93:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C76 text15 CODE >96:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C8D text15 CODE >97:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C8E text15 CODE >100:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C9E text15 CODE >101:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-C9E text15 CODE >104:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-CB7 text15 CODE >107:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-CC0 text15 CODE >109:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-CC4 text15 CODE >85:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-CCA text15 CODE >112:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-CE3 text15 CODE >115:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-CEF text15 CODE >116:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-D08 text15 CODE >117:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-D1F text15 CODE >118:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-D23 text15 CODE >119:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-D3C text15 CODE >120:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-D42 text15 CODE >124:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-D4E text15 CODE >125:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-D52 text15 CODE >126:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-D56 text15 CODE >127:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-D57 text15 CODE >129:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-D5E text15 CODE >130:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-D62 text15 CODE >131:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-D6A text15 CODE >159:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
-9B3 text14 CODE >5:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-9B3 text14 CODE >12:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-9B4 text14 CODE >13:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-9B8 text14 CODE >14:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-9BD text14 CODE >15:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-9BF text14 CODE >17:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-9C3 text14 CODE >18:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-9C8 text14 CODE >19:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-9CE text14 CODE >20:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-9D0 text14 CODE >21:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-9D1 text14 CODE >22:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-9D8 text14 CODE >23:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-9DC text14 CODE >21:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-9E0 text14 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-9EA text14 CODE >27:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-9F0 text14 CODE >28:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-9F7 text14 CODE >29:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-9FD text14 CODE >31:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A02 text14 CODE >32:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A07 text14 CODE >33:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A0B text14 CODE >34:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-865 text13 CODE >4:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-866 text13 CODE >6:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-867 text13 CODE >43:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-86B text13 CODE >44:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-86F text13 CODE >45:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-871 text13 CODE >46:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-873 text13 CODE >47:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-878 text13 CODE >50:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-879 text13 CODE >51:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-1DC text12 CODE >197:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-1DF text12 CODE >199:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-1E8 text12 CODE >201:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-1EC text12 CODE >202:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-202 text12 CODE >203:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-203 text12 CODE >206:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-230 text12 CODE >210:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-2BB text12 CODE >213:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-2E6 text12 CODE >215:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-303 text12 CODE >216:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-31C text12 CODE >217:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-323 text12 CODE >219:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-42D text12 CODE >220:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-432 text12 CODE >225:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-435 text12 CODE >230:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-450 text12 CODE >234:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-455 text12 CODE >235:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-77B text12 CODE >237:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-7A2 text12 CODE >238:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-7CA text12 CODE >249:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-7CA text12 CODE >250:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-7E6 text12 CODE >254:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-8AA text11 CODE >256:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-8AA text11 CODE >259:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-8B1 text11 CODE >261:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-8B4 text11 CODE >262:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-8B5 text11 CODE >265:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-8BC text11 CODE >266:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-8C5 text11 CODE >318:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-891 text10 CODE >320:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-891 text10 CODE >328:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-8A4 text10 CODE >347:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-8A9 text10 CODE >348:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-8C6 text9 CODE >90:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-8C6 text9 CODE >128:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-8CC text9 CODE >130:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-8D1 text9 CODE >131:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-8D4 text9 CODE >149:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-84E text8 CODE >26:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-84E text8 CODE >28:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-84F text8 CODE >29:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-850 text8 CODE >30:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-19 text7 CODE >82:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-1C text7 CODE >84:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-1F text7 CODE >85:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-28 text7 CODE >86:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-859 text6 CODE >6:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-859 text6 CODE >21:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-85F text6 CODE >23:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-864 text6 CODE >24:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
-87A text5 CODE >4:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-87D text5 CODE >6:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-87E text5 CODE >43:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-882 text5 CODE >44:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-886 text5 CODE >45:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-888 text5 CODE >46:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-88A text5 CODE >47:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-88F text5 CODE >50:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-890 text5 CODE >51:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-8E5 text4 CODE >55:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-8E8 text4 CODE >57:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-8E9 text4 CODE >59:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-8FD text4 CODE >60:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-907 text4 CODE >61:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-938 text3 CODE >50:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_timer.c
-93B text3 CODE >52:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_timer.c
-945 text3 CODE >53:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_timer.c
-94E text3 CODE >54:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_timer.c
-960 text3 CODE >55:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_timer.c
-964 text3 CODE >56:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_timer.c
-96A text3 CODE >57:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_timer.c
-908 text2 CODE >6:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-908 text2 CODE >13:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-918 text2 CODE >17:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-91B text2 CODE >18:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-91E text2 CODE >19:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-928 text2 CODE >20:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-931 text2 CODE >21:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-937 text2 CODE >53:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-A0C text1 CODE >5:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A0C text1 CODE >12:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A0F text1 CODE >13:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A13 text1 CODE >14:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A18 text1 CODE >15:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A1A text1 CODE >17:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A1E text1 CODE >18:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A23 text1 CODE >19:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A29 text1 CODE >20:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A2B text1 CODE >21:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A2C text1 CODE >22:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A33 text1 CODE >23:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A37 text1 CODE >21:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A3B text1 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A45 text1 CODE >27:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A4B text1 CODE >28:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A52 text1 CODE >29:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A58 text1 CODE >31:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A5D text1 CODE >32:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A62 text1 CODE >33:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-A66 text1 CODE >34:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-BC maintext CODE >9:E:\Workspace\GBS8/test.c
-BC maintext CODE >11:E:\Workspace\GBS8/test.c
-C1 maintext CODE >12:E:\Workspace\GBS8/test.c
-C6 maintext CODE >16:E:\Workspace\GBS8/test.c
-DC maintext CODE >18:E:\Workspace\GBS8/test.c
-F8 maintext CODE >19:E:\Workspace\GBS8/test.c
-114 maintext CODE >20:E:\Workspace\GBS8/test.c
-130 maintext CODE >21:E:\Workspace\GBS8/test.c
-14C maintext CODE >22:E:\Workspace\GBS8/test.c
-168 maintext CODE >23:E:\Workspace\GBS8/test.c
-17A maintext CODE >24:E:\Workspace\GBS8/test.c
-18F maintext CODE >25:E:\Workspace\GBS8/test.c
-1AB maintext CODE >26:E:\Workspace\GBS8/test.c
-1C9 maintext CODE >29:E:\Workspace\GBS8/test.c
-851 clrtext CODE >1305:C:\Users\ssge\AppData\Local\Temp\skg0.s
-851 clrtext CODE >1306:C:\Users\ssge\AppData\Local\Temp\skg0.s
-852 clrtext CODE >1307:C:\Users\ssge\AppData\Local\Temp\skg0.s
-852 clrtext CODE >1308:C:\Users\ssge\AppData\Local\Temp\skg0.s
-853 clrtext CODE >1309:C:\Users\ssge\AppData\Local\Temp\skg0.s
-854 clrtext CODE >1310:C:\Users\ssge\AppData\Local\Temp\skg0.s
-855 clrtext CODE >1311:C:\Users\ssge\AppData\Local\Temp\skg0.s
-856 clrtext CODE >1312:C:\Users\ssge\AppData\Local\Temp\skg0.s
-857 clrtext CODE >1313:C:\Users\ssge\AppData\Local\Temp\skg0.s
-858 clrtext CODE >1314:C:\Users\ssge\AppData\Local\Temp\skg0.s
+A9F text26 CODE >5:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+A9F text26 CODE >12:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+AA0 text26 CODE >13:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+AA4 text26 CODE >14:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+AA9 text26 CODE >15:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+AAB text26 CODE >17:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+AAF text26 CODE >18:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+AB4 text26 CODE >19:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+ABA text26 CODE >20:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+ABC text26 CODE >21:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+ABD text26 CODE >22:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+AC4 text26 CODE >23:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+AC8 text26 CODE >21:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+ACC text26 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+AD6 text26 CODE >27:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+ADC text26 CODE >28:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+AE3 text26 CODE >29:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+AE9 text26 CODE >31:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+AEE text26 CODE >32:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+AF3 text26 CODE >33:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+AF7 text26 CODE >34:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+87A text25 CODE >4:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+87B text25 CODE >6:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+87C text25 CODE >43:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+880 text25 CODE >44:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+884 text25 CODE >45:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+886 text25 CODE >46:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+888 text25 CODE >47:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+88D text25 CODE >50:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+88E text25 CODE >51:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+D6B text24 CODE >8:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+D6B text24 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+D74 text24 CODE >27:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+D7E text24 CODE >28:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+D84 text24 CODE >29:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+D87 text24 CODE >33:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+D8E text24 CODE >35:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+D93 text24 CODE >37:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+D9D text24 CODE >40:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+D9F text24 CODE >42:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+DA0 text24 CODE >43:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+DA1 text24 CODE >46:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+DAB text24 CODE >49:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+DB2 text24 CODE >50:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+DBC text24 CODE >51:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+DC2 text24 CODE >52:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+DC5 text24 CODE >56:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+DCC text24 CODE >58:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+DD1 text24 CODE >60:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+DDB text24 CODE >63:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+DDD text24 CODE >65:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+DDE text24 CODE >66:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+DDF text24 CODE >69:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+DE9 text24 CODE >70:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+DE9 text24 CODE >75:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+DF1 text24 CODE >76:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+DF9 text24 CODE >77:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+DFD text24 CODE >78:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+E05 text24 CODE >79:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+E0E text24 CODE >83:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+E15 text24 CODE >84:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+E15 text24 CODE >85:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+E20 text24 CODE >89:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+E32 text24 CODE >92:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+E4A text24 CODE >93:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+E54 text24 CODE >94:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+E5E text24 CODE >96:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+E5F text24 CODE >97:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+E60 text24 CODE >100:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+E65 text24 CODE >101:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+E6E text24 CODE >102:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+E7B text24 CODE >103:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+E7F text24 CODE >104:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+E82 text24 CODE >106:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+E8D text24 CODE >112:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+EAF text24 CODE >115:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+EB0 text24 CODE >116:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+ED8 text24 CODE >118:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+EDC text24 CODE >97:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+EE2 text24 CODE >122:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+EEA text24 CODE >123:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+EEC text24 CODE >128:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+EFB text24 CODE >129:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+EFF text24 CODE >130:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+F02 text24 CODE >132:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+F0D text24 CODE >133:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+F13 text24 CODE >127:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+F19 text24 CODE >139:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+F1C text24 CODE >140:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+F20 text24 CODE >141:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+F34 text24 CODE >142:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+F38 text24 CODE >143:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+F39 text24 CODE >144:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+F39 text24 CODE >145:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+F40 text24 CODE >150:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+F47 text24 CODE >151:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+F57 text24 CODE >152:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+F5B text24 CODE >153:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+F90 text24 CODE >154:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+F98 text24 CODE >159:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+FA7 text24 CODE >160:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+FAD text24 CODE >161:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+FB7 text24 CODE >165:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+FC6 text24 CODE >166:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+FCA text24 CODE >167:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+FD4 text24 CODE >169:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+FD7 text24 CODE >173:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+FDD text24 CODE >175:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+FE1 text24 CODE >176:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+FE4 text24 CODE >177:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+FE5 text24 CODE >180:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+FEB text24 CODE >181:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+FEB text24 CODE >182:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+FF6 text24 CODE >183:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+FFF text24 CODE >185:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcdiv.c
+AF8 text23 CODE >43:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+AF8 text23 CODE >47:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+B05 text23 CODE >48:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+B0E text23 CODE >49:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+B31 text23 CODE >50:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+B34 text23 CODE >51:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+B3C text23 CODE >52:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+B3E text23 CODE >53:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+B42 text23 CODE >54:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+B4A text23 CODE >57:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+B53 text23 CODE >58:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+B5C text23 CODE >60:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+B63 text23 CODE >63:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+B71 text23 CODE >64:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+B73 text23 CODE >62:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+B73 text23 CODE >65:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+B78 text23 CODE >67:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+B7D text23 CODE >68:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+B8A text23 CODE >70:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
+1B text22 CODE >5:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
+1B text22 CODE >13:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
+25 text22 CODE >14:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
+2D text22 CODE >15:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
+2F text22 CODE >16:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
+30 text22 CODE >17:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
+39 text22 CODE >18:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
+3D text22 CODE >16:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
+41 text22 CODE >21:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
+4A text22 CODE >22:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
+5C text22 CODE >23:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
+6A text22 CODE >24:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
+6B text22 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
+74 text22 CODE >27:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
+7A text22 CODE >29:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
+82 text22 CODE >30:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
+A05 text21 CODE >15:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
+A05 text21 CODE >119:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
+A0F text21 CODE >121:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
+A13 text21 CODE >122:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
+A2A text21 CODE >123:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
+A33 text21 CODE >124:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
+A3C text21 CODE >125:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
+A44 text21 CODE >128:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
+A4C text21 CODE >129:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul32.c
+120 text20 CODE >10:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+123 text20 CODE >15:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+12C text20 CODE >16:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+13B text20 CODE >17:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+13C text20 CODE >19:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+144 text20 CODE >20:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+144 text20 CODE >21:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+14C text20 CODE >22:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+155 text20 CODE >23:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+159 text20 CODE >24:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+15A text20 CODE >25:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+15E text20 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+167 text20 CODE >24:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+16E text20 CODE >29:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+172 text20 CODE >30:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+180 text20 CODE >31:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+189 text20 CODE >28:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+190 text20 CODE >34:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+192 text20 CODE >35:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+19B text20 CODE >33:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+1A5 text20 CODE >37:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+1A9 text20 CODE >38:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+1B1 text20 CODE >39:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+1B3 text20 CODE >40:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+1C9 text20 CODE >41:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+1D2 text20 CODE >42:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+1D3 text20 CODE >43:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+1DB text20 CODE >44:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
+B8B text19 CODE >9:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+B8B text19 CODE >20:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+B92 text19 CODE >21:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+B98 text19 CODE >22:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+B9C text19 CODE >23:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+B9D text19 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+BA4 text19 CODE >27:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+BB0 text19 CODE >30:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+BB6 text19 CODE >31:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+BB7 text19 CODE >34:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+BBD text19 CODE >37:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+BC5 text19 CODE >49:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+BCB text19 CODE >50:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+BD4 text19 CODE >54:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+BD9 text19 CODE >55:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+BE1 text19 CODE >57:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+BE5 text19 CODE >58:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+BEB text19 CODE >59:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+BF6 text19 CODE >63:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+BFC text19 CODE >64:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C04 text19 CODE >65:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C0D text19 CODE >69:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C13 text19 CODE >70:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C18 text19 CODE >71:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C1F text19 CODE >72:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C25 text19 CODE >75:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C2E text19 CODE >76:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C36 text19 CODE >77:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C3E text19 CODE >80:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C43 text19 CODE >81:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C4C text19 CODE >84:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C4D text19 CODE >85:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C4E text19 CODE >87:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C56 text19 CODE >90:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C68 text19 CODE >93:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C76 text19 CODE >96:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C8D text19 CODE >97:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C8E text19 CODE >100:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C9E text19 CODE >101:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+C9E text19 CODE >104:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+CB7 text19 CODE >107:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+CC0 text19 CODE >109:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+CC4 text19 CODE >85:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+CCA text19 CODE >112:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+CE3 text19 CODE >115:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+CEF text19 CODE >116:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+D08 text19 CODE >117:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+D1F text19 CODE >118:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+D23 text19 CODE >119:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+D3C text19 CODE >120:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+D42 text19 CODE >124:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+D4E text19 CODE >125:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+D52 text19 CODE >126:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+D56 text19 CODE >127:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+D57 text19 CODE >129:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+D5E text19 CODE >130:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+D62 text19 CODE >131:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+D6A text19 CODE >159:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
+1DC text18 CODE >198:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+1DF text18 CODE >200:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+1E8 text18 CODE >202:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+1EC text18 CODE >203:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+202 text18 CODE >208:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+203 text18 CODE >211:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+230 text18 CODE >215:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+2BB text18 CODE >218:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+2E6 text18 CODE >220:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+303 text18 CODE >221:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+31C text18 CODE >222:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+323 text18 CODE >224:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+42D text18 CODE >225:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+432 text18 CODE >230:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+435 text18 CODE >235:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+450 text18 CODE >239:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+455 text18 CODE >240:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+77B text18 CODE >242:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+7A2 text18 CODE >243:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+7CA text18 CODE >254:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+7CA text18 CODE >255:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+7E6 text18 CODE >259:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+8C3 text17 CODE >261:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+8C3 text17 CODE >264:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+8CA text17 CODE >266:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+8CD text17 CODE >267:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+8CE text17 CODE >270:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+8D5 text17 CODE >271:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+8DE text17 CODE >323:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+88F text16 CODE >325:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+88F text16 CODE >333:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+8A2 text16 CODE >352:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+8A7 text16 CODE >353:E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+94B text15 CODE >39:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+94C text15 CODE >41:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+959 text15 CODE >42:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+965 text15 CODE >43:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+975 text15 CODE >44:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+84B text14 CODE >68:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+84C text14 CODE >70:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+858 text14 CODE >71:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+830 text13 CODE >80:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+830 text13 CODE >82:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+836 text13 CODE >83:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+922 text12 CODE >46:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+923 text12 CODE >49:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+92C text12 CODE >51:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+938 text12 CODE >52:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+944 text12 CODE >53:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+949 text12 CODE >54:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+94A text12 CODE >56:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+8A8 text11 CODE >58:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+8A9 text11 CODE >60:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+8AC text11 CODE >61:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+8B3 text11 CODE >63:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+8BC text11 CODE >64:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+8C2 text11 CODE >66:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+869 text10 CODE >73:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+869 text10 CODE >75:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+870 text10 CODE >76:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+876 text10 CODE >77:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+879 text10 CODE >78:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+9CE text9 CODE >90:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+9CE text9 CODE >128:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+9D4 text9 CODE >130:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+9D9 text9 CODE >131:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+9DC text9 CODE >137:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+9E0 text9 CODE >139:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+9E5 text9 CODE >140:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+9E8 text9 CODE >142:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+9EC text9 CODE >144:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+9F1 text9 CODE >145:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+9F4 text9 CODE >153:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+82D text8 CODE >26:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+82D text8 CODE >28:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+82E text8 CODE >29:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+82F text8 CODE >30:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+859 text7 CODE >82:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+85C text7 CODE >84:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+85F text7 CODE >85:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+868 text7 CODE >86:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+83F text6 CODE >6:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+83F text6 CODE >21:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+845 text6 CODE >23:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+84A text6 CODE >24:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
+9A1 text5 CODE >39:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+9A4 text5 CODE >41:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+9B1 text5 CODE >42:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+9BD text5 CODE >43:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+9CD text5 CODE >44:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+83 text4 CODE >5:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+83 text4 CODE >13:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+86 text4 CODE >14:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+8A text4 CODE >15:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+95 text4 CODE >16:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+97 text4 CODE >17:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+97 text4 CODE >18:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+9B text4 CODE >19:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+A6 text4 CODE >20:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+AA text4 CODE >22:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+B2 text4 CODE >23:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+BA text4 CODE >24:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+BC text4 CODE >25:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+BD text4 CODE >26:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+C6 text4 CODE >27:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+CA text4 CODE >25:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+CE text4 CODE >30:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+D7 text4 CODE >31:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+E9 text4 CODE >32:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+F7 text4 CODE >33:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+F8 text4 CODE >35:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+101 text4 CODE >36:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+107 text4 CODE >38:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+10C text4 CODE >39:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+117 text4 CODE >40:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+11F text4 CODE >41:C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+A4D text3 CODE >6:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+A4D text3 CODE >9:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+A50 text3 CODE >10:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+A51 text3 CODE >12:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+A52 text3 CODE >15:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+A53 text3 CODE >16:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+A56 text3 CODE >17:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+A59 text3 CODE >20:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+A5C text3 CODE >23:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+A5D text3 CODE >26:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+A98 text3 CODE >29:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+A99 text3 CODE >32:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+A9A text3 CODE >35:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+A9B text3 CODE >36:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+A9E text3 CODE >37:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+976 text2 CODE >46:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+979 text2 CODE >49:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+982 text2 CODE >51:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+98E text2 CODE >52:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+99A text2 CODE >53:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+99F text2 CODE >54:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+9A0 text2 CODE >56:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+8DF text1 CODE >58:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+8E2 text1 CODE >60:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+8E5 text1 CODE >61:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+8EC text1 CODE >63:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+8F5 text1 CODE >64:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+8FB text1 CODE >66:E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+8FC maintext CODE >14:E:\Workspace\GBS8/test.c
+8FC maintext CODE >16:E:\Workspace\GBS8/test.c
+901 maintext CODE >18:E:\Workspace\GBS8/test.c
+90C maintext CODE >40:E:\Workspace\GBS8/test.c
+918 maintext CODE >41:E:\Workspace\GBS8/test.c
+837 clrtext CODE >1486:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+837 clrtext CODE >1487:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+838 clrtext CODE >1488:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+838 clrtext CODE >1489:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+839 clrtext CODE >1490:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+83A clrtext CODE >1491:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+83B clrtext CODE >1492:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+83C clrtext CODE >1493:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+83D clrtext CODE >1494:C:\Users\ssge\AppData\Local\Temp\sgd4.s
+83E clrtext CODE >1495:C:\Users\ssge\AppData\Local\Temp\sgd4.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -497,12 +543,15 @@ F8 maintext CODE >19:E:\Workspace\GBS8/test.c
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
 ___latbits 2 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
-__end_of_GBS_Interrupt_Enable 10A2 0 CODE 0 text8 dist/default/debug\gbs8.X.debug.o
+__end_of_GBS_Interrupt_Enable 1060 0 CODE 0 text8 dist/default/debug\gbs8.X.debug.o
 __Hspace_0 1000 0 ABS 0 - -
-__Hspace_1 1A5 0 ABS 0 - -
+__Hspace_1 1D7 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 4010 0 ABS 0 - -
+GBS_USART_Init@baudRate 1D1 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
+i1GBS_USART_Buffer_Write@buffer 73 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
+i1GBS_USART_Buffer_Read@buffer 73 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 _T1CONbits 10 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __Hstrings 0 0 ABS 0 strings -
@@ -510,13 +559,14 @@ _T0CS 40D 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _TMR0 1 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _TMR1 E 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _TMR2 11 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
-___sp 0 0 STACK 2 stack C:\Users\ssge\AppData\Local\Temp\skg0.o
-_main 178 0 CODE 0 maintext dist/default/debug\gbs8.X.debug.o
-_sqrt 1716 0 CODE 0 text15 dist/default/debug\gbs8.X.debug.o
+___sp 0 0 STACK 2 stack C:\Users\ssge\AppData\Local\Temp\sgd4.o
+_main 11F8 0 CODE 0 maintext dist/default/debug\gbs8.X.debug.o
+_sqrt 1716 0 CODE 0 text19 dist/default/debug\gbs8.X.debug.o
 btemp 7E 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
-__end_of_GBS_Timer2_Config 12D6 0 CODE 0 text3 dist/default/debug\gbs8.X.debug.o
-start 2C 0 CODE 0 init C:\Users\ssge\AppData\Local\Temp\skg0.o
+start 2C 0 CODE 0 init C:\Users\ssge\AppData\Local\Temp\sgd4.o
+__size_of___aldiv 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __size_of___awmod 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
+i1GBS_USART_Buffer_Write@value 71 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
 __size_of___fldiv 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __size_of___fltol 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __size_of_main 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
@@ -524,101 +574,105 @@ __size_of_sqrt 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __size_of___lldiv 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 ?___lmul 2D 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 _OPTION_REGbits 81 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
-GBS_T2I_Config@mode 19C 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
-_GBS_T2I_Config 32 0 CODE 0 text7 dist/default/debug\gbs8.X.debug.o
+GBS_T2I_Config@mode 1C2 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
+_GBS_T2I_Config 10B2 0 CODE 0 text7 dist/default/debug\gbs8.X.debug.o
 __Hpowerup 0 0 CODE 0 powerup -
 GBS_Stepper_Exe@stepperX E2 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
-i1___bmul@multiplier 79 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
+__end_of_GBS_USART_Init 153E 0 CODE 0 text3 dist/default/debug\gbs8.X.debug.o
+__end_of_GBS_USART_Send 11F8 0 CODE 0 text1 dist/default/debug\gbs8.X.debug.o
 sqrt@a 47 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 sqrt@i 50 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 sqrt@p 55 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
-___awmod@sign 1A1 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\skg0.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\skg0.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\skg0.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\skg0.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\skg0.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\skg0.o
-_stepperA 190 0 BANK3 1 bssBANK3 dist/default/debug\gbs8.X.debug.o
-___bmul@multiplicand 19C 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
+___awmod@sign 76 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
+__end_ofi1_GBS_USART_Buffer_Write 12EC 0 CODE 0 text15 dist/default/debug\gbs8.X.debug.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\sgd4.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\sgd4.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\sgd4.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\sgd4.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\sgd4.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\ssge\AppData\Local\Temp\sgd4.o
+_stepperA 1B6 0 BANK3 1 bssBANK3 dist/default/debug\gbs8.X.debug.o
+___bmul@multiplicand 77 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
+___aldiv@divisor 1C2 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
 sqrt@tfrac 51 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 wtemp0 7E 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
-_GBS_Stepper_Exe$1422 C6 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
-_GBS_Stepper_Exe$1423 CA 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
-_GBS_Stepper_Exe$1424 CE 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
-_GBS_Stepper_Exe$1425 D2 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
-_GBS_Stepper_Exe$1426 D6 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
-_GBS_Stepper_Exe$1427 DA 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
-_GBS_Stepper_Exe$1428 DE 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
+_GBS_Stepper_Exe$1640 C6 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
+_GBS_Stepper_Exe$1641 CA 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
+_GBS_Stepper_Exe$1642 CE 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
+_GBS_Stepper_Exe$1643 D2 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
+_GBS_Stepper_Exe$1644 D6 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
+_GBS_Stepper_Exe$1645 DA 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
+_GBS_Stepper_Exe$1646 DE 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
 __Hfunctab 0 0 ENTRY 0 functab -
+___aldiv@sign 1CC 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
 __Hclrtext 0 0 ABS 0 clrtext -
+i1GBS_USART_Buffer_Read@result 72 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
+__end_of_GBS_USART_Buffer_Read 1342 0 CODE 0 text2 dist/default/debug\gbs8.X.debug.o
 _ANSELH 189 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _CCPR1L 15 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 GBS_Stepper_Exe@sBufferX B6 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
-__end_of_GBS_T2I_Config 52 0 CODE 0 text7 dist/default/debug\gbs8.X.debug.o
-__end_of___bmul 1122 0 CODE 0 text5 dist/default/debug\gbs8.X.debug.o
-__end_of___lmul 1366 0 CODE 0 text17 dist/default/debug\gbs8.X.debug.o
-GBS_Timer2_Config@ckPS 19C 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
-i1___awmod@divisor 71 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
-__end_ofi1___awmod 1418 0 CODE 0 text14 dist/default/debug\gbs8.X.debug.o
+__end_of_GBS_T2I_Config 10D2 0 CODE 0 text7 dist/default/debug\gbs8.X.debug.o
+__end_of___bmul 111E 0 CODE 0 text25 dist/default/debug\gbs8.X.debug.o
+__end_of___lmul 149A 0 CODE 0 text21 dist/default/debug\gbs8.X.debug.o
+__end_of_GBS_USART_Receive 10B2 0 CODE 0 text14 dist/default/debug\gbs8.X.debug.o
 __Lmaintext 0 0 ABS 0 maintext -
+_GBS_USART_Buffer_Read 12EC 0 CODE 0 text2 dist/default/debug\gbs8.X.debug.o
 ___fldiv@aexp B1 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
 ___fldiv@bexp B0 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
 ___fldiv@sign A9 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
 _sBufferA 110 0 BANK2 1 bssBANK2 dist/default/debug\gbs8.X.debug.o
-___bmul@multiplier 19E 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
-_GBS_Timer2_Config 1270 0 CODE 0 text3 dist/default/debug\gbs8.X.debug.o
-__size_ofi1___awmod 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
-__end_of___awmod 14CE 0 CODE 0 text1 dist/default/debug\gbs8.X.debug.o
-__end_of___fldiv 2000 0 CODE 0 text20 dist/default/debug\gbs8.X.debug.o
-__end_of___fltol 178 0 CODE 0 text19 dist/default/debug\gbs8.X.debug.o
-__end_of___lldiv 159E 0 CODE 0 text18 dist/default/debug\gbs8.X.debug.o
-___stackhi 0 0 ABS 0 - C:\Users\ssge\AppData\Local\Temp\skg0.o
-___stacklo 0 0 ABS 0 - C:\Users\ssge\AppData\Local\Temp\skg0.o
-__size_ofi1___bmul 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
+__end_of_GBS_USART_Buffer_Write 139C 0 CODE 0 text5 dist/default/debug\gbs8.X.debug.o
+___bmul@multiplier 79 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
+__end_of___aldiv 240 0 CODE 0 text4 dist/default/debug\gbs8.X.debug.o
+__end_of___awmod 15F0 0 CODE 0 text26 dist/default/debug\gbs8.X.debug.o
+__end_of___fldiv 2000 0 CODE 0 text24 dist/default/debug\gbs8.X.debug.o
+__end_of___fltol 1716 0 CODE 0 text23 dist/default/debug\gbs8.X.debug.o
+__end_of___lldiv 106 0 CODE 0 text22 dist/default/debug\gbs8.X.debug.o
+___stackhi 0 0 ABS 0 - C:\Users\ssge\AppData\Local\Temp\sgd4.o
+___stacklo 0 0 ABS 0 - C:\Users\ssge\AppData\Local\Temp\sgd4.o
+_BAUDCTLbits 187 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 ___fldiv@a 64 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 ___fldiv@b 68 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
-i1___awmod 1366 0 CODE 0 text14 dist/default/debug\gbs8.X.debug.o
-_GBS_Stepper_Buffer_Init 11CA 0 CODE 0 text4 dist/default/debug\gbs8.X.debug.o
+_usartSendBuffer 190 0 BANK3 1 bssBANK3 dist/default/debug\gbs8.X.debug.o
 ___lldiv@counter 2C 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
-__end_of_GBS_Stepper_Buffer_Init 1210 0 CODE 0 text4 dist/default/debug\gbs8.X.debug.o
 start_initialization FCE 0 CODE 0 cinit dist/default/debug\gbs8.X.debug.o
-__end_of_GBS_Stepper_Update 118C 0 CODE 0 text11 dist/default/debug\gbs8.X.debug.o
+__end_of_GBS_Stepper_Update 11BE 0 CODE 0 text17 dist/default/debug\gbs8.X.debug.o
 _TRISAbits 85 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _TRISBbits 86 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _TRISCbits 87 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _TRISDbits 88 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _TRISEbits 89 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
+___aldiv@quotient 1CD 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
 ___lldiv@dividend 24 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 __size_of_T2I_ISR 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
-i1___bmul@multiplicand 77 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
-GBS_Timer2_Config@outPS 19D 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
-GBS_Timer2_Config@state 1A0 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
-clear_ram0 10A2 0 CODE 0 clrtext dist/default/debug\gbs8.X.debug.o
+clear_ram0 106E 0 CODE 0 clrtext dist/default/debug\gbs8.X.debug.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 __pcstackBANK1 A0 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
-__pcstackBANK3 19C 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
+__pcstackBANK3 1C2 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
 _TMR2ON 92 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
-i1___bmul@product 78 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
-__end_of_GBS_Interrupt_Init 10CA 0 CODE 0 text6 dist/default/debug\gbs8.X.debug.o
-___int_sp 0 0 STACK 2 stack C:\Users\ssge\AppData\Local\Temp\skg0.o
-i1___bmul 10CA 0 CODE 0 text13 dist/default/debug\gbs8.X.debug.o
+GBS_USART_Buffer_Read@buffer 1C4 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
+_usartReceiveBuffer 1A3 0 BANK3 1 bssBANK3 dist/default/debug\gbs8.X.debug.o
+__end_of_GBS_Interrupt_Init 1096 0 CODE 0 text6 dist/default/debug\gbs8.X.debug.o
+GBS_USART_Receive@buffer 74 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
+___int_sp 0 0 STACK 2 stack C:\Users\ssge\AppData\Local\Temp\sgd4.o
+_GBS_USART_Receive 1096 0 CODE 0 text14 dist/default/debug\gbs8.X.debug.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
 __Hbank3 0 0 ABS 0 bank3 -
 __Hcinit 1000 0 CODE 0 cinit -
 __Hstack 0 0 STACK 2 stack -
-_GBS_Stepper_Update 1154 0 CODE 0 text11 dist/default/debug\gbs8.X.debug.o
+_GBS_Stepper_Update 1186 0 CODE 0 text17 dist/default/debug\gbs8.X.debug.o
+GBS_USART_Buffer_Write@value 1C2 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
 __size_of___xxtofl 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __Hmaintext 0 0 ABS 0 maintext -
 ___xxtofl@arg 43 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 ___xxtofl@exp 42 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 ___xxtofl@val 39 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
+i1_GBS_USART_Send 1150 0 CODE 0 text11 dist/default/debug\gbs8.X.debug.o
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4012 0 CONFIG 4 config -
-__end_ofi1___bmul 10F4 0 CODE 0 text13 dist/default/debug\gbs8.X.debug.o
-_GBS_Interrupt_Enable 109C 0 CODE 0 text8 dist/default/debug\gbs8.X.debug.o
+_GBS_Interrupt_Enable 105A 0 CODE 0 text8 dist/default/debug\gbs8.X.debug.o
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
@@ -642,70 +696,90 @@ __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
-___bmul 10F4 0 CODE 0 text5 dist/default/debug\gbs8.X.debug.o
-___lmul 12D6 0 CODE 0 text17 dist/default/debug\gbs8.X.debug.o
+GBS_USART_Buffer_Write@buffer 1C4 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
+___bmul 10F4 0 CODE 0 text25 dist/default/debug\gbs8.X.debug.o
+___lmul 140A 0 CODE 0 text21 dist/default/debug\gbs8.X.debug.o
+i1_GBS_USART_Buffer_Read 1244 0 CODE 0 text12 dist/default/debug\gbs8.X.debug.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __LcstackBANK1 0 0 ABS 0 cstackBANK1 -
 __LcstackBANK3 0 0 ABS 0 cstackBANK3 -
-_GBS_Interrupt_Init 10B2 0 CODE 0 text6 dist/default/debug\gbs8.X.debug.o
+_GBS_Interrupt_Init 107E 0 CODE 0 text6 dist/default/debug\gbs8.X.debug.o
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-_ISR 118C 0 CODE 0 text9 dist/default/debug\gbs8.X.debug.o
+_ISR 139C 0 CODE 0 text9 dist/default/debug\gbs8.X.debug.o
 _PR2 92 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _PSA 40B 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __S0 1000 0 ABS 0 - -
-__S1 1A5 0 ABS 0 - -
+__S1 1D7 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
+__end_ofi1_GBS_USART_Buffer_Read 1296 0 CODE 0 text12 dist/default/debug\gbs8.X.debug.o
 saved_w 7E 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
-GBS_Stepper_Buffer_Init@sBufferX 1A0 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
-__end_of_T2I_ISR 1154 0 CODE 0 text10 dist/default/debug\gbs8.X.debug.o
-___xxtofl 159E 0 CODE 0 text16 dist/default/debug\gbs8.X.debug.o
-__end_of_ISR 11CA 0 CODE 0 text9 dist/default/debug\gbs8.X.debug.o
+GBS_USART_Buffer_Read@result 1C3 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
+__end_of_T2I_ISR 1150 0 CODE 0 text16 dist/default/debug\gbs8.X.debug.o
+___xxtofl 240 0 CODE 0 text20 dist/default/debug\gbs8.X.debug.o
+__end_of_ISR 140A 0 CODE 0 text9 dist/default/debug\gbs8.X.debug.o
+__size_of_GBS_USART_Init 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
+__size_of_GBS_USART_Send 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __Lintentry 8 0 CODE 0 intentry -
 ___lldiv@divisor 20 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\ssge\AppData\Local\Temp\skg0.o
-__end_of___xxtofl 1716 0 CODE 0 text16 dist/default/debug\gbs8.X.debug.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\ssge\AppData\Local\Temp\sgd4.o
+__size_of_GBS_USART_Buffer_Write 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
+__end_of___xxtofl 3B8 0 CODE 0 text20 dist/default/debug\gbs8.X.debug.o
+_USART_RX_ISR 1060 0 CODE 0 text13 dist/default/debug\gbs8.X.debug.o
 __size_of___bmul 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __size_of___lmul 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __LbssBANK1 0 0 ABS 0 bssBANK1 -
 __LbssBANK2 0 0 ABS 0 bssBANK2 -
 __LbssBANK3 0 0 ABS 0 bssBANK3 -
-___awmod@counter 1A0 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
+_USART_TX_ISR 10D2 0 CODE 0 text10 dist/default/debug\gbs8.X.debug.o
+___awmod@counter 75 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
+_RCSTAbits 18 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _PIE1bits 8C 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
-i1___awmod@sign 76 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
-i1___awmod@dividend 73 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
-__ptext10 1122 0 CODE 0 text10 dist/default/debug\gbs8.X.debug.o
-__ptext11 1154 0 CODE 0 text11 dist/default/debug\gbs8.X.debug.o
-__ptext12 3B8 0 CODE 0 text12 dist/default/debug\gbs8.X.debug.o
-__ptext13 10CA 0 CODE 0 text13 dist/default/debug\gbs8.X.debug.o
-__ptext14 1366 0 CODE 0 text14 dist/default/debug\gbs8.X.debug.o
-__ptext15 1716 0 CODE 0 text15 dist/default/debug\gbs8.X.debug.o
-__ptext16 159E 0 CODE 0 text16 dist/default/debug\gbs8.X.debug.o
-__ptext17 12D6 0 CODE 0 text17 dist/default/debug\gbs8.X.debug.o
-__ptext18 14CE 0 CODE 0 text18 dist/default/debug\gbs8.X.debug.o
-__ptext19 52 0 CODE 0 text19 dist/default/debug\gbs8.X.debug.o
-__ptext20 1AD6 0 CODE 0 text20 dist/default/debug\gbs8.X.debug.o
-___awmod 1418 0 CODE 0 text1 dist/default/debug\gbs8.X.debug.o
-___fldiv 1AD6 0 CODE 0 text20 dist/default/debug\gbs8.X.debug.o
-___fltol 52 0 CODE 0 text19 dist/default/debug\gbs8.X.debug.o
-___lldiv 14CE 0 CODE 0 text18 dist/default/debug\gbs8.X.debug.o
-__pmaintext 178 0 CODE 0 maintext dist/default/debug\gbs8.X.debug.o
+__end_ofi1_GBS_USART_Send 1186 0 CODE 0 text11 dist/default/debug\gbs8.X.debug.o
+__ptext10 10D2 0 CODE 0 text10 dist/default/debug\gbs8.X.debug.o
+__ptext11 1150 0 CODE 0 text11 dist/default/debug\gbs8.X.debug.o
+__ptext12 1244 0 CODE 0 text12 dist/default/debug\gbs8.X.debug.o
+__ptext13 1060 0 CODE 0 text13 dist/default/debug\gbs8.X.debug.o
+__ptext14 1096 0 CODE 0 text14 dist/default/debug\gbs8.X.debug.o
+__ptext15 1296 0 CODE 0 text15 dist/default/debug\gbs8.X.debug.o
+__ptext16 111E 0 CODE 0 text16 dist/default/debug\gbs8.X.debug.o
+__ptext17 1186 0 CODE 0 text17 dist/default/debug\gbs8.X.debug.o
+__ptext18 3B8 0 CODE 0 text18 dist/default/debug\gbs8.X.debug.o
+__ptext19 1716 0 CODE 0 text19 dist/default/debug\gbs8.X.debug.o
+__ptext20 240 0 CODE 0 text20 dist/default/debug\gbs8.X.debug.o
+__ptext21 140A 0 CODE 0 text21 dist/default/debug\gbs8.X.debug.o
+__ptext22 36 0 CODE 0 text22 dist/default/debug\gbs8.X.debug.o
+__ptext23 15F0 0 CODE 0 text23 dist/default/debug\gbs8.X.debug.o
+__ptext24 1AD6 0 CODE 0 text24 dist/default/debug\gbs8.X.debug.o
+__ptext25 10F4 0 CODE 0 text25 dist/default/debug\gbs8.X.debug.o
+__ptext26 153E 0 CODE 0 text26 dist/default/debug\gbs8.X.debug.o
+___aldiv 106 0 CODE 0 text4 dist/default/debug\gbs8.X.debug.o
+___awmod 153E 0 CODE 0 text26 dist/default/debug\gbs8.X.debug.o
+___fldiv 1AD6 0 CODE 0 text24 dist/default/debug\gbs8.X.debug.o
+___fltol 15F0 0 CODE 0 text23 dist/default/debug\gbs8.X.debug.o
+___lldiv 36 0 CODE 0 text22 dist/default/debug\gbs8.X.debug.o
+__pmaintext 11F8 0 CODE 0 maintext dist/default/debug\gbs8.X.debug.o
 ___lmul@multiplier 2D 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
+__size_ofi1_GBS_USART_Send 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 ?_sqrt 47 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-__end_of_GBS_Stepper_Exe FCE 0 CODE 0 text12 dist/default/debug\gbs8.X.debug.o
+__end_of_GBS_Stepper_Exe FCE 0 CODE 0 text18 dist/default/debug\gbs8.X.debug.o
 ___fldiv@grs AC 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
 ___fldiv@rem A5 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
 __size_of_GBS_T2I_Config 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
+__size_of_GBS_USART_Buffer_Read 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 sqrt@exp 5A 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 sqrt@grs 56 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 ___fldiv@new_exp AA 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
+__size_of_USART_RX_ISR 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
+__size_of_USART_TX_ISR 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
+i1_GBS_USART_Buffer_Write 1296 0 CODE 0 text15 dist/default/debug\gbs8.X.debug.o
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __HcstackBANK1 0 0 ABS 0 cstackBANK1 -
 __HcstackBANK3 0 0 ABS 0 cstackBANK3 -
@@ -714,58 +788,64 @@ __Lend_init 2C 0 CODE 0 end_init -
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 ___fltol@exp1 7D 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
 end_of_initialization FF8 0 CODE 0 cinit dist/default/debug\gbs8.X.debug.o
+__end_of_USART_RX_ISR 106E 0 CODE 0 text13 dist/default/debug\gbs8.X.debug.o
 __Hintentry 2C 0 CODE 0 intentry -
 __Lstrings 0 0 ABS 0 strings -
-?___awmod 19C 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
+?___aldiv 1C2 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
+?___awmod 71 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
 ?___fldiv 64 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 ?___fltol B2 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
+__end_of_USART_TX_ISR 10F4 0 CODE 0 text10 dist/default/debug\gbs8.X.debug.o
 ?___lldiv 20 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
-_GBS_Stepper_Exe 3B8 0 CODE 0 text12 dist/default/debug\gbs8.X.debug.o
+_GBS_Stepper_Exe 3B8 0 CODE 0 text18 dist/default/debug\gbs8.X.debug.o
 __Hreset_vec 8 0 CODE 0 reset_vec -
 __HbssBANK1 0 0 ABS 0 bssBANK1 -
 __HbssBANK2 0 0 ABS 0 bssBANK2 -
 __HbssBANK3 0 0 ABS 0 bssBANK3 -
-___awmod@dividend 19E 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
-_GBS_Stepper_Init 1210 0 CODE 0 text2 dist/default/debug\gbs8.X.debug.o
+___awmod@dividend 73 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
+i1GBS_USART_Send@buffer 74 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
 __size_of_GBS_Stepper_Update 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
-__ptext1 1418 0 CODE 0 text1 dist/default/debug\gbs8.X.debug.o
-__ptext2 1210 0 CODE 0 text2 dist/default/debug\gbs8.X.debug.o
-__ptext3 1270 0 CODE 0 text3 dist/default/debug\gbs8.X.debug.o
-__ptext4 11CA 0 CODE 0 text4 dist/default/debug\gbs8.X.debug.o
-__ptext5 10F4 0 CODE 0 text5 dist/default/debug\gbs8.X.debug.o
-__ptext6 10B2 0 CODE 0 text6 dist/default/debug\gbs8.X.debug.o
-__ptext7 32 0 CODE 0 text7 dist/default/debug\gbs8.X.debug.o
-__ptext8 109C 0 CODE 0 text8 dist/default/debug\gbs8.X.debug.o
-__ptext9 118C 0 CODE 0 text9 dist/default/debug\gbs8.X.debug.o
-__size_of_GBS_Stepper_Buffer_Init 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
+__ptext1 11BE 0 CODE 0 text1 dist/default/debug\gbs8.X.debug.o
+__ptext2 12EC 0 CODE 0 text2 dist/default/debug\gbs8.X.debug.o
+__ptext3 149A 0 CODE 0 text3 dist/default/debug\gbs8.X.debug.o
+__ptext4 106 0 CODE 0 text4 dist/default/debug\gbs8.X.debug.o
+__ptext5 1342 0 CODE 0 text5 dist/default/debug\gbs8.X.debug.o
+__ptext6 107E 0 CODE 0 text6 dist/default/debug\gbs8.X.debug.o
+__ptext7 10B2 0 CODE 0 text7 dist/default/debug\gbs8.X.debug.o
+__ptext8 105A 0 CODE 0 text8 dist/default/debug\gbs8.X.debug.o
+__ptext9 139C 0 CODE 0 text9 dist/default/debug\gbs8.X.debug.o
+___aldiv@dividend 1C6 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
 __Lpowerup 0 0 CODE 0 powerup -
 ?___xxtofl 39 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
-GBS_Stepper_Buffer_Init@i 1A1 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 ___fltol@sign1 7C 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
-?i1___awmod 71 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
-__size_of_GBS_Timer2_Config 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 ___fltol@f1 B2 0 BANK1 1 cstackBANK1 dist/default/debug\gbs8.X.debug.o
 __end_of__initialization FF8 0 CODE 0 cinit dist/default/debug\gbs8.X.debug.o
 __size_of_GBS_Interrupt_Init 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
-___awmod@divisor 19C 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
-GBS_Timer2_Config@timVar 19E 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
+___awmod@divisor 71 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
 __Lfunctab 0 0 ENTRY 0 functab -
 __Lclrtext 0 0 ABS 0 clrtext -
 ___lmul@product 35 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
+_GBS_USART_Init$1647 1D3 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
 ___lmul@multiplicand 31 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 ___lldiv@quotient 28 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 __pcstackCOMMON 71 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
+GBS_USART_Send@buffer 1C5 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
+_TXSTAbits 98 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _T2CKPS1 91 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
-_T2I_ISR 1122 0 CODE 0 text10 dist/default/debug\gbs8.X.debug.o
+_T2I_ISR 111E 0 CODE 0 text16 dist/default/debug\gbs8.X.debug.o
 __Hend_init 32 0 CODE 0 end_init -
-__end_of_main 3B8 0 CODE 0 maintext dist/default/debug\gbs8.X.debug.o
-__end_of_sqrt 1AD6 0 CODE 0 text15 dist/default/debug\gbs8.X.debug.o
+___aldiv@counter 1CB 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
+__end_of_main 1244 0 CODE 0 maintext dist/default/debug\gbs8.X.debug.o
+__end_of_sqrt 1AD6 0 CODE 0 text19 dist/default/debug\gbs8.X.debug.o
 sqrt@frac 60 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 sqrt@root 5C 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 sqrt@sign 4F 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 _ANSEL 188 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
+_RCREG 1A 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
+_SPBRG 99 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
+_TXREG 19 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 interrupt_function 8 0 CODE 0 intentry dist/default/debug\gbs8.X.debug.o
@@ -773,19 +853,22 @@ _errno E7 0 BANK1 1 bssBANK1 dist/default/debug\gbs8.X.debug.o
 _IOCBbits 96 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __pintentry 8 0 CODE 0 intentry dist/default/debug\gbs8.X.debug.o
 __size_of_GBS_Stepper_Exe 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
-__end_of_GBS_Stepper_Init 1270 0 CODE 0 text2 dist/default/debug\gbs8.X.debug.o
 __size_of_ISR 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
+_GBS_USART_Buffer_Write 1342 0 CODE 0 text5 dist/default/debug\gbs8.X.debug.o
+__size_ofi1_GBS_USART_Buffer_Write 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __initialization FCE 0 CODE 0 cinit dist/default/debug\gbs8.X.debug.o
-___bmul@product 19D 0 BANK3 1 cstackBANK3 dist/default/debug\gbs8.X.debug.o
+___bmul@product 78 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
 ___xxtofl@sign 41 0 BANK0 1 cstackBANK0 dist/default/debug\gbs8.X.debug.o
 __size_of_GBS_Interrupt_Enable 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 __pbssBANK1 E7 0 BANK1 1 bssBANK1 dist/default/debug\gbs8.X.debug.o
 __pbssBANK2 110 0 BANK2 1 bssBANK2 dist/default/debug\gbs8.X.debug.o
 __pbssBANK3 190 0 BANK3 1 bssBANK3 dist/default/debug\gbs8.X.debug.o
-__size_of_GBS_Stepper_Init 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _T2CONbits 12 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
+__size_ofi1_GBS_USART_Buffer_Read 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
 _CCP1CONbits 17 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
-i1___awmod@counter 75 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
+__size_of_GBS_USART_Receive 0 0 ABS 0 - dist/default/debug\gbs8.X.debug.o
+_GBS_USART_Init 149A 0 CODE 0 text3 dist/default/debug\gbs8.X.debug.o
+_GBS_USART_Send 11BE 0 CODE 0 text1 dist/default/debug\gbs8.X.debug.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -812,34 +895,41 @@ i1___awmod@counter 75 0 COMMON 1 cstackCOMMON dist/default/debug\gbs8.X.debug.o
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 7E7 FCE 19 2
-text1 0 A0C 1418 5B 2
-text2 0 908 1210 30 2
-text3 0 938 1270 33 2
-text4 0 8E5 11CA 23 2
-text5 0 87A 10F4 17 2
-text6 0 859 10B2 C 2
-text8 0 84E 109C 3 2
-text9 0 8C6 118C 1F 2
-text10 0 891 1122 19 2
-text11 0 8AA 1154 1C 2
-text12 0 1DC 3B8 60B 2
-text13 0 865 10CA 15 2
-text14 0 9B3 1366 59 2
-text15 0 B8B 1716 1E0 2
-text16 0 ACF 159E BC 2
-text17 0 96B 12D6 48 2
-text18 0 A67 14CE 68 2
-text19 0 29 52 93 2
-text20 0 D6B 1AD6 295 2
-maintext 0 BC 178 120 2
+text1 0 8DF 11BE 1D 2
+text2 0 976 12EC 2B 2
+text3 0 A4D 149A 52 2
+text4 0 83 106 9D 2
+text5 0 9A1 1342 2D 2
+text6 0 83F 107E C 2
+text7 0 859 10B2 10 2
+text8 0 82D 105A 3 2
+text9 0 9CE 139C 37 2
+text10 0 869 10D2 11 2
+text11 0 8A8 1150 1B 2
+text12 0 922 1244 29 2
+text13 0 830 1060 7 2
+text14 0 84B 1096 E 2
+text15 0 94B 1296 2B 2
+text16 0 88F 111E 19 2
+text17 0 8C3 1186 1C 2
+text18 0 1DC 3B8 60B 2
+text19 0 B8B 1716 1E0 2
+text20 0 120 240 BC 2
+text21 0 A05 140A 48 2
+text22 0 1B 36 68 2
+text23 0 AF8 15F0 93 2
+text24 0 D6B 1AD6 295 2
+text25 0 87A 10F4 15 2
+text26 0 A9F 153E 59 2
+maintext 0 8FC 11F8 26 2
 cstackCOMMON 1 71 71 D 1
 cstackBANK0 1 20 20 50 1
 cstackBANK1 1 A0 A0 49 1
-intentry 0 4 8 25 2
+intentry 0 4 8 15 2
 reset_vec 0 0 0 4 2
 bssBANK2 1 110 110 50 1
-bssBANK3 1 190 190 15 1
-clrtext 0 851 10A2 8 2
+bssBANK3 1 190 190 47 1
+clrtext 0 837 106E 8 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal

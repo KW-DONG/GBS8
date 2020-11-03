@@ -3,8 +3,8 @@
 [d edition pro ]
 [d chip 16F887 ]
 [d frameptr 0 ]
-"13 E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-[e E1450 . `uc
+"14 E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+[e E1454 . `uc
 T2OUTPS1 0
 T2OUTPS2 1
 T2OUTPS3 2
@@ -34,25 +34,41 @@ T2OUTPS16 15
 [v _ISR ISR `II(v  1 e 1 0 ]
 "50 E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_timer.c
 [v _GBS_Timer2_Config GBS_Timer2_Config `(v  1 e 1 0 ]
-"6 E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-[v _GBS_Stepper_Init GBS_Stepper_Init `(v  1 e 1 0 ]
-"55
+"6 E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+[v _GBS_USART_Init GBS_USART_Init `(v  1 e 1 0 ]
+"39
+[v _GBS_USART_Buffer_Write GBS_USART_Buffer_Write `(v  1 e 1 0 ]
+[v i1_GBS_USART_Buffer_Write GBS_USART_Buffer_Write `(v  1 e 1 0 ]
+"46
+[v _GBS_USART_Buffer_Read GBS_USART_Buffer_Read `(uc  1 e 1 0 ]
+[v i1_GBS_USART_Buffer_Read GBS_USART_Buffer_Read `(uc  1 e 1 0 ]
+"58
+[v _GBS_USART_Send GBS_USART_Send `(v  1 e 1 0 ]
+[v i1_GBS_USART_Send GBS_USART_Send `(v  1 e 1 0 ]
+"68
+[v _GBS_USART_Receive GBS_USART_Receive `(v  1 e 1 0 ]
+"73
+[v _USART_TX_ISR USART_TX_ISR `(v  1 e 1 0 ]
+"80
+[v _USART_RX_ISR USART_RX_ISR `(v  1 e 1 0 ]
+"56 E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
 [v _GBS_Stepper_Buffer_Init GBS_Stepper_Buffer_Init `(v  1 e 1 0 ]
-"197
+"198
 [v _GBS_Stepper_Exe GBS_Stepper_Exe `(v  1 e 1 0 ]
-"256
+"261
 [v _GBS_Stepper_Update GBS_Stepper_Update `(v  1 e 1 0 ]
-"320
+"325
 [v _T2I_ISR T2I_ISR `(v  1 e 1 0 ]
-"9 E:\Workspace\GBS8/test.c
+"14 E:\Workspace\GBS8/test.c
 [v _main main `(i  1 e 2 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\__lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
+"5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 "5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
-[v i1___awmod __awmod `(i  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\flge.c
 [v ___flge __flge `(b  1 e 0 0 ]
 "43 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\fltol.c
@@ -73,7 +89,6 @@ T2OUTPS16 15
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
 [v ___bmul __bmul `(uc  1 e 1 0 ]
-[v i1___bmul __bmul `(uc  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
 "10 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\xxtofl.c
@@ -82,16 +97,21 @@ T2OUTPS16 15
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+[s S42 . 19 `[16]uc 1 buffer 16 0 `uc 1 head 1 16 `uc 1 tail 1 17 `uc 1 size 1 18 ]
+"18 E:\Workspace\GBS8/gbs8/bsp/inc\gbs8_usart.h
+[v _usartReceiveBuffer usartReceiveBuffer `S42  1 e 19 0 ]
+"20
+[v _usartSendBuffer usartSendBuffer `S42  1 e 19 0 ]
 [s S22 . 26 `uc 1 dir 1 0 `ul 1 acc_until 4 1 `ul 1 dec_after 4 5 `ul 1 dec_until 4 9 `ul 1 acc 4 13 `ul 1 dec 4 17 `ul 1 maxSpeed 4 21 `uc 1 flag 1 25 ]
-"200 E:\Workspace\GBS8/gbs8/driver/inc\gbs8_stepper.h
+"219 E:\Workspace\GBS8/gbs8/driver/inc\gbs8_stepper.h
 [s S31 . 80 `[3]S22 1 buffer 78 0 `uc 1 head 1 78 `uc 1 tail 1 79 ]
 [v _sBufferA sBufferA `S31  1 e 80 0 ]
 [s S35 . 12 `uc 1 state 1 0 `uc 1 lock 1 1 `uc 1 dir 1 2 `ul 1 cnts 4 3 `ul 1 cntsLast 4 7 `uc 1 pinState 1 11 ]
-"201
+"220
 [v _stepperA stepperA `S35  1 e 12 0 ]
 "59 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
-[s S222 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S235 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INTF 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -101,14 +121,14 @@ T2OUTPS16 15
 `uc 1 GIE 1 0 :1:7 
 ]
 "482
-[s S231 . 1 `uc 1 . 1 0 :2:0 
+[s S244 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 TMR0IE 1 0 :1:5 
 ]
-[u S236 . 1 `S222 1 . 1 0 `S231 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES236  1 e 1 @11 ]
-[s S306 . 1 `uc 1 TMR1IF 1 0 :1:0 
+[u S249 . 1 `S235 1 . 1 0 `S244 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES249  1 e 1 @11 ]
+[s S319 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -117,11 +137,11 @@ T2OUTPS16 15
 `uc 1 ADIF 1 0 :1:6 
 ]
 "553
-[u S314 . 1 `S306 1 . 1 0 ]
-[v _PIR1bits PIR1bits `VES314  1 e 1 @12 ]
+[u S327 . 1 `S319 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES327  1 e 1 @12 ]
 "650
 [v _TMR1 TMR1 `VEus  1 e 2 @14 ]
-[s S438 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S459 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 TMR1CS 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
 `uc 1 T1OSCEN 1 0 :1:3 
@@ -130,7 +150,7 @@ T2OUTPS16 15
 `uc 1 T1GINV 1 0 :1:7 
 ]
 "700
-[s S446 . 1 `uc 1 . 1 0 :2:0 
+[s S467 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1INSYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
@@ -138,19 +158,19 @@ T2OUTPS16 15
 `uc 1 . 1 0 :1:6 
 `uc 1 T1GIV 1 0 :1:7 
 ]
-[s S454 . 1 `uc 1 . 1 0 :2:0 
+[s S475 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T1SYNC 1 0 :1:2 
 ]
-[u S457 . 1 `S438 1 . 1 0 `S446 1 . 1 0 `S454 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES457  1 e 1 @16 ]
+[u S478 . 1 `S459 1 . 1 0 `S467 1 . 1 0 `S475 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES478  1 e 1 @16 ]
 "765
 [v _TMR2 TMR2 `VEuc  1 e 1 @17 ]
-[s S483 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S504 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 TOUTPS 1 0 :4:3 
 ]
 "793
-[s S487 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S508 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 TOUTPS0 1 0 :1:3 
@@ -158,16 +178,16 @@ T2OUTPS16 15
 `uc 1 TOUTPS2 1 0 :1:5 
 `uc 1 TOUTPS3 1 0 :1:6 
 ]
-[u S495 . 1 `S483 1 . 1 0 `S487 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES495  1 e 1 @18 ]
+[u S516 . 1 `S504 1 . 1 0 `S508 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES516  1 e 1 @18 ]
 "927
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @21 ]
-[s S513 . 1 `uc 1 CCP1M 1 0 :4:0 
+[s S534 . 1 `uc 1 CCP1M 1 0 :4:0 
 `uc 1 DC1B 1 0 :2:4 
 `uc 1 P1M 1 0 :2:6 
 ]
 "968
-[s S517 . 1 `uc 1 CCP1M0 1 0 :1:0 
+[s S538 . 1 `uc 1 CCP1M0 1 0 :1:0 
 `uc 1 CCP1M1 1 0 :1:1 
 `uc 1 CCP1M2 1 0 :1:2 
 `uc 1 CCP1M3 1 0 :1:3 
@@ -176,13 +196,39 @@ T2OUTPS16 15
 `uc 1 P1M0 1 0 :1:6 
 `uc 1 P1M1 1 0 :1:7 
 ]
-[s S526 . 1 `uc 1 . 1 0 :4:0 
+[s S547 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 CCP1Y 1 0 :1:4 
 `uc 1 CCP1X 1 0 :1:5 
 ]
-[u S530 . 1 `S513 1 . 1 0 `S517 1 . 1 0 `S526 1 . 1 0 ]
-[v _CCP1CONbits CCP1CONbits `VES530  1 e 1 @23 ]
-[s S254 . 1 `uc 1 PS 1 0 :3:0 
+[u S551 . 1 `S534 1 . 1 0 `S538 1 . 1 0 `S547 1 . 1 0 ]
+[v _CCP1CONbits CCP1CONbits `VES551  1 e 1 @23 ]
+[s S817 . 1 `uc 1 RX9D 1 0 :1:0 
+`uc 1 OERR 1 0 :1:1 
+`uc 1 FERR 1 0 :1:2 
+`uc 1 ADDEN 1 0 :1:3 
+`uc 1 CREN 1 0 :1:4 
+`uc 1 SREN 1 0 :1:5 
+`uc 1 RX9 1 0 :1:6 
+`uc 1 SPEN 1 0 :1:7 
+]
+"1068
+[s S826 . 1 `uc 1 RCD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 RC9 1 0 :1:6 
+]
+[s S830 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 nRC8 1 0 :1:6 
+]
+[s S833 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 RC8_9 1 0 :1:6 
+]
+[u S836 . 1 `S817 1 . 1 0 `S826 1 . 1 0 `S830 1 . 1 0 `S833 1 . 1 0 ]
+[v _RCSTAbits RCSTAbits `VES836  1 e 1 @24 ]
+"1133
+[v _TXREG TXREG `VEuc  1 e 1 @25 ]
+"1140
+[v _RCREG RCREG `VEuc  1 e 1 @26 ]
+[s S267 . 1 `uc 1 PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -190,13 +236,13 @@ T2OUTPS16 15
 `uc 1 nRBPU 1 0 :1:7 
 ]
 "1366
-[s S261 . 1 `uc 1 PS0 1 0 :1:0 
+[s S274 . 1 `uc 1 PS0 1 0 :1:0 
 `uc 1 PS1 1 0 :1:1 
 `uc 1 PS2 1 0 :1:2 
 ]
-[u S265 . 1 `S254 1 . 1 0 `S261 1 . 1 0 ]
-[v _OPTION_REGbits OPTION_REGbits `VES265  1 e 1 @129 ]
-[s S94 . 1 `uc 1 TRISA0 1 0 :1:0 
+[u S278 . 1 `S267 1 . 1 0 `S274 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES278  1 e 1 @129 ]
+[s S107 . 1 `uc 1 TRISA0 1 0 :1:0 
 `uc 1 TRISA1 1 0 :1:1 
 `uc 1 TRISA2 1 0 :1:2 
 `uc 1 TRISA3 1 0 :1:3 
@@ -206,9 +252,9 @@ T2OUTPS16 15
 `uc 1 TRISA7 1 0 :1:7 
 ]
 "1433
-[u S103 . 1 `S94 1 . 1 0 ]
-[v _TRISAbits TRISAbits `VES103  1 e 1 @133 ]
-[s S115 . 1 `uc 1 TRISB0 1 0 :1:0 
+[u S116 . 1 `S107 1 . 1 0 ]
+[v _TRISAbits TRISAbits `VES116  1 e 1 @133 ]
+[s S128 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -218,9 +264,9 @@ T2OUTPS16 15
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "1495
-[u S124 . 1 `S115 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES124  1 e 1 @134 ]
-[s S157 . 1 `uc 1 TRISC0 1 0 :1:0 
+[u S137 . 1 `S128 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES137  1 e 1 @134 ]
+[s S170 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -230,9 +276,9 @@ T2OUTPS16 15
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "1557
-[u S166 . 1 `S157 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES166  1 e 1 @135 ]
-[s S136 . 1 `uc 1 TRISD0 1 0 :1:0 
+[u S179 . 1 `S170 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES179  1 e 1 @135 ]
+[s S149 . 1 `uc 1 TRISD0 1 0 :1:0 
 `uc 1 TRISD1 1 0 :1:1 
 `uc 1 TRISD2 1 0 :1:2 
 `uc 1 TRISD3 1 0 :1:3 
@@ -242,17 +288,17 @@ T2OUTPS16 15
 `uc 1 TRISD7 1 0 :1:7 
 ]
 "1619
-[u S145 . 1 `S136 1 . 1 0 ]
-[v _TRISDbits TRISDbits `VES145  1 e 1 @136 ]
-[s S402 . 1 `uc 1 TRISE0 1 0 :1:0 
+[u S158 . 1 `S149 1 . 1 0 ]
+[v _TRISDbits TRISDbits `VES158  1 e 1 @136 ]
+[s S423 . 1 `uc 1 TRISE0 1 0 :1:0 
 `uc 1 TRISE1 1 0 :1:1 
 `uc 1 TRISE2 1 0 :1:2 
 `uc 1 TRISE3 1 0 :1:3 
 ]
 "1677
-[u S407 . 1 `S402 1 . 1 0 ]
-[v _TRISEbits TRISEbits `VES407  1 e 1 @137 ]
-[s S325 . 1 `uc 1 TMR1IE 1 0 :1:0 
+[u S428 . 1 `S423 1 . 1 0 ]
+[v _TRISEbits TRISEbits `VES428  1 e 1 @137 ]
+[s S338 . 1 `uc 1 TMR1IE 1 0 :1:0 
 `uc 1 TMR2IE 1 0 :1:1 
 `uc 1 CCP1IE 1 0 :1:2 
 `uc 1 SSPIE 1 0 :1:3 
@@ -261,14 +307,14 @@ T2OUTPS16 15
 `uc 1 ADIE 1 0 :1:6 
 ]
 "1718
-[u S333 . 1 `S325 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES333  1 e 1 @140 ]
+[u S346 . 1 `S338 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES346  1 e 1 @140 ]
 "2041
 [v _PR2 PR2 `VEuc  1 e 1 @146 ]
-[s S280 . 1 `uc 1 IOCB 1 0 :8:0 
+[s S293 . 1 `uc 1 IOCB 1 0 :8:0 
 ]
 "2436
-[s S282 . 1 `uc 1 IOCB0 1 0 :1:0 
+[s S295 . 1 `uc 1 IOCB0 1 0 :1:0 
 `uc 1 IOCB1 1 0 :1:1 
 `uc 1 IOCB2 1 0 :1:2 
 `uc 1 IOCB3 1 0 :1:3 
@@ -277,8 +323,41 @@ T2OUTPS16 15
 `uc 1 IOCB6 1 0 :1:6 
 `uc 1 IOCB7 1 0 :1:7 
 ]
-[u S291 . 1 `S280 1 . 1 0 `S282 1 . 1 0 ]
-[v _IOCBbits IOCBbits `VES291  1 e 1 @150 ]
+[u S304 . 1 `S293 1 . 1 0 `S295 1 . 1 0 ]
+[v _IOCBbits IOCBbits `VES304  1 e 1 @150 ]
+[s S780 . 1 `uc 1 TX9D 1 0 :1:0 
+`uc 1 TRMT 1 0 :1:1 
+`uc 1 BRGH 1 0 :1:2 
+`uc 1 SENDB 1 0 :1:3 
+`uc 1 SYNC 1 0 :1:4 
+`uc 1 TXEN 1 0 :1:5 
+`uc 1 TX9 1 0 :1:6 
+`uc 1 CSRC 1 0 :1:7 
+]
+"2582
+[s S789 . 1 `uc 1 TXD8 1 0 :1:0 
+`uc 1 . 1 0 :5:1 
+`uc 1 nTX8 1 0 :1:6 
+]
+[s S793 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 TX8_9 1 0 :1:6 
+]
+[u S796 . 1 `S780 1 . 1 0 `S789 1 . 1 0 `S793 1 . 1 0 ]
+[v _TXSTAbits TXSTAbits `VES796  1 e 1 @152 ]
+"2642
+[v _SPBRG SPBRG `VEuc  1 e 1 @153 ]
+[s S861 . 1 `uc 1 ABDEN 1 0 :1:0 
+`uc 1 WUE 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 BRG16 1 0 :1:3 
+`uc 1 SCKP 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 RCIDL 1 0 :1:6 
+`uc 1 ABDOVF 1 0 :1:7 
+]
+"3352
+[u S870 . 1 `S861 1 . 1 0 ]
+[v _BAUDCTLbits BAUDCTLbits `VES870  1 e 1 @391 ]
 "3387
 [v _ANSEL ANSEL `VEuc  1 e 1 @392 ]
 "3449
@@ -293,66 +372,66 @@ T2OUTPS16 15
 [v _TMR2ON TMR2ON `VEb  1 e 0 @146 ]
 "3 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\errno.c
 [v _errno errno `i  1 e 2 0 ]
-"9 E:\Workspace\GBS8/test.c
+"14 E:\Workspace\GBS8/test.c
 [v _main main `(i  1 e 2 0 ]
 {
-"32
+"44
 } 0
-"5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-[v ___awmod __awmod `(i  1 e 2 0 ]
+"58 E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+[v _GBS_USART_Send GBS_USART_Send `(v  1 e 1 0 ]
+{
+[s S42 . 19 `[16]uc 1 buffer 16 0 `uc 1 head 1 16 `uc 1 tail 1 17 `uc 1 size 1 18 ]
+[v GBS_USART_Send@buffer buffer `*.5S42  1 a 1 wreg ]
+[v GBS_USART_Send@buffer buffer `*.5S42  1 a 1 wreg ]
+"60
+"58
+[v GBS_USART_Send@buffer buffer `*.5S42  1 a 1 3 ]
+"66
+} 0
+"46
+[v _GBS_USART_Buffer_Read GBS_USART_Buffer_Read `(uc  1 e 1 0 ]
+{
+[s S42 . 19 `[16]uc 1 buffer 16 0 `uc 1 head 1 16 `uc 1 tail 1 17 `uc 1 size 1 18 ]
+[v GBS_USART_Buffer_Read@buffer buffer `*.5S42  1 a 1 wreg ]
+"48
+[v GBS_USART_Buffer_Read@result result `uc  1 a 1 1 ]
+"46
+[v GBS_USART_Buffer_Read@buffer buffer `*.5S42  1 a 1 wreg ]
+"49
+"46
+[v GBS_USART_Buffer_Read@buffer buffer `*.5S42  1 a 1 2 ]
+"56
+} 0
+"6
+[v _GBS_USART_Init GBS_USART_Init `(v  1 e 1 0 ]
+{
+[v GBS_USART_Init@baudRate baudRate `ui  1 p 2 15 ]
+"37
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\aldiv.c
+[v ___aldiv __aldiv `(l  1 e 4 0 ]
 {
 "10
-[v ___awmod@sign sign `uc  1 a 1 5 ]
-[v ___awmod@counter counter `uc  1 a 1 4 ]
+[v ___aldiv@quotient quotient `l  1 a 4 11 ]
+"11
+[v ___aldiv@sign sign `uc  1 a 1 10 ]
+[v ___aldiv@counter counter `uc  1 a 1 9 ]
 "5
-[v ___awmod@divisor divisor `i  1 p 2 0 ]
-[v ___awmod@dividend dividend `i  1 p 2 2 ]
-"34
+[v ___aldiv@divisor divisor `l  1 p 4 0 ]
+[v ___aldiv@dividend dividend `l  1 p 4 4 ]
+"41
 } 0
-"6 E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-[v _GBS_Stepper_Init GBS_Stepper_Init `(v  1 e 1 0 ]
+"39 E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+[v _GBS_USART_Buffer_Write GBS_USART_Buffer_Write `(v  1 e 1 0 ]
 {
-"53
-} 0
-"50 E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_timer.c
-[v _GBS_Timer2_Config GBS_Timer2_Config `(v  1 e 1 0 ]
-{
-[v GBS_Timer2_Config@state state `uc  1 a 1 wreg ]
-[v GBS_Timer2_Config@state state `uc  1 a 1 wreg ]
-[v GBS_Timer2_Config@ckPS ckPS `uc  1 p 1 0 ]
-[v GBS_Timer2_Config@outPS outPS `uc  1 p 1 1 ]
-[v GBS_Timer2_Config@timVar timVar `uc  1 p 1 2 ]
-"52
-[v GBS_Timer2_Config@state state `uc  1 a 1 4 ]
-"57
-} 0
-"55 E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
-[v _GBS_Stepper_Buffer_Init GBS_Stepper_Buffer_Init `(v  1 e 1 0 ]
-{
-[s S22 . 26 `uc 1 dir 1 0 `ul 1 acc_until 4 1 `ul 1 dec_after 4 5 `ul 1 dec_until 4 9 `ul 1 acc 4 13 `ul 1 dec 4 17 `ul 1 maxSpeed 4 21 `uc 1 flag 1 25 ]
-[s S31 . 80 `[3]S22 1 buffer 78 0 `uc 1 head 1 78 `uc 1 tail 1 79 ]
-[v GBS_Stepper_Buffer_Init@sBufferX sBufferX `*.5S31  1 a 1 wreg ]
-"57
-[v GBS_Stepper_Buffer_Init@i i `uc  1 a 1 5 ]
-"55
-[v GBS_Stepper_Buffer_Init@sBufferX sBufferX `*.5S31  1 a 1 wreg ]
-"57
-"55
-[v GBS_Stepper_Buffer_Init@sBufferX sBufferX `*.5S31  1 a 1 4 ]
-"61
-} 0
-"4 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-[v ___bmul __bmul `(uc  1 e 1 0 ]
-{
-[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
-"6
-[v ___bmul@product product `uc  1 a 1 1 ]
-"4
-[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
-[v ___bmul@multiplicand multiplicand `uc  1 p 1 0 ]
-"6
-[v ___bmul@multiplier multiplier `uc  1 a 1 2 ]
-"51
+[s S42 . 19 `[16]uc 1 buffer 16 0 `uc 1 head 1 16 `uc 1 tail 1 17 `uc 1 size 1 18 ]
+[v GBS_USART_Buffer_Write@buffer buffer `*.5S42  1 a 1 wreg ]
+[v GBS_USART_Buffer_Write@buffer buffer `*.5S42  1 a 1 wreg ]
+[v GBS_USART_Buffer_Write@value value `uc  1 p 1 0 ]
+"41
+"39
+[v GBS_USART_Buffer_Write@buffer buffer `*.5S42  1 a 1 2 ]
+"44
 } 0
 "6 E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_interrupt.c
 [v _GBS_Interrupt_Init GBS_Interrupt_Init `(v  1 e 1 0 ]
@@ -376,19 +455,77 @@ T2OUTPS16 15
 "90
 [v _ISR ISR `II(v  1 e 1 0 ]
 {
-"149
+"153
 } 0
-"320 E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
+"73 E:\Workspace\GBS8/gbs8/bsp/scr/gbs8_usart.c
+[v _USART_TX_ISR USART_TX_ISR `(v  1 e 1 0 ]
+{
+"78
+} 0
+"58
+[v i1_GBS_USART_Send GBS_USART_Send `(v  1 e 1 0 ]
+{
+[s S42 . 19 `[16]uc 1 buffer 16 0 `uc 1 head 1 16 `uc 1 tail 1 17 `uc 1 size 1 18 ]
+[v i1GBS_USART_Send@buffer buffer `*.5S42  1 a 1 wreg ]
+[v i1GBS_USART_Send@buffer buffer `*.5S42  1 a 1 wreg ]
+"60
+"58
+[v i1GBS_USART_Send@buffer buffer `*.5S42  1 a 1 3 ]
+"66
+} 0
+"46
+[v i1_GBS_USART_Buffer_Read GBS_USART_Buffer_Read `(uc  1 e 1 0 ]
+{
+[s S42 . 19 `[16]uc 1 buffer 16 0 `uc 1 head 1 16 `uc 1 tail 1 17 `uc 1 size 1 18 ]
+[v i1GBS_USART_Buffer_Read@buffer buffer `*.5S42  1 a 1 wreg ]
+"48
+[v i1GBS_USART_Buffer_Read@result result `uc  1 a 1 1 ]
+"46
+[v i1GBS_USART_Buffer_Read@buffer buffer `*.5S42  1 a 1 wreg ]
+"49
+"46
+[v i1GBS_USART_Buffer_Read@buffer buffer `*.5S42  1 a 1 2 ]
+"56
+} 0
+"80
+[v _USART_RX_ISR USART_RX_ISR `(v  1 e 1 0 ]
+{
+"83
+} 0
+"68
+[v _GBS_USART_Receive GBS_USART_Receive `(v  1 e 1 0 ]
+{
+[s S42 . 19 `[16]uc 1 buffer 16 0 `uc 1 head 1 16 `uc 1 tail 1 17 `uc 1 size 1 18 ]
+[v GBS_USART_Receive@buffer buffer `*.5S42  1 a 1 wreg ]
+[v GBS_USART_Receive@buffer buffer `*.5S42  1 a 1 wreg ]
+"70
+"68
+[v GBS_USART_Receive@buffer buffer `*.5S42  1 a 1 3 ]
+"71
+} 0
+"39
+[v i1_GBS_USART_Buffer_Write GBS_USART_Buffer_Write `(v  1 e 1 0 ]
+{
+[s S42 . 19 `[16]uc 1 buffer 16 0 `uc 1 head 1 16 `uc 1 tail 1 17 `uc 1 size 1 18 ]
+[v i1GBS_USART_Buffer_Write@buffer buffer `*.5S42  1 a 1 wreg ]
+[v i1GBS_USART_Buffer_Write@buffer buffer `*.5S42  1 a 1 wreg ]
+[v i1GBS_USART_Buffer_Write@value value `uc  1 p 1 0 ]
+"41
+"39
+[v i1GBS_USART_Buffer_Write@buffer buffer `*.5S42  1 a 1 2 ]
+"44
+} 0
+"325 E:\Workspace\GBS8/gbs8/driver/scr/gbs8_stepper.c
 [v _T2I_ISR T2I_ISR `(v  1 e 1 0 ]
 {
-"348
+"353
 } 0
-"256
+"261
 [v _GBS_Stepper_Update GBS_Stepper_Update `(v  1 e 1 0 ]
 {
-"318
+"323
 } 0
-"197
+"198
 [v _GBS_Stepper_Exe GBS_Stepper_Exe `(v  1 e 1 0 ]
 {
 [s S35 . 12 `uc 1 state 1 0 `uc 1 lock 1 1 `uc 1 dir 1 2 `ul 1 cnts 4 3 `ul 1 cntsLast 4 7 `uc 1 pinState 1 11 ]
@@ -397,45 +534,21 @@ T2OUTPS16 15
 [s S22 . 26 `uc 1 dir 1 0 `ul 1 acc_until 4 1 `ul 1 dec_after 4 5 `ul 1 dec_until 4 9 `ul 1 acc 4 13 `ul 1 dec 4 17 `ul 1 maxSpeed 4 21 `uc 1 flag 1 25 ]
 [s S31 . 80 `[3]S22 1 buffer 78 0 `uc 1 head 1 78 `uc 1 tail 1 79 ]
 [v GBS_Stepper_Exe@sBufferX sBufferX `*.5S31  1 p 1 22 ]
-"199
-"197
+"200
+"198
 [v GBS_Stepper_Exe@stepperX stepperX `*.5S35  1 a 1 66 ]
-"254
-} 0
-"4 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
-[v i1___bmul __bmul `(uc  1 e 1 0 ]
-{
-[v i1___bmul@multiplier multiplier `uc  1 a 1 wreg ]
-"6
-[v i1___bmul@product product `uc  1 a 1 7 ]
-"4
-[v i1___bmul@multiplier multiplier `uc  1 a 1 wreg ]
-[v i1___bmul@multiplicand multiplicand `uc  1 p 1 6 ]
-"6
-[v i1___bmul@multiplier multiplier `uc  1 a 1 8 ]
-"51
-} 0
-"5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
-[v i1___awmod __awmod `(i  1 e 2 0 ]
-{
-"10
-[v i1___awmod@sign sign `uc  1 a 1 5 ]
-[v i1___awmod@counter counter `uc  1 a 1 4 ]
-"5
-[v i1___awmod@divisor divisor `i  1 p 2 0 ]
-[v i1___awmod@dividend dividend `i  1 p 2 2 ]
-"34
+"259
 } 0
 "9 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\sprcsqrt.c
 [v _sqrt sqrt `(d  1 e 4 0 ]
 {
 "14
 [v sqrt@frac frac `ul  1 a 4 64 ]
-[s S1008 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S1219 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "11
-[s S1013 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S1016 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1008 1 fAsBytes 4 0 `S1013 1 fAsWords 4 0 ]
-[v sqrt@root root `S1016  1 a 4 60 ]
+[s S1224 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S1227 . 4 `l 1 i 4 0 `d 1 f 4 0 `S1219 1 fAsBytes 4 0 `S1224 1 fAsWords 4 0 ]
+[v sqrt@root root `S1227  1 a 4 60 ]
 "16
 [v sqrt@grs grs `ul  1 a 4 54 ]
 "15
@@ -516,4 +629,28 @@ T2OUTPS16 15
 [v ___fldiv@a a `d  1 p 4 68 ]
 [v ___fldiv@b b `d  1 p 4 72 ]
 "185
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+{
+[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
+"6
+[v ___bmul@product product `uc  1 a 1 7 ]
+"4
+[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
+[v ___bmul@multiplicand multiplicand `uc  1 p 1 6 ]
+"6
+[v ___bmul@multiplier multiplier `uc  1 a 1 8 ]
+"51
+} 0
+"5 C:\Program Files\Microchip\xc8\v2.20\pic\sources\c90\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"10
+[v ___awmod@sign sign `uc  1 a 1 5 ]
+[v ___awmod@counter counter `uc  1 a 1 4 ]
+"5
+[v ___awmod@divisor divisor `i  1 p 2 0 ]
+[v ___awmod@dividend dividend `i  1 p 2 2 ]
+"34
 } 0

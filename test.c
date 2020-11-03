@@ -7,16 +7,6 @@
 #include "pic16f887.h"
 #include "gbs8_usart.h"
 
-/**
- * test scheme:
- * 1. 
- * 
- * 
- * 
- * 
- * 
- */
-
 #define TEST_STEPPER    0
 #define TEST_USART      1
 
@@ -24,7 +14,8 @@
 int main()
 {
     GBS_Interrupt_Init();
-    GBS_Stepper_Init();
+    //GBS_Stepper_Init();
+    GBS_USART_Init(9600);
     
     while(1)
     {
@@ -46,16 +37,8 @@ int main()
         }
     #endif
     #if (TEST_USART)
-        for(uint8_t i=0; i<128;i++)
-        {
-            TXREG = i;
-            while (TXSTAbits.TRMT==0);
-            TXREG = 0x0d;
-            while (TXSTAbits.TRMT==0);
-            TXREG = 0x0a;
-            while (TXSTAbits.TRMT==0);
-            __delay_ms(1000);
-        }
+        GBS_USART_Buffer_Write(&usartSendBuffer, 'a');
+        GBS_USART_Send(&usartSendBuffer);
     #endif
     }
 }

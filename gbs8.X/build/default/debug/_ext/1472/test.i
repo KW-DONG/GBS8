@@ -2836,6 +2836,8 @@ void ADC_ISR();
 void USART_TX_ISR();
 
 void USART_RX_ISR();
+
+void USART_Ctrl();
 # 46 "../gbs8/bsp/inc\\gbs8_interrupt.h"
 void GBS_EXTI_Config(uint8_t mode);
 
@@ -2889,7 +2891,7 @@ void GBS_Interrupt_Disable();
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
 # 4 "../gbs8/driver/inc\\gbs8_stepper.h" 2
-# 106 "../gbs8/driver/inc\\gbs8_stepper.h"
+# 108 "../gbs8/driver/inc\\gbs8_stepper.h"
 typedef uint8_t dir_t;
 
 typedef float accRm_t;
@@ -2953,7 +2955,7 @@ void GBS_Stepper_Buffer_Init(sBuffer_t* sBufferX);
 
 
 void GBS_Stepper_Config(stepper_t* stepperX, uint8_t state);
-# 181 "../gbs8/driver/inc\\gbs8_stepper.h"
+# 183 "../gbs8/driver/inc\\gbs8_stepper.h"
 uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t dir, rotate_t rotation, speedRm_t v_i, speedRm_t v_m, speedRm_t v_o, accRm_t a_i, accRm_t a_o);
 
 
@@ -2969,6 +2971,16 @@ void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX);
 
 
 void GBS_Stepper_Update(void);
+# 206 "../gbs8/driver/inc\\gbs8_stepper.h"
+void GBS_Print_Stepper(stepper_t* stepperX);
+
+
+
+
+
+
+void GBS_Print_Buffer(sBuffer_t* sBufferX);
+
 
 
 
@@ -2978,28 +2990,62 @@ stepper_t stepperA;
 # 6 "../test.c" 2
 
 
+# 1 "../gbs8/bsp/inc\\gbs8_usart.h" 1
+
+
+
+
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdint.h" 1 3
+# 6 "../gbs8/bsp/inc\\gbs8_usart.h" 2
+
+
+
+
+typedef struct
+{
+    uint8_t buffer[16];
+    uint8_t head;
+    uint8_t tail;
+    uint8_t size;
+}USART_buffer_t;
+
+USART_buffer_t usartReceiveBuffer;
+
+USART_buffer_t usartSendBuffer;
+
+uint8_t GBS_USART_Buffer_Read(USART_buffer_t* buffer);
+
+void GBS_USART_Buffer_Write(USART_buffer_t* buffer, uint8_t value);
+
+void GBS_USART_Init(uint16_t baudRate);
+
+void GBS_USART_Receive(USART_buffer_t* buffer);
+
+
+
+
+
+
+void GBS_USART_Send(USART_buffer_t* buffer);
+# 8 "../test.c" 2
+
+
+
+
+
 
 int main()
 {
     GBS_Interrupt_Init();
-    GBS_Stepper_Init();
+
+    GBS_USART_Init(9600);
 
     while(1)
     {
-        if (sBufferA.buffer[sBufferA.tail].flag == 1)
-        {
-            sBufferA.buffer[sBufferA.tail].acc = 10;
-            sBufferA.buffer[sBufferA.tail].acc_until = 50;
-            sBufferA.buffer[sBufferA.tail].dec = 10;
-            sBufferA.buffer[sBufferA.tail].dec_after = 50;
-            sBufferA.buffer[sBufferA.tail].dec_until = 150;
-            sBufferA.buffer[sBufferA.tail].dir = 0;
-            sBufferA.buffer[sBufferA.tail].flag = 2;
-            sBufferA.buffer[sBufferA.tail].maxSpeed = 500;
-            sBufferA.tail = (sBufferA.tail+1)%3;
+# 40 "../test.c"
+        GBS_USART_Buffer_Write(&usartSendBuffer, 'a');
+        GBS_USART_Send(&usartSendBuffer);
 
-
-            _delay((unsigned long)((100)*(11059200/4000.0)));
-        }
     }
 }

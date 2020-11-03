@@ -1,4 +1,4 @@
-build/default/debug/_ext/1472/test.p1:  \
+build/default/production/_ext/1472/test.p1:  \
 ../test.c  \
 ../gbs8/bsp/inc/gbs8_gpio.h  \
 ../gbs8/bsp/inc/gbs8_config.h  \

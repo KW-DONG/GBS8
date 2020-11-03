@@ -6,8 +6,19 @@
 
 //serial port protocal for testing
 
+/**
+ * standard command 'c'+' '+'num'
+ * standard data    'd'+' '+'data'+' '+'e'
+ */
 
-
+#define keyBit0 0
+#define keybit1 1
+#define keybit2 2
+#define keybit3 3
+#define keybit4 4
+#define keybit5 5
+#define keybit6 6
+#define keybit7 7
 
 typedef struct 
 {
@@ -21,11 +32,11 @@ typedef struct
     uint8_t r7:1;
 }ctrl_t;
 
-ctrl_t ctrlBits;
+ctrl_t ctrlBits;    //received from master
 
-void GBS_Ctrl_Update(ctrl_t* bits);
+void GBS_Ctrl_Update(void);
 
-uint8_t GBS_Ctrl_Read(ctrl_t* bits, uint8_t i);
+uint8_t GBS_Ctrl_Read(uint8_t i);
 
 /*************************SET_YOUR_MESSAGE*************************************/
 
@@ -37,6 +48,8 @@ uint8_t GBS_Ctrl_Read(ctrl_t* bits, uint8_t i);
 #define MESSAGE_5   GBS_Ctrl_Read(&ctrlBits, 5)
 #define MESSAGE_6   GBS_Ctrl_Read(&ctrlBits, 6)
 #define MESSAGE_7   GBS_Ctrl_Read(&ctrlBits, 7)
+
+#define RECEIVED    "Received"
 
 #define FEEDBACK_0  GBS_USART_Buffer_Write(usartSendBuffer, 0)
 

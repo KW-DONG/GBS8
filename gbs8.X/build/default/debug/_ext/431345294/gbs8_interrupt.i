@@ -2643,6 +2643,8 @@ void ADC_ISR();
 void USART_TX_ISR();
 
 void USART_RX_ISR();
+
+void USART_Ctrl();
 # 46 "../gbs8/bsp/inc\\gbs8_interrupt.h"
 void GBS_EXTI_Config(uint8_t mode);
 
@@ -2794,5 +2796,24 @@ void __attribute__((picinterrupt(("")))) ISR()
         T2I_ISR();
         PIR1bits.TMR2IF = 0;
     }
-# 149 "../gbs8/bsp/scr/gbs8_interrupt.c"
+
+
+
+
+    if (PIR1bits.RCIF)
+    {
+        USART_RX_ISR();
+        PIR1bits.RCIF = 0;
+    }
+    if (PIR1bits.TXIF)
+    {
+        USART_TX_ISR();
+        PIR1bits.TXIF = 0;
+    }
+
+
+
+
+
+
 }

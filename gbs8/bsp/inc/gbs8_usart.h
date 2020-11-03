@@ -5,7 +5,9 @@
 #include <xc.h>
 #include <stdint.h>
 
-#define USART_BUFFER_SIZE   128
+/*****************************USART***********************************************/
+
+#define USART_BUFFER_SIZE   16
 
 typedef struct 
 {
@@ -15,30 +17,72 @@ typedef struct
     uint8_t size;
 }USART_buffer_t;
 
-extern USART_buffer_t usartReceiveBuffer;
+typedef char command_t;  
 
-extern USART_buffer_t usartSendBuffer;
+USART_buffer_t usartReceiveBuffer;
+
+USART_buffer_t usartSendBuffer;
 
 uint8_t GBS_USART_Buffer_Read(USART_buffer_t* buffer);
 
-void GBS_USART_Buffer_Write(USART_buffer_t* buffer, uint8_t value[]);
+void GBS_USART_Buffer_Write(USART_buffer_t* buffer, uint8_t value);
 
+/**
+ * @brief init usart and set baudrate
+ * @param baudRate
+ */
 void GBS_USART_Init(uint16_t baudRate);
 
-void GBS_USART_Receive(USART_buffer_t* buffer);
+void GBS_USART_Receive(void);
 
 /**
  * @brief usart send buffer function
  * @param buffer
  * @note this function will be called by isr until the buffer is once cleared
  */
-void GBS_USART_Send(USART_buffer_t* buffer);
+void GBS_USART_Send(void);
 
+void GBS_Read_Char(char* c);
+
+/**********************************PROTOCAL******************************************/
 /**
- * @brief usart send bits function
- * @param bits
- * @note this function has a higher priority
+ * standard command 'C'+'num'
+ * standard data    'D'+'data'+' '
+ * please do not send space as data or command
  */
-void GBS_USART_Send_Bits(uint8_t bits);
+
+typedef struct 
+{
+    uint8_t cFlag:1;
+    uint8_t dFlag:1;
+    uint8_t eFlag:1;
+    uint8_t rFlag:1;
+}usartFlag_t;
+
+typedef struct 
+{
+    uint8_t r0:1;
+    uint8_t r1:1;
+    uint8_t r2:1;
+    uint8_t r3:1;
+    uint8_t r4:1;
+    uint8_t r5:1;
+    uint8_t r6:1;
+    uint8_t r7:1;
+}ctrl_t;
+
+ctrl_t ctrlBits;    //received from master
+
+
+usartFlag_t uFlag;
+
+void GBS_Ctrl_Update(void);
+
+uint8_t GBS_Ctrl_Read(uint8_t i);
+
+
+
+
+
 
 #endif
