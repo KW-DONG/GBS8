@@ -23,7 +23,8 @@ void GBS_USART_Init(uint16_t baudRate)
     TXSTAbits.BRGH = 1;
 
     //set baud rate
-    SPBRG = _XTAL_FREQ / baudRate / 16 - 1;
+    //SPBRG = _XTAL_FREQ / baudRate / 16 - 1;
+    SPBRG = 71;
 
     //set RX input
     TRISCbits.TRISC7 = 1;
@@ -34,6 +35,7 @@ void GBS_USART_Init(uint16_t baudRate)
     //enable serial ports
     TXSTAbits.TXEN = 1;
     RCSTAbits.CREN = 1;
+    RCSTAbits.SPEN = 1;
 }
 
 void GBS_USART_Buffer_Write(USART_buffer_t* buffer, uint8_t value)
@@ -78,13 +80,17 @@ void USART_TX_ISR()
 }
 
 void USART_RX_ISR()
-{
+{    
     if (uFlag.dFlag)
     {
         if (RCREG == ' ')
         {
             uFlag.dFlag = 0;
             uFlag.rFlag = 1;
+            
+            //received
+            SEND_CHAR("DReceive");
+            while (TXSTAbits.TRMT==0);
         }
         else    GBS_USART_Receive();
     }
@@ -126,5 +132,23 @@ void USART_RX_ISR()
             break;
         }
         uFlag.cFlag = 0;
+        //recieved
+        SEND_CHAR("CReceive");
+        //while (TXSTAbits.TRMT==0);
+    }
+}
+
+
+void GBS_USART_Write_Char(char* c, uint8_t size)
+{
+    if (size < (USART_BUFFER_SIZE-2))
+    {
+        for (uint8_t i = 0; i<(size-1); i++)
+        {
+            //while (usartSendBuffer.size==USART_BUFFER_SIZE)
+            GBS_USART_Buffer_Write(&usartSendBuffer, c[i]);
+        }
+        GBS_USART_Buffer_Write(&usartSendBuffer, 13);
+        GBS_USART_Buffer_Write(&usartSendBuffer, 10);
     }
 }

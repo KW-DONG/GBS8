@@ -2718,9 +2718,7 @@ void GBS_Interrupt_Disable();
 
 void GBS_Interrupt_Init()
 {
-# 21 "../gbs8/bsp/scr/gbs8_interrupt.c"
-    GBS_T2I_Config(1);
-
+# 23 "../gbs8/bsp/scr/gbs8_interrupt.c"
     GBS_Interrupt_Enable();
 }
 
@@ -2790,26 +2788,19 @@ void GBS_T2I_Config(uint8_t mode)
 
 void __attribute__((picinterrupt(("")))) ISR()
 {
-# 128 "../gbs8/bsp/scr/gbs8_interrupt.c"
-    if (PIR1bits.TMR2IF)
+# 137 "../gbs8/bsp/scr/gbs8_interrupt.c"
+    if (PIR1bits.TXIF)
     {
-        T2I_ISR();
-        PIR1bits.TMR2IF = 0;
+        USART_TX_ISR();
+        PIR1bits.TXIF = 0;
     }
-
-
-
 
     if (PIR1bits.RCIF)
     {
         USART_RX_ISR();
         PIR1bits.RCIF = 0;
     }
-    if (PIR1bits.TXIF)
-    {
-        USART_TX_ISR();
-        PIR1bits.TXIF = 0;
-    }
+
 
 
 

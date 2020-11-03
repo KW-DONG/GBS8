@@ -11,10 +11,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../gbs8/driver/inc\gbs8_stepper.h: 145: {
 [s S140 `uc 1 `uc 1 `uc 1 `ul 1 `ul 1 `uc 1 ]
 [n S140 . state lock dir cnts cntsLast pinState ]
-"11 ../gbs8/bsp/inc\gbs8_usart.h
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 11: {
-[s S141 `uc -> 16 `i `uc 1 `uc 1 `uc 1 ]
-[n S141 . buffer head tail size ]
+"14 ../gbs8/bsp/inc\gbs8_usart.h
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 14: {
+[s S145 `uc -> 16 `i `uc 1 `uc 1 `uc 1 ]
+[n S145 . buffer head tail size ]
+"63
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 63: {
+[s S147 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S147 . r0 r1 r2 r3 r4 r5 r6 r7 ]
+"56
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 56: {
+[s S146 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S146 . cFlag dFlag rFlag ]
 "131 ../gbs8/bsp/inc\gbs8_timer.h
 [; ;../gbs8/bsp/inc\gbs8_timer.h: 131: void GBS_Timer2_Config(uint8_t state, uint8_t ckPS, uint8_t outPS, uint8_t timVar);
 [v _GBS_Timer2_Config `(v ~T0 @X0 0 ef4`uc`uc`uc`uc ]
@@ -293,12 +301,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "220
 [; ;../gbs8/driver/inc\gbs8_stepper.h: 220: stepper_t stepperA;
 [v _stepperA `S140 ~T0 @X0 1 e ]
-"18 ../gbs8/bsp/inc\gbs8_usart.h
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 18: USART_buffer_t usartReceiveBuffer;
-[v _usartReceiveBuffer `S141 ~T0 @X0 1 e ]
-"20
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 20: USART_buffer_t usartSendBuffer;
-[v _usartSendBuffer `S141 ~T0 @X0 1 e ]
+"23 ../gbs8/bsp/inc\gbs8_usart.h
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 23: USART_buffer_t usartReceiveBuffer;
+[v _usartReceiveBuffer `S145 ~T0 @X0 1 e ]
+"25
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 25: USART_buffer_t usartSendBuffer;
+[v _usartSendBuffer `S145 ~T0 @X0 1 e ]
+"74
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 74: ctrl_t ctrlBits;
+[v _ctrlBits `S147 ~T0 @X0 1 e ]
+"77
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 77: usartFlag_t uFlag;
+[v _uFlag `S146 ~T0 @X0 1 e ]
 "7 ../gbs8/driver/scr/gbs8_stepper.c
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 7: void GBS_Stepper_Init()
 [v _GBS_Stepper_Init `(v ~T0 @X0 1 ef ]
@@ -327,7 +341,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GBS_Stepper_Buffer_Init (1 &U _sBufferA ]
 "54
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 54: }
-[e :UE 142 ]
+[e :UE 148 ]
 }
 "56
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 56: void GBS_Stepper_Buffer_Init(sBuffer_t* sBufferX)
@@ -347,9 +361,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 3 `i 144  ]
-[e $U 145  ]
-[e :U 144 ]
+[e $ < -> _i `i -> 3 `i 150  ]
+[e $U 151  ]
+[e :U 150 ]
 "59
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 59:     {
 {
@@ -360,12 +374,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 61:     }
 }
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 3 `i 144  ]
-[e :U 145 ]
+[e $ < -> _i `i -> 3 `i 150  ]
+[e :U 151 ]
 }
 "62
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 62: }
-[e :UE 143 ]
+[e :UE 149 ]
 }
 "64
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 64: void GBS_Stepper_Config(stepper_t* stepperX, uint8_t state)
@@ -386,17 +400,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U _stepperX 5 -> -> 0 `i `uc ]
 "67
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 67:     if (state==1) stepperX->state = 1;
-[e $ ! == -> _state `i -> 1 `i 148  ]
+[e $ ! == -> _state `i -> 1 `i 154  ]
 [e = . *U _stepperX 0 -> -> 1 `i `uc ]
-[e $U 149  ]
+[e $U 155  ]
 "68
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 68:     else stepperX->state = 0;
-[e :U 148 ]
+[e :U 154 ]
 [e = . *U _stepperX 0 -> -> 0 `i `uc ]
-[e :U 149 ]
+[e :U 155 ]
 "69
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 69: }
-[e :UE 147 ]
+[e :UE 153 ]
 }
 "121
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 121: uint8_t GBS_Stepper_Planner(sBuffer_t* sBufferX, dir_t dir, rotate_t rotation, speedRm_t v_i, speedRm_t v_m, speedRm_t v_o, accRm_t a_i, accRm_t a_o)
@@ -448,7 +462,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _totalSteps -> * _rotation -> -> 200 `i `f `ul ]
 "136
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 136:     if (v_a<=v_m)
-[e $ ! <= _v_a _v_m 151  ]
+[e $ ! <= _v_a _v_m 157  ]
 "137
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 137:     {
 {
@@ -464,10 +478,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "141
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 141:     }
 }
-[e $U 152  ]
+[e $U 158  ]
 "142
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 142:     else
-[e :U 151 ]
+[e :U 157 ]
 "143
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 143:     {
 {
@@ -498,10 +512,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "157
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 157:     }
 }
-[e :U 152 ]
+[e :U 158 ]
 "160
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 160:     if (sBufferX->buffer[sBufferX->tail].flag==1)
-[e $ ! == -> . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 2 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 7 `i -> 1 `i 153  ]
+[e $ ! == -> . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 2 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 7 `i -> 1 `i 159  ]
 "161
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 161:     {
 {
@@ -535,28 +549,28 @@ Version 4.0 HI-TECH Software Intermediate Code
 "172
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 172:         return 0;
 [e ) -> -> 0 `i `uc ]
-[e $UE 150  ]
+[e $UE 156  ]
 "173
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 173:     }
 }
-[e $U 154  ]
+[e $U 160  ]
 "174
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 174:     else
-[e :U 153 ]
+[e :U 159 ]
 "175
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 175:     {
 {
 "176
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 176:         return 1;
 [e ) -> -> 1 `i `uc ]
-[e $UE 150  ]
+[e $UE 156  ]
 "177
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 177:     }
 }
-[e :U 154 ]
+[e :U 160 ]
 "178
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 178: }
-[e :UE 150 ]
+[e :UE 156 ]
 }
 "198
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 198: void GBS_Stepper_Exe(stepper_t* stepperX, sBuffer_t* sBufferX)
@@ -574,7 +588,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "200
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 200:     if (stepperX->pinState==1)
-[e $ ! == -> . *U _stepperX 5 `i -> 1 `i 156  ]
+[e $ ! == -> . *U _stepperX 5 `i -> 1 `i 162  ]
 "201
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 201:     {
 {
@@ -587,33 +601,33 @@ Version 4.0 HI-TECH Software Intermediate Code
 "208
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 208:     }
 }
-[e $U 157  ]
+[e $U 163  ]
 "209
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 209:     else
-[e :U 156 ]
+[e :U 162 ]
 "210
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 210:     {
 {
 "211
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 211:         if (stepperX->cnts>0) stepperX->cnts--;
-[e $ ! > . *U _stepperX 3 -> -> -> 0 `i `l `ul 158  ]
+[e $ ! > . *U _stepperX 3 -> -> -> 0 `i `l `ul 164  ]
 [e -- . *U _stepperX 3 -> -> -> 1 `i `l `ul ]
-[e $U 159  ]
+[e $U 165  ]
 "212
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 212:         else
-[e :U 158 ]
+[e :U 164 ]
 "213
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 213:         {
 {
 "215
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 215:             if (sBufferX->buffer[sBufferX->head].acc_until+sBufferX->buffer[sBufferX->head].dec_after+sBufferX->buffer[sBufferX->head].dec_until==0)
-[e $ ! == + + . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 1 . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 2 . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 3 -> -> -> 0 `i `l `ul 160  ]
+[e $ ! == + + . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 1 . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 2 . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 3 -> -> -> 0 `i `l `ul 166  ]
 "216
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 216:             {
 {
 "218
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 218:                 if (sBufferX->buffer[(sBufferX->head+1)%3].flag==2)
-[e $ ! == -> . *U + &U . *U _sBufferX 0 * -> -> % + -> . *U _sBufferX 1 `i -> 1 `i -> 3 `i `ui `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 7 `i -> 2 `i 161  ]
+[e $ ! == -> . *U + &U . *U _sBufferX 0 * -> -> % + -> . *U _sBufferX 1 `i -> 1 `i -> 3 `i `ui `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 7 `i -> 2 `i 167  ]
 "219
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 219:                 {
 {
@@ -625,7 +639,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 7 -> -> 3 `i `uc ]
 "222
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 222:                     if (stepperX->state==0)
-[e $ ! == -> . *U _stepperX 0 `i -> 0 `i 162  ]
+[e $ ! == -> . *U _stepperX 0 `i -> 0 `i 168  ]
 "223
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 223:                     {
 {
@@ -638,14 +652,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 "226
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 226:                     }
 }
-[e :U 162 ]
+[e :U 168 ]
 "227
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 227:                 }
 }
-[e $U 163  ]
+[e $U 169  ]
 "228
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 228:                 else
-[e :U 161 ]
+[e :U 167 ]
 "229
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 229:                 {
 {
@@ -655,20 +669,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "231
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 231:                 }
 }
-[e :U 163 ]
+[e :U 169 ]
 "232
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 232:             }
 }
-[e :U 160 ]
+[e :U 166 ]
 "235
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 235:             if (sBufferX->buffer[sBufferX->head].flag == 3)
-[e $ ! == -> . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 7 `i -> 3 `i 164  ]
+[e $ ! == -> . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 7 `i -> 3 `i 170  ]
 "236
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 236:             {
 {
 "237
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 237:                 if (sBufferX->buffer[sBufferX->head].acc_until>=0)
-[e $ ! >= . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 1 -> -> -> 0 `i `l `ul 165  ]
+[e $ ! >= . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 1 -> -> -> 0 `i `l `ul 171  ]
 "238
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 238:                 {
 {
@@ -687,11 +701,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "244
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 244:                 }
 }
-[e $U 166  ]
+[e $U 172  ]
 "245
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 245:                 else if (sBufferX->buffer[sBufferX->head].dec_after>=0)
-[e :U 165 ]
-[e $ ! >= . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 2 -> -> -> 0 `i `l `ul 167  ]
+[e :U 171 ]
+[e $ ! >= . *U + &U . *U _sBufferX 0 * -> . *U _sBufferX 1 `ux -> -> # *U &U . *U _sBufferX 0 `ui `ux 2 -> -> -> 0 `i `l `ul 173  ]
 "246
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 246:                 {
 {
@@ -704,10 +718,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "249
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 249:                 }
 }
-[e $U 168  ]
+[e $U 174  ]
 "250
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 250:                 else
-[e :U 167 ]
+[e :U 173 ]
 "251
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 251:                 {
 {
@@ -720,26 +734,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 "254
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 254:                 }
 }
-[e :U 168 ]
-[e :U 166 ]
+[e :U 174 ]
+[e :U 172 ]
 "255
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 255:                 stepperX->cnts = stepperX->cntsLast;
 [e = . *U _stepperX 3 . *U _stepperX 4 ]
 "256
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 256:             }
 }
-[e :U 164 ]
+[e :U 170 ]
 "257
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 257:         }
 }
-[e :U 159 ]
+[e :U 165 ]
 "258
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 258:     }
 }
-[e :U 157 ]
+[e :U 163 ]
 "259
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 259: }
-[e :UE 155 ]
+[e :UE 161 ]
 }
 "261
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 261: void GBS_Stepper_Update(void)
@@ -751,7 +765,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "264
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 264:     if (stepperA.state == 0)
-[e $ ! == -> . _stepperA 0 `i -> 0 `i 170  ]
+[e $ ! == -> . _stepperA 0 `i -> 0 `i 176  ]
 "265
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 265:     {
 {
@@ -761,10 +775,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "267
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 267:     }
 }
-[e $U 171  ]
+[e $U 177  ]
 "268
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 268:     else
-[e :U 170 ]
+[e :U 176 ]
 "269
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 269:     {
 {
@@ -777,10 +791,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "272
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 272:     }
 }
-[e :U 171 ]
+[e :U 177 ]
 "323
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 323: }
-[e :UE 169 ]
+[e :UE 175 ]
 }
 "325
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 325: void T2I_ISR()
@@ -792,13 +806,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [f ]
 "333
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 333:     if (stepperA.lock==0) GBS_Stepper_Exe(&stepperA, &sBufferA);
-[e $ ! == -> . _stepperA 1 `i -> 0 `i 173  ]
+[e $ ! == -> . _stepperA 1 `i -> 0 `i 179  ]
 [e ( _GBS_Stepper_Exe (2 , &U _stepperA &U _sBufferA ]
-[e :U 173 ]
+[e :U 179 ]
 "352
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 352:     GBS_Stepper_Update();
 [e ( _GBS_Stepper_Update ..  ]
 "353
 [; ;../gbs8/driver/scr/gbs8_stepper.c: 353: }
-[e :UE 172 ]
+[e :UE 178 ]
 }

@@ -19,6 +19,14 @@ int main()
     
     while(1)
     {
+        RUN_BLINK(LED_ON);
+        //TXREG = 'G';
+        __delay_ms(1000);
+        RUN_BLINK(LED_OFF);
+        __delay_ms(1000);
+        SEND_CHAR("1234");
+        GBS_USART_Send();
+        
     #if (TEST_STEPPER)
         if (sBufferA.buffer[sBufferA.tail].flag == BLOCK_FREE)
         {
@@ -37,8 +45,8 @@ int main()
         }
     #endif
     #if (TEST_USART)
-        GBS_USART_Buffer_Write(&usartSendBuffer, 'a');
-        GBS_USART_Send(&usartSendBuffer);
+        //GBS_USART_Buffer_Write(&usartSendBuffer, 'a');
+        //GBS_USART_Send(&usartSendBuffer);
     #endif
     }
 }

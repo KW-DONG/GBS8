@@ -43,7 +43,7 @@
 #define T1I_EN      0
 
 //TMR2 overflow interrupt
-#define T2I_EN      1
+#define T2I_EN      0
 
 //USART interrupt
 #define USART_EN    1

@@ -4,6 +4,7 @@
 #include <pic16f887.h>
 #include <xc.h>
 #include <stdint.h>
+#include <stdlib.h>
 
 /*****************************USART***********************************************/
 
@@ -42,7 +43,7 @@ void GBS_USART_Receive(void);
  */
 void GBS_USART_Send(void);
 
-void GBS_Read_Char(char* c);
+void GBS_USART_Write_Char(char* c, uint8_t size);
 
 /**********************************PROTOCAL******************************************/
 /**
@@ -55,7 +56,6 @@ typedef struct
 {
     uint8_t cFlag:1;
     uint8_t dFlag:1;
-    uint8_t eFlag:1;
     uint8_t rFlag:1;
 }usartFlag_t;
 
@@ -80,9 +80,11 @@ void GBS_Ctrl_Update(void);
 
 uint8_t GBS_Ctrl_Read(uint8_t i);
 
+#define COMMAND_FB  GBS_USART_Write_Char(char* c, uint8_t size)
+
+#define SEND_CHAR(X)    GBS_USART_Write_Char(X, sizeof(X));
 
 
-
-
+void GBS_Feedback();
 
 #endif

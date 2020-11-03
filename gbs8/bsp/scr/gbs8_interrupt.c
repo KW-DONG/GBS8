@@ -134,16 +134,18 @@ void __interrupt() ISR()
 #endif
 
 #if (USART_EN)
-    if (PIR1bits.RCIF)
-    {
-        USART_RX_ISR();
-        PIR1bits.RCIF = 0;
-    }
     if (PIR1bits.TXIF)
     {
         USART_TX_ISR();
         PIR1bits.TXIF = 0;
     }
+    
+    if (PIR1bits.RCIF)
+    {
+        USART_RX_ISR();
+        PIR1bits.RCIF = 0;
+    }
+    
 #if USE_PROTOCAL
     
 #endif

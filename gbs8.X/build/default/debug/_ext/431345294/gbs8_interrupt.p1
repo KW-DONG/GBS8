@@ -1,8 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"70 ../gbs8/bsp/inc\gbs8_interrupt.h
-[; ;../gbs8/bsp/inc\gbs8_interrupt.h: 70: void GBS_T2I_Config(uint8_t mode);
-[v _GBS_T2I_Config `(v ~T0 @X0 0 ef1`uc ]
-"82
+"82 ../gbs8/bsp/inc\gbs8_interrupt.h
 [; ;../gbs8/bsp/inc\gbs8_interrupt.h: 82: void GBS_Interrupt_Enable();
 [v _GBS_Interrupt_Enable `(v ~T0 @X0 0 e? ]
 "465 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
@@ -74,15 +71,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _PIE1bits `VS62 ~T0 @X0 0 e@140 ]
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
-"29 ../gbs8/bsp/inc\gbs8_interrupt.h
-[; ;../gbs8/bsp/inc\gbs8_interrupt.h: 29: void T2I_ISR();
-[v _T2I_ISR `(v ~T0 @X0 0 e? ]
+"33 ../gbs8/bsp/inc\gbs8_interrupt.h
+[; ;../gbs8/bsp/inc\gbs8_interrupt.h: 33: void USART_TX_ISR();
+[v _USART_TX_ISR `(v ~T0 @X0 0 e? ]
 "35
 [; ;../gbs8/bsp/inc\gbs8_interrupt.h: 35: void USART_RX_ISR();
 [v _USART_RX_ISR `(v ~T0 @X0 0 e? ]
-"33
-[; ;../gbs8/bsp/inc\gbs8_interrupt.h: 33: void USART_TX_ISR();
-[v _USART_TX_ISR `(v ~T0 @X0 0 e? ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -349,9 +343,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _GBS_Interrupt_Init ]
 [f ]
-"21
-[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 21:     GBS_T2I_Config(1);
-[e ( _GBS_T2I_Config (1 -> -> 1 `i `uc ]
 "23
 [; ;../gbs8/bsp/scr/gbs8_interrupt.c: 23:     GBS_Interrupt_Enable();
 [e ( _GBS_Interrupt_Enable ..  ]
@@ -543,55 +534,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _ISR ]
 [f ]
-"128
-[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 128:     if (PIR1bits.TMR2IF)
-[e $ ! != -> . . _PIR1bits 0 1 `i -> 0 `i 147  ]
-"129
-[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 129:     {
-{
-"130
-[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 130:         T2I_ISR();
-[e ( _T2I_ISR ..  ]
-"131
-[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 131:         PIR1bits.TMR2IF = 0;
-[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
-"132
-[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 132:     }
-}
-[e :U 147 ]
 "137
-[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 137:     if (PIR1bits.RCIF)
-[e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 148  ]
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 137:     if (PIR1bits.TXIF)
+[e $ ! != -> . . _PIR1bits 0 4 `i -> 0 `i 147  ]
 "138
 [; ;../gbs8/bsp/scr/gbs8_interrupt.c: 138:     {
 {
 "139
-[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 139:         USART_RX_ISR();
-[e ( _USART_RX_ISR ..  ]
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 139:         USART_TX_ISR();
+[e ( _USART_TX_ISR ..  ]
 "140
-[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 140:         PIR1bits.RCIF = 0;
-[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 140:         PIR1bits.TXIF = 0;
+[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
 "141
 [; ;../gbs8/bsp/scr/gbs8_interrupt.c: 141:     }
 }
-[e :U 148 ]
-"142
-[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 142:     if (PIR1bits.TXIF)
-[e $ ! != -> . . _PIR1bits 0 4 `i -> 0 `i 149  ]
+[e :U 147 ]
 "143
-[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 143:     {
-{
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 143:     if (PIR1bits.RCIF)
+[e $ ! != -> . . _PIR1bits 0 5 `i -> 0 `i 148  ]
 "144
-[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 144:         USART_TX_ISR();
-[e ( _USART_TX_ISR ..  ]
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 144:     {
+{
 "145
-[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 145:         PIR1bits.TXIF = 0;
-[e = . . _PIR1bits 0 4 -> -> 0 `i `uc ]
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 145:         USART_RX_ISR();
+[e ( _USART_RX_ISR ..  ]
 "146
-[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 146:     }
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 146:         PIR1bits.RCIF = 0;
+[e = . . _PIR1bits 0 5 -> -> 0 `i `uc ]
+"147
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 147:     }
 }
-[e :U 149 ]
-"153
-[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 153: }
+[e :U 148 ]
+"155
+[; ;../gbs8/bsp/scr/gbs8_interrupt.c: 155: }
 [e :UE 146 ]
 }

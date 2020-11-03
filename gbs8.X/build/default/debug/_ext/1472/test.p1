@@ -11,23 +11,46 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;../gbs8/driver/inc\gbs8_stepper.h: 145: {
 [s S140 `uc 1 `uc 1 `uc 1 `ul 1 `ul 1 `uc 1 ]
 [n S140 . state lock dir cnts cntsLast pinState ]
-"11 ../gbs8/bsp/inc\gbs8_usart.h
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 11: {
-[s S141 `uc -> 16 `i `uc 1 `uc 1 `uc 1 ]
-[n S141 . buffer head tail size ]
+"14 ../gbs8/bsp/inc\gbs8_usart.h
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 14: {
+[s S145 `uc -> 16 `i `uc 1 `uc 1 `uc 1 ]
+[n S145 . buffer head tail size ]
+"63
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 63: {
+[s S147 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S147 . r0 r1 r2 r3 r4 r5 r6 r7 ]
+"56
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 56: {
+[s S146 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S146 . cFlag dFlag rFlag ]
 [p mainexit ]
 "77 ../gbs8/bsp/inc\gbs8_interrupt.h
 [; ;../gbs8/bsp/inc\gbs8_interrupt.h: 77: void GBS_Interrupt_Init();
 [v _GBS_Interrupt_Init `(v ~T0 @X0 0 e? ]
-"26 ../gbs8/bsp/inc\gbs8_usart.h
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 26: void GBS_USART_Init(uint16_t baudRate);
+"35 ../gbs8/bsp/inc\gbs8_usart.h
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 35: void GBS_USART_Init(uint16_t baudRate);
 [v _GBS_USART_Init `(v ~T0 @X0 0 ef1`ui ]
-"24
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 24: void GBS_USART_Buffer_Write(USART_buffer_t* buffer, uint8_t value);
-[v _GBS_USART_Buffer_Write `(v ~T0 @X0 0 ef2`*S141`uc ]
-"35
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 35: void GBS_USART_Send(USART_buffer_t* buffer);
-[v _GBS_USART_Send `(v ~T0 @X0 0 ef1`*S141 ]
+"1670 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1670:     struct {
+[s S61 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S61 . TRISE0 TRISE1 TRISE2 TRISE3 ]
+"1669
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1669: typedef union {
+[u S60 `S61 1 ]
+[n S60 . . ]
+"1677
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1677: extern volatile TRISEbits_t TRISEbits __attribute__((address(0x089)));
+[v _TRISEbits `VS60 ~T0 @X0 0 e@137 ]
+[v F1256 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
+[v __delay `JF1256 ~T0 @X0 0 e ]
+[p i __delay ]
+"46 ../gbs8/bsp/inc\gbs8_usart.h
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 46: void GBS_USART_Write_Char(char* c, uint8_t size);
+[v _GBS_USART_Write_Char `(v ~T0 @X0 0 ef2`*uc`uc ]
+"44
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 44: void GBS_USART_Send(void);
+[v _GBS_USART_Send `(v ~T0 @X0 0 ef ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -292,12 +315,18 @@ Version 4.0 HI-TECH Software Intermediate Code
 "220
 [; ;../gbs8/driver/inc\gbs8_stepper.h: 220: stepper_t stepperA;
 [v _stepperA `S140 ~T0 @X0 1 e ]
-"18 ../gbs8/bsp/inc\gbs8_usart.h
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 18: USART_buffer_t usartReceiveBuffer;
-[v _usartReceiveBuffer `S141 ~T0 @X0 1 e ]
-"20
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 20: USART_buffer_t usartSendBuffer;
-[v _usartSendBuffer `S141 ~T0 @X0 1 e ]
+"23 ../gbs8/bsp/inc\gbs8_usart.h
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 23: USART_buffer_t usartReceiveBuffer;
+[v _usartReceiveBuffer `S145 ~T0 @X0 1 e ]
+"25
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 25: USART_buffer_t usartSendBuffer;
+[v _usartSendBuffer `S145 ~T0 @X0 1 e ]
+"74
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 74: ctrl_t ctrlBits;
+[v _ctrlBits `S147 ~T0 @X0 1 e ]
+"77
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 77: usartFlag_t uFlag;
+[v _uFlag `S146 ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "14 ../test.c
 [; ;../test.c: 14: int main()
@@ -315,23 +344,36 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _GBS_USART_Init (1 -> -> 9600 `i `ui ]
 "20
 [; ;../test.c: 20:     while(1)
-[e :U 144 ]
+[e :U 150 ]
 "21
 [; ;../test.c: 21:     {
 {
-"40
-[; ;../test.c: 40:         GBS_USART_Buffer_Write(&usartSendBuffer, 'a');
-[e ( _GBS_USART_Buffer_Write (2 , &U _usartSendBuffer -> -> 97 `ui `uc ]
-"41
-[; ;../test.c: 41:         GBS_USART_Send(&usartSendBuffer);
-[e ( _GBS_USART_Send (1 &U _usartSendBuffer ]
-"43
-[; ;../test.c: 43:     }
+"22
+[; ;../test.c: 22:         TRISEbits.TRISE0 = 1;
+[e = . . _TRISEbits 0 0 -> -> 1 `i `uc ]
+"24
+[; ;../test.c: 24:         _delay((unsigned long)((1000)*(11059200/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 11059200 `l `d .4000.0 `ul ]
+"25
+[; ;../test.c: 25:         TRISEbits.TRISE0 = 0;
+[e = . . _TRISEbits 0 0 -> -> 0 `i `uc ]
+"26
+[; ;../test.c: 26:         _delay((unsigned long)((1000)*(11059200/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 11059200 `l `d .4000.0 `ul ]
+"27
+[; ;../test.c: 27:         GBS_USART_Write_Char("1234", sizeof("1234"));;
+[e ( _GBS_USART_Write_Char (2 , :s 1C -> -> 5 `ui `uc ]
+"28
+[; ;../test.c: 28:         GBS_USART_Send();
+[e ( _GBS_USART_Send ..  ]
+"51
+[; ;../test.c: 51:     }
 }
-[e :U 143 ]
-[e $U 144  ]
-[e :U 145 ]
-"44
-[; ;../test.c: 44: }
-[e :UE 142 ]
+[e :U 149 ]
+[e $U 150  ]
+[e :U 151 ]
+"52
+[; ;../test.c: 52: }
+[e :UE 148 ]
 }
+[a 1C 49 50 51 52 0 ]

@@ -4,11 +4,6 @@
         <group>
             <file>file:/E:/Workspace/GBS8/test.c</file>
             <file>file:/E:/Workspace/GBS8/gbs8/bsp/scr/gbs8_timer.c</file>
-            <file>file:/E:/Workspace/GBS8/gbs8/bsp/inc/gbs8_timer.h</file>
-            <file>file:/E:/Workspace/GBS8/gbs8/driver/scr/gbs8_stepper.c</file>
-            <file>file:/C:/Program%20Files/Microchip/xc8/v2.20/pic/sources/c90/common/Umul8.c</file>
-            <file>file:/C:/Program%20Files/Microchip/xc8/v2.20/pic/sources/c90/common/awmod.c</file>
-            <file>file:/E:/Workspace/GBS8/gbs8/bsp/inc/gbs8_usart.h</file>
         </group>
     </open-files>
 </project-private>
