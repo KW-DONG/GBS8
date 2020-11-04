@@ -92,7 +92,12 @@ void USART_RX_ISR()
 
             while (TXSTAbits.TRMT==0);
         }
-        else    GBS_USART_Receive();
+        else if (uFlag.dtFlag)
+        {
+            usartReceiveBuffer.tail = RCREG;
+            uFlag.dtFlag = 0;
+        }
+        else GBS_USART_Receive();    
     }
     else if (RCREG == 'C')
     {
@@ -100,7 +105,8 @@ void USART_RX_ISR()
     }
     else if (RCREG == 'D')
     {
-        if (uFlag.cFlag != 1)   uFlag.dFlag = 1;
+        uFlag.dFlag = 1;
+        uFlag.dtFlag = 1;
     }
     else if (uFlag.cFlag == 1)
     {
@@ -206,9 +212,14 @@ void GBS_Message_Update()
         if (ctrlBits.fc)
         {
             ctrlBits.fc = 0;
-            GBS_USART_Write_Char(SEND_7, sizeof(SEND_7));
+            GBS_USART_Write_Char(DATA_FEEDBACK, sizeof(DATA_FEEDBACK));
+            GBS_USART_Send();
+        }
+        if (ctrlBits.fd)
+        {
+            ctrlBits.fd = 0;
+            GBS_USART_Write_Char(COMMAND_FEEDBACK, sizeof(COMMAND_FEEDBACK));
             GBS_USART_Send();
         }
     }
-
 }

@@ -16,6 +16,7 @@ typedef struct
     uint8_t head;
     uint8_t tail;
     uint8_t size;
+    uint8_t tag;
 }USART_buffer_t;
 
 typedef char command_t;  
@@ -48,7 +49,7 @@ void GBS_USART_Write_Char(char* c, uint8_t size);
 /**********************************PROTOCAL******************************************/
 /**
  * standard command 'C'+'num'
- * standard data    'D'+'data'+' '
+ * standard data    'D'+' '+'tag'+' '+'data'+' '
  * please do not send space as data or command
  * 
  * The GBS8-USART protocal supports:
@@ -75,6 +76,7 @@ typedef struct
 {
     uint8_t cFlag:1;
     uint8_t dFlag:1;
+    uint8_t dtFlag:1;
     uint8_t rFlag:1;
 }usartFlag_t;
 
