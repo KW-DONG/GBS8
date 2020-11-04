@@ -13,16 +13,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [n S140 . state lock dir cnts cntsLast pinState ]
 "14 ../gbs8/bsp/inc\gbs8_usart.h
 [; ;../gbs8/bsp/inc\gbs8_usart.h: 14: {
-[s S145 `uc -> 16 `i `uc 1 `uc 1 `uc 1 ]
-[n S145 . buffer head tail size ]
-"63
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 63: {
-[s S147 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S147 . r0 r1 r2 r3 r4 r5 r6 r7 ]
-"56
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 56: {
-[s S146 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S146 . cFlag dFlag rFlag ]
+[s S141 `uc -> 16 `i `uc 1 `uc 1 `uc 1 ]
+[n S141 . buffer head tail size ]
+"72
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 72: {
+[s S143 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S143 . r0 r1 r2 r3 r4 r5 r6 rd s0 s1 s2 s3 s4 s5 s6 sd ]
+"65
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 65: {
+[s S142 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S142 . cFlag dFlag rFlag ]
 [p mainexit ]
 "77 ../gbs8/bsp/inc\gbs8_interrupt.h
 [; ;../gbs8/bsp/inc\gbs8_interrupt.h: 77: void GBS_Interrupt_Init();
@@ -41,16 +41,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1677
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1677: extern volatile TRISEbits_t TRISEbits __attribute__((address(0x089)));
 [v _TRISEbits `VS60 ~T0 @X0 0 e@137 ]
-[v F1256 `(v ~T0 @X0 1 tf1`ul ]
-"92 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
-[v __delay `JF1256 ~T0 @X0 0 e ]
-[p i __delay ]
-"46 ../gbs8/bsp/inc\gbs8_usart.h
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 46: void GBS_USART_Write_Char(char* c, uint8_t size);
-[v _GBS_USART_Write_Char `(v ~T0 @X0 0 ef2`*uc`uc ]
-"44
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 44: void GBS_USART_Send(void);
-[v _GBS_USART_Send `(v ~T0 @X0 0 ef ]
+"101 ../gbs8/bsp/inc\gbs8_usart.h
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 101: void GBS_Message_Update();
+[v _GBS_Message_Update `(v ~T0 @X0 0 e? ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -317,16 +310,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _stepperA `S140 ~T0 @X0 1 e ]
 "23 ../gbs8/bsp/inc\gbs8_usart.h
 [; ;../gbs8/bsp/inc\gbs8_usart.h: 23: USART_buffer_t usartReceiveBuffer;
-[v _usartReceiveBuffer `S145 ~T0 @X0 1 e ]
+[v _usartReceiveBuffer `S141 ~T0 @X0 1 e ]
 "25
 [; ;../gbs8/bsp/inc\gbs8_usart.h: 25: USART_buffer_t usartSendBuffer;
-[v _usartSendBuffer `S145 ~T0 @X0 1 e ]
-"74
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 74: ctrl_t ctrlBits;
-[v _ctrlBits `S147 ~T0 @X0 1 e ]
-"77
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 77: usartFlag_t uFlag;
-[v _uFlag `S146 ~T0 @X0 1 e ]
+[v _usartSendBuffer `S141 ~T0 @X0 1 e ]
+"94
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 94: ctrl_t ctrlBits;
+[v _ctrlBits `S143 ~T0 @X0 1 e ]
+"96
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 96: usartFlag_t uFlag;
+[v _uFlag `S142 ~T0 @X0 1 e ]
 [v $root$_main `(v ~T0 @X0 0 e ]
 "14 ../test.c
 [; ;../test.c: 14: int main()
@@ -342,38 +335,25 @@ Version 4.0 HI-TECH Software Intermediate Code
 "18
 [; ;../test.c: 18:     GBS_USART_Init(9600);
 [e ( _GBS_USART_Init (1 -> -> 9600 `i `ui ]
-"20
-[; ;../test.c: 20:     while(1)
-[e :U 150 ]
-"21
-[; ;../test.c: 21:     {
-{
-"22
-[; ;../test.c: 22:         TRISEbits.TRISE0 = 1;
+"19
+[; ;../test.c: 19:     TRISEbits.TRISE0 = 1;
 [e = . . _TRISEbits 0 0 -> -> 1 `i `uc ]
-"24
-[; ;../test.c: 24:         _delay((unsigned long)((1000)*(11059200/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 11059200 `l `d .4000.0 `ul ]
-"25
-[; ;../test.c: 25:         TRISEbits.TRISE0 = 0;
-[e = . . _TRISEbits 0 0 -> -> 0 `i `uc ]
-"26
-[; ;../test.c: 26:         _delay((unsigned long)((1000)*(11059200/4000.0)));
-[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 11059200 `l `d .4000.0 `ul ]
-"27
-[; ;../test.c: 27:         GBS_USART_Write_Char("1234", sizeof("1234"));;
-[e ( _GBS_USART_Write_Char (2 , :s 1C -> -> 5 `ui `uc ]
-"28
-[; ;../test.c: 28:         GBS_USART_Send();
-[e ( _GBS_USART_Send ..  ]
-"51
-[; ;../test.c: 51:     }
+"21
+[; ;../test.c: 21:     while(1)
+[e :U 146 ]
+"22
+[; ;../test.c: 22:     {
+{
+"46
+[; ;../test.c: 46:         GBS_Message_Update();
+[e ( _GBS_Message_Update ..  ]
+"48
+[; ;../test.c: 48:     }
 }
-[e :U 149 ]
-[e $U 150  ]
-[e :U 151 ]
-"52
-[; ;../test.c: 52: }
-[e :UE 148 ]
+[e :U 145 ]
+[e $U 146  ]
+[e :U 147 ]
+"49
+[; ;../test.c: 49: }
+[e :UE 144 ]
 }
-[a 1C 49 50 51 52 0 ]

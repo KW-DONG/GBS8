@@ -1,16 +1,16 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "14 ../gbs8/bsp/inc\gbs8_usart.h
 [; ;../gbs8/bsp/inc\gbs8_usart.h: 14: {
-[s S142 `uc -> 16 `i `uc 1 `uc 1 `uc 1 ]
-[n S142 . buffer head tail size ]
-"63
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 63: {
-[s S144 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S144 . r0 r1 r2 r3 r4 r5 r6 r7 ]
-"56
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 56: {
-[s S143 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S143 . cFlag dFlag rFlag ]
+[s S138 `uc -> 16 `i `uc 1 `uc 1 `uc 1 ]
+[n S138 . buffer head tail size ]
+"72
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 72: {
+[s S140 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S140 . r0 r1 r2 r3 r4 r5 r6 rd s0 s1 s2 s3 s4 s5 s6 sd ]
+"65
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 65: {
+[s S139 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S139 . cFlag dFlag rFlag ]
 "1708 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1708:     struct {
 [s S63 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -95,9 +95,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1140
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 1140: extern volatile unsigned char RCREG __attribute__((address(0x01A)));
 [v _RCREG `Vuc ~T0 @X0 0 e@26 ]
-"46 ../gbs8/bsp/inc\gbs8_usart.h
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 46: void GBS_USART_Write_Char(char* c, uint8_t size);
-[v _GBS_USART_Write_Char `(v ~T0 @X0 0 ef2`*uc`uc ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f887.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -334,16 +331,16 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" EECON2 equ 018Dh ;# ">
 "23 ../gbs8/bsp/inc\gbs8_usart.h
 [; ;../gbs8/bsp/inc\gbs8_usart.h: 23: USART_buffer_t usartReceiveBuffer;
-[v _usartReceiveBuffer `S142 ~T0 @X0 1 e ]
+[v _usartReceiveBuffer `S138 ~T0 @X0 1 e ]
 "25
 [; ;../gbs8/bsp/inc\gbs8_usart.h: 25: USART_buffer_t usartSendBuffer;
-[v _usartSendBuffer `S142 ~T0 @X0 1 e ]
-"74
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 74: ctrl_t ctrlBits;
-[v _ctrlBits `S144 ~T0 @X0 1 e ]
-"77
-[; ;../gbs8/bsp/inc\gbs8_usart.h: 77: usartFlag_t uFlag;
-[v _uFlag `S143 ~T0 @X0 1 e ]
+[v _usartSendBuffer `S138 ~T0 @X0 1 e ]
+"94
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 94: ctrl_t ctrlBits;
+[v _ctrlBits `S140 ~T0 @X0 1 e ]
+"96
+[; ;../gbs8/bsp/inc\gbs8_usart.h: 96: usartFlag_t uFlag;
+[v _uFlag `S139 ~T0 @X0 1 e ]
 "7 ../gbs8/bsp/inc\gbs8_config.h
 [p x FOSC = HS ]
 "8
@@ -368,461 +365,613 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x BOR4V = BOR21V ]
 "20
 [p x WRT = OFF ]
-"6 ../gbs8/bsp/scr/gbs8_usart.c
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 6: void GBS_USART_Init(uint16_t baudRate)
+"7 ../gbs8/bsp/scr/gbs8_usart.c
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 7: void GBS_USART_Init(uint16_t baudRate)
 [v _GBS_USART_Init `(v ~T0 @X0 1 ef1`ui ]
-"7
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 7: {
+"8
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 8: {
 {
 [e :U _GBS_USART_Init ]
-"6
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 6: void GBS_USART_Init(uint16_t baudRate)
-[v _baudRate `ui ~T0 @X0 1 r1 ]
 "7
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 7: {
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 7: void GBS_USART_Init(uint16_t baudRate)
+[v _baudRate `ui ~T0 @X0 1 r1 ]
+"8
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 8: {
 [f ]
-"9
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 9:     PIE1bits.TXIE = 0;
-[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
 "10
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 10:     PIE1bits.RCIE = 1;
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 10:     PIE1bits.TXIE = 0;
+[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
+"11
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 11:     PIE1bits.RCIE = 1;
 [e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
-"12
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 12:     TXSTAbits.TX9 = 0;
+"13
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 13:     TXSTAbits.TX9 = 0;
 [e = . . _TXSTAbits 0 6 -> -> 0 `i `uc ]
-"15
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 15:     TXSTAbits.SYNC = 0;
-[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
 "16
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 16:     RCSTAbits.RX9 = 0;
-[e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 16:     TXSTAbits.SYNC = 0;
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
 "17
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 17:     BAUDCTLbits.BRG16 = 0;
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 17:     RCSTAbits.RX9 = 0;
+[e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
+"18
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 18:     BAUDCTLbits.BRG16 = 0;
 [e = . . _BAUDCTLbits 0 3 -> -> 0 `i `uc ]
-"20
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 20:     TXSTAbits.SENDB = 0;
+"21
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 21:     TXSTAbits.SENDB = 0;
 [e = . . _TXSTAbits 0 3 -> -> 0 `i `uc ]
-"23
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 23:     TXSTAbits.BRGH = 1;
+"24
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 24:     TXSTAbits.BRGH = 1;
 [e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
 "27
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 27:     SPBRG = 71;
-[e = _SPBRG -> -> 71 `i `uc ]
-"30
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 30:     TRISCbits.TRISC7 = 1;
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 27:     SPBRG = 11059200 / baudRate / 16 - 1;
+[e = _SPBRG -> - / / -> 11059200 `l -> _baudRate `l -> -> 16 `i `l -> -> 1 `i `l `uc ]
+"31
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 31:     TRISCbits.TRISC7 = 1;
 [e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
-"33
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 33:     TRISCbits.TRISC6 = 0;
+"34
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 34:     TRISCbits.TRISC6 = 0;
 [e = . . _TRISCbits 0 6 -> -> 0 `i `uc ]
-"36
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 36:     TXSTAbits.TXEN = 1;
-[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
 "37
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 37:     RCSTAbits.CREN = 1;
-[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 37:     TXSTAbits.TXEN = 1;
+[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
 "38
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 38:     RCSTAbits.SPEN = 1;
-[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 38:     RCSTAbits.CREN = 1;
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
 "39
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 39: }
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 39:     RCSTAbits.SPEN = 1;
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+"40
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 40: }
 [e :UE 145 ]
 }
-"41
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 41: void GBS_USART_Buffer_Write(USART_buffer_t* buffer, uint8_t value)
-[v _GBS_USART_Buffer_Write `(v ~T0 @X0 1 ef2`*S142`uc ]
 "42
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 42: {
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 42: void GBS_USART_Buffer_Write(USART_buffer_t* buffer, uint8_t value)
+[v _GBS_USART_Buffer_Write `(v ~T0 @X0 1 ef2`*S138`uc ]
+"43
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 43: {
 {
 [e :U _GBS_USART_Buffer_Write ]
-"41
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 41: void GBS_USART_Buffer_Write(USART_buffer_t* buffer, uint8_t value)
-[v _buffer `*S142 ~T0 @X0 1 r1 ]
-[v _value `uc ~T0 @X0 1 r2 ]
 "42
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 42: {
-[f ]
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 42: void GBS_USART_Buffer_Write(USART_buffer_t* buffer, uint8_t value)
+[v _buffer `*S138 ~T0 @X0 1 r1 ]
+[v _value `uc ~T0 @X0 1 r2 ]
 "43
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 43:     buffer->buffer[buffer->tail] = value;
-[e = *U + &U . *U _buffer 0 * -> . *U _buffer 2 `ux -> -> # *U &U . *U _buffer 0 `ui `ux _value ]
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 43: {
+[f ]
 "44
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 44:     buffer->tail = (buffer->tail + 1)%16;
-[e = . *U _buffer 2 -> % + -> . *U _buffer 2 `i -> 1 `i -> 16 `i `uc ]
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 44:     buffer->buffer[buffer->tail] = value;
+[e = *U + &U . *U _buffer 0 * -> . *U _buffer 2 `ux -> -> # *U &U . *U _buffer 0 `ui `ux _value ]
 "45
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 45:     if (buffer->size<16) buffer->size++;
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 45:     buffer->tail = (buffer->tail + 1)%16;
+[e = . *U _buffer 2 -> % + -> . *U _buffer 2 `i -> 1 `i -> 16 `i `uc ]
+"46
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 46:     if (buffer->size<16) buffer->size++;
 [e $ ! < -> . *U _buffer 3 `i -> 16 `i 147  ]
 [e ++ . *U _buffer 3 -> -> 1 `i `uc ]
 [e :U 147 ]
-"46
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 46: }
+"47
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 47: }
 [e :UE 146 ]
 }
-"48
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 48: uint8_t GBS_USART_Buffer_Read(USART_buffer_t* buffer)
-[v _GBS_USART_Buffer_Read `(uc ~T0 @X0 1 ef1`*S142 ]
 "49
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 49: {
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 49: uint8_t GBS_USART_Buffer_Read(USART_buffer_t* buffer)
+[v _GBS_USART_Buffer_Read `(uc ~T0 @X0 1 ef1`*S138 ]
+"50
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 50: {
 {
 [e :U _GBS_USART_Buffer_Read ]
-"48
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 48: uint8_t GBS_USART_Buffer_Read(USART_buffer_t* buffer)
-[v _buffer `*S142 ~T0 @X0 1 r1 ]
 "49
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 49: {
-[f ]
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 49: uint8_t GBS_USART_Buffer_Read(USART_buffer_t* buffer)
+[v _buffer `*S138 ~T0 @X0 1 r1 ]
 "50
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 50:     uint8_t result;
-[v _result `uc ~T0 @X0 1 a ]
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 50: {
+[f ]
 "51
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 51:     if (buffer->size>0)
-[e $ ! > -> . *U _buffer 3 `i -> 0 `i 149  ]
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 51:     uint8_t result;
+[v _result `uc ~T0 @X0 1 a ]
 "52
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 52:     {
-{
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 52:     if (buffer->size>0)
+[e $ ! > -> . *U _buffer 3 `i -> 0 `i 149  ]
 "53
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 53:         result = buffer->buffer[buffer->head];
-[e = _result *U + &U . *U _buffer 0 * -> . *U _buffer 1 `ux -> -> # *U &U . *U _buffer 0 `ui `ux ]
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 53:     {
+{
 "54
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 54:         buffer->head = (buffer->head + 1)%16;
-[e = . *U _buffer 1 -> % + -> . *U _buffer 1 `i -> 1 `i -> 16 `i `uc ]
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 54:         result = buffer->buffer[buffer->head];
+[e = _result *U + &U . *U _buffer 0 * -> . *U _buffer 1 `ux -> -> # *U &U . *U _buffer 0 `ui `ux ]
 "55
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 55:         buffer->size--;
-[e -- . *U _buffer 3 -> -> 1 `i `uc ]
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 55:         buffer->head = (buffer->head + 1)%16;
+[e = . *U _buffer 1 -> % + -> . *U _buffer 1 `i -> 1 `i -> 16 `i `uc ]
 "56
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 56:         return result;
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 56:         buffer->size--;
+[e -- . *U _buffer 3 -> -> 1 `i `uc ]
+"57
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 57:         return result;
 [e ) _result ]
 [e $UE 148  ]
-"57
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 57:     }
+"58
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 58:     }
 }
 [e :U 149 ]
-"58
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 58: }
+"59
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 59: }
 [e :UE 148 ]
 }
-"60
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 60: void GBS_USART_Send(void)
-[v _GBS_USART_Send `(v ~T0 @X0 1 ef ]
 "61
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 61: {
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 61: void GBS_USART_Send(void)
+[v _GBS_USART_Send `(v ~T0 @X0 1 ef ]
+"62
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 62: {
 {
 [e :U _GBS_USART_Send ]
 [f ]
-"62
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 62:     PIE1bits.TXIE = 1;
-[e = . . _PIE1bits 0 4 -> -> 1 `i `uc ]
-"63
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 63:     if (usartSendBuffer.size>0)
-[e $ ! > -> . _usartSendBuffer 3 `i -> 0 `i 151  ]
 "64
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 64:     {
-{
-"65
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 65:         TXREG = GBS_USART_Buffer_Read(&usartSendBuffer);
-[e = _TXREG ( _GBS_USART_Buffer_Read (1 &U _usartSendBuffer ]
-"66
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 66:         while (TXSTAbits.TRMT==0);
-[e $U 152  ]
-[e :U 153 ]
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 64:     while (usartSendBuffer.size>0)
+[e $U 151  ]
 [e :U 152 ]
-[e $ == -> . . _TXSTAbits 0 1 `i -> 0 `i 153  ]
-[e :U 154 ]
+"65
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 65:     {
+{
+"66
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 66:         TXREG = GBS_USART_Buffer_Read(&usartSendBuffer);
+[e = _TXREG ( _GBS_USART_Buffer_Read (1 &U _usartSendBuffer ]
 "67
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 67:     }
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 67:         while (TXSTAbits.TRMT==0);
+[e $U 154  ]
+[e :U 155 ]
+[e :U 154 ]
+[e $ == -> . . _TXSTAbits 0 1 `i -> 0 `i 155  ]
+[e :U 156 ]
+"68
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 68:     }
 }
 [e :U 151 ]
-"68
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 68: }
+"64
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 64:     while (usartSendBuffer.size>0)
+[e $ > -> . _usartSendBuffer 3 `i -> 0 `i 152  ]
+[e :U 153 ]
+"69
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 69: }
 [e :UE 150 ]
 }
-"70
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 70: void GBS_USART_Receive(void)
-[v _GBS_USART_Receive `(v ~T0 @X0 1 ef ]
 "71
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 71: {
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 71: void GBS_USART_Receive(void)
+[v _GBS_USART_Receive `(v ~T0 @X0 1 ef ]
+"72
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 72: {
 {
 [e :U _GBS_USART_Receive ]
 [f ]
-"72
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 72:     GBS_USART_Buffer_Write(&usartReceiveBuffer, RCREG);
-[e ( _GBS_USART_Buffer_Write (2 , &U _usartReceiveBuffer _RCREG ]
 "73
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 73: }
-[e :UE 155 ]
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 73:     GBS_USART_Buffer_Write(&usartReceiveBuffer, RCREG);
+[e ( _GBS_USART_Buffer_Write (2 , &U _usartReceiveBuffer _RCREG ]
+"74
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 74: }
+[e :UE 157 ]
 }
-"75
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 75: void USART_TX_ISR()
-[v _USART_TX_ISR `(v ~T0 @X0 1 ef ]
 "76
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 76: {
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 76: void USART_TX_ISR()
+[v _USART_TX_ISR `(v ~T0 @X0 1 ef ]
+"77
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 77: {
 {
 [e :U _USART_TX_ISR ]
 [f ]
-"77
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 77:     if (usartSendBuffer.size!=0)
-[e $ ! != -> . _usartSendBuffer 3 `i -> 0 `i 157  ]
-"78
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 78:     GBS_USART_Send();
-[e ( _GBS_USART_Send ..  ]
-[e :U 157 ]
 "79
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 79:     PIE1bits.TXIE = 0;
-[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
-"80
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 80: }
-[e :UE 156 ]
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 79: }
+[e :UE 158 ]
 }
-"82
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 82: void USART_RX_ISR()
+"81
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 81: void USART_RX_ISR()
 [v _USART_RX_ISR `(v ~T0 @X0 1 ef ]
-"83
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 83: {
+"82
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 82: {
 {
 [e :U _USART_RX_ISR ]
 [f ]
+"83
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 83:     if (uFlag.dFlag)
+[e $ ! != -> . _uFlag 1 `i -> 0 `i 160  ]
 "84
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 84:     if (uFlag.dFlag)
-[e $ ! != -> . _uFlag 1 `i -> 0 `i 159  ]
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 84:     {
+{
 "85
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 85:     {
-{
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 85:         if (RCREG == ' ')
+[e $ ! == -> _RCREG `ui -> 32 `ui 161  ]
 "86
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 86:         if (RCREG == ' ')
-[e $ ! == -> _RCREG `ui -> 32 `ui 160  ]
-"87
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 87:         {
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 86:         {
 {
-"88
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 88:             uFlag.dFlag = 0;
+"87
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 87:             uFlag.dFlag = 0;
 [e = . _uFlag 1 -> -> 0 `i `uc ]
-"89
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 89:             uFlag.rFlag = 1;
+"88
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 88:             uFlag.rFlag = 1;
 [e = . _uFlag 2 -> -> 1 `i `uc ]
-"92
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 92:             GBS_USART_Write_Char("DReceive", sizeof("DReceive"));;
-[e ( _GBS_USART_Write_Char (2 , :s 1C -> -> 9 `ui `uc ]
+"91
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 91:             ctrlBits.sd = 1;
+[e = . _ctrlBits 15 -> -> 1 `i `uc ]
 "93
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 93:             while (TXSTAbits.TRMT==0);
-[e $U 161  ]
-[e :U 162 ]
-[e :U 161 ]
-[e $ == -> . . _TXSTAbits 0 1 `i -> 0 `i 162  ]
+[e $U 162  ]
 [e :U 163 ]
+[e :U 162 ]
+[e $ == -> . . _TXSTAbits 0 1 `i -> 0 `i 163  ]
+[e :U 164 ]
 "94
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 94:         }
 }
-[e $U 164  ]
+[e $U 165  ]
 "95
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 95:         else GBS_USART_Receive();
-[e :U 160 ]
+[e :U 161 ]
 [e ( _GBS_USART_Receive ..  ]
-[e :U 164 ]
+[e :U 165 ]
 "96
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 96:     }
 }
-[e $U 165  ]
+[e $U 166  ]
 "97
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 97:     else if (RCREG == 'C')
-[e :U 159 ]
-[e $ ! == -> _RCREG `ui -> 67 `ui 166  ]
+[e :U 160 ]
+[e $ ! == -> _RCREG `ui -> 67 `ui 167  ]
 "98
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 98:     {
 {
 "99
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 99:         if (uFlag.dFlag != 1) uFlag.cFlag = 1;
-[e $ ! != -> . _uFlag 1 `i -> 1 `i 167  ]
+[e $ ! != -> . _uFlag 1 `i -> 1 `i 168  ]
 [e = . _uFlag 0 -> -> 1 `i `uc ]
-[e :U 167 ]
+[e :U 168 ]
 "100
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 100:     }
 }
-[e $U 168  ]
+[e $U 169  ]
 "101
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 101:     else if (RCREG == 'D')
-[e :U 166 ]
-[e $ ! == -> _RCREG `ui -> 68 `ui 169  ]
+[e :U 167 ]
+[e $ ! == -> _RCREG `ui -> 68 `ui 170  ]
 "102
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 102:     {
 {
 "103
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 103:         if (uFlag.cFlag != 1) uFlag.dFlag = 1;
-[e $ ! != -> . _uFlag 0 `i -> 1 `i 170  ]
+[e $ ! != -> . _uFlag 0 `i -> 1 `i 171  ]
 [e = . _uFlag 1 -> -> 1 `i `uc ]
-[e :U 170 ]
+[e :U 171 ]
 "104
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 104:     }
 }
-[e $U 171  ]
+[e $U 172  ]
 "105
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 105:     else if (uFlag.cFlag == 1)
-[e :U 169 ]
-[e $ ! == -> . _uFlag 0 `i -> 1 `i 172  ]
+[e :U 170 ]
+[e $ ! == -> . _uFlag 0 `i -> 1 `i 173  ]
 "106
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 106:     {
 {
 "107
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 107:         switch (RCREG)
-[e $U 174  ]
+[e $U 175  ]
 "108
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 108:         {
 {
 "109
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 109:         case '0':
-[e :U 175 ]
+[e :U 176 ]
 "110
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 110:             ctrlBits.r0 = 1;
 [e = . _ctrlBits 0 -> -> 1 `i `uc ]
 "111
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 111:             break;
-[e $U 173  ]
+[e $U 174  ]
 "112
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 112:         case '1':
-[e :U 176 ]
+[e :U 177 ]
 "113
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 113:             ctrlBits.r1 = 1;
 [e = . _ctrlBits 1 -> -> 1 `i `uc ]
 "114
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 114:             break;
-[e $U 173  ]
+[e $U 174  ]
 "115
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 115:         case '2':
-[e :U 177 ]
+[e :U 178 ]
 "116
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 116:             ctrlBits.r2 = 1;
 [e = . _ctrlBits 2 -> -> 1 `i `uc ]
 "117
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 117:             break;
-[e $U 173  ]
+[e $U 174  ]
 "118
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 118:         case '3':
-[e :U 178 ]
+[e :U 179 ]
 "119
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 119:             ctrlBits.r3 = 1;
 [e = . _ctrlBits 3 -> -> 1 `i `uc ]
 "120
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 120:             break;
-[e $U 173  ]
+[e $U 174  ]
 "121
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 121:         case '4':
-[e :U 179 ]
+[e :U 180 ]
 "122
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 122:             ctrlBits.r4 = 1;
 [e = . _ctrlBits 4 -> -> 1 `i `uc ]
 "123
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 123:             break;
-[e $U 173  ]
+[e $U 174  ]
 "124
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 124:         case '5':
-[e :U 180 ]
+[e :U 181 ]
 "125
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 125:             ctrlBits.r5 = 1;
 [e = . _ctrlBits 5 -> -> 1 `i `uc ]
 "126
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 126:             break;
-[e $U 173  ]
+[e $U 174  ]
 "127
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 127:         case '6':
-[e :U 181 ]
+[e :U 182 ]
 "128
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 128:             ctrlBits.r6 = 1;
 [e = . _ctrlBits 6 -> -> 1 `i `uc ]
 "129
 [; ;../gbs8/bsp/scr/gbs8_usart.c: 129:             break;
-[e $U 173  ]
+[e $U 174  ]
 "130
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 130:         case '7':
-[e :U 182 ]
-"131
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 131:             ctrlBits.r7 = 1;
-[e = . _ctrlBits 7 -> -> 1 `i `uc ]
-"132
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 132:             break;
-[e $U 173  ]
-"133
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 133:         }
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 130:         }
 }
-[e $U 173  ]
+[e $U 174  ]
+[e :U 175 ]
+[e [\ -> _RCREG `i , $ -> -> 48 `ui `i 176
+ , $ -> -> 49 `ui `i 177
+ , $ -> -> 50 `ui `i 178
+ , $ -> -> 51 `ui `i 179
+ , $ -> -> 52 `ui `i 180
+ , $ -> -> 53 `ui `i 181
+ , $ -> -> 54 `ui `i 182
+ 174 ]
 [e :U 174 ]
-[e [\ -> _RCREG `i , $ -> -> 48 `ui `i 175
- , $ -> -> 49 `ui `i 176
- , $ -> -> 50 `ui `i 177
- , $ -> -> 51 `ui `i 178
- , $ -> -> 52 `ui `i 179
- , $ -> -> 53 `ui `i 180
- , $ -> -> 54 `ui `i 181
- , $ -> -> 55 `ui `i 182
- 173 ]
-[e :U 173 ]
-"134
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 134:         uFlag.cFlag = 0;
+"131
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 131:         uFlag.cFlag = 0;
 [e = . _uFlag 0 -> -> 0 `i `uc ]
-"136
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 136:         GBS_USART_Write_Char("CReceive", sizeof("CReceive"));;
-[e ( _GBS_USART_Write_Char (2 , :s 2C -> -> 9 `ui `uc ]
-"138
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 138:     }
+"133
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 133:         ctrlBits.s1 = 1;
+[e = . _ctrlBits 9 -> -> 1 `i `uc ]
+"134
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 134:     }
 }
+[e :U 173 ]
 [e :U 172 ]
-[e :U 171 ]
-[e :U 168 ]
-[e :U 165 ]
-"139
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 139: }
-[e :UE 158 ]
+[e :U 169 ]
+[e :U 166 ]
+"135
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 135: }
+[e :UE 159 ]
 }
-"142
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 142: void GBS_USART_Write_Char(char* c, uint8_t size)
+"138
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 138: void GBS_USART_Write_Char(char* c, uint8_t size)
 [v _GBS_USART_Write_Char `(v ~T0 @X0 1 ef2`*uc`uc ]
-"143
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 143: {
+"139
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 139: {
 {
 [e :U _GBS_USART_Write_Char ]
-"142
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 142: void GBS_USART_Write_Char(char* c, uint8_t size)
+"138
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 138: void GBS_USART_Write_Char(char* c, uint8_t size)
 [v _c `*uc ~T0 @X0 1 r1 ]
 [v _size `uc ~T0 @X0 1 r2 ]
-"143
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 143: {
+"139
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 139: {
 [f ]
-"144
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 144:     if (size < (16 -2))
+"140
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 140:     if (size < (16 -2))
 [e $ ! < -> _size `i - -> 16 `i -> 2 `i 184  ]
-"145
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 145:     {
+"141
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 141:     {
 {
-"146
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 146:         for (uint8_t i = 0; i<(size-1); i++)
+"142
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 142:         for (uint8_t i = 0; i<(size-1); i++)
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
 [e $U 188  ]
 [e :U 185 ]
-"147
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 147:         {
+"143
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 143:         {
 {
-"149
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 149:             GBS_USART_Buffer_Write(&usartSendBuffer, c[i]);
+"144
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 144:             GBS_USART_Buffer_Write(&usartSendBuffer, c[i]);
 [e ( _GBS_USART_Buffer_Write (2 , &U _usartSendBuffer -> *U + _c * -> _i `ux -> -> # *U _c `ui `ux `uc ]
-"150
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 150:         }
+"145
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 145:         }
 }
 [e ++ _i -> -> 1 `i `uc ]
 [e :U 188 ]
 [e $ < -> _i `i - -> _size `i -> 1 `i 185  ]
 [e :U 186 ]
 }
-"151
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 151:         GBS_USART_Buffer_Write(&usartSendBuffer, 13);
+"146
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 146:         GBS_USART_Buffer_Write(&usartSendBuffer, 13);
 [e ( _GBS_USART_Buffer_Write (2 , &U _usartSendBuffer -> -> 13 `i `uc ]
-"152
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 152:         GBS_USART_Buffer_Write(&usartSendBuffer, 10);
+"147
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 147:         GBS_USART_Buffer_Write(&usartSendBuffer, 10);
 [e ( _GBS_USART_Buffer_Write (2 , &U _usartSendBuffer -> -> 10 `i `uc ]
-"153
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 153:     }
+"148
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 148:     }
 }
 [e :U 184 ]
-"154
-[; ;../gbs8/bsp/scr/gbs8_usart.c: 154: }
+"149
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 149: }
 [e :UE 183 ]
 }
-[a 1C 68 82 101 99 101 105 118 101 0 ]
-[a 2C 67 82 101 99 101 105 118 101 0 ]
+"151
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 151: void GBS_Message_Update()
+[v _GBS_Message_Update `(v ~T0 @X0 1 ef ]
+"152
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 152: {
+{
+[e :U _GBS_Message_Update ]
+[f ]
+"153
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 153:     if (ctrlBits.s0)
+[e $ ! != -> . _ctrlBits 8 `i -> 0 `i 190  ]
+"154
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 154:     {
+{
+"155
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 155:         ctrlBits.s0 = 0;
+[e = . _ctrlBits 8 -> -> 0 `i `uc ]
+"156
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 156:         GBS_USART_Write_Char("CReceived", sizeof("CReceived"));
+[e ( _GBS_USART_Write_Char (2 , :s 1C -> -> 10 `ui `uc ]
+"157
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 157:         GBS_USART_Send();
+[e ( _GBS_USART_Send ..  ]
+"158
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 158:     }
+}
+[e :U 190 ]
+"159
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 159:     if (ctrlBits.s1)
+[e $ ! != -> . _ctrlBits 9 `i -> 0 `i 191  ]
+"160
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 160:     {
+{
+"161
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 161:         ctrlBits.s1 = 0;
+[e = . _ctrlBits 9 -> -> 0 `i `uc ]
+"162
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 162:         GBS_USART_Write_Char("NULL", sizeof("NULL"));
+[e ( _GBS_USART_Write_Char (2 , :s 2C -> -> 5 `ui `uc ]
+"163
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 163:         GBS_USART_Send();
+[e ( _GBS_USART_Send ..  ]
+"164
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 164:     }
+}
+[e :U 191 ]
+"165
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 165:     if (ctrlBits.s2)
+[e $ ! != -> . _ctrlBits 10 `i -> 0 `i 192  ]
+"166
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 166:     {
+{
+"167
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 167:         ctrlBits.s2 = 0;
+[e = . _ctrlBits 10 -> -> 0 `i `uc ]
+"168
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 168:         GBS_USART_Write_Char("NULL", sizeof("NULL"));
+[e ( _GBS_USART_Write_Char (2 , :s 3C -> -> 5 `ui `uc ]
+"169
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 169:         GBS_USART_Send();
+[e ( _GBS_USART_Send ..  ]
+"170
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 170:     }
+}
+[e :U 192 ]
+"171
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 171:     if (ctrlBits.s3)
+[e $ ! != -> . _ctrlBits 11 `i -> 0 `i 193  ]
+"172
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 172:     {
+{
+"173
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 173:         ctrlBits.s3 = 0;
+[e = . _ctrlBits 11 -> -> 0 `i `uc ]
+"174
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 174:         GBS_USART_Write_Char("NULL", sizeof("NULL"));
+[e ( _GBS_USART_Write_Char (2 , :s 4C -> -> 5 `ui `uc ]
+"175
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 175:         GBS_USART_Send();
+[e ( _GBS_USART_Send ..  ]
+"176
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 176:     }
+}
+[e :U 193 ]
+"177
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 177:     if (ctrlBits.s4)
+[e $ ! != -> . _ctrlBits 12 `i -> 0 `i 194  ]
+"178
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 178:     {
+{
+"179
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 179:         ctrlBits.s4 = 0;
+[e = . _ctrlBits 12 -> -> 0 `i `uc ]
+"180
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 180:         GBS_USART_Write_Char("NULL", sizeof("NULL"));
+[e ( _GBS_USART_Write_Char (2 , :s 5C -> -> 5 `ui `uc ]
+"181
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 181:         GBS_USART_Send();
+[e ( _GBS_USART_Send ..  ]
+"182
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 182:     }
+}
+[e :U 194 ]
+"183
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 183:     if (ctrlBits.s5)
+[e $ ! != -> . _ctrlBits 13 `i -> 0 `i 195  ]
+"184
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 184:     {
+{
+"185
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 185:         ctrlBits.s5 = 0;
+[e = . _ctrlBits 13 -> -> 0 `i `uc ]
+"186
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 186:         GBS_USART_Write_Char("NULL", sizeof("NULL"));
+[e ( _GBS_USART_Write_Char (2 , :s 6C -> -> 5 `ui `uc ]
+"187
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 187:         GBS_USART_Send();
+[e ( _GBS_USART_Send ..  ]
+"188
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 188:     }
+}
+[e :U 195 ]
+"189
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 189:     if (ctrlBits.s6)
+[e $ ! != -> . _ctrlBits 14 `i -> 0 `i 196  ]
+"190
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 190:     {
+{
+"191
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 191:         ctrlBits.s6 = 0;
+[e = . _ctrlBits 14 -> -> 0 `i `uc ]
+"192
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 192:         GBS_USART_Write_Char("NULL", sizeof("NULL"));
+[e ( _GBS_USART_Write_Char (2 , :s 7C -> -> 5 `ui `uc ]
+"193
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 193:         GBS_USART_Send();
+[e ( _GBS_USART_Send ..  ]
+"194
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 194:     }
+}
+[e :U 196 ]
+"195
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 195:     if (ctrlBits.sd)
+[e $ ! != -> . _ctrlBits 15 `i -> 0 `i 197  ]
+"196
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 196:     {
+{
+"197
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 197:         ctrlBits.sd = 0;
+[e = . _ctrlBits 15 -> -> 0 `i `uc ]
+"198
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 198:         GBS_USART_Write_Char("DReceived", sizeof("DReceived"));
+[e ( _GBS_USART_Write_Char (2 , :s 8C -> -> 10 `ui `uc ]
+"199
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 199:         GBS_USART_Send();
+[e ( _GBS_USART_Send ..  ]
+"200
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 200:     }
+}
+[e :U 197 ]
+"202
+[; ;../gbs8/bsp/scr/gbs8_usart.c: 202: }
+[e :UE 189 ]
+}
+[a 8C 68 82 101 99 101 105 118 101 100 0 ]
+[a 1C 67 82 101 99 101 105 118 101 100 0 ]
+[a 2C 78 85 76 76 0 ]
+[a 3C 78 85 76 76 0 ]
+[a 4C 78 85 76 76 0 ]
+[a 5C 78 85 76 76 0 ]
+[a 6C 78 85 76 76 0 ]
+[a 7C 78 85 76 76 0 ]

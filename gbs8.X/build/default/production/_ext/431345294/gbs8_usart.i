@@ -2628,98 +2628,6 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 # 6 "../gbs8/bsp/inc\\gbs8_usart.h" 2
 
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdlib.h" 1 3
-
-
-
-
-# 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__size_t.h" 1 3
-
-
-
-typedef unsigned size_t;
-# 5 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdlib.h" 2 3
-
-# 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__null.h" 1 3
-# 6 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdlib.h" 2 3
-
-typedef unsigned short wchar_t;
-
-
-
-
-
-
-
-typedef struct {
- int rem;
- int quot;
-} div_t;
-typedef struct {
- unsigned rem;
- unsigned quot;
-} udiv_t;
-typedef struct {
- long quot;
- long rem;
-} ldiv_t;
-typedef struct {
- unsigned long quot;
- unsigned long rem;
-} uldiv_t;
-# 65 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdlib.h" 3
-extern double atof(const char *);
-extern double strtod(const char *, const char **);
-extern int atoi(const char *);
-extern unsigned xtoi(const char *);
-extern long atol(const char *);
-
-
-
-extern long strtol(const char *, char **, int);
-
-extern int rand(void);
-extern void srand(unsigned int);
-extern void * calloc(size_t, size_t);
-extern div_t div(int numer, int denom);
-extern udiv_t udiv(unsigned numer, unsigned denom);
-extern ldiv_t ldiv(long numer, long denom);
-extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-
-
-
-extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-extern unsigned int _rotl(unsigned int value, unsigned int shift);
-extern unsigned int _rotr(unsigned int value, unsigned int shift);
-
-
-
-
-extern void * malloc(size_t);
-extern void free(void *);
-extern void * realloc(void *, size_t);
-# 104 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdlib.h" 3
-extern int atexit(void (*)(void));
-extern char * getenv(const char *);
-extern char ** environ;
-extern int system(char *);
-extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-extern int abs(int);
-extern long labs(long);
-
-extern char * itoa(char * buf, int val, int base);
-extern char * utoa(char * buf, unsigned val, int base);
-
-
-
-
-extern char * ltoa(char * buf, long val, int base);
-extern char * ultoa(char * buf, unsigned long val, int base);
-
-extern char * ftoa(float f, int * status);
-# 7 "../gbs8/bsp/inc\\gbs8_usart.h" 2
 
 
 
@@ -2760,7 +2668,7 @@ void GBS_USART_Receive(void);
 void GBS_USART_Send(void);
 
 void GBS_USART_Write_Char(char* c, uint8_t size);
-# 55 "../gbs8/bsp/inc\\gbs8_usart.h"
+# 64 "../gbs8/bsp/inc\\gbs8_usart.h"
 typedef struct
 {
     uint8_t cFlag:1;
@@ -2770,6 +2678,7 @@ typedef struct
 
 typedef struct
 {
+
     uint8_t r0:1;
     uint8_t r1:1;
     uint8_t r2:1;
@@ -2777,24 +2686,27 @@ typedef struct
     uint8_t r4:1;
     uint8_t r5:1;
     uint8_t r6:1;
-    uint8_t r7:1;
+    uint8_t rd:1;
+
+
+    uint8_t s0:1;
+    uint8_t s1:1;
+    uint8_t s2:1;
+    uint8_t s3:1;
+    uint8_t s4:1;
+    uint8_t s5:1;
+    uint8_t s6:1;
+    uint8_t sd:1;
 }ctrl_t;
 
 ctrl_t ctrlBits;
 
-
 usartFlag_t uFlag;
 
-void GBS_Ctrl_Update(void);
-
-uint8_t GBS_Ctrl_Read(uint8_t i);
 
 
 
-
-
-
-void GBS_Feedback();
+void GBS_Message_Update();
 # 1 "../gbs8/bsp/scr/gbs8_usart.c" 2
 
 # 1 "../gbs8/bsp/inc\\gbs8_interrupt.h" 1
@@ -2891,6 +2803,99 @@ void GBS_Interrupt_Disable();
 #pragma config WRT = OFF
 # 3 "../gbs8/bsp/scr/gbs8_usart.c" 2
 
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdlib.h" 1 3
+
+
+
+
+# 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__size_t.h" 1 3
+
+
+
+typedef unsigned size_t;
+# 5 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdlib.h" 2 3
+
+# 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__null.h" 1 3
+# 6 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdlib.h" 2 3
+
+typedef unsigned short wchar_t;
+
+
+
+
+
+
+
+typedef struct {
+ int rem;
+ int quot;
+} div_t;
+typedef struct {
+ unsigned rem;
+ unsigned quot;
+} udiv_t;
+typedef struct {
+ long quot;
+ long rem;
+} ldiv_t;
+typedef struct {
+ unsigned long quot;
+ unsigned long rem;
+} uldiv_t;
+# 65 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdlib.h" 3
+extern double atof(const char *);
+extern double strtod(const char *, const char **);
+extern int atoi(const char *);
+extern unsigned xtoi(const char *);
+extern long atol(const char *);
+
+
+
+extern long strtol(const char *, char **, int);
+
+extern int rand(void);
+extern void srand(unsigned int);
+extern void * calloc(size_t, size_t);
+extern div_t div(int numer, int denom);
+extern udiv_t udiv(unsigned numer, unsigned denom);
+extern ldiv_t ldiv(long numer, long denom);
+extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+
+
+
+extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+extern unsigned int _rotl(unsigned int value, unsigned int shift);
+extern unsigned int _rotr(unsigned int value, unsigned int shift);
+
+
+
+
+extern void * malloc(size_t);
+extern void free(void *);
+extern void * realloc(void *, size_t);
+# 104 "C:\\Program Files\\Microchip\\xc8\\v2.20\\pic\\include\\c90\\stdlib.h" 3
+extern int atexit(void (*)(void));
+extern char * getenv(const char *);
+extern char ** environ;
+extern int system(char *);
+extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+extern int abs(int);
+extern long labs(long);
+
+extern char * itoa(char * buf, int val, int base);
+extern char * utoa(char * buf, unsigned val, int base);
+
+
+
+
+extern char * ltoa(char * buf, long val, int base);
+extern char * ultoa(char * buf, unsigned long val, int base);
+
+extern char * ftoa(float f, int * status);
+# 4 "../gbs8/bsp/scr/gbs8_usart.c" 2
+
 
 
 void GBS_USART_Init(uint16_t baudRate)
@@ -2913,8 +2918,8 @@ void GBS_USART_Init(uint16_t baudRate)
     TXSTAbits.BRGH = 1;
 
 
+    SPBRG = 11059200 / baudRate / 16 - 1;
 
-    SPBRG = 71;
 
 
     TRISCbits.TRISC7 = 1;
@@ -2949,8 +2954,8 @@ uint8_t GBS_USART_Buffer_Read(USART_buffer_t* buffer)
 
 void GBS_USART_Send(void)
 {
-    PIE1bits.TXIE = 1;
-    if (usartSendBuffer.size>0)
+
+    while (usartSendBuffer.size>0)
     {
         TXREG = GBS_USART_Buffer_Read(&usartSendBuffer);
         while (TXSTAbits.TRMT==0);
@@ -2964,9 +2969,7 @@ void GBS_USART_Receive(void)
 
 void USART_TX_ISR()
 {
-    if (usartSendBuffer.size!=0)
-    GBS_USART_Send();
-    PIE1bits.TXIE = 0;
+
 }
 
 void USART_RX_ISR()
@@ -2979,7 +2982,8 @@ void USART_RX_ISR()
             uFlag.rFlag = 1;
 
 
-            GBS_USART_Write_Char("DReceive", sizeof("DReceive"));;
+            ctrlBits.sd = 1;
+
             while (TXSTAbits.TRMT==0);
         }
         else GBS_USART_Receive();
@@ -3017,14 +3021,10 @@ void USART_RX_ISR()
         case '6':
             ctrlBits.r6 = 1;
             break;
-        case '7':
-            ctrlBits.r7 = 1;
-            break;
         }
         uFlag.cFlag = 0;
 
-        GBS_USART_Write_Char("CReceive", sizeof("CReceive"));;
-
+        ctrlBits.s1 = 1;
     }
 }
 
@@ -3035,10 +3035,62 @@ void GBS_USART_Write_Char(char* c, uint8_t size)
     {
         for (uint8_t i = 0; i<(size-1); i++)
         {
-
             GBS_USART_Buffer_Write(&usartSendBuffer, c[i]);
         }
         GBS_USART_Buffer_Write(&usartSendBuffer, 13);
         GBS_USART_Buffer_Write(&usartSendBuffer, 10);
     }
+}
+
+void GBS_Message_Update()
+{
+    if (ctrlBits.s0)
+    {
+        ctrlBits.s0 = 0;
+        GBS_USART_Write_Char("CReceived", sizeof("CReceived"));
+        GBS_USART_Send();
+    }
+    if (ctrlBits.s1)
+    {
+        ctrlBits.s1 = 0;
+        GBS_USART_Write_Char("NULL", sizeof("NULL"));
+        GBS_USART_Send();
+    }
+    if (ctrlBits.s2)
+    {
+        ctrlBits.s2 = 0;
+        GBS_USART_Write_Char("NULL", sizeof("NULL"));
+        GBS_USART_Send();
+    }
+    if (ctrlBits.s3)
+    {
+        ctrlBits.s3 = 0;
+        GBS_USART_Write_Char("NULL", sizeof("NULL"));
+        GBS_USART_Send();
+    }
+    if (ctrlBits.s4)
+    {
+        ctrlBits.s4 = 0;
+        GBS_USART_Write_Char("NULL", sizeof("NULL"));
+        GBS_USART_Send();
+    }
+    if (ctrlBits.s5)
+    {
+        ctrlBits.s5 = 0;
+        GBS_USART_Write_Char("NULL", sizeof("NULL"));
+        GBS_USART_Send();
+    }
+    if (ctrlBits.s6)
+    {
+        ctrlBits.s6 = 0;
+        GBS_USART_Write_Char("NULL", sizeof("NULL"));
+        GBS_USART_Send();
+    }
+    if (ctrlBits.sd)
+    {
+        ctrlBits.sd = 0;
+        GBS_USART_Write_Char("DReceived", sizeof("DReceived"));
+        GBS_USART_Send();
+    }
+
 }

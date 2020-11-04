@@ -24,8 +24,8 @@ void GBS_USART_Init(uint16_t baudRate)
     TXSTAbits.BRGH = 1;
 
     //set baud rate
-    //SPBRG = _XTAL_FREQ / baudRate / 16 - 1;
-    SPBRG = 71;
+    SPBRG = _XTAL_FREQ / baudRate / 16 - 1;
+    //SPBRG = 71;
 
     //set RX input
     TRISCbits.TRISC7 = 1;
@@ -88,7 +88,7 @@ void USART_RX_ISR()
             uFlag.rFlag = 1;
             
             //received
-            ctrlBits.s0 = 1;
+            ctrlBits.fd = 1;
 
             while (TXSTAbits.TRMT==0);
         }
@@ -133,7 +133,7 @@ void USART_RX_ISR()
         }
         uFlag.cFlag = 0;
         //recieved
-        ctrlBits.s1 = 1;
+        ctrlBits.fc = 1;
     }
 }
 
@@ -144,7 +144,6 @@ void GBS_USART_Write_Char(char* c, uint8_t size)
     {
         for (uint8_t i = 0; i<(size-1); i++)
         {
-            //while (usartSendBuffer.size==USART_BUFFER_SIZE)
             GBS_USART_Buffer_Write(&usartSendBuffer, c[i]);
         }
         GBS_USART_Buffer_Write(&usartSendBuffer, 13);
@@ -154,53 +153,62 @@ void GBS_USART_Write_Char(char* c, uint8_t size)
 
 void GBS_Message_Update()
 {
-    if (ctrlBits.s0)
+    if (ctrlBits.cn == 1)
     {
-        ctrlBits.s0 = 0;
-        GBS_USART_Write_Char(SEND_0, sizeof(SEND_0));
-        GBS_USART_Send();
-    }
-    if (ctrlBits.s1)
-    {
-        ctrlBits.s0 = 0;
-        GBS_USART_Write_Char(SEND_0, sizeof(SEND_0));
-        GBS_USART_Send();
-    }
-    if (ctrlBits.s2)
-    {
-        ctrlBits.s0 = 0;
-        GBS_USART_Write_Char(SEND_0, sizeof(SEND_0));
-        GBS_USART_Send();
-    }
-    if (ctrlBits.s3)
-    {
-        ctrlBits.s0 = 0;
-        GBS_USART_Write_Char(SEND_0, sizeof(SEND_0));
-        GBS_USART_Send();
-    }
-    if (ctrlBits.s4)
-    {
-        ctrlBits.s0 = 0;
-        GBS_USART_Write_Char(SEND_0, sizeof(SEND_0));
-        GBS_USART_Send();
-    }
-    if (ctrlBits.s5)
-    {
-        ctrlBits.s0 = 0;
-        GBS_USART_Write_Char(SEND_0, sizeof(SEND_0));
-        GBS_USART_Send();
-    }
-    if (ctrlBits.s6)
-    {
-        ctrlBits.s0 = 0;
-        GBS_USART_Write_Char(SEND_0, sizeof(SEND_0));
-        GBS_USART_Send();
-    }
-    if (ctrlBits.s7)
-    {
-        ctrlBits.s0 = 0;
-        GBS_USART_Write_Char(SEND_0, sizeof(SEND_0));
-        GBS_USART_Send();
+        if (ctrlBits.s0)
+        {
+            ctrlBits.s0 = 0;
+            GBS_USART_Write_Char(SEND_0, sizeof(SEND_0));
+            GBS_USART_Send();
+        }
+        if (ctrlBits.s1)
+        {
+            ctrlBits.s1 = 0;
+            GBS_USART_Write_Char(SEND_1, sizeof(SEND_1));
+            GBS_USART_Send();
+        }
+        if (ctrlBits.s2)
+        {
+            ctrlBits.s2 = 0;
+            GBS_USART_Write_Char(SEND_2, sizeof(SEND_2));
+            GBS_USART_Send();
+        }
+        if (ctrlBits.s3)
+        {
+            ctrlBits.s3 = 0;
+            GBS_USART_Write_Char(SEND_3, sizeof(SEND_3));
+            GBS_USART_Send();
+        }
+        if (ctrlBits.s4)
+        {
+            ctrlBits.s4 = 0;
+            GBS_USART_Write_Char(SEND_4, sizeof(SEND_4));
+            GBS_USART_Send();
+        }
+        if (ctrlBits.s5)
+        {
+            ctrlBits.s5 = 0;
+            GBS_USART_Write_Char(SEND_5, sizeof(SEND_5));
+            GBS_USART_Send();
+        }
+        if (ctrlBits.s6)
+        {
+            ctrlBits.s6 = 0;
+            GBS_USART_Write_Char(SEND_6, sizeof(SEND_6));
+            GBS_USART_Send();
+        }
+        if (ctrlBits.s7)
+        {
+            ctrlBits.s7 = 0;
+            GBS_USART_Write_Char(SEND_7, sizeof(SEND_7));
+            GBS_USART_Send();
+        }
+        if (ctrlBits.fc)
+        {
+            ctrlBits.fc = 0;
+            GBS_USART_Write_Char(SEND_7, sizeof(SEND_7));
+            GBS_USART_Send();
+        }
     }
 
 }

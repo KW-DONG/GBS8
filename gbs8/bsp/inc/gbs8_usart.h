@@ -50,16 +50,26 @@ void GBS_USART_Write_Char(char* c, uint8_t size);
  * standard command 'C'+'num'
  * standard data    'D'+'data'+' '
  * please do not send space as data or command
+ * 
+ * The GBS8-USART protocal supports:
+ * 8 master2slave command bits, 
+ * 8 pre-loaded character strings 
+ * 1 data receive buffer
+ * 1 data send buffer
+ * 
  */
 
-#define SEND_0  "DReceive"
-#define SEND_1  "CReceive"
-#define SEND_2  "NULL"
-#define SEND_3  "NULL"
-#define SEND_4  "NULL"
-#define SEND_5  "NULL"
-#define SEND_6  "NULL"
-#define SEND_7  "NULL"
+#define SEND_0  "0000"
+#define SEND_1  "1111"
+#define SEND_2  "2222"
+#define SEND_3  "3333"
+#define SEND_4  "4444"
+#define SEND_5  "5555"
+#define SEND_6  "6666"
+#define SEND_7  "7777"
+
+#define DATA_FEEDBACK       "D Received"
+#define COMMAND_FEEDBACK    "C Received"
 
 typedef struct 
 {
@@ -70,7 +80,7 @@ typedef struct
 
 typedef struct 
 {
-    //receive bits
+    //received command bits
     uint8_t r0:1;
     uint8_t r1:1;
     uint8_t r2:1;
@@ -80,7 +90,7 @@ typedef struct
     uint8_t r6:1;
     uint8_t r7:1;
 
-    //send bits
+    //send string bits
     uint8_t s0:1;
     uint8_t s1:1;
     uint8_t s2:1;
@@ -89,6 +99,14 @@ typedef struct
     uint8_t s5:1;
     uint8_t s6:1;
     uint8_t s7:1;
+
+    //feedback bits
+    uint8_t fc:1;
+    uint8_t fd:1;
+
+    //change notification bit
+    uint8_t cn:1;
+
 }ctrl_t;
 
 ctrl_t ctrlBits;    //received from master
