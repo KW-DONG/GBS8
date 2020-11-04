@@ -1,6 +1,7 @@
 #include "gbs8_usart.h"
 #include "gbs8_interrupt.h"
 #include "gbs8_config.h"
+#include <stdlib.h>
 
 
 void GBS_USART_Init(uint16_t baudRate)
@@ -59,8 +60,8 @@ uint8_t GBS_USART_Buffer_Read(USART_buffer_t* buffer)
 
 void GBS_USART_Send(void)
 {
-    PIE1bits.TXIE = 1;
-    if (usartSendBuffer.size>0)
+    //PIE1bits.TXIE = 1;
+    while (usartSendBuffer.size>0)
     {
         TXREG = GBS_USART_Buffer_Read(&usartSendBuffer);
         while (TXSTAbits.TRMT==0);
@@ -74,9 +75,7 @@ void GBS_USART_Receive(void)
 
 void USART_TX_ISR()
 {
-    if (usartSendBuffer.size!=0)
-    GBS_USART_Send();
-    PIE1bits.TXIE = 0;
+
 }
 
 void USART_RX_ISR()
@@ -89,7 +88,8 @@ void USART_RX_ISR()
             uFlag.rFlag = 1;
             
             //received
-            SEND_CHAR("DReceive");
+            ctrlBits.s0 = 1;
+
             while (TXSTAbits.TRMT==0);
         }
         else    GBS_USART_Receive();
@@ -133,8 +133,7 @@ void USART_RX_ISR()
         }
         uFlag.cFlag = 0;
         //recieved
-        SEND_CHAR("CReceive");
-        //while (TXSTAbits.TRMT==0);
+        ctrlBits.s1 = 1;
     }
 }
 
@@ -151,4 +150,57 @@ void GBS_USART_Write_Char(char* c, uint8_t size)
         GBS_USART_Buffer_Write(&usartSendBuffer, 13);
         GBS_USART_Buffer_Write(&usartSendBuffer, 10);
     }
+}
+
+void GBS_Message_Update()
+{
+    if (ctrlBits.s0)
+    {
+        ctrlBits.s0 = 0;
+        GBS_USART_Write_Char(SEND_0, sizeof(SEND_0));
+        GBS_USART_Send();
+    }
+    if (ctrlBits.s1)
+    {
+        ctrlBits.s0 = 0;
+        GBS_USART_Write_Char(SEND_0, sizeof(SEND_0));
+        GBS_USART_Send();
+    }
+    if (ctrlBits.s2)
+    {
+        ctrlBits.s0 = 0;
+        GBS_USART_Write_Char(SEND_0, sizeof(SEND_0));
+        GBS_USART_Send();
+    }
+    if (ctrlBits.s3)
+    {
+        ctrlBits.s0 = 0;
+        GBS_USART_Write_Char(SEND_0, sizeof(SEND_0));
+        GBS_USART_Send();
+    }
+    if (ctrlBits.s4)
+    {
+        ctrlBits.s0 = 0;
+        GBS_USART_Write_Char(SEND_0, sizeof(SEND_0));
+        GBS_USART_Send();
+    }
+    if (ctrlBits.s5)
+    {
+        ctrlBits.s0 = 0;
+        GBS_USART_Write_Char(SEND_0, sizeof(SEND_0));
+        GBS_USART_Send();
+    }
+    if (ctrlBits.s6)
+    {
+        ctrlBits.s0 = 0;
+        GBS_USART_Write_Char(SEND_0, sizeof(SEND_0));
+        GBS_USART_Send();
+    }
+    if (ctrlBits.s7)
+    {
+        ctrlBits.s0 = 0;
+        GBS_USART_Write_Char(SEND_0, sizeof(SEND_0));
+        GBS_USART_Send();
+    }
+
 }

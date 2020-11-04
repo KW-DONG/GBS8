@@ -4,7 +4,7 @@
 #include <pic16f887.h>
 #include <xc.h>
 #include <stdint.h>
-#include <stdlib.h>
+
 
 /*****************************USART***********************************************/
 
@@ -52,6 +52,15 @@ void GBS_USART_Write_Char(char* c, uint8_t size);
  * please do not send space as data or command
  */
 
+#define SEND_0  "DReceive"
+#define SEND_1  "CReceive"
+#define SEND_2  "NULL"
+#define SEND_3  "NULL"
+#define SEND_4  "NULL"
+#define SEND_5  "NULL"
+#define SEND_6  "NULL"
+#define SEND_7  "NULL"
+
 typedef struct 
 {
     uint8_t cFlag:1;
@@ -61,6 +70,7 @@ typedef struct
 
 typedef struct 
 {
+    //receive bits
     uint8_t r0:1;
     uint8_t r1:1;
     uint8_t r2:1;
@@ -69,22 +79,25 @@ typedef struct
     uint8_t r5:1;
     uint8_t r6:1;
     uint8_t r7:1;
+
+    //send bits
+    uint8_t s0:1;
+    uint8_t s1:1;
+    uint8_t s2:1;
+    uint8_t s3:1;
+    uint8_t s4:1;
+    uint8_t s5:1;
+    uint8_t s6:1;
+    uint8_t s7:1;
 }ctrl_t;
 
 ctrl_t ctrlBits;    //received from master
 
-
 usartFlag_t uFlag;
 
-void GBS_Ctrl_Update(void);
-
-uint8_t GBS_Ctrl_Read(uint8_t i);
-
-#define COMMAND_FB  GBS_USART_Write_Char(char* c, uint8_t size)
-
-#define SEND_CHAR(X)    GBS_USART_Write_Char(X, sizeof(X));
-
-
-void GBS_Feedback();
+/**
+ * @note call it in your main function
+ */
+void GBS_Message_Update();
 
 #endif

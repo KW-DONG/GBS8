@@ -16,16 +16,10 @@ int main()
     GBS_Interrupt_Init();
     //GBS_Stepper_Init();
     GBS_USART_Init(9600);
+    RUN_BLINK(LED_ON);
     
     while(1)
     {
-        RUN_BLINK(LED_ON);
-        //TXREG = 'G';
-        __delay_ms(1000);
-        RUN_BLINK(LED_OFF);
-        __delay_ms(1000);
-        SEND_CHAR("1234");
-        GBS_USART_Send();
         
     #if (TEST_STEPPER)
         if (sBufferA.buffer[sBufferA.tail].flag == BLOCK_FREE)
@@ -48,6 +42,9 @@ int main()
         //GBS_USART_Buffer_Write(&usartSendBuffer, 'a');
         //GBS_USART_Send(&usartSendBuffer);
     #endif
+
+        GBS_Message_Update();
+
     }
 }
 
